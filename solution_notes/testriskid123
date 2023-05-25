@@ -1,0 +1,24 @@
+### How to fix weak ciphers in apache web server
+
+To fix weak ciphers in the Apache web server, you can follow these steps:
+
+1. Identify the weak ciphers: Start by identifying the weak ciphers that are currently enabled on your Apache server. You can use various tools such as SSL Labs (https://www.ssllabs.com/ssltest/) or OpenSSL (https://www.openssl.org/) to assess your server's SSL/TLS configuration and identify any weak ciphers.
+
+2. Update Apache configuration: Once you have identified the weak ciphers, you need to update the Apache configuration file to disable them. The configuration file is usually located at /etc/apache2/apache2.conf or /etc/httpd/conf/httpd.conf, depending on your operating system.
+
+3. Locate the SSL/TLS configuration section: Look for the <VirtualHost> section or any specific <VirtualHost> sections that are using SSL/TLS. You'll typically find the SSL/TLS configuration directives within these sections.
+
+Disable weak ciphers: Within the SSL/TLS configuration section, you'll find a directive called SSLCipherSuite or similar. This directive specifies the ciphers used by Apache. Modify this directive to include only strong ciphers and remove the weak ones. Here's an example of a strong cipher configuration:
+
+```SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+```
+
+This example includes a list of strong ciphers that provide good security.
+
+5. Restart Apache: After modifying the configuration file, save the changes and restart the Apache web server to apply the new configuration. The command to restart Apache varies depending on your operating system. For example, on Ubuntu, you can use the following command:
+
+```sudo service apache2 restart```
+
+6. Test the configuration: Once Apache has restarted, run another SSL/TLS assessment using tools like SSL Labs or OpenSSL to verify that the weak ciphers are no longer supported. Make sure only strong ciphers are listed as supported by your server.
+
+By following these steps, you should be able to fix weak ciphers in your Apache web server and enhance the security of your SSL/TLS configuration.

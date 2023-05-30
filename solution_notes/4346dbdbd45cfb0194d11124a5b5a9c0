@@ -1,4 +1,4 @@
-How fix the API Threats issue of Cross-Domain JavaScript Source File Inclusion
+###How to fix the API Threats issue of Cross-Domain JavaScript Source File Inclusion
 Cross-Domain JavaScript Source File Inclusion (XSS-CFI) is a security vulnerability that can be exploited by attackers to execute malicious code on your web application. This vulnerability occurs when your web application loads JavaScript files from an external domain without proper validation, allowing an attacker to inject their own code and potentially take control of the application.
 
 To fix this vulnerability, you can use the following steps:

@@ -1,4 +1,4 @@
-How fix the API Threats issue of Re-examine Cache-control Directives
+###How to fix the API Threats issue of Re-examine Cache-control Directives
 The following are the steps on how to fix the API Threats issue of Re-examine Cache-control Directives in apache web server:
 
 1. **Identify the assets that should not be cached.** This includes sensitive information such as API keys, passwords, and credit card numbers.

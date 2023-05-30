@@ -1,4 +1,4 @@
-How fix the Certificates issue of X-Frame-Options (XFO) header not implemented
+###How to fix the Certificates issue of X-Frame-Options (XFO) header not implemented
 To fix the X-Frame-Options (XFO) header not implemented in Apache web server, you can do the following:
 
 1. Open the Apache configuration file. The location of this file may vary depending on your operating system. For example, on a Linux system, the file is typically located at `/etc/apache2/httpd.conf`.

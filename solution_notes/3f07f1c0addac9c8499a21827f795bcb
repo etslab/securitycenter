@@ -1,4 +1,4 @@
-How fix the Certificates issue of OCSP stapling, stapled OCSP response contained an error response from OCSP responder
+###How to fix the Certificates issue of OCSP stapling, stapled OCSP response contained an error response from OCSP responder
 There are a few things you can do to fix the "stapled OCSP response contained an error response from OCSP responder" error in Apache web server:
 
 1. **Check the OCSP responder's status.** The OCSP responder is the server that provides the OCSP responses. If the OCSP responder is down or unavailable, you will receive this error. You can check the OCSP responder's status by visiting its website or by contacting its administrator.

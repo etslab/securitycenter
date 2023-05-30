@@ -1,4 +1,4 @@
-How fix the API Threats issue of CSP: script-src unsafe-inline
+###How to fix the API Threats issue of CSP: script-src unsafe-inline
 The CSP: script-src unsafe-inline issue can be fixed by adding the following line to the Apache web server's configuration file:
 
 ```

@@ -1,4 +1,4 @@
-How fix the Certificates issue of Does not redirect to an HTTPS site
+###How to fix the Certificates issue of Does not redirect to an HTTPS site
 There are a few things you can do to fix the issue of your Apache web server not redirecting to an HTTPS site.
 
 1. Make sure that you have installed an SSL certificate on your server. You can purchase an SSL certificate from a variety of vendors.

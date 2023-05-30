@@ -1,4 +1,4 @@
-How fix the Certificates issue of cert subjectAltName, No SAN browsers are complaining
+###How to fix the Certificates issue of cert subjectAltName, No SAN browsers are complaining
 There are a few things you can do to fix the Certificates issue of cert subjectAltName in Apache web server.
 
 1. **Check the certificate configuration.** Make sure that the certificate is properly configured in Apache. The configuration file for Apache is typically located at `/etc/apache2/sites-available/default`. In this file, you will see a section for the certificate. Make sure that the `SSLCertificateFile` and `SSLCertificateKeyFile` directives are pointing to the correct files.

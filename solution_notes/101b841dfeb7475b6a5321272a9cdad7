@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Secure Pages Include Mixed Content (Including Scripts)
+###How to fix the Web Threats issue of Secure Pages Include Mixed Content (Including Scripts)
 There are a few ways to fix the Web Threats issue of Secure Pages Include Mixed Content (Including Scripts) in Apache web server.
 
 * **Update the HTTP URLs in your database to HTTPS.** This will ensure that your website only ever references HTTPS in your client-side HTML. You can do this by using a tool like htaccess to create a redirect rule.

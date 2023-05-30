@@ -1,4 +1,4 @@
-How fix the Certificates issue of There is an issue with authentication methods
+###How to fix the Certificates issue of There is an issue with authentication methods
 There are a few things you can do to fix the certificates issue of There is an issue with authentication methods in apache web server.
 
 1. Make sure that the certificates are installed correctly. You can do this by checking the Apache configuration file to make sure that the correct certificates are being used.

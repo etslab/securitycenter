@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2020-1927
+###How to fix the Common Vulnerabilities issue of CVE-2020-1927
 CVE-2020-1927 is a vulnerability in Apache HTTP Server 2.4.0 to 2.4.41 that allows an attacker to redirect a user to an unexpected URL. This vulnerability can be exploited by an attacker to perform phishing attacks or to redirect users to malicious websites.
 
 To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is not affected by the vulnerability. You can find the latest version of Apache HTTP Server at the Apache Software Foundation website.

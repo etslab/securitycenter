@@ -1,4 +1,4 @@
-How fix the Certificates issue of There is an issue with key exchange algorithms
+###How to fix the Certificates issue of There is an issue with key exchange algorithms
 There are a few things you can do to fix the issue of "There is an issue with key exchange algorithms in Apache web server".
 
 1. **Check the server's certificate.** Make sure that the certificate is valid and that it is issued by a trusted certificate authority. You can use a tool like OpenSSL to verify the certificate.

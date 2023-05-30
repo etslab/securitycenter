@@ -1,4 +1,4 @@
-How fix the Certificates issue of X-XSS-Protection header not implemented
+###How to fix the Certificates issue of X-XSS-Protection header not implemented
 To fix the X-XSS-Protection header not implemented in Apache web server, you can add the following line to your Apache configuration file:
 
 ```

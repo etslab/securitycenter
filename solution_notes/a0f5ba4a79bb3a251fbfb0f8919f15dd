@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2022-28614
+###How to fix the Common Vulnerabilities issue of CVE-2022-28614
 CVE-2022-28614 is a vulnerability in the Apache HTTP Server that allows an attacker to read unintended memory if they can cause the server to reflect very large input using ap_rwrite() or ap_rputs(). This vulnerability is a remote code execution vulnerability, which means that an attacker can exploit it to execute arbitrary code on the server.
 
 To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is patched for CVE-2022-28614. You can find the latest patched versions of Apache HTTP Server on the Apache Software Foundation website.

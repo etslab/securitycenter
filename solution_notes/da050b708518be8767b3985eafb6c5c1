@@ -1,4 +1,4 @@
-How fix the Certificates issue of DNS CAArecord has issue
+###How to fix the Certificates issue of DNS CAArecord has issue
 To fix the Certificates issue of DNS CAArecord has issue in apache web server, you need to make sure that your DNS server is returning a valid CAA record. The CAA record is an optional record that allows you to specify which Certificate Authorities are allowed to issue certificates for your domain. If your DNS server is returning an error, then no Certificate Authority will be able to issue a certificate for your domain.
 
 To check the CAA record for your domain, you can use a tool like dig. For example, to check the CAA record for the domain example.com, you would use the following command:

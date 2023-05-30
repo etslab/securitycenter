@@ -1,4 +1,4 @@
-How fix the Certificates issue of cert expirationStatus, expires < 60 days (34)
+###How to fix the Certificates issue of cert expirationStatus, expires < 60 days (34)
 To fix the Certificates issue of cert expirationStatus, expires < 60 days (34) in apache web server, you can follow these steps:
 
 1. Check the expiration date of your SSL certificate. You can do this by using the following command:

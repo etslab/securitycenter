@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Modern Web Application
+###How to fix the Web Threats issue of Modern Web Application
 There are a number of ways to fix the Web Threats issue of Modern Web Application in Apache web server. Some of the most effective methods include:
 
 * **Using a web application firewall (WAF).** A WAF is a software application that sits between your web server and the internet. It can be used to filter out malicious traffic and prevent attacks.

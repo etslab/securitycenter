@@ -1,4 +1,4 @@
-How fix the API Threats issue of Strict-Transport-Security Header Not Set
+###How to fix the API Threats issue of Strict-Transport-Security Header Not Set
 To fix the API Threats issue of Strict-Transport-Security Header Not Set in Apache web server, you can follow these steps:
 
 1. Open the Apache configuration file for your website. This file is usually located in `/etc/apache2/sites-available`.

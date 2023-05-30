@@ -1,4 +1,4 @@
-How fix the API Threats issue of Unexpected Content-Type was returned
+###How to fix the API Threats issue of Unexpected Content-Type was returned
 The Unexpected Content-Type was returned in apache web server issue can be fixed by following these steps:
 
 1. Identify the source of the unexpected content type. This could be a misconfiguration in Apache, a bug in the application, or a malicious attack.

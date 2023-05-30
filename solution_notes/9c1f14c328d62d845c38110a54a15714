@@ -1,4 +1,4 @@
-How fix the Certificates issue of cert notAfter, 2023-06-12 13
+###How to fix the Certificates issue of cert notAfter, 2023-06-12 13
 To fix the Certificates issue of cert notAfter, 2023-06-12 13 in apache web server, you can follow these steps:
 
 1. Stop the Apache web server.

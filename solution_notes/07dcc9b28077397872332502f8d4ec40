@@ -1,4 +1,4 @@
-How fix the Certificates issue of security headers has issue
+###How to fix the Certificates issue of security headers has issue
 There are a few ways to fix the certificates issue of security headers in Apache web server. One way is to use the `SSLInsecureRequests` directive in the Apache configuration file. This directive tells Apache to accept requests that are not encrypted. However, this is not a secure option, as it allows attackers to intercept and modify traffic.
 
 A better option is to use the `SSLOptions` directive to configure Apache to require that all requests be encrypted. This can be done by setting the `+StdEnvVars` option, which will cause Apache to require that the `HTTPS` environment variable be set to `on` for all requests.

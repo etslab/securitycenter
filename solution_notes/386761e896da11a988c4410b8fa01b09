@@ -1,4 +1,4 @@
-How fix the Web Threats issue of X-Content-Type-Options Header Missing
+###How to fix the Web Threats issue of X-Content-Type-Options Header Missing
 The X-Content-Type-Options header is an HTTP response header that can be used to mitigate the risk of cross-site scripting (XSS) attacks. By setting the header to "nosniff", the browser is instructed to not attempt to MIME-sniff the content type of the response, and instead trust the value that is specified in the Content-Type header.
 
 To fix the X-Content-Type-Options Header Missing vulnerability in Apache, you can add the following line to your Apache configuration file:

@@ -1,4 +1,4 @@
-How fix the Certificates issue of TLS1 1, offered (deprecated)
+###How to fix the Certificates issue of TLS1 1, offered (deprecated)
 To fix the certificates issue of TLS1 1, offered (deprecated) in Apache web server, you need to update your Apache configuration to disable TLS 1.0 and 1.1. You can do this by adding the following lines to your Apache configuration file:
 
 ```

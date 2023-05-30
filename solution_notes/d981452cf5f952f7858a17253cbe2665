@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Application Error Disclosure
+###How to fix the Web Threats issue of Application Error Disclosure
 There are a few ways to fix the Web Threats issue of Application Error Disclosure in Apache web server.
 
 * **Use custom error pages.** This involves creating custom error pages that do not disclose any sensitive information. You can do this by editing the Apache configuration file.

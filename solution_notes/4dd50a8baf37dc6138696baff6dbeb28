@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Timestamp Disclosure - Unix
+###How to fix the Web Threats issue of Timestamp Disclosure - Unix
 The following are the steps to fix the Web Threats issue of Timestamp Disclosure - Unix in Apache web server:
 
 1. **Identify the timestamp disclosure vulnerability.** This can be done by using a web application scanner, such as OWASP ZAP or Nessus.

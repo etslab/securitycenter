@@ -1,4 +1,4 @@
-How fix the API Threats issue of Information Disclosure - Suspicious Comments
+###How to fix the API Threats issue of Information Disclosure - Suspicious Comments
 To fix the API Threats issue of Information Disclosure - Suspicious Comments in apache web server, you can follow these steps:
 
 1. **Remove any suspicious comments from your code.** Comments that contain sensitive information, such as passwords or API keys, should be removed from your code.

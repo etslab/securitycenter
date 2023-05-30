@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2022-28615
+###How to fix the Common Vulnerabilities issue of CVE-2022-28615
 CVE-2022-28615 is a critical vulnerability in the Apache HTTP Server that allows an attacker to crash the server or disclose sensitive information. The vulnerability is caused by an integer overflow in the ap_strcmp_match() function.
 
 To fix the vulnerability, you should upgrade to Apache HTTP Server 2.4.54 or later. You can download the latest version of Apache HTTP Server from the Apache Software Foundation website.

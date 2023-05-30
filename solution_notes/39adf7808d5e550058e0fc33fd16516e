@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2021-34798
+###How to fix the Common Vulnerabilities issue of CVE-2021-34798
 CVE-2021-34798 is a vulnerability in the Apache HTTP Server that can be exploited to cause a denial of service (DoS) attack. The vulnerability is caused by a NULL pointer dereference in the mod_proxy_balancer module.
 
 To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is not affected by the vulnerability. You can find the latest version of Apache HTTP Server at the Apache Software Foundation website.

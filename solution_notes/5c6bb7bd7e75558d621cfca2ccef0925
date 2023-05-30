@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Information Disclosure - Suspicious Comments
+###How to fix the Web Threats issue of Information Disclosure - Suspicious Comments
 There are a few ways to fix the Web Threats issue of Information Disclosure - Suspicious Comments in Apache web server.
 
 * **Remove all unnecessary comments from the code.** Comments that are not necessary for debugging or understanding the code should be removed. This will help to prevent attackers from gaining any information about the application or its infrastructure.

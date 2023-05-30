@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Vulnerable JS Library
+###How to fix the Web Threats issue of Vulnerable JS Library
 There are a few ways to fix the Web Threats issue of Vulnerable JS Library in Apache web server.
 
 * **Update the JS library to the latest version.** This is the most effective way to fix the issue, as it will patch any known vulnerabilities.

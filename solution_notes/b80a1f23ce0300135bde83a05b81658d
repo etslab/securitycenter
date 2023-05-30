@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2021-44224
+###How to fix the Common Vulnerabilities issue of CVE-2021-44224
 To fix the Common Vulnerabilities and Exposures (CVE)-2021-44224 issue in the Apache web server, you can follow these steps:
 
 1. Upgrade to the latest version of Apache. The latest version of Apache that is known to be vulnerable to CVE-2021-44224 is 2.4.51.

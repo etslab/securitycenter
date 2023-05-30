@@ -1,4 +1,4 @@
-How fix the  issue of 
+###How to fix the  issue of 
 The "500 Internal Server Error" is a generic error message that indicates that something has gone wrong with the Apache web server, but the specific cause of the error is not known. There are a number of possible causes for this error, including:
 
 * A misconfiguration in the Apache configuration file

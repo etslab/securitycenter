@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2021-40438
+###How to fix the Common Vulnerabilities issue of CVE-2021-40438
 The CVE-2021-40438 vulnerability is a server-side request forgery (SSRF) vulnerability in Apache HTTP Server version 2.4.48 and earlier. This vulnerability allows an attacker to send a specially crafted request to the Apache server, which can then be used to make requests to arbitrary external servers. This can be used to steal sensitive information, such as passwords or credit card numbers, or to launch denial-of-service attacks against other systems.
 
 To fix this vulnerability, you should upgrade your Apache server to version 2.4.49 or later. If you are unable to upgrade, you can mitigate the vulnerability by disabling the mod_proxy module.

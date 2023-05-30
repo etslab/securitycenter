@@ -1,4 +1,4 @@
-How fix the Certificates issue of HSTS, not offered
+###How to fix the Certificates issue of HSTS, not offered
 To fix the Certificates issue of HSTS, not offered in Apache web server, you can follow these steps:
 
 1. Install the mod_headers module for Apache.

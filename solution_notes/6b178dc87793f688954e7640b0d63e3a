@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2022-23943
+###How to fix the Common Vulnerabilities issue of CVE-2022-23943
 The CVE-2022-23943 vulnerability in the Apache HTTP Server can be fixed by updating to a version of Apache 2.4 that is 2.4.53 or later. The vulnerability is caused by a mishandling of buffers in the mod_sed module, which can allow an attacker to cause a Denial of Service (DoS) attack by sending large amounts of data in the request's body.
 
 The CVE-2022-23943 vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of "A3: Broken Access Control". This category is concerned with vulnerabilities that allow attackers to gain unauthorized access to resources. In the case of CVE-2022-23943, the attacker can gain unauthorized access to the Apache HTTP Server process by sending large amounts of data in the request's body.

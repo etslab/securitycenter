@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2019-0211
+###How to fix the Common Vulnerabilities issue of CVE-2019-0211
 CVE-2019-0211 is a privilege escalation vulnerability in Apache HTTP Server 2.4 releases 2.4.17 to 2.4.38. It allows an attacker with read/write access to a worker process to manipulate the scoreboard to point to a rogue worker before an Apache graceful restart is initiated by logrotate. This can be exploited to execute arbitrary code with the privileges of the parent process (usually root).
 
 To fix this vulnerability, you should update your Apache HTTP Server to version 2.4.39 or later. You can also apply the following workaround:

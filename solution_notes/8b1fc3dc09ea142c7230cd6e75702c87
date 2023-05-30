@@ -1,4 +1,4 @@
-How fix the Certificates issue of There is an issue with MAC algorithms
+###How to fix the Certificates issue of There is an issue with MAC algorithms
 There are a few ways to fix the certificates issue of There is an issue with MAC algorithms in apache web server.
 
 **1. Update Apache to the latest version.**

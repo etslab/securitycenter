@@ -1,4 +1,4 @@
-How fix the Certificates issue of cipherlist AVERAGE, offered
+###How to fix the Certificates issue of cipherlist AVERAGE, offered
 To fix the Certificates issue of cipherlist AVERAGE, offered in apache web server, you can do the following:
 
 1. Edit the Apache configuration file.

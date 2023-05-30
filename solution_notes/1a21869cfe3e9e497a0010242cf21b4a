@@ -1,4 +1,4 @@
-How fix the Certificates issue of cert notAfter, 2020-09-03 06
+###How to fix the Certificates issue of cert notAfter, 2020-09-03 06
 To fix the Certificates issue of cert notAfter, 2020-09-03 06 in Apache web server, you need to renew your SSL certificate. You can do this by following these steps:
 
 1. Check the expiration date of your current SSL certificate. You can do this by using the following command:

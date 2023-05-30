@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2016-10010
+###How to fix the Common Vulnerabilities issue of CVE-2016-10010
 CVE-2016-10010 is a remote code execution vulnerability in the Apache HTTP Server. It can be exploited by an attacker to execute arbitrary code on the server. To fix this vulnerability, you need to upgrade to a patched version of the Apache HTTP Server. You can find the latest patched versions on the Apache website.
 
 This vulnerability belongs to the OWASP Top 10 Web Security Risks 2021 category of Arbitrary Code Execution.

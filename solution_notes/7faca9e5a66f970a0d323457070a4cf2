@@ -1,4 +1,4 @@
-How fix the Web Threats issue of 
+###How to fix the Web Threats issue of 
 The Web Threats issue in Apache web server can be fixed by disabling the TRACE HTTP method in Apache Configuration. You can do this by modifying/adding the following directive in your httpd.conf of your Apache Web Server:
 
 ```

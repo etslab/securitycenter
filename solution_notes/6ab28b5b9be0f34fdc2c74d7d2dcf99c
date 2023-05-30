@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2020-1934
+###How to fix the Common Vulnerabilities issue of CVE-2020-1934
 To fix the Common Vulnerabilities issue of CVE-2020-1934 in Apache web server, you need to upgrade to a version of Apache that is 2.4.42 or later. You can find the latest version of Apache on the Apache website.
 
 CVE-2020-1934 is a remote code execution vulnerability in the Apache mod_proxy_ftp module. This vulnerability allows an attacker to execute arbitrary code on the server by sending a malicious FTP request. The vulnerability is rated as critical and has been exploited in the wild.

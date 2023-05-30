@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2022-22720
+###How to fix the Common Vulnerabilities issue of CVE-2022-22720
 CVE-2022-22720 is a vulnerability in the Apache HTTP Server that allows an attacker to smuggle arbitrary HTTP requests through the server. This vulnerability is a remote code execution vulnerability, and it can be exploited by an attacker to execute arbitrary code on the server.
 
 To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is not vulnerable. You can find the latest version of Apache HTTP Server on the Apache Software Foundation website.

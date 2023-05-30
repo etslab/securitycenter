@@ -1,4 +1,4 @@
-How fix the API Threats issue of Server Leaks Information via X-Powered-By HTTP Response Header Field(s)
+###How to fix the API Threats issue of Server Leaks Information via X-Powered-By HTTP Response Header Field(s)
 The X-Powered-By HTTP Response Header Field is a non-standard header that is often included by default in responses constructed via a particular scripting technology. It can be used by attackers to identify the technology that is being used to run the web server, which can then be used to target known vulnerabilities in that technology.
 
 To fix this issue, you can disable the X-Powered-By header in your Apache configuration file. The following line of code will do this:

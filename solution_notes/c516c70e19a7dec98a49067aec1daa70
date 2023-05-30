@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Cookie without SameSite Attribute
+###How to fix the Web Threats issue of Cookie without SameSite Attribute
 There are a few ways to fix the Web Threats issue of Cookie without SameSite Attribute in Apache web server.
 
 * **Use the `mod_headers` module.** This module allows you to add custom HTTP headers to your web pages. To set the SameSite attribute for all cookies, you can add the following line to your `httpd.conf` file:

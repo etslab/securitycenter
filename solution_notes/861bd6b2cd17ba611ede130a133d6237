@@ -1,4 +1,4 @@
-How fix the API Threats issue of CSP: style-src unsafe-inline
+###How to fix the API Threats issue of CSP: style-src unsafe-inline
 The CSP: style-src unsafe-inline issue can be fixed by changing the Apache web server configuration to disallow inline styles. This can be done by adding the following line to the Apache configuration file:
 
 ```

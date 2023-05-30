@@ -1,4 +1,4 @@
-How fix the Certificates issue of Subresource Integrity (SRI) is implemented and all scripts are loaded securely
+###How to fix the Certificates issue of Subresource Integrity (SRI) is implemented and all scripts are loaded securely
 Subresource Integrity (SRI) is a security feature that helps to protect web applications from content injection attacks. SRI works by specifying a cryptographic hash of the expected content for each resource that is loaded from an external source. When the browser loads the resource, it verifies the hash to ensure that the content has not been tampered with.
 
 To implement SRI in Apache, you can use the mod_headers module. The following configuration directive specifies that all scripts loaded from the `https://cdnjs.cloudflare.com` domain must have a hash of `sha256-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.

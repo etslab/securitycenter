@@ -1,4 +1,4 @@
-How fix the  issue of 
+###How to fix the  issue of 
 The issue of directory traversal in Apache web server can be fixed by following these steps:
 
 1. **Check the Apache configuration file.** The Apache configuration file is typically located at `/etc/apache2/apache2.conf`. Make sure that there are no directives that allow directory traversal, such as `AllowOverride` or `Order allow,deny`.

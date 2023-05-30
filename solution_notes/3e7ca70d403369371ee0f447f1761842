@@ -1,4 +1,4 @@
-How fix the Certificates issue of Initial redirection from HTTP to HTTPS is to a different host preventing HSTS
+###How to fix the Certificates issue of Initial redirection from HTTP to HTTPS is to a different host preventing HSTS
 The issue of initial redirection from HTTP to HTTPS is to a different host preventing HSTS in Apache web server can be fixed by following these steps:
 
 1. Create a manual backup of your site.

@@ -1,4 +1,4 @@
-How fix the Web Threats issue of CSP: style-src unsafe-inline
+###How to fix the Web Threats issue of CSP: style-src unsafe-inline
 The Web Threats issue of CSP: style-src unsafe-inline in Apache web server can be fixed by adding the following line to the Apache configuration file:
 
 ```

@@ -1,4 +1,4 @@
-How fix the Certificates issue of cert trust, certificate does not match supplied URI (same wo SNI)
+###How to fix the Certificates issue of cert trust, certificate does not match supplied URI (same wo SNI)
 There are a few ways to fix the "Certificate does not match supplied URI" error in Apache.
 
 * **Use a trusted certificate provider.** The most common way to fix this error is to use a trusted certificate provider, such as Let's Encrypt or Comodo. These providers issue certificates that are trusted by most browsers.

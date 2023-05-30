@@ -1,4 +1,4 @@
-How fix the API Threats issue of A Client Error response code was returned by the server
+###How to fix the API Threats issue of A Client Error response code was returned by the server
 There are a few things you can do to fix the API Threats issue of A Client Error response code was returned by the server in apache web server.
 
 * **Check the request syntax.** Make sure that the request syntax is correct. This includes checking for missing or invalid parameters, as well as incorrect formatting.

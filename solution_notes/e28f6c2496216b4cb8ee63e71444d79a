@@ -1,4 +1,4 @@
-How fix the API Threats issue of Cookie without SameSite Attribute
+###How to fix the API Threats issue of Cookie without SameSite Attribute
 To fix the API Threats issue of Cookie without SameSite Attribute in Apache web server, you can use the following steps:
 
 1. Open the Apache configuration file (`httpd.conf`).

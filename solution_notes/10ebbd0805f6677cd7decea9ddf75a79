@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Re-examine Cache-control Directives
+###How to fix the Web Threats issue of Re-examine Cache-control Directives
 The Web Threats issue of Re-examine Cache-control Directives in apache web server can be fixed by configuring the Cache-Control header to prevent caching of sensitive information. This can be done by adding the following directives to the Apache configuration file:
 
 ```

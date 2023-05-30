@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2022-31813
+###How to fix the Common Vulnerabilities issue of CVE-2022-31813
 CVE-2022-31813 is a vulnerability in the Apache HTTP Server that allows an attacker to bypass IP-based authentication on the origin server or application. The vulnerability is caused by the fact that Apache HTTP Server does not send the X-Forwarded-* headers to the origin server if the client's Connection header contains the hop-by-hop mechanism. This allows an attacker to spoof their IP address and bypass authentication.
 
 To fix this vulnerability, you should upgrade to Apache HTTP Server 2.4.54 or later. If you cannot upgrade, you can disable the hop-by-hop mechanism by adding the following directive to your Apache configuration file:

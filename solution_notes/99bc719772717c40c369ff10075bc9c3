@@ -1,4 +1,4 @@
-How fix the Certificates issue of Subresource Integrity (SRI) not implemented but all external scripts are loaded over HTTPS
+###How to fix the Certificates issue of Subresource Integrity (SRI) not implemented but all external scripts are loaded over HTTPS
 To fix the Certificates issue of Subresource Integrity (SRI) not implemented but all external scripts are loaded over HTTPS in apache web server, you can follow these steps:
 
 1. Enable SRI in Apache. This can be done by adding the following line to your Apache configuration file:

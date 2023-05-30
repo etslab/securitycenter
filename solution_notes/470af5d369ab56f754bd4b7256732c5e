@@ -1,4 +1,4 @@
-How fix the API Threats issue of CSP: Wildcard Directive
+###How to fix the API Threats issue of CSP: Wildcard Directive
 The API Threats issue of CSP: Wildcard Directive in Apache web server can be fixed by using a more restrictive policy. For example, instead of using a wildcard directive, you could use a directive that specifies specific domains or origins that are allowed to load resources. This would help to prevent malicious actors from injecting malicious code into your website.
 
 The API Threats issue of CSP: Wildcard Directive in Apache web server belongs to the following OWASP Top 10 Web 2021 categories:

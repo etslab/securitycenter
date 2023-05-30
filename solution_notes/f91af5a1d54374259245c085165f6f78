@@ -1,4 +1,4 @@
-How fix the API Threats issue of Server Leaks Version Information via Server HTTP Response Header Field
+###How to fix the API Threats issue of Server Leaks Version Information via Server HTTP Response Header Field
 There are a few ways to fix the API Threats issue of Server Leaks Version Information via Server HTTP Response Header Field in Apache web server. One way is to use the mod_headers module to disable the Server HTTP Response Header Field. To do this, add the following line to your Apache configuration file:
 
 ```

@@ -1,4 +1,4 @@
-How fix the Certificates issue of cert revocation, Neither CRL nor OCSP URI provided
+###How to fix the Certificates issue of cert revocation, Neither CRL nor OCSP URI provided
 To fix the certificates issue of cert revocation, neither CRL nor OCSP URI provided in apache web server, you can do the following:
 
 1. **Configure CRL checking.** To do this, you will need to specify the location of the CRL file in the Apache configuration file. The following is an example of how to do this:

@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Cookie No HttpOnly Flag
+###How to fix the Web Threats issue of Cookie No HttpOnly Flag
 To fix the Web Threats issue of Cookie No HttpOnly Flag in Apache web server, you can follow these steps:
 
 1. Verify that mod_headers.so is enabled in your httpd.conf file.

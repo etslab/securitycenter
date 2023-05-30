@@ -1,4 +1,4 @@
-How fix the Certificates issue of Content Security Policy (CSP) implemented unsafely. This includes unsafe-inline or data: inside script-src overly broad sources such as https: inside object-src or script-src or not restricting the sources for object-src or script-src.
+###How to fix the Certificates issue of Content Security Policy (CSP) implemented unsafely. This includes unsafe-inline or data: inside script-src overly broad sources such as https: inside object-src or script-src or not restricting the sources for object-src or script-src.
 There are a few things you can do to fix the Certificates issue of Content Security Policy (CSP) implemented unsafely in Apache web server.
 
 * **Use a more restrictive `script-src` directive.** The `script-src` directive specifies the sources from which scripts can be loaded. By default, it allows scripts from any source. However, this can be a security risk, as it allows attackers to inject malicious code into your website. To mitigate this risk, you should use a more restrictive `script-src` directive that only allows scripts from trusted sources.

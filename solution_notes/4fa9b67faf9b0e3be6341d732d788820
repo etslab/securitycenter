@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2022-26377
+###How to fix the Common Vulnerabilities issue of CVE-2022-26377
 CVE-2022-26377 is a vulnerability in the Apache HTTP Server that allows an attacker to smuggle requests to the AJP server it forwards requests to. This issue affects Apache HTTP Server 2.4 version 2.4.53 and prior versions.
 
 To fix this vulnerability, you should upgrade to Apache HTTP Server 2.4.54 or later. If you cannot upgrade, you can mitigate the vulnerability by disabling the AJP protocol.

@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2019-10098
+###How to fix the Common Vulnerabilities issue of CVE-2019-10098
 CVE-2019-10098 is a vulnerability in the Apache HTTP Server that allows an attacker to redirect a user to an arbitrary website. This vulnerability is caused by a flaw in the mod_rewrite module, which is used to rewrite URLs. The vulnerability can be exploited by an attacker who can trick a user into visiting a specially crafted URL.
 
 To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is patched for CVE-2019-10098. You can find a list of patched versions on the Apache website.

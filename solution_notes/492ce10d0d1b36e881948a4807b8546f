@@ -1,4 +1,4 @@
-How fix the Web Threats issue of Server Leaks Information via X-Powered-By HTTP Response Header Field(s)
+###How to fix the Web Threats issue of Server Leaks Information via X-Powered-By HTTP Response Header Field(s)
 The X-Powered-By header is an HTTP response header that reveals information about the technology used to build a web application. This information can be used by attackers to target specific vulnerabilities in the technology.
 
 To fix the Server Leaks Information via X-Powered-By HTTP Response Header Field(s) issue in Apache, you can do the following:

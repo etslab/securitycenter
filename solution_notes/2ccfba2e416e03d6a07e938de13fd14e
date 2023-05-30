@@ -1,4 +1,4 @@
-How fix the Certificates issue of cert chain of trust, failed (self signed).
+###How to fix the Certificates issue of cert chain of trust, failed (self signed).
 There are a few ways to fix the "Cert chain of trust, failed (self signed)" error in Apache.
 
 * **Use a trusted certificate authority.** The most common way to fix this error is to use a trusted certificate authority (CA) to issue your certificate. This will ensure that your certificate is trusted by browsers and other clients.

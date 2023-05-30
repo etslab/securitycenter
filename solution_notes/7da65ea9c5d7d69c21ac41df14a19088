@@ -1,4 +1,4 @@
-How fix the Certificates issue of X-Content-Type-Options header not implemented
+###How to fix the Certificates issue of X-Content-Type-Options header not implemented
 The X-Content-Type-Options header is a security header that helps to prevent cross-site scripting (XSS) attacks. It tells the browser not to change the MIME type of a response, even if the browser thinks it should. This can help to prevent XSS attacks that exploit vulnerabilities in browsers that allow them to be tricked into changing the MIME type of a response.
 
 To fix the X-Content-Type-Options header not implemented issue in Apache, you need to add the following line to your Apache configuration file:

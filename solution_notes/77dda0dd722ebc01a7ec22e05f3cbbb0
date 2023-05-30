@@ -1,4 +1,4 @@
-How fix the Common Vulnerabilities issue of CVE-2022-22719
+###How to fix the Common Vulnerabilities issue of CVE-2022-22719
 CVE-2022-22719 is a vulnerability in the Apache HTTP Server that allows an attacker to cause a denial of service (DoS) attack. The vulnerability is caused by a bug in the mod_lua module, which is a module that allows Apache to execute Lua scripts. The bug can be exploited by sending a specially crafted request to the Apache server, which will cause the server to crash.
 
 To fix this vulnerability, you should upgrade your Apache server to a version that is not affected by the bug. You can find a list of affected versions on the Apache website.

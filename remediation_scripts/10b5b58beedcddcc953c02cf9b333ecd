@@ -1,0 +1,33 @@
+####patch script to remediate  CVE-2020-1927 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2020-1927 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache HTTP Server is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache HTTP Server is not installed."
+  exit 1
+fi
+
+# Check the version of Apache HTTP Server
+apache_version=$(apache2 -V | awk '{print $2}')
+
+# If the version is vulnerable, patch it
+if [[ "$apache_version" -lt "2.4.42" ]]; then
+  echo "Apache HTTP Server is vulnerable to CVE-2020-1927."
+  echo "Downloading the patch..."
+  wget https://www.apache.org/dist/httpd/binaries/latest/patch/CVE-2020-1927.patch
+  echo "Applying the patch..."
+  patch -p1 < CVE-2020-1927.patch
+  echo "Restarting Apache HTTP Server..."
+  apache2ctl restart
+fi
+
+# Exit
+exit 0
+```
+
+This patch script will download the latest patch for CVE-2020-1927 from the Apache HTTP Server website, apply it to the Apache HTTP Server installation, and restart Apache HTTP Server.
+
+Please note that this is just a sample patch script. You may need to modify it to work with your specific Apache HTTP Server installation.

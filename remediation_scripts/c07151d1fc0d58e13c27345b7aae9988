@@ -1,0 +1,35 @@
+####patch script to remediate  CSP: style-src unsafe-inline in Apache HTTP Server
+Sure, here is a patch script to remediate CSP: style-src unsafe-inline in Apache HTTP Server:
+
+```
+# This patch script remediates CSP: style-src unsafe-inline in Apache HTTP Server.
+
+# Check if the Apache HTTP Server is installed.
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache HTTP Server is not installed."
+  exit 1
+fi
+
+# Get the current Apache HTTP Server configuration.
+confd="/etc/apache2/apache2.conf"
+conf=$(cat "$confd")
+
+# Find the line that sets the CSP: style-src directive.
+style_src_line=$(grep -n "CSP: style-src" "$conf")
+
+# If the CSP: style-src directive is not set, then set it to "unsafe-inline".
+if [ -z "$style_src_line" ]; then
+  echo "Adding CSP: style-src unsafe-inline to Apache HTTP Server configuration..."
+  sed -i "/<Directory /s/>/ CSP: style-src unsafe-inline;/" "$confd"
+else
+  # If the CSP: style-src directive is set, then update it to "unsafe-inline".
+  echo "Updating CSP: style-src directive in Apache HTTP Server configuration..."
+  sed -i "s/CSP: style-src.*/CSP: style-src unsafe-inline;/" "$confd"
+fi
+
+# Restart Apache HTTP Server.
+echo "Restarting Apache HTTP Server..."
+service apache2 restart
+```
+
+This patch script will update the Apache HTTP Server configuration to include the CSP: style-src unsafe-inline directive. This directive will prevent attackers from injecting malicious CSS code into your website.

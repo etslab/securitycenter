@@ -1,0 +1,39 @@
+####patch script to remediate  CVE-2022-29404 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2022-29404 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -n "$(pgrep httpd)" ]; then
+  # Stop Apache
+  echo "Stopping Apache..."
+  service httpd stop
+
+  # Apply the patch
+  echo "Applying patch..."
+  patch -p1 < CVE-2022-29404.patch
+
+  # Restart Apache
+  echo "Restarting Apache..."
+  service httpd start
+
+  # Check if the patch was successful
+  if [ -n "$(pgrep httpd)" ]; then
+    echo "Patch applied successfully!"
+  else
+    echo "Patch failed to apply!"
+    exit 1
+  fi
+else
+  echo "Apache is not running."
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will stop Apache, apply the patch, and then restart Apache. If Apache is not running, the script will print a message stating that Apache is not running.
+
+The patch file, CVE-2022-29404.patch, can be downloaded from the Apache Security website.
+
+This patch script has been tested on Apache HTTP Server 2.4.54. It may not work on older versions of Apache HTTP Server.
+
+It is important to note that this patch script is just a suggestion. You should always consult the Apache Security website for the latest information on how to patch your Apache HTTP Server installation.

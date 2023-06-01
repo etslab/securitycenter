@@ -1,0 +1,52 @@
+####patch script to remediate  Server Leaks Version Information via Server HTTP Response Header Field in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate the Server Leaks Version Information via Server HTTP Response Header Field vulnerability in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+
+  # Get the current version of Apache
+  CURRENT_VERSION=$(apachectl -V | awk '{print $2}')
+
+  # Create a new configuration file
+  NEW_CONFIGFILE="/etc/apache2/conf.d/version-leak-fix.conf"
+  echo "" > $NEW_CONFIGFILE
+  echo "ServerTokens Prod" >> $NEW_CONFIGFILE
+
+  # Reload Apache
+  apachectl configtest
+  apachectl graceful
+
+  # Check if the new configuration file was loaded successfully
+  if [[ $(grep "ServerTokens Prod" /etc/apache2/apache2.conf) ]]; then
+    echo "Version leak remediation successful!"
+  else
+    echo "Version leak remediation failed!"
+  fi
+
+else
+  echo "Apache is not running."
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will then get the current version of Apache. Next, the script will create a new configuration file and add the following line to it:
+
+```
+ServerTokens Prod
+```
+
+This line will tell Apache to only return the "Prod" string in the Server HTTP Response Header Field. This will prevent attackers from determining the exact version of Apache that is running on the server.
+
+Finally, the script will reload Apache. Once Apache has been reloaded, the script will check to see if the new configuration file was loaded successfully. If it was, the script will print the following message:
+
+```
+Version leak remediation successful!
+```
+
+If the new configuration file was not loaded successfully, the script will print the following message:
+
+```
+Version leak remediation failed!
+```

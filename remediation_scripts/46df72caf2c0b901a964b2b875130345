@@ -1,0 +1,34 @@
+####patch script to remediate  TLS1 1, offered (deprecated) in Apache HTTP Server
+Sure, here is a patch script to remediate TLS 1.1, offered (deprecated) in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current configuration file
+  config_file="/etc/apache2/apache2.conf"
+
+  # Check if TLS 1.1 is enabled
+  if grep -q "TLSv1.1" "$config_file"; then
+
+    # Disable TLS 1.1
+    sed -i "s/TLSv1.1/TLSv1.2/g" "$config_file"
+
+    # Restart Apache
+    systemctl restart apache2
+
+    echo "TLS 1.1 has been disabled."
+  else
+    echo "TLS 1.1 is not enabled."
+  fi
+
+else
+  echo "Apache is not running."
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will get the current configuration file and check if TLS 1.1 is enabled. If it is, the script will disable TLS 1.1 and restart Apache. If TLS 1.1 is not enabled, the script will simply print a message stating that it is not enabled.
+
+Please note that this is just a sample script and may need to be modified to work with your specific Apache configuration.

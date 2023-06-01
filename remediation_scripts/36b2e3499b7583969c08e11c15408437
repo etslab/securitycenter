@@ -1,0 +1,42 @@
+####patch script to remediate  CVE-2019-0220 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2019-0220 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/httpd ]; then
+
+  # Get the current Apache version
+  version=$(apache2 -v | awk '{print $2}')
+
+  # Check if the current version is vulnerable
+  if [[ $version -lt 2.4.39 ]]; then
+
+    # Download the latest security patch
+    wget https://archive.apache.org/dist/httpd/binaries/latest/httpd-2.4.39.tar.gz
+
+    # Extract the patch
+    tar -xvf httpd-2.4.39.tar.gz
+
+    # Apply the patch
+    cd httpd-2.4.39
+    ./configure --prefix=/usr
+    make
+    make install
+
+    # Restart Apache
+    systemctl restart httpd
+
+  fi
+
+fi
+```
+
+This script will download the latest security patch for Apache 2.4.39, extract it, and apply it. Once the patch is applied, you will need to restart Apache for the changes to take effect.
+
+Here are some additional things to keep in mind when applying this patch:
+
+* If you are using a custom Apache configuration, you will need to merge the changes from the patch into your configuration file.
+* If you are using a third-party module, you may need to update the module to work with the latest version of Apache.
+* It is always a good idea to back up your Apache configuration and files before applying any security patches.

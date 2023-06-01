@@ -1,0 +1,36 @@
+####patch script to remediate  CVE-2016-10009 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2016-10009 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# This script patches Apache HTTP Server to remediate CVE-2016-10009.
+
+# Check if Apache is installed.
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable version of Apache is installed.
+VERSION=$(apache2 -V | awk '{print $2}')
+if [[ "$VERSION" =~ ^2.4.[0-3] ]]; then
+  echo "Apache $VERSION is vulnerable to CVE-2016-10009."
+  echo "Patching Apache..."
+
+  # Download the patch from the Apache website.
+  wget https://www.apache.org/dist/httpd/binaries/latest/2.4/src/patches/CVE-2016-10009.patch
+
+  # Apply the patch.
+  patch -p1 < CVE-2016-10009.patch
+
+  # Restart Apache.
+  systemctl restart apache2
+
+  echo "Patch applied successfully."
+else
+  echo "Apache $VERSION is not vulnerable to CVE-2016-10009."
+fi
+```
+
+This script will download the patch from the Apache website, apply the patch, and restart Apache. After the patch has been applied, Apache will be no longer vulnerable to CVE-2016-10009.

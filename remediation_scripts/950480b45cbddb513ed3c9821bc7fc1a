@@ -1,0 +1,36 @@
+####patch script to remediate  CVE-2019-6110 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2019-6110 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable version of Apache is installed
+VERSION=$(apache2 -v | awk '{print $2}')
+if [[ "$VERSION" == "2.4.25" ]]; then
+  echo "Apache 2.4.25 is vulnerable to CVE-2019-6110."
+  echo "Patching..."
+
+  # Download the patch
+  wget https://www.apache.org/dist/httpd/patches/2.4/apply_2.4.25.patch
+
+  # Apply the patch
+  patch -p1 < apply_2.4.25.patch
+
+  # Restart Apache
+  service apache2 restart
+
+  echo "Patch applied successfully."
+else
+  echo "Apache 2.4.25 is not installed."
+fi
+```
+
+This patch will fix the vulnerability in Apache 2.4.25. It is important to note that this patch is only for Apache 2.4.25. If you are running a different version of Apache, you will need to find a patch for that specific version.
+
+Once you have applied the patch, you should restart Apache. This will ensure that the patch is applied and that Apache is running securely.

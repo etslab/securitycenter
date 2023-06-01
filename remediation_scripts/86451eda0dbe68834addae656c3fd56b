@@ -1,0 +1,34 @@
+####patch script to remediate  cipherlist AVERAGE, offered in Apache HTTP Server
+Sure, here is a patch script to remediate the cipherlist AVERAGE, offered in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+
+  # Get the current cipherlist
+  current_cipherlist=$(grep ^SSLCipherSuite /etc/apache2/conf.d/ssl.conf | awk '{print $2}')
+
+  # If the current cipherlist is AVERAGE, replace it with a more secure cipherlist
+  if [[ $current_cipherlist == "AVERAGE" ]]; then
+    echo "SSLCipherSuite HIGH:MEDIUM" >> /etc/apache2/conf.d/ssl.conf
+  fi
+
+  # Restart Apache
+  service apache2 restart
+
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will get the current cipherlist. If the current cipherlist is AVERAGE, the script will replace it with a more secure cipherlist. Finally, the script will restart Apache.
+
+Here is a more secure cipherlist that can be used:
+
+```
+SSLCipherSuite HIGH:MEDIUM
+```
+
+This cipherlist includes the most secure ciphers available, while still allowing for compatibility with older browsers.
+
+It is important to note that this is just a basic patch script. It may not be appropriate for all environments. It is always best to consult with a security professional before making any changes to your Apache configuration.

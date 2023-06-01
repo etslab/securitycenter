@@ -1,0 +1,31 @@
+####patch script to remediate  cert chain of trust, failed (self signed). in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate the "cert chain of trust, failed (self signed)" error in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep -f httpd) ]; then
+
+  # Get the name of the virtual host that is using the self-signed certificate
+  vhost=$(grep -oP "VirtualHost \K[^ ]+" /etc/apache2/sites-available/*.conf | grep -v "#" | sort -u)
+
+  # Generate a new self-signed certificate for the virtual host
+  openssl req -new -keyout /etc/ssl/private/apache.key -out /etc/ssl/certs/apache.crt
+
+  # Update the Apache configuration file to use the new certificate
+  sed -i "s#SSLCertificateFile.*#SSLCertificateFile /etc/ssl/certs/apache.crt#g" /etc/apache2/sites-available/$vhost
+
+  # Restart Apache
+  systemctl restart apache2
+
+else
+
+  echo "Apache is not running"
+
+fi
+
+
+This script will first check to see if Apache is running. If it is, the script will then get the name of the virtual host that is using the self-signed certificate. The script will then generate a new self-signed certificate for the virtual host and update the Apache configuration file to use the new certificate. Finally, the script will restart Apache.
+
+This script should resolve the "cert chain of trust, failed (self signed)" error in Apache HTTP Server.

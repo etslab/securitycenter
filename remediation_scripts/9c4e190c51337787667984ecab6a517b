@@ -1,0 +1,43 @@
+####patch script to remediate  CVE-2021-44790 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2021-44790 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+  # Stop Apache
+  sudo service httpd stop
+fi
+
+# Download the latest Apache security patch
+wget https://archive.apache.org/dist/httpd/httpd-2.4.52.tar.gz
+
+# Extract the patch
+tar -xvf httpd-2.4.52.tar.gz
+
+# Apply the patch
+cd httpd-2.4.52
+patch -p1 < CVE-2021-44790.patch
+
+# Compile Apache
+./configure --with-included-apr
+make
+
+# Install Apache
+sudo make install
+
+# Start Apache
+sudo service httpd start
+```
+
+This patch script will download the latest Apache security patch, extract it, and apply it to your Apache installation. Once the patch is applied, you can start Apache again.
+
+It is important to note that this patch script is only for Apache HTTP Server 2.4.51 and earlier. If you are using a newer version of Apache, you can find the latest security patches on the Apache website.
+
+Here are some additional tips for remediating CVE-2021-44790:
+
+* Keep your Apache installation up to date with the latest security patches.
+* Use a firewall to block unauthorized access to your Apache server.
+* Use strong passwords for your Apache server.
+* Monitor your Apache server for signs of attack.

@@ -1,0 +1,38 @@
+####patch script to remediate  CVE-2016-10708 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2016-10708 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable version is installed
+CURRENT_VERSION=$(apache2 -v | awk '{print $2}')
+if [ "$CURRENT_VERSION" -lt "2.4.7" ]; then
+  echo "Apache $CURRENT_VERSION is vulnerable to CVE-2016-10708."
+  echo "Please upgrade to Apache 2.4.7 or later."
+  exit 1
+fi
+
+# Patch the vulnerable code
+echo "Patching vulnerable code..."
+sed -i -e 's/AcceptPathInfo On/AcceptPathInfo Off/g' /etc/apache2/apache2.conf
+
+# Restart Apache
+echo "Restarting Apache..."
+service apache2 restart
+
+# Check if the patch was successful
+if ! apache2 -t; then
+  echo "The patch failed."
+  exit 1
+fi
+
+echo "Patch successful."
+```
+
+This script will check if Apache is installed and running the vulnerable version. If it is, the script will patch the vulnerable code and restart Apache. Finally, the script will check if the patch was successful.

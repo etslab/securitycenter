@@ -1,0 +1,37 @@
+####patch script to remediate  There is an issue with MAC algorithms in Apache HTTP Server
+Sure, here is a patch script to remediate the issue with MAC algorithms in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep -f httpd) ]]; then
+
+  # Stop Apache
+  sudo service httpd stop
+
+  # Apply the patch
+  sudo patch -p1 < apache-mac-algorithms-patch.diff
+
+  # Restart Apache
+  sudo service httpd start
+
+else
+
+  # Apache is not running, so no need to patch or restart
+  echo "Apache is not running, so no need to patch or restart."
+
+fi
+```
+
+The patch script will first check if Apache is running. If it is, the script will stop Apache, apply the patch, and then restart Apache. If Apache is not running, the script will not do anything.
+
+The patch file, apache-mac-algorithms-patch.diff, can be obtained from the Apache security advisory.
+
+Once the patch has been applied, Apache will be more secure against attacks that exploit vulnerabilities in the MAC algorithms.
+
+Here are some additional things to keep in mind when applying this patch:
+
+* Make sure that you have a backup of your Apache configuration files before applying the patch.
+* Test the patch on a staging server before applying it to a production server.
+* Monitor your Apache servers for any unexpected behavior after applying the patch.

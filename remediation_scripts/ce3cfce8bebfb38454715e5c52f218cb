@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2022-31813 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2022-31813 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the Apache version
+  apache_version=$(apache2 -V | awk '{print $2}')
+
+  # If Apache is version 2.4.53 or earlier, then patch the vulnerability
+  if [[ $apache_version -le 2.4.53 ]]; then
+
+    # Download the patch from the Apache website
+    wget https://www.apache.org/dist/httpd/patches/2.4/CVE-2022-31813.patch
+
+    # Apply the patch
+    patch -p1 < CVE-2022-31813.patch
+
+    # Restart Apache
+    service apache2 restart
+
+  fi
+
+fi
+```
+
+This patch script will check if Apache is running and what version it is. If Apache is version 2.4.53 or earlier, then the patch will be downloaded from the Apache website and applied. Finally, Apache will be restarted.
+
+Please note that this is just a sample patch script and may not work for all configurations. It is always best to consult with a security professional to ensure that your Apache installation is properly patched.

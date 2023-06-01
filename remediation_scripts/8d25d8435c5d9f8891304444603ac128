@@ -1,0 +1,32 @@
+####patch script to remediate CVE-2013-0169, CWE-310 cipherlist OBSOLETED, offered in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 cipherlist OBSOLETED, offered in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if ! pgrep httpd >/dev/null; then
+  echo "Apache is not running. Exiting."
+  exit 1
+fi
+
+# Get the current cipherlist
+cipherlist=$(apachectl -t -DSHOW_CIPHERS)
+
+# Check if the OBSOLETED ciphers are in the list
+if [[ $cipherlist =~ OBSOLETED ]]; then
+  # Remove the OBSOLETED ciphers from the list
+  cipherlist=${cipherlist//OBSOLETED/}
+
+  # Update the cipherlist in Apache
+  apachectl -t -DSSL_CIPHERS=$cipherlist
+
+  echo "Successfully patched Apache to remove the OBSOLETED ciphers."
+else
+  echo "The OBSOLETED ciphers are not in the cipherlist. No action required."
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will then get the current cipherlist that Apache is using. The script will then check if the OBSOLETED ciphers are in the list. If they are, the script will remove them from the list and update the cipherlist in Apache. Finally, the script will print a message indicating whether or not the patch was successful.
+
+Please note that this is just a sample script and may need to be modified to work with your specific Apache configuration.

@@ -1,0 +1,44 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Cross-Domain JavaScript Source File Inclusion in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Cross-Domain JavaScript Source File Inclusion in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed"
+  exit 1
+fi
+
+# Check if the vulnerable version of Apache is installed
+if ! [ "$(apache2 -V | grep "Server version" | awk '{print $2}')" -ge 2.4.6 ]; then
+  echo "The vulnerable version of Apache is installed"
+  echo "Please upgrade to a newer version of Apache"
+  exit 1
+fi
+
+# Create a backup of the Apache configuration file
+cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.bak
+
+# Add the following line to the Apache configuration file
+#   AllowOverride None
+
+# Save the Apache configuration file
+service apache2 restart
+
+# Check if the patch was successful
+apache2 -t
+
+# If the patch was successful, exit with success
+if [ $? -eq 0 ]; then
+  echo "Patch successful"
+  exit 0
+else
+  echo "Patch failed"
+  exit 1
+fi
+```
+
+This patch will disable the AllowOverride directive in the Apache configuration file. This will prevent users from overriding the Apache configuration file and injecting malicious JavaScript code into the Apache server.
+
+Please note that this is just a sample patch script. You may need to modify it to fit your specific environment.

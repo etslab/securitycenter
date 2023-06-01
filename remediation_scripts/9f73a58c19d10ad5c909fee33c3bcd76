@@ -1,0 +1,41 @@
+####patch script to remediate CVE-2013-0169, CWE-310 cert expirationStatus, expires < 60 days (34) in Apache HTTP Server
+Sure, here is the patch script to remediate CVE-2013-0169, CWE-310 cert expirationStatus, expires < 60 days (34) in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache HTTP Server is installed
+if ! [ -f /usr/sbin/httpd ]; then
+    echo "Apache HTTP Server is not installed."
+    exit 1
+fi
+
+# Get the current version of Apache HTTP Server
+current_version=$(/usr/sbin/httpd -V | awk '{print $2}')
+
+# Check if the current version is vulnerable
+if [[ $current_version < "2.4.6" ]]; then
+    echo "Apache HTTP Server is vulnerable to CVE-2013-0169."
+    echo "Please upgrade to a newer version of Apache HTTP Server."
+    exit 1
+fi
+
+# Check if the certificate expiration status is set
+if ! grep -q "cert_expiration_status" /etc/httpd/conf.d/ssl.conf; then
+    echo "The certificate expiration status is not set."
+    echo "Please add the following line to /etc/httpd/conf.d/ssl.conf:"
+    echo "cert_expiration_status = warn"
+    exit 1
+fi
+
+# Check if the certificate is expiring within 60 days
+if ! openssl x509 -in /etc/ssl/certs/apache.pem -noout -enddate -days 60; then
+    echo "The certificate is expiring within 60 days."
+    echo "Please renew the certificate."
+    exit 1
+fi
+
+echo "Apache HTTP Server is not vulnerable to CVE-2013-0169."
+```
+
+This patch script will check if Apache HTTP Server is installed, get the current version, check if the current version is vulnerable, check if the certificate expiration status is set, and check if the certificate is expiring within 60 days. If any of these checks fail, the script will print an error message and exit. If all of the checks pass, the script will print a message indicating that Apache HTTP Server is not vulnerable.

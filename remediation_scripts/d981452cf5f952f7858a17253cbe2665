@@ -1,0 +1,40 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Application Error Disclosure in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Application Error Disclosure in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pidof httpd)" ]; then
+  # Stop Apache
+  sudo service httpd stop
+
+  # Apply the patch
+  sudo patch -p1 < CVE-2013-0169.patch
+
+  # Restart Apache
+  sudo service httpd start
+else
+  echo "Apache is not running"
+fi
+```
+
+This patch script will stop Apache, apply the patch, and then restart Apache. It is important to note that this patch script is only for Apache 2.2.15 and later. If you are using an older version of Apache, you will need to apply a different patch.
+
+Here are the steps involved in this patch script:
+
+1. Check if Apache is running.
+2. If Apache is running, stop it.
+3. Apply the patch.
+4. Restart Apache.
+
+By following these steps, you can remediate CVE-2013-0169, CWE-310 Application Error Disclosure in Apache HTTP Server.
+
+Here are some additional details about this vulnerability:
+
+* CVE-2013-0169 is a security vulnerability in Apache HTTP Server.
+* This vulnerability allows an attacker to disclose sensitive information, such as error messages, by sending specially crafted requests to the server.
+* CWE-310 is a Common Weakness Enumeration that describes this type of vulnerability.
+* This vulnerability can be exploited by attackers to gain access to sensitive information or to disrupt the operation of the server.
+
+By applying the patch in this script, you can mitigate this vulnerability and protect your server from attack.

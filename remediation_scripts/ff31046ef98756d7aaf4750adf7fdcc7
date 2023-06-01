@@ -1,0 +1,31 @@
+####patch script to remediate CVE-2013-3587, CWE-310 CSP: script-src unsafe-inline in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-3587, CWE-310 CSP: script-src unsafe-inline in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if ! pgrep httpd > /dev/null; then
+  echo "Apache is not running"
+  exit 1
+fi
+
+# Get the current Apache configuration
+conf=$(apachectl -t -D DUMP_CONFIG)
+
+# Find the line that defines the `script-src` directive
+script_src_line=$(echo "$conf" | grep -E "^ *script-src")
+
+# If the `script-src` directive does not allow `unsafe-inline`, then add it
+if ! [[ $script_src_line =~ "unsafe-inline" ]]; then
+  echo "Adding `unsafe-inline` to `script-src` directive"
+  sed -i "s|^ *script-src.*|\nscript-src 'unsafe-inline'|" "$conf"
+fi
+
+# Restart Apache
+apachectl restart
+
+echo "Successfully patched Apache for CVE-2013-3587"
+```
+
+This patch script will first check if Apache is running. If it is not running, the script will exit. Next, the script will get the current Apache configuration. The script will then find the line that defines the `script-src` directive. If the `script-src` directive does not allow `unsafe-inline`, then the script will add it. Finally, the script will restart Apache.

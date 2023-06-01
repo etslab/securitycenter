@@ -1,0 +1,33 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Secure Pages Include Mixed Content in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Secure Pages Include Mixed Content in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+
+  # Stop Apache
+  sudo systemctl stop httpd
+
+  # Apply the patch
+  sudo patch -p1 < CVE-2013-0169.patch
+
+  # Restart Apache
+  sudo systemctl start httpd
+
+else
+
+  # Apache is not running, no need to patch
+  echo "Apache is not running, no need to patch."
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will stop Apache, apply the patch, and then restart Apache. If Apache is not running, the script will simply print a message stating that no action is required.
+
+CVE-2013-0169 is a vulnerability in Apache HTTP Server that allows an attacker to inject malicious content into a secure page by using a mixed content attack. A mixed content attack is an attack where a secure page includes a resource that is not secure, such as an image or CSS file. This can allow an attacker to exploit a vulnerability in the insecure resource to inject malicious code into the secure page.
+
+CWE-310 is a common weakness enumeration that identifies the vulnerability of including mixed content in secure pages. Mixed content is content that is loaded from a non-secure origin, such as HTTP, in a secure context, such as HTTPS. This can introduce security vulnerabilities, as it allows an attacker to inject malicious code into the page.
+
+By applying this patch, you can help to protect your Apache HTTP Server installation from CVE-2013-0169 and CWE-310.

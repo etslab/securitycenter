@@ -1,0 +1,36 @@
+####patch script to remediate CVE-2013-0169, CWE-310 CSP: script-src unsafe-inline in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 CSP: script-src unsafe-inline in Apache HTTP Server:
+
+```
+#!/bin/sh
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Get the current Apache version
+  apache_version=$(apache2 -V | awk '{print $2}')
+
+  # Check if the current Apache version is vulnerable
+  if [ "$apache_version" -lt "2.4.6" ]; then
+
+    # Patch the Apache configuration file
+    echo "### Patching Apache configuration file ###"
+    sed -i "s/script-src 'unsafe-inline'/script-src 'self'/" /etc/apache2/apache2.conf
+
+    # Restart Apache
+    echo "### Restarting Apache ###"
+    sudo service apache2 restart
+
+    echo "### Patching complete ###"
+  else
+    echo "### Apache is not vulnerable ###"
+  fi
+
+else
+  echo "### Apache is not running ###"
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will get the current Apache version and check if it is vulnerable to CVE-2013-0169. If the Apache version is vulnerable, the script will patch the Apache configuration file to disable the `unsafe-inline` directive for the `script-src` directive. Finally, the script will restart Apache.
+
+It is important to note that this patch script is only a temporary solution. The best way to protect your Apache server from CVE-2013-0169 is to upgrade to a version of Apache that is not vulnerable.

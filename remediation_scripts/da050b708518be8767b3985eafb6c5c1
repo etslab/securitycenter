@@ -1,0 +1,33 @@
+####patch script to remediate  DNS CAArecord has issue in Apache HTTP Server
+Sure, here is a patch script to remediate the DNS CAArecord issue in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if the DNS CAArecord is set
+if [[ ! -f /etc/apache2/sites-available/default.conf ]]; then
+  echo "The DNS CAArecord is not set."
+  exit 1
+fi
+
+# Get the current value of the DNS CAArecord
+current_value=$(grep -Po "DNS CAArecord \K[^ ]+" /etc/apache2/sites-available/default.conf)
+
+# Set the new value of the DNS CAArecord
+new_value="0 1 example.com"
+
+# Update the Apache configuration file
+sed -i "s/$current_value/$new_value/" /etc/apache2/sites-available/default.conf
+
+# Restart Apache
+service apache2 restart
+
+# Check if the DNS CAArecord has been updated
+if [[ $(grep -Po "DNS CAArecord \K[^ ]+" /etc/apache2/sites-available/default.conf) == $new_value ]]; then
+  echo "The DNS CAArecord has been updated successfully."
+else
+  echo "The DNS CAArecord could not be updated."
+fi
+
+
+This script will check if the DNS CAArecord is set in the Apache configuration file. If it is not set, the script will exit. If the DNS CAArecord is set, the script will get the current value of the DNS CAArecord and set a new value. The script will then update the Apache configuration file and restart Apache. The script will finally check if the DNS CAArecord has been updated successfully.

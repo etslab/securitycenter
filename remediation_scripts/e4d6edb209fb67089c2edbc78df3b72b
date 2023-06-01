@@ -1,0 +1,40 @@
+####patch script to remediate  CVE-2021-26690 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2021-26690 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the version of Apache
+  APACHE_VERSION=$(apache2 -V | awk '{print $2}')
+
+  # If Apache is vulnerable, upgrade it
+  if [[ $APACHE_VERSION -lt 2.4.47 ]]; then
+    echo "Upgrading Apache to 2.4.47..."
+    sudo apt-get update
+    sudo apt-get install -y apache2
+  fi
+
+  # Restart Apache
+  echo "Restarting Apache..."
+  sudo service apache2 restart
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This script will check if Apache is running and, if it is, check the version of Apache. If Apache is vulnerable, the script will upgrade Apache to 2.4.47. Finally, the script will restart Apache.
+
+Here are some additional details about the CVE-2021-26690 vulnerability:
+
+* This vulnerability is a NULL pointer dereference in the mod_session module of Apache HTTP Server.
+* This vulnerability can be exploited by an attacker to cause a denial of service (DoS) condition on the Apache server.
+* This vulnerability affects Apache HTTP Server versions 2.4.0 to 2.4.46.
+* The vulnerability has been patched in Apache HTTP Server version 2.4.47.
+
+I hope this helps!

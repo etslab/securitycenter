@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2021-41617 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2021-41617 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+  # Stop Apache
+  systemctl stop httpd
+
+  # Apply the patch
+  patch -p1 < CVE-2021-41617.patch
+
+  # Restart Apache
+  systemctl start httpd
+else
+  echo "Apache is not running."
+fi
+```
+
+This script will first check if Apache is running. If it is, it will stop Apache, apply the patch, and then restart Apache. If Apache is not running, the script will simply print a message.
+
+To use this script, simply save it as a file called `CVE-2021-41617.sh` and then run it with the `bash` command. For example:
+
+```
+bash CVE-2021-41617.sh
+```
+
+This will apply the patch and remediate the vulnerability.
+
+Please note that this is just a sample script and may not work on all systems. It is always best to consult with a security professional to ensure that your system is properly patched.

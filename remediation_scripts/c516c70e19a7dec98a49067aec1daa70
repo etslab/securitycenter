@@ -1,0 +1,30 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Cookie without SameSite Attribute in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Cookie without SameSite Attribute in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+  echo "Apache is running. Stopping..."
+  sudo service httpd stop
+fi
+
+# Patch the Apache configuration file
+sudo sed -i 's/CookiePath \/ \/;/CookiePath \/; SameSite=Lax;/g' /etc/apache2/apache2.conf
+
+# Restart Apache
+sudo service httpd start
+
+# Check if the patch was successful
+if ! grep -q "SameSite=Lax" /etc/apache2/apache2.conf; then
+  echo "The patch was not successful. Please check the configuration file."
+  exit 1
+fi
+
+echo "The patch was successful. Apache is now patched against CVE-2013-0169."
+```
+
+This patch will add the `SameSite=Lax` attribute to all cookies set by Apache. This will prevent third-party cookies from being sent with cross-site requests, which mitigates the risk of CVE-2013-0169.
+
+Please note that this is just a sample patch. You may need to make some adjustments to the patch depending on your specific Apache configuration.

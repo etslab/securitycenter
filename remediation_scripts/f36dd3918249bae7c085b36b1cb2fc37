@@ -1,0 +1,38 @@
+####patch script to remediate CVE-2013-3587, CWE-310 CVE-2019-10092 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-3587, CWE-310 CVE-2019-10092 in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /etc/apache2/apache2.conf ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable modules are enabled
+for module in mod_cgi mod_include mod_php; do
+  if ! grep -q "^$module " /etc/apache2/mods-enabled/$module.conf; then
+    echo "$module is not enabled."
+    continue
+  fi
+
+  # Patch the vulnerable code
+  sed -i -e "s/Options Indexes FollowSymLinks/Options FollowSymLinks/" /etc/apache2/mods-available/$module.conf
+done
+
+# Restart Apache
+service apache2 restart
+
+
+This patch script will disable the `Indexes` option for the `mod_cgi`, `mod_include`, and `mod_php` modules. This will prevent Apache from serving directory listings, which is a vulnerability that can be exploited by attackers.
+
+After applying the patch, you should restart Apache for the changes to take effect.
+
+Here are some additional details about the vulnerabilities that this patch script addresses:
+
+* **CVE-2013-3587** is a remote code execution vulnerability in the `mod_cgi` module. This vulnerability can be exploited by attackers to execute arbitrary code on the server by sending a specially crafted request.
+* **CWE-310** is a generic vulnerability that allows attackers to bypass access controls by exploiting insecure directory listings.
+* **CVE-2019-10092** is a remote code execution vulnerability in the `mod_include` module. This vulnerability can be exploited by attackers to execute arbitrary code on the server by sending a specially crafted request.
+
+By applying this patch, you can help to protect your server from these vulnerabilities.

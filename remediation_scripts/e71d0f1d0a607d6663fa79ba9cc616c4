@@ -1,0 +1,35 @@
+####patch script to remediate  Strict-Transport-Security Header Not Set in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate the "Strict-Transport-Security Header Not Set" vulnerability in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current Apache configuration file
+  CONF_FILE="/etc/apache2/httpd.conf"
+
+  # Check if the HSTS header is already set
+  if ! grep -q "Strict-Transport-Security" "$CONF_FILE"; then
+
+    # Add the HSTS header to the configuration file
+    echo "Header always set Strict-Transport-Security \"max-age=63072000; includeSubDomains\"" >> "$CONF_FILE"
+
+    # Restart Apache
+    systemctl restart httpd
+
+  fi
+
+fi
+
+
+This script will first check if Apache is running. If it is, the script will then get the current Apache configuration file. Next, the script will check if the HSTS header is already set in the configuration file. If it is not, the script will add the HSTS header to the configuration file and then restart Apache.
+
+This patch script should be used with caution. If you are not familiar with Apache configuration files, you should consult with a system administrator before running this script.
+
+Here are some additional things to keep in mind when using this patch script:
+
+* The HSTS header is set to a max-age of 63072000 seconds (2 years). This can be adjusted to a shorter or longer period of time, depending on your security requirements.
+* The includeSubDomains directive is enabled by default. This will cause the HSTS header to be sent to all subdomains of the domain. If you do not want the HSTS header to be sent to subdomains, you can disable the includeSubDomains directive.
+* This patch script does not address any other vulnerabilities in Apache HTTP Server. You should also apply any other security patches that are available for Apache.

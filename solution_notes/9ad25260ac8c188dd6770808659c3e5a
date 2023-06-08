@@ -1,0 +1,21 @@
+###How to fix the Certificates issue of OCSP stapling, not offered
+OCSP stapling is a security feature that can improve the performance and security of SSL/TLS connections. It allows the web server to provide the client with the latest revocation status for the server's certificate, without the client having to make an additional request to the OCSP responder. This can improve performance by reducing the number of round trips required to establish a secure connection. It can also improve security by reducing the risk of a man-in-the-middle attack.
+
+To fix the Certificates issue of OCSP stapling, not offered in apache web server, you can follow these steps:
+
+1. Make sure that your Apache web server is running version 2.3.3 or higher.
+2. Enable OCSP stapling in your Apache configuration file. The following lines can be added to the `<VirtualHost>` section of your configuration file:
+
+```
+SSLEngine on
+SSLStapling on
+SSLStaplingCache shm:/var/run/apache2/ssl_stapling.cache
+```
+
+3. Restart Apache.
+
+After you have completed these steps, OCSP stapling should be enabled on your Apache web server.
+
+The OCSP stapling issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category A4: Insecure Transport Layer Security (TLS). This category includes risks related to the use of weak or insecure cryptographic algorithms, poor configuration of TLS, and the use of non-standard or insecure cipher suites.
+
+By enabling OCSP stapling, you can help to mitigate the risks associated with this category. OCSP stapling can help to improve the security of your web application by reducing the risk of a man-in-the-middle attack. It can also help to improve the performance of your web application by reducing the number of round trips required to establish a secure connection.

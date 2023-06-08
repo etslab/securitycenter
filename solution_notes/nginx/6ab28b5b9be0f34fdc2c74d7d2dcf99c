@@ -1,0 +1,22 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-1934 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2020-1934 issue in the Nginx web server, you can follow these steps:
+
+1. Update your Nginx installation to the latest version. The latest version of Nginx is 1.21.1, which includes a fix for CVE-2020-1934.
+2. If you are unable to update your Nginx installation, you can disable the mod_proxy_ftp module. This module is not essential for most Nginx installations, and disabling it will mitigate the risk of exploitation of CVE-2020-1934.
+
+CVE-2020-1934 is a remote code execution vulnerability in the mod_proxy_ftp module of the Nginx web server. This vulnerability allows an attacker to execute arbitrary code on the affected system by sending a specially crafted request to the web server.
+
+This vulnerability is assigned a CVSS score of 9.8, which is considered to be critical. This means that this vulnerability is very easy to exploit and can have a significant impact on the affected system.
+
+CVE-2020-1934 belongs to the OWASP Top 10 2021 category of Injection. Injection flaws occur when unvalidated or malicious data is inserted into an application. This can lead to data corruption, privilege escalation, and other security problems.
+
+To mitigate the risk of injection flaws, it is important to properly validate all input data before it is used by an application. This includes data from user input, files, and other sources. It is also important to useparameterized queries when executing SQL statements. This will help to prevent SQL injection attacks.
+
+In addition to following the above steps, you can also take the following steps to improve the security of your Nginx web server:
+
+* Enable HTTP Strict Transport Security (HSTS). HSTS tells browsers to only connect to your website using HTTPS. This helps to protect your website from man-in-the-middle attacks.
+* Enable HTTP Public Key Pinning (HPKP). HPKP tells browsers to only accept certificates for your website that are signed by trusted Certificate Authorities. This helps to protect your website from certificate spoofing attacks.
+* Install a web application firewall (WAF). A WAF can help to block malicious traffic from reaching your website.
+* Keep your Nginx installation up to date. Updates often include security fixes for vulnerabilities that may be exploited by attackers.
+
+By following these steps, you can help to protect your Nginx web server from CVE-2020-1934 and other security vulnerabilities.

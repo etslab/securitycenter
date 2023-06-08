@@ -1,0 +1,28 @@
+###How to fix the Certificates issue of HTTP Strict Transport Security (HSTS) header not implemented in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the HTTP Strict Transport Security (HSTS) header not implemented in nginx web server, you can follow these steps:
+
+1. Open the nginx configuration file. This file is usually located in `/etc/nginx/nginx.conf`.
+2. Find the section for the website that you want to enable HSTS for.
+3. Add the following lines to the section:
+
+```
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload";
+```
+
+The `max-age` directive specifies the amount of time (in seconds) that the browser should remember the HSTS header. The `includeSubDomains` directive specifies that the HSTS policy should apply to all subdomains of the website. The `preload` directive specifies that the HSTS policy should be included in the browser's preload list.
+
+4. Save the configuration file and restart nginx.
+
+Once you have enabled HSTS, the browser will always use HTTPS to connect to your website, even if the user manually enters the URL in the address bar. This helps to protect your website from man-in-the-middle attacks.
+
+The HTTP Strict Transport Security (HSTS) header not implemented in nginx web server issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Malicious File Execution. This category includes risks that allow an attacker to execute malicious code on a victim's computer. HSTS helps to mitigate this risk by forcing browsers to only connect to your website using HTTPS. This makes it more difficult for an attacker to inject malicious code into your website.
+
+Here are some additional tips for improving the security of your website:
+
+* Use a strong SSL certificate.
+* Keep your software up to date.
+* Implement strong passwords and password hashing.
+* Use a web application firewall (WAF).
+* Monitor your website for security threats.
+
+By following these tips, you can help to protect your website from malicious attacks.

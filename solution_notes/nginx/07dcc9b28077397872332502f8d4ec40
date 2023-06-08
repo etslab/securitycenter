@@ -1,0 +1,22 @@
+###How to fix the Certificates issue of security headers has issue in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the certificates issue of security headers in nginx web server, you can follow these steps:
+
+1. Check if your nginx server is using a valid SSL certificate. You can do this by visiting your website in a browser and looking for the padlock icon in the address bar. If the icon is not present, or if it is displayed as "Not Secure," then your website is not using a valid SSL certificate.
+2. If your nginx server is not using a valid SSL certificate, you will need to obtain one. There are many free and paid SSL certificate providers available, such as Let's Encrypt and Comodo.
+3. Once you have obtained a valid SSL certificate, you will need to install it on your nginx server. The installation process will vary depending on the type of SSL certificate you have purchased.
+4. Once your SSL certificate is installed, you will need to configure nginx to use it. The configuration process will vary depending on the version of nginx you are using.
+
+Once you have completed these steps, the certificates issue of security headers in nginx web server should be fixed.
+
+The certificates issue of security headers in nginx web server belongs to the OWASP Top 10 Web Application Security Risks category of "Cryptographic Failures." This category includes risks such as using weak or insecure cryptographic algorithms, storing cryptographic keys in plaintext, and failing to properly implement Transport Layer Security (TLS).
+
+By following the steps above, you can help to mitigate the risk of these types of attacks on your website.
+
+Here are some additional tips for securing your nginx web server:
+
+* Keep your nginx software up to date.
+* Use a strong password for your nginx server.
+* Enable HTTP Strict Transport Security (HSTS).
+* Enable Content Security Policy (CSP).
+* Use a web application firewall (WAF).
+* Monitor your nginx server for signs of attack.

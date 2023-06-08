@@ -1,0 +1,20 @@
+###How to fix the Web Threats issue of Content Security Policy (CSP) Header Not Set in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Web Threats issue of Content Security Policy (CSP) Header Not Set in nginx web server, you can follow these steps:
+
+1. Open your nginx configuration file.
+2. Find the server block that corresponds to the website that you want to protect.
+3. Add the following line to the server block:
+
+```
+add_header Content-Security-Policy "default-src 'self';";
+```
+
+4. Save your changes and restart nginx.
+
+This will add the Content-Security-Policy header to all responses from your website. The default value of this header will restrict all resources to be loaded from the same origin as the website. This will help to protect your website from a variety of attacks, such as cross-site scripting (XSS) and clickjacking.
+
+The Content Security Policy (CSP) header is a security feature that helps to protect websites from a variety of attacks. CSP works by restricting the types of resources that can be loaded on a website. This can help to prevent attacks such as cross-site scripting (XSS), clickjacking, and code injection.
+
+The OWASP Top 10 Web 2021 category for this issue is A1: Injection. Injection flaws, such as XSS, allow attackers to inject malicious code into a website. This malicious code can then be executed by the victim's browser, which can lead to a variety of attacks, such as stealing cookies, session tokens, and other sensitive information.
+
+By adding the Content Security Policy header to your website, you can help to protect your website from these types of attacks.

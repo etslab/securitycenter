@@ -1,0 +1,27 @@
+###How to fix the Common Vulnerabilities issue of CVE-2015-8325 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2015-8325 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx installation to the latest version.
+2. If you are unable to update your nginx installation, you can disable the UseLogin feature by adding the following line to your nginx configuration file:
+
+```
+UseLogin off;
+```
+
+3. You can also mitigate the risk of this vulnerability by disabling the PAM module that reads .pam_environment files in user home directories. To do this, edit your PAM configuration file and remove the following line:
+
+```
+auth       optional      pam_env.so
+```
+
+CVE-2015-8325 is a privilege escalation vulnerability that allows local users to gain root privileges on systems running nginx with the UseLogin feature enabled and PAM configured to read .pam_environment files in user home directories. This vulnerability is ranked as a medium severity vulnerability (CVSS score of 6.5).
+
+This vulnerability falls under the OWASP Top 10 2021 category of **Insufficient Privilege**. This category covers vulnerabilities that allow attackers to gain unauthorized access to systems or data.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use strong passwords for all accounts.
+* Enable password hashing.
+* Use a firewall to restrict access to your nginx server.
+* Keep your nginx installation up to date with the latest security patches.
+* Monitor your nginx server for signs of attack.

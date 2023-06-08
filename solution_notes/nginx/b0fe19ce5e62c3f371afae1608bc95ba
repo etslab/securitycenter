@@ -1,0 +1,21 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-40438 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2021-40438 is a Server Side Request Forgery (SSRF) vulnerability in the mod_proxy module of the nginx web server. This vulnerability allows an attacker to make arbitrary requests to other servers by crafting a specially-crafted URL.
+
+To fix this vulnerability, you should upgrade to a version of nginx that includes the fix for CVE-2021-40438. You can check the nginx version you are running by using the following command:
+
+```
+nginx -V
+```
+
+If you are not running a version of nginx that includes the fix for CVE-2021-40438, you can download the latest version from the nginx website.
+
+The CVE-2021-40438 vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection flaws, such as SSRF, allow attackers to inject malicious code into a vulnerable application. This malicious code can then be used to steal data, execute commands, or disrupt the application.
+
+Here are some additional tips for preventing SSRF attacks:
+
+* Do not allow unauthenticated users to make requests to external servers.
+* Use a web application firewall (WAF) to block known SSRF attack vectors.
+* Implement input validation to prevent attackers from injecting malicious code into requests.
+* Keep your web server software up to date with the latest security patches.
+
+By following these tips, you can help to protect your web applications from SSRF attacks.

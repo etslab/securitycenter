@@ -1,0 +1,25 @@
+###How to fix the Certificates issue of cert subjectAltName, No SAN browsers are complaining in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The Subject Alternative Name (SAN) extension is a part of the X.509 certificate standard that allows for multiple names to be associated with a single certificate. This can be used to support multiple hostnames, IP addresses, or other types of names.
+
+In the case of an nginx web server, the SAN extension is used to specify the hostnames that the server is authorized to serve. If the SAN extension is not present or does not include the correct hostname, then browsers will not be able to trust the certificate and will display an error message.
+
+To fix the issue of a missing or incorrect SAN extension, you can use the following steps:
+
+1. Generate a new certificate using a tool such as OpenSSL.
+2. When generating the certificate, be sure to include the SAN extension.
+3. In the SAN extension, specify the hostnames that the server is authorized to serve.
+4. Import the new certificate into the nginx web server.
+
+Once you have completed these steps, the nginx web server should be able to serve the specified hostnames without any errors.
+
+The issue of a missing or incorrect SAN extension belongs to the OWASP Top 10 Web Application Security Risks category of "Injection." This category includes risks that are caused by injecting untrusted data into a web application. In the case of a missing or incorrect SAN extension, the untrusted data is the hostname that is specified in the certificate. If this data is not properly validated, then it could be possible for an attacker to create a fake certificate that appears to be valid for the nginx web server. This could allow the attacker to impersonate the web server and steal sensitive information from users.
+
+To mitigate the risk of a missing or incorrect SAN extension, you should always use a trusted certificate authority to generate your certificates. You should also make sure to properly validate the hostnames that are specified in the certificate before importing it into the nginx web server.
+
+Here are some additional tips for mitigating the risk of a missing or incorrect SAN extension:
+
+* Use a trusted certificate authority to generate your certificates.
+* Properly validate the hostnames that are specified in the certificate before importing it into the nginx web server.
+* Use a web application firewall (WAF) to scan for and block malicious traffic.
+* Keep your software up to date.
+* Implement security best practices, such as least privilege and strong passwords.

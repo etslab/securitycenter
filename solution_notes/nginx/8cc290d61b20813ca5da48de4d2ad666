@@ -1,0 +1,17 @@
+###How to fix the Web Threats issue of Vulnerable JS Library in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Web Threats issue of Vulnerable JS Library in nginx web server, you can follow these steps:
+
+1. Identify the vulnerable JavaScript library. You can do this by using a vulnerability scanner or by manually checking the library's source code for known vulnerabilities.
+2. Update the vulnerable JavaScript library to the latest version. The latest version of the library will likely have been patched for any known vulnerabilities.
+3. If you are unable to update the vulnerable JavaScript library, you can mitigate the risk by disabling the library or by configuring it to use a more secure protocol, such as HTTPS.
+
+The Vulnerable JS Library issue belongs to the OWASP Top 10 Web 2021 category of **Using Components with Known Vulnerabilities**. This category includes vulnerabilities that can be exploited by attackers if an application or website uses a component, such as a JavaScript library, that has known vulnerabilities.
+
+Here are some additional tips for preventing and mitigating the risk of Vulnerable JS Libraries:
+
+* Keep your software up to date. Software vendors often release security patches to fix known vulnerabilities. By keeping your software up to date, you can help to protect your applications and websites from attack.
+* Use a vulnerability scanner. A vulnerability scanner can help you to identify vulnerable components in your applications and websites.
+* Implement a security policy. A security policy can help you to define the security requirements for your applications and websites. It can also help you to implement security controls, such as keeping software up to date and using a vulnerability scanner.
+* Train your staff. Your staff should be trained on security best practices. This training should include information on how to identify and report vulnerabilities.
+
+By following these tips, you can help to prevent and mitigate the risk of Vulnerable JS Libraries.

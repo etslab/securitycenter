@@ -1,0 +1,26 @@
+###How to fix the Certificates issue of X-XSS-Protection header not implemented in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The X-XSS-Protection header is a security measure that helps to protect against Cross-Site Scripting (XSS) attacks. XSS attacks are a type of code injection attack where malicious code is injected into a web page that is then executed by the victim's browser. This can allow the attacker to steal cookies, session tokens, or other sensitive information.
+
+The X-XSS-Protection header can be used to mitigate XSS attacks by instructing the browser to prevent the execution of malicious code. The header can be set to one of three modes:
+
+* **1; mode=block:** This mode tells the browser to block the execution of all JavaScript code that is not explicitly allowed. This is the most secure mode, but it may break some legitimate JavaScript code.
+* **1; mode=deny:** This mode tells the browser to deny the execution of all JavaScript code that is not explicitly allowed. This mode is less secure than block mode, but it is less likely to break legitimate JavaScript code.
+* **0:** This mode tells the browser to not do anything special with the X-XSS-Protection header. This is the least secure mode, and it should not be used.
+
+To fix the X-XSS-Protection header not implemented issue in nginx, you need to add the following line to your nginx configuration file:
+
+```
+add_header X-XSS-Protection "1; mode=block";
+```
+
+Once you have added this line, you need to restart nginx for the changes to take effect.
+
+The X-XSS-Protection header is part of the OWASP Top 10 Web Application Security Risks. It is classified as a Prevention category issue.
+
+Here are some additional tips for preventing XSS attacks:
+
+* Sanitize all user input before it is used to generate HTML.
+* Use output encoding to prevent XSS attacks in dynamic content.
+* Use a web application firewall (WAF) to help protect against XSS attacks.
+
+By following these tips, you can help to protect your web application from XSS attacks.

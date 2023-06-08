@@ -1,0 +1,22 @@
+###How to fix the Certificates issue of DNS CAArecord has issue in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Certificates issue of DNS CAArecord has issue in nginx web server, you can follow these steps:
+
+1. Check your DNS settings to make sure that a CAA record exists for your domain. The CAA record should specify that only the Certificate Authorities that you trust are allowed to issue certificates for your domain.
+2. If no CAA record exists, you can create one using your DNS provider's tools. The syntax for a CAA record is as follows:
+
+```
+example.com. CAA 0 issue "digicert.com"
+```
+
+This record specifies that only DigiCert is allowed to issue certificates for the example.com domain.
+3. Once you have created the CAA record, you should be able to obtain a certificate from your preferred Certificate Authority.
+
+The DNS CAArecord issue belongs to the OWASP Top 10 Web 2021 category of **Injection**. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. In the case of the DNS CAArecord issue, an attacker could create a fake CAA record that would allow them to issue certificates for a domain that they do not own. This could then be used to impersonate the site owner or to perform other malicious activities.
+
+Here are some additional tips for preventing DNS CAArecord issues:
+
+* Use a reputable DNS provider that offers security features such as DNSSEC.
+* Keep your DNS records up to date.
+* Monitor your DNS traffic for signs of malicious activity.
+
+By following these tips, you can help to protect your website from DNS CAArecord issues and other security vulnerabilities.

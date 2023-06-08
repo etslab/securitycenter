@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-22719 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2022-22719 is a vulnerability in the nginx web server that could allow an attacker to cause a denial of service (DoS) attack. The vulnerability is caused by a flaw in the way that nginx handles large request bodies. An attacker could exploit this vulnerability by sending a specially crafted request body that is larger than the maximum allowed size. This would cause nginx to crash, resulting in a DoS attack.
+
+To fix this vulnerability, you should update your nginx web server to the latest version. You can find the latest version of nginx on the nginx website.
+
+This vulnerability belongs to the OWASP Top 10 2021 category of Injection. Injection flaws, such as this one, occur when unvalidated or malicious data is inserted into an application. This can lead to a variety of security problems, including DoS attacks, data modification, and privilege escalation.
+
+Here are some additional steps you can take to protect your website from injection attacks:
+
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Use input validation to ensure that all user input is sanitized before it is processed by your application.
+* Use strong passwords and enable two-factor authentication to protect your website's administrative accounts.
+* Keep your software up to date with the latest security patches.
+
+By following these steps, you can help to protect your website from injection attacks and other security vulnerabilities.

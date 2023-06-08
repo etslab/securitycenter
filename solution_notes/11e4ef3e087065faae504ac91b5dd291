@@ -1,0 +1,19 @@
+###How to fix the Web Threats issue of Secure Pages Include Mixed Content
+The Web Threats issue of Secure Pages Include Mixed Content in Apache web server can be fixed by following these steps:
+
+1. Identify the resources that are loading over HTTP. This can be done using a web browser's developer tools, or by using a tool like Nikto.
+2. Make sure that the resources are available over HTTPS. If they are not, you will need to upload the secure versions of the resources to your web server.
+3. Update the links to the resources to use the HTTPS protocol. This can be done manually, or using a tool like a search and replace.
+
+Once you have completed these steps, the Web Threats issue of Secure Pages Include Mixed Content in Apache web server should be fixed.
+
+This issue belongs to the OWASP Top 10 Web Security Risks 2021 category of "Injection". Injection flaws, such as cross-site scripting (XSS), can allow an attacker to inject malicious code into a web page. This code can then be executed by the victim's browser, allowing the attacker to steal cookies, session tokens, or other sensitive information.
+
+By fixing the Web Threats issue of Secure Pages Include Mixed Content in Apache web server, you can help to protect your website from these types of attacks.
+
+Here are some additional tips for preventing mixed content errors:
+
+* Use a Content Security Policy (CSP) to restrict the types of resources that can be loaded from external sources.
+* Use a web application firewall (WAF) to block malicious requests.
+* Keep your web server software up to date.
+* Regularly scan your website for security vulnerabilities.

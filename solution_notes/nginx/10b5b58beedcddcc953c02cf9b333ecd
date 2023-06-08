@@ -1,0 +1,16 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-1927 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2020-1927 issue in the Nginx web server, you can follow these steps:
+
+1. Update your Nginx web server to the latest version. You can find the latest version of Nginx on the Nginx website.
+2. If you are unable to update your Nginx web server, you can apply the security patch for CVE-2020-1927. The security patch can be found on the Nginx website.
+
+CVE-2020-1927 is a remote code execution vulnerability in the Nginx web server. This vulnerability allows an attacker to execute arbitrary code on the vulnerable system by sending a specially crafted request to the Nginx web server. This vulnerability is a high severity vulnerability and should be fixed as soon as possible.
+
+CVE-2020-1927 belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is inserted into an application. This can allow attackers to execute arbitrary code on the vulnerable system or steal sensitive data.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use a web application firewall (WAF) to help protect against XSS attacks.
+* Sanitize all user input before inserting it into an application.
+* Educate your developers about injection attacks and how to prevent them.

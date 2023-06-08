@@ -1,0 +1,16 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-30556 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2022-30556 is a vulnerability in the nginx web server that can allow an attacker to obtain sensitive information from the server. The vulnerability is caused by a buffer overflow in the mod_lua module when handling WebSocket connections.
+
+To fix this vulnerability, you should upgrade your nginx web server to a version that includes the security patch for CVE-2022-30556. You can find the latest version of nginx on the nginx website.
+
+This vulnerability belongs to the OWASP Top 10 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered user input is used to control the output of a web application. This can allow attackers to execute arbitrary code on the server or steal sensitive data from the application.
+
+To prevent injection attacks, it is important to properly validate and filter all user input before it is used to generate output. You can use a web application firewall (WAF) to help prevent injection attacks.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements instead of dynamic SQL queries.
+* Use input filters to sanitize user input before it is used in an application.
+* Use a WAF to help prevent injection attacks.
+
+By following these tips, you can help to protect your web applications from injection attacks.

@@ -1,0 +1,32 @@
+###How to fix the Certificates issue of cert expirationStatus, expires < 60 days (34) in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the certificate expiration issue in Nginx, you can use the following steps:
+
+1. Check the expiration date of your certificate. You can do this by using the following command:
+
+```
+openssl x509 -in certificate.pem -enddate -noout
+```
+
+2. If the expiration date is less than 60 days away, you will need to renew your certificate. You can do this by contacting your certificate authority.
+3. Once you have renewed your certificate, you will need to update it in Nginx. You can do this by editing the following file:
+
+```
+/etc/nginx/conf.d/default.conf
+```
+
+4. In the file, find the following line:
+
+```
+ssl_certificate /etc/ssl/certificate.pem;
+```
+
+5. Replace the path to the certificate with the path to the new certificate.
+6. Save the file and restart Nginx.
+
+The OWASP Top 10 2021 category for this issue is **A1: Broken Authentication**. This category covers vulnerabilities that allow attackers to gain unauthorized access to systems or data. An expired certificate can be used by an attacker to impersonate a legitimate user or system, which can lead to data breaches or other security incidents.
+
+Here are some additional tips to help you prevent this issue from happening again:
+
+* Set up a certificate renewal reminder system so that you are notified when your certificates are approaching expiration.
+* Use a certificate management tool to help you track and manage your certificates.
+* Implement a security policy that requires all certificates to be renewed before they expire.

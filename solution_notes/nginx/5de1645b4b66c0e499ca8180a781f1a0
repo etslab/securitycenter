@@ -1,0 +1,21 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-0196 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2019-0196 is a remote code execution vulnerability in the HTTP/2 request handling of the nginx web server. This vulnerability can be exploited by sending specially crafted HTTP/2 requests to the nginx server, which could allow an attacker to execute arbitrary code on the server.
+
+To fix this vulnerability, you should upgrade your nginx server to a version that includes the security patch for CVE-2019-0196. You can find the latest version of nginx on the nginx website.
+
+CVE-2019-0196 belongs to the following OWASP Top 10 Web 2021 categories:
+
+* Injection (A1)
+* Broken Authentication (A2)
+* Security Misconfiguration (A3)
+
+You can learn more about these categories and how to mitigate them on the OWASP website.
+
+Here are some additional steps you can take to secure your nginx server:
+
+* Enable HTTP Strict Transport Security (HSTS) to force all connections to your server to use HTTPS.
+* Enable HTTP/2 Push to improve performance and reduce the number of requests that need to be made by clients.
+* Use a web application firewall (WAF) to help protect your server from common web attacks.
+* Keep your nginx server up to date with the latest security patches.
+
+By following these steps, you can help to protect your nginx server from CVE-2019-0196 and other security vulnerabilities.

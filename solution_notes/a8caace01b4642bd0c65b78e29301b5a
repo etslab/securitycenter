@@ -1,0 +1,24 @@
+###How to fix the Web Threats issue of Cookie No HttpOnly Flag
+To fix the Web Threats issue of Cookie No HttpOnly Flag in Apache web server, you can follow these steps:
+
+1. Verify that mod_headers.so is enabled in your httpd.conf file.
+2. Add the following directive to your httpd.conf file:
+
+```
+Header edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+```
+
+3. Restart Apache.
+
+This will set the HttpOnly flag on all cookies set by your Apache web server. This will prevent client-side scripts from accessing the cookie content, which can help to mitigate cross-site scripting (XSS) attacks.
+
+The Cookie No HttpOnly Flag issue belongs to OWASP Top 10 Web 2021 category A1: Broken Authentication. This category includes vulnerabilities that allow attackers to gain unauthorized access to user accounts.
+
+Here are some additional tips for securing your Apache web server:
+
+* Use strong passwords and security settings for your Apache web server.
+* Keep your Apache web server software up to date.
+* Use a web application firewall (WAF) to help protect your Apache web server from attacks.
+* Monitor your Apache web server for suspicious activity.
+
+By following these tips, you can help to protect your Apache web server from attacks and keep your data secure.

@@ -1,0 +1,25 @@
+###How to fix the Web Threats issue of Secure Pages Include Mixed Content in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The Web Threats issue of Secure Pages Include Mixed Content in nginx web server can be fixed by following these steps:
+
+1. Identify all of the resources on your website that are being served over HTTP. This can be done using a tool like Wappalyzer or Nikto.
+2. Convert all of these resources to HTTPS. This can be done by updating the links in your website's code or by using a tool like Certbot to automatically generate and install SSL certificates.
+3. Once all of the resources on your website are being served over HTTPS, you can test to make sure that there are no longer any mixed content warnings. You can do this by using a tool like Qualys SSL Labs or Google's Transparency Report.
+
+The Secure Pages Include Mixed Content issue belongs to the OWASP Top 10 Web Application Security Risks category of "Security Misconfiguration". This category includes risks that are caused by incorrect or incomplete configuration of security settings. Other risks in this category include:
+
+* Using weak passwords or password policies
+* Failing to install security patches
+* Allowing unauthenticated users to access sensitive data
+* Not using a web application firewall
+
+By following the steps above, you can help to protect your website from these and other security risks.
+
+Here are some additional tips for fixing the Secure Pages Include Mixed Content issue:
+
+* Use a web application firewall (WAF) to help block malicious traffic and prevent attacks.
+* Keep your website's software up to date with the latest security patches.
+* Use strong passwords and password policies.
+* Implement a content security policy (CSP) to help prevent cross-site scripting (XSS) attacks.
+* Use a secure hosting provider.
+
+By following these tips, you can help to keep your website secure and protect your users from harm.

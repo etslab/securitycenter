@@ -1,0 +1,17 @@
+###How to fix the Certificates issue of cert chain of trust, failed (self signed). in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the "cert chain of trust, failed (self signed)" error in an nginx web server, you can do the following:
+
+1. Make sure that the self-signed certificate is installed correctly. The certificate should be in the `/etc/ssl/certs` directory and the key should be in the `/etc/ssl/private` directory.
+2. If the certificate is installed correctly, check to see if the web browser is configured to trust self-signed certificates. In Chrome, for example, you can do this by going to **Settings** > **Advanced** > **Security** > **Manage certificates** > **Trusted Root Certification Authorities** and adding the self-signed certificate to the list of trusted certificates.
+3. If the web browser is configured to trust self-signed certificates, the problem may be with the nginx configuration. Make sure that the `ssl_certificate` and `ssl_certificate_key` directives are pointing to the correct files.
+
+The "cert chain of trust, failed (self signed)" error is a security vulnerability because it allows attackers to impersonate your website. This vulnerability falls under OWASP Top 10 Web Application Security Risks 2021 category A1: Injection.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use a valid SSL certificate from a trusted certificate authority.
+* Enable HTTP Strict Transport Security (HSTS).
+* Use a web application firewall (WAF).
+* Keep your nginx software up to date.
+
+By following these tips, you can help to protect your nginx web server from attack.

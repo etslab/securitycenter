@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2018-15473
+CVE-2018-15473 is a remote code execution vulnerability in the Apache HTTP Server. It is caused by a flaw in the way the server handles HTTP/2 requests. An attacker can exploit this vulnerability to execute arbitrary code on the server.
+
+To fix this vulnerability, you need to upgrade your Apache HTTP Server to a version that includes the security patch. You can find the latest version of the Apache HTTP Server on the Apache website.
+
+CVE-2018-15473 belongs to the OWASP Top 10 Web Vulnerabilities 2021 category of Injection. Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when unvalidated or unfiltered data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+
+Here are some additional tips to help you secure your Apache HTTP Server:
+
+* Enable the mod_security module. Mod_security is a web application firewall that can help protect your server from a variety of attacks.
+* Configure mod_security to block known attack patterns. There are a number of pre-configured rule sets available for mod_security.
+* Use a strong password for your Apache HTTP Server account.
+* Keep your Apache HTTP Server software up to date.
+* Use a web application firewall (WAF) to help protect your server from attacks.
+* Monitor your server for signs of attack. There are a number of tools available that can help you monitor your server for signs of attack.

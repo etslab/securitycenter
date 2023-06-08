@@ -1,0 +1,22 @@
+###How to fix the Certificates issue of There is an issue with MAC algorithms
+There are a few ways to fix the certificates issue of There is an issue with MAC algorithms in apache web server.
+
+**1. Update Apache to the latest version.**
+
+The latest version of Apache includes a fix for this issue. You can update Apache by following the instructions in the Apache documentation.
+
+**2. Disable the use of weak MAC algorithms.**
+
+You can disable the use of weak MAC algorithms by editing the Apache configuration file. In the configuration file, find the section that defines the `SSLCipherSuite` directive. Add the following line to the directive:
+
+
+SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-DSS-AES256-GCM-SHA384:kEDH+AESGCM:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA256:kEDH+AES256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA
+
+
+This will disable the use of all weak MAC algorithms, including MD5 and SHA-1.
+
+**3. Use a different web server.**
+
+If you are unable or unwilling to update Apache or disable the use of weak MAC algorithms, you can use a different web server. Some alternative web servers that do not have this issue include Nginx and Lighttpd.
+
+The issue of weak MAC algorithms in Apache web server belongs to the OWASP Top 10 Web 2021 category of **Cryptographic Failures**. This category includes vulnerabilities that can be exploited by attackers to gain access to sensitive data or systems. By updating Apache to the latest version, disabling the use of weak MAC algorithms, or using a different web server, you can help to mitigate the risk of these attacks.

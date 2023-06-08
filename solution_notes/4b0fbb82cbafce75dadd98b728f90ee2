@@ -1,0 +1,18 @@
+###How to fix the Certificates issue of HTTP Strict Transport Security (HSTS) header cannot be set as site contains an invalid certificate chain
+The HTTP Strict Transport Security (HSTS) header cannot be set as site contains an invalid certificate chain in Apache web server issue can be fixed by following these steps:
+
+1. Check the certificate chain to make sure that it is valid. You can use a certificate validation tool to do this.
+2. If the certificate chain is valid, then the problem may be with the Apache configuration. You can check the Apache configuration to make sure that the HSTS header is being set correctly.
+3. If the HSTS header is being set correctly, then the problem may be with the browser. You can try updating the browser to the latest version.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1: Injection**. This category includes vulnerabilities that allow attackers to inject malicious code into web applications. An invalid certificate chain can be used to inject malicious code into a web application, which can then be used to steal user data or take control of the application.
+
+Here are some additional tips for securing your Apache web server:
+
+* Use strong passwords and change them regularly.
+* Keep the Apache software up to date.
+* Use a firewall to protect your server from unauthorized access.
+* Use a web application firewall to protect your server from attacks.
+* Implement security best practices, such as input validation and output encoding.
+
+By following these tips, you can help to protect your Apache web server from attacks.

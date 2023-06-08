@@ -1,0 +1,16 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-3115 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2016-3115 is a vulnerability in the OpenSSH server that allows an authenticated user to bypass intended shell-command restrictions via crafted X11 forwarding data. This vulnerability was patched in OpenSSH 7.2p2. To fix this vulnerability on an nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version.
+2. If you are unable to update your nginx web server, you can apply the patch for CVE-2016-3115 manually. The patch can be found here: https://www.openssh.com/txt/x11fwd.adv
+
+CVE-2016-3115 belongs to the OWASP Top 10 2021 category of **Injection**. Injection flaws occur whenever untrusted data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements or parameterized queries instead of building dynamic queries.
+* Sanitize all user input before sending it to an interpreter.
+* Use input validation to check for malicious characters.
+* Keep your software up to date with the latest security patches.
+
+By following these tips, you can help to protect your nginx web server from injection attacks.

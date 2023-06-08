@@ -1,0 +1,22 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-10097 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2019-10097 is a remote code execution vulnerability in the nginx web server. It can be exploited by an attacker to execute arbitrary code on the server. To fix this vulnerability, you need to upgrade to a version of nginx that includes the security patch for CVE-2019-10097. You can find the latest version of nginx on the nginx website.
+
+This vulnerability belongs to the OWASP Top 10 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is inserted into an application. This can allow an attacker to execute arbitrary code on the server or steal sensitive data.
+
+Here are the steps on how to fix the CVE-2019-10097 vulnerability in nginx web server:
+
+1. Download the latest version of nginx from the nginx website.
+2. Unzip the downloaded file.
+3. Stop the nginx service.
+4. Copy the new nginx binary file to the `/usr/sbin` directory.
+5. Edit the `/etc/nginx/nginx.conf` file and change the `worker_processes` directive to the number of CPUs on your system.
+6. Restart the nginx service.
+
+Once you have completed these steps, the CVE-2019-10097 vulnerability will be fixed.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements to avoid SQL injection attacks.
+* Use a web application firewall (WAF) to help protect against XSS attacks.
+* Sanitize all user input before inserting it into an application.
+* Educate your developers about injection attacks and how to prevent them.

@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-10081
+CVE-2019-10081 is a vulnerability in the Apache HTTP Server that could allow an attacker to crash the server or execute arbitrary code. The vulnerability is caused by a memory corruption bug in the mod_http2 module.
+
+To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is not vulnerable. You can find the latest versions of Apache HTTP Server on the Apache Software Foundation website.
+
+CVE-2019-10081 belongs to the OWASP Top 10 Web Application Security Risks category of "Injection". Injection vulnerabilities occur when unvalidated or unfiltered data is inserted into an application. This can allow an attacker to execute arbitrary code or gain access to sensitive data.
+
+To prevent injection vulnerabilities, you should always validate and filter all input data before it is inserted into an application. You should also use a web application firewall (WAF) to help protect your application from attacks.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements instead of dynamic SQL queries.
+* Use parameterized queries instead of string concatenation.
+* Sanitize all user input before it is inserted into an application.
+* Use a WAF to help protect your application from attacks.
+
+By following these tips, you can help to prevent injection vulnerabilities and keep your applications secure.

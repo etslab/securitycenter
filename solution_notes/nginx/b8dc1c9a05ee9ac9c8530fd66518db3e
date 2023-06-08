@@ -1,0 +1,25 @@
+###How to fix the API Threats issue of Unexpected Content-Type was returned in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the API Threats issue of Unexpected Content-Type was returned in nginx web server, you can follow these steps:
+
+1. Check the nginx configuration file to make sure that the Content-Type header is being set correctly for the API requests.
+2. If the Content-Type header is not being set correctly, you can add a new line to the nginx configuration file with the following content:
+
+```
+location /api {
+    default_type application/json;
+}
+```
+
+3. Restart the nginx web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as this one, occur when unvalidated or malicious data is inserted into an application. This can lead to a variety of security vulnerabilities, such as data exfiltration, privilege escalation, and denial of service attacks.
+
+Here are some additional tips for preventing API threats:
+
+* Use a Content-Security-Policy (CSP) to restrict the types of resources that can be loaded by your API.
+* Use a rate limiter to prevent excessive requests from being made to your API.
+* Use an API firewall to block common attack vectors.
+* Implement proper authentication and authorization for your API.
+* Keep your API code up to date with the latest security patches.
+
+By following these tips, you can help to protect your API from threats.

@@ -1,0 +1,20 @@
+###How to fix the API Threats issue of Timestamp Disclosure - Unix
+There are a few ways to fix the API Threats issue of Timestamp Disclosure - Unix in Apache web server. One way is to disable the mod_log_config module. This module is responsible for logging timestamps to the Apache access log, and disabling it will prevent timestamps from being disclosed to attackers. Another way to fix this issue is to configure the mod_log_config module to only log timestamps in a format that is not easily understood by attackers. For example, you could configure the module to log timestamps in the following format:
+
+```
+%Y-%m-%dT%H:%M:%S.%fZ
+```
+
+This format is not easily understood by attackers, and it will make it more difficult for them to exploit the issue.
+
+The Timestamp Disclosure - Unix issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Information Exposure. This category includes risks that can lead to the disclosure of sensitive information, such as passwords, credit card numbers, and personal identifiable information.
+
+Here are some additional steps you can take to protect your Apache web server from this and other security risks:
+
+* Keep your Apache web server software up to date.
+* Use a strong password for your Apache web server.
+* Configure your Apache web server to only listen on the ports that you need it to listen on.
+* Use a firewall to block access to your Apache web server from the internet.
+* Use a web application firewall (WAF) to protect your Apache web server from common web application attacks.
+
+By following these steps, you can help to protect your Apache web server from the Timestamp Disclosure - Unix issue and other security risks.

@@ -1,0 +1,37 @@
+###How to fix the Certificates issue of cert trust, certificate does not match supplied URI (same wo SNI) in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the certificate trust issue in nginx, you can do the following:
+
+1. Make sure that the certificate is valid and has not expired.
+2. Make sure that the certificate is issued by a trusted certificate authority.
+3. If you are using a self-signed certificate, you will need to install the certificate into the trusted certificate store on the client computer.
+4. Make sure that the certificate is configured correctly in nginx.
+
+To check if the certificate is valid, you can use the following command:
+
+```
+openssl verify -verbose <certificate_file>
+```
+
+If the certificate is valid, you will see output similar to the following:
+
+```
+Verify return code: 0 (ok)
+```
+
+To check if the certificate is issued by a trusted certificate authority, you can use the following command:
+
+```
+openssl x509 -in <certificate_file> -subject -issuer
+```
+
+The output of this command will show the subject and issuer of the certificate. If the issuer is a trusted certificate authority, then the certificate is valid.
+
+If you are using a self-signed certificate, you will need to install the certificate into the trusted certificate store on the client computer. The process for doing this will vary depending on the operating system of the client computer.
+
+To configure the certificate in nginx, you will need to edit the nginx configuration file. The location of the configuration file will vary depending on your nginx installation. Once you have opened the configuration file, you will need to find the section that contains the configuration for the website that is using the certificate. In this section, you will need to specify the path to the certificate file and the path to the key file.
+
+Once you have made the necessary changes to the configuration file, you will need to restart nginx. Once nginx has restarted, the website should be accessible using the certificate.
+
+The certificate trust issue in nginx belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. This category includes risks that are caused by injecting untrusted data into a web application. In the case of the certificate trust issue, the untrusted data is the certificate itself. If the certificate is not trusted, then the web application may be vulnerable to attacks such as man-in-the-middle attacks.
+
+To mitigate the risk of certificate trust issues, you should ensure that all certificates used by your web applications are valid and issued by trusted certificate authorities. You should also install self-signed certificates into the trusted certificate store on client computers. Finally, you should configure your web applications to only accept certificates from trusted certificate authorities.

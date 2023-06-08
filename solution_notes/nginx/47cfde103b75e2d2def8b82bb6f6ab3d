@@ -1,0 +1,16 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10708 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2016-10708 is a remote code execution vulnerability in the nginx web server. This vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted request.
+
+To fix this vulnerability, you need to upgrade your nginx web server to a version that includes a patch for this vulnerability. You can find the latest version of nginx on the nginx website.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when unvalidated or unfiltered user input is used to dynamically generate SQL statements or other commands. The attacker can control the input to these dynamic commands, resulting in unintended execution of commands or the introduction of malicious code.
+
+Here are some additional steps you can take to protect your nginx web server from attack:
+
+* Keep your nginx web server up to date with the latest security patches.
+* Use a firewall to restrict access to your nginx web server.
+* Use strong passwords for your nginx web server.
+* Enable SSL/TLS for your nginx web server.
+* Use a web application firewall (WAF) to protect your nginx web server from common web attacks.
+
+By taking these steps, you can help to protect your nginx web server from attack and keep your data safe.

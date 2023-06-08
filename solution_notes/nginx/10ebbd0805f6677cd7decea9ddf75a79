@@ -1,0 +1,23 @@
+###How to fix the Web Threats issue of Re-examine Cache-control Directives in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Web Threats issue of Re-examine Cache-control Directives in nginx web server, you can follow these steps:
+
+1. Check the nginx configuration file to make sure that the Cache-Control headers are properly set. The Cache-Control header tells browsers how long they can cache a resource before they need to request a new copy from the server.
+2. If the Cache-Control headers are not set correctly, you can edit the nginx configuration file to add the correct headers. The following are some examples of Cache-Control headers that you can use:
+
+* `public` - This header tells browsers that the resource can be cached by anyone, including browsers and CDNs.
+* `private` - This header tells browsers that the resource can only be cached by the user's browser.
+* `no-cache` - This header tells browsers that they must check with the origin server for a new copy of the resource before using it.
+* `no-store` - This header tells browsers to not cache the resource at all.
+
+3. Once you have edited the nginx configuration file, restart the nginx service.
+
+The Re-examine Cache-control Directives in nginx web server issue belongs to the OWASP Top 10 Web 2021 category of **A1 - Injection**. Injection flaws, such as SQL injection and XSS, occur when unvalidated or unfiltered user input is used to dynamically generate SQL statements or HTML code. This can lead to data breaches, privilege escalation, and other security vulnerabilities.
+
+By properly configuring the Cache-Control headers in nginx, you can help to prevent injection attacks and other security vulnerabilities.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use a strong password for the nginx service.
+* Enable HTTP Strict Transport Security (HSTS) to force browsers to use only HTTPS connections to your server.
+* Install and configure a web application firewall (WAF) to help protect your server from common attacks.
+* Keep your nginx software up to date with the latest security patches.

@@ -1,0 +1,20 @@
+###How to fix the Web Threats issue of 
+The Web Threats issue in Apache web server can be fixed by disabling the TRACE HTTP method in Apache Configuration. You can do this by modifying/adding the following directive in your httpd.conf of your Apache Web Server:
+
+```
+TRACE disabled
+```
+
+This will prevent attackers from using the TRACE method to exploit vulnerabilities in your web server.
+
+The Web Threats issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection attacks are a type of attack where an attacker injects malicious code into a vulnerable application. This malicious code can then be executed by the application, allowing the attacker to gain control of the application or steal data.
+
+Here are some other steps you can take to secure your Apache web server:
+
+* Keep your Apache web server up to date with the latest security patches.
+* Use a strong password for your Apache web server account.
+* Configure your Apache web server to only listen on the ports that you need.
+* Use a firewall to block traffic to your Apache web server from unauthorized sources.
+* Use a web application firewall (WAF) to protect your Apache web server from common web application attacks.
+
+By taking these steps, you can help to protect your Apache web server from attack.

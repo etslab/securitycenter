@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-6109 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2019-6109 is a security vulnerability in the nginx web server that allows an attacker to execute arbitrary code on the server. The vulnerability is caused by a flaw in the way that nginx handles HTTP requests with the "multipart/form-data" content type.
+
+To fix the vulnerability, you should upgrade to a version of nginx that includes the security patch for CVE-2019-6109. You can find the latest version of nginx on the nginx website.
+
+CVE-2019-6109 belongs to the OWASP Top 10 Web Vulnerabilities 2021 category of Injection. Injection vulnerabilities occur when unvalidated or unfiltered data is inserted into a system, such as a web application, database, or operating system. This can lead to unauthorized access, data modification, or denial of service.
+
+To prevent injection vulnerabilities, it is important to properly validate and filter all input data. This includes data that is entered by users, as well as data that is retrieved from external sources, such as databases or files.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements or parameterized queries when accessing databases.
+* Use input validation libraries to help you validate user input.
+* Sanitize all output data before displaying it to users.
+* Keep your software up to date with the latest security patches.
+
+By following these tips, you can help to protect your systems from injection vulnerabilities.

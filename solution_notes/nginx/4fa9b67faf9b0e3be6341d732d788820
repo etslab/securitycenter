@@ -1,0 +1,23 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-26377 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2022-26377 issue in the Nginx web server, you can follow these steps:
+
+1. Update your Nginx installation to the latest version. The latest version of Nginx, as of this writing, is 1.22.1. You can download the latest version from the Nginx website.
+2. If you are unable to update your Nginx installation, you can mitigate the vulnerability by disabling the mod_proxy_ajp module. To do this, open the Nginx configuration file and comment out the following line:
+
+```
+#include <http/modules/ngx_http_proxy_ajp_module.conf>
+```
+
+3. Once you have updated your Nginx installation or disabled the mod_proxy_ajp module, you should restart the Nginx service.
+
+The CVE-2022-26377 issue is a type of request smuggling vulnerability. Request smuggling vulnerabilities occur when a web server incorrectly parses HTTP requests. This can allow an attacker to send requests to the web server that are not intended by the user. In the case of CVE-2022-26377, the vulnerability allows an attacker to send requests to the AJP server that is behind the Nginx web server. This can allow the attacker to gain access to the AJP server or to perform other malicious actions.
+
+The CVE-2022-26377 issue belongs to the OWASP Top 10 2021 category of Injection. The OWASP Top 10 is a list of the most critical web application security risks. Injection vulnerabilities occur when unvalidated data is injected into an application. This can allow an attacker to control the behavior of the application or to gain access to sensitive data.
+
+Here are some additional tips for securing your Nginx web server:
+
+* Keep your Nginx installation up to date.
+* Use a strong password for your Nginx server.
+* Enable HTTP authentication for your Nginx server.
+* Use a firewall to restrict access to your Nginx server.
+* Monitor your Nginx server for suspicious activity.

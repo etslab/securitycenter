@@ -1,0 +1,29 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-22720 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2022-22720 issue in Nginx web server, you can follow these steps:
+
+1. Update your Nginx web server to the latest version. The latest version of Nginx is 1.21.6, which includes a fix for CVE-2022-22720.
+2. If you cannot update your Nginx web server to the latest version, you can apply the following workaround:
+    * Open the Nginx configuration file. The default location of the Nginx configuration file is `/etc/nginx/nginx.conf`.
+    * Locate the following line in the configuration file:
+        
+                ```error_log /var/log/nginx/error.log;
+        ```
+
+    * Change the path to the error log file to a directory that is not writable by the web server process. For example, you could change the line to the following:
+        
+                ```error_log /var/lib/nginx/error.log;
+        ```
+
+3. Restart the Nginx web server.
+
+CVE-2022-22720 is a remote code execution vulnerability in Nginx web server. This vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted request to the server. This vulnerability is classified as a critical vulnerability and should be patched as soon as possible.
+
+CVE-2022-22720 belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an application. This can allow an attacker to execute arbitrary code on the server or steal sensitive data.
+
+Here are some additional tips for securing your Nginx web server:
+
+* Use a strong password for the Nginx web server user account.
+* Enable HTTP Strict Transport Security (HSTS) to force all connections to the server to use HTTPS.
+* Enable HTTP Content Security Policy (CSP) to restrict the types of resources that can be loaded by the browser.
+* Use a web application firewall (WAF) to block common attack vectors.
+* Keep your Nginx web server software up to date with the latest security patches.

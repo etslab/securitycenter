@@ -1,0 +1,23 @@
+###How to fix the Certificates issue of There is an issue with MAC algorithms in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The issue with MAC algorithms in nginx web server can be fixed by updating the nginx configuration to use a stronger MAC algorithm. The following steps can be taken to fix this issue:
+
+1. Open the nginx configuration file.
+2. Locate the section that contains the SSL/TLS configuration.
+3. Find the line that specifies the MAC algorithm.
+4. Change the MAC algorithm to a stronger algorithm, such as HMAC-SHA256.
+5. Save the configuration file.
+6. Restart the nginx server.
+
+The issue of MAC algorithms in nginx web server belongs to the OWASP Top 10 Web Security Vulnerabilities 2021 category of Insufficient Transport Layer Security (TLS). This category includes vulnerabilities that can allow attackers to downgrade the security of a TLS connection, such as by using a weak cipher suite or a weak MAC algorithm.
+
+By updating the nginx configuration to use a stronger MAC algorithm, organizations can help to protect themselves from these types of attacks.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use a strong password for the nginx server.
+* Enable HTTP Strict Transport Security (HSTS).
+* Enable the OCSP stapling extension.
+* Configure nginx to use a high-security cipher suite.
+* Keep nginx up to date with the latest security patches.
+
+By following these tips, you can help to protect your nginx web server from attack.

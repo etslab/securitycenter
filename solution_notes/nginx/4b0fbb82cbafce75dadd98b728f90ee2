@@ -1,0 +1,25 @@
+###How to fix the Certificates issue of HTTP Strict Transport Security (HSTS) header cannot be set as site contains an invalid certificate chain in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the issue of HTTP Strict Transport Security (HSTS) header cannot be set as site contains an invalid certificate chain in nginx web server, you need to make sure that your website is using a valid SSL certificate. You can do this by following these steps:
+
+1. Go to your website's hosting control panel.
+2. Click on the "SSL/TLS" tab.
+3. If you don't have an SSL certificate, you can purchase one from a reputable certificate authority, such as Comodo or GoDaddy.
+4. Once you have purchased an SSL certificate, upload it to your website's hosting control panel.
+5. Once the SSL certificate has been uploaded, restart your web server.
+
+Once you have completed these steps, you should be able to set the HSTS header on your website. To do this, you need to add the following line to your website's nginx configuration file:
+
+```
+add_header Strict-Transport-Security max-age=31536000;
+```
+
+This will tell browsers to only connect to your website using HTTPS.
+
+The issue of an invalid certificate chain belongs to the OWASP Top 10 Web Security Risks 2021 category of "Injection." This category includes vulnerabilities that allow attackers to inject malicious code into a web application. An invalid certificate chain can allow an attacker to perform a man-in-the-middle attack, which can steal sensitive information, such as passwords and credit card numbers.
+
+Here are some additional tips for securing your website:
+
+* Use strong passwords and two-factor authentication.
+* Keep your software up to date.
+* Use a web application firewall (WAF).
+* Monitor your website for security threats.

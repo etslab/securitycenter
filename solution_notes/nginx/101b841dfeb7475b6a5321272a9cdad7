@@ -1,0 +1,17 @@
+###How to fix the Web Threats issue of Secure Pages Include Mixed Content (Including Scripts) in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The Web Threats issue of Secure Pages Include Mixed Content (Including Scripts) in nginx web server can be fixed by following these steps:
+
+1. Identify all of the resources that are being loaded over HTTP on your HTTPS pages. This can be done using a tool like Nikto or W3af.
+2. For each resource that is being loaded over HTTP, make sure that there is an HTTPS version of the resource available. If there is no HTTPS version of the resource, you will need to create one.
+3. Once you have created the HTTPS versions of all of the resources, update your nginx configuration to load the HTTPS versions of the resources instead of the HTTP versions.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A5: Broken Access Control**. This category is concerned with vulnerabilities that allow unauthorized users to access sensitive data or resources.
+
+Here are some additional tips for preventing this issue:
+
+* Use a web application firewall (WAF) to help block requests for HTTP resources on HTTPS pages.
+* Use a content security policy (CSP) to restrict the types of resources that can be loaded on your pages.
+* Keep your web application software up to date.
+* Educate your users about the importance of security and how to identify and report suspicious activity.
+
+By following these steps, you can help to protect your website from the security risks associated with mixed content.

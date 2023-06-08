@@ -1,0 +1,21 @@
+###How to fix the Certificates issue of Does not redirect to an HTTPS site in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+There are a few things you can do to fix the issue of your Nginx web server not redirecting to an HTTPS site.
+
+1. **Check your Nginx configuration file.** Make sure that you have a valid SSL certificate installed and that the correct directives are in place to redirect all traffic to HTTPS.
+2. **Check your firewall settings.** Make sure that your firewall is configured to allow traffic on port 443 (the HTTPS port).
+3. **Check your DNS settings.** Make sure that your DNS records are configured correctly and that your domain name points to the correct IP address for your web server.
+
+If you have checked all of these things and you are still having problems, you can try contacting your hosting provider for assistance.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1: Injection**. This category includes vulnerabilities that allow attackers to inject malicious code into web applications. One way that attackers can inject malicious code is by exploiting a misconfiguration that allows them to bypass the HTTPS redirect.
+
+To avoid this vulnerability, it is important to make sure that your Nginx web server is properly configured to redirect all traffic to HTTPS. You can also use a web application firewall (WAF) to help protect your web application from injection attacks.
+
+Here are some additional tips for securing your Nginx web server:
+
+* Use a strong password for your web server.
+* Keep your Nginx software up to date.
+* Use a WAF to help protect your web application from attacks.
+* Monitor your Nginx web server for signs of trouble.
+
+By following these tips, you can help to keep your Nginx web server secure and prevent attackers from exploiting vulnerabilities.

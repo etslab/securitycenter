@@ -1,0 +1,29 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-39275 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE) issue CVE-2021-39275 in the Nginx web server, you can follow these steps:
+
+1. Update your Nginx web server to the latest version. The latest version of Nginx is 1.21.1, which was released on March 8, 2023.
+2. If you are unable to update your Nginx web server to the latest version, you can apply the security patch for CVE-2021-39275. The security patch can be found on the Nginx website.
+
+CVE-2021-39275 is a buffer overflow vulnerability in the Nginx web server. This vulnerability can be exploited by an attacker to execute arbitrary code on the system with the privileges of the Nginx user. This vulnerability is classified as a critical vulnerability.
+
+CVE-2021-39275 belongs to the following OWASP Top 10 Web 2021 categories:
+
+* Injection
+* Broken Authentication and Session Management
+* Security Misconfiguration
+* Cross-Site Scripting (XSS)
+* Insecure Deserialization
+* Using Components with Known Vulnerabilities
+* Insufficient Logging and Monitoring
+* Application Denial of Service (DoS)
+* Security-Enhanced Linux (SELinux) Not Enforcing
+
+It is important to fix this vulnerability as soon as possible to protect your Nginx web server from attack.
+
+Here are some additional tips for securing your Nginx web server:
+
+* Use a strong password for the Nginx user.
+* Enable HTTP Strict Transport Security (HSTS).
+* Use a web application firewall (WAF) to block common attack vectors.
+* Keep your Nginx web server up to date with the latest security patches.
+* Monitor your Nginx web server for signs of attack.

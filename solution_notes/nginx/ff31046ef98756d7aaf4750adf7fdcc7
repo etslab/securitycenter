@@ -1,0 +1,16 @@
+###How to fix the Web Threats issue of CSP: script-src unsafe-inline in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The `script-src unsafe-inline` directive in an nginx web server allows the browser to execute any inline JavaScript code, regardless of its origin. This can be a security risk, as it allows an attacker to inject malicious code into the page and execute it in the browser.
+
+To fix this issue, you should remove the `unsafe-inline` directive from your nginx configuration. This will prevent the browser from executing any inline JavaScript code.
+
+The `script-src unsafe-inline` directive is a violation of the OWASP Top 10 Web Application Security Risks, specifically **A1: Injection**. Injection attacks are a type of attack where an attacker injects malicious code into a web application. This can be done by injecting code into a form field, a URL, or an inline script. Once the malicious code is injected, it can be executed by the browser, allowing the attacker to steal data, take control of the browser, or perform other malicious actions.
+
+Here are some additional tips for improving the security of your nginx web server:
+
+* Use a strong password for your web server.
+* Enable HTTP Strict Transport Security (HSTS).
+* Enable the X-Frame-Options header to prevent your site from being framed in other sites.
+* Enable the X-Content-Type-Options header to prevent the browser from MIME-sniffing content.
+* Use a Content Security Policy (CSP) to restrict the types of resources that can be loaded by your site.
+
+By following these tips, you can help to protect your nginx web server from attack.

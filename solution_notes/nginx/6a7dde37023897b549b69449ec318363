@@ -1,0 +1,16 @@
+###How to fix the Web Threats issue of Modern Web Application in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+There are a number of ways to fix the Web Threats issue of Modern Web Application in nginx web server. Some of the most common methods include:
+
+* **Disabling unused modules:** Nginx comes with a number of modules that are not always necessary. Disabling unused modules can help to improve security by reducing the attack surface.
+* **Keeping Nginx up to date:** Nginx is constantly being updated with security patches and improvements. It is important to keep Nginx up to date to ensure that it is as secure as possible.
+* **Using a firewall:** A firewall can help to protect your web server from attack by blocking unauthorized traffic.
+* **Using a web application firewall (WAF):** A WAF can help to protect your web application from a wide range of attacks, including Cross-Site Scripting (XSS), SQL injection, and Denial of Service (DoS).
+* **Implementing proper security practices:** This includes things like using strong passwords, enabling two-factor authentication, and keeping your software up to date.
+
+The Web Threats issue of Modern Web Application in nginx web server belongs to the following OWASP Top 10 Web 2021 categories:
+
+* **A1: Injection:** Injection flaws, such as SQL injection and XSS, occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+* **A3: Broken Authentication and Session Management:** Broken authentication and session management vulnerabilities allow attackers to compromise user accounts or sessions, leading to unauthorized access to sensitive data or resources.
+* **A9: Using Components with Known Vulnerabilities:** Using components with known vulnerabilities can allow attackers to exploit known security flaws to gain access to systems or data.
+
+By following the above tips, you can help to protect your nginx web server from Web Threats and improve the security of your web application.

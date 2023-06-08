@@ -1,0 +1,14 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-17567
+CVE-2019-17567 is a vulnerability in the Apache HTTP Server mod_proxy_wstunnel module. This vulnerability allows an attacker to bypass authentication and authorization by tunneling requests through the proxy server.
+
+To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is not affected by the vulnerability. You can find a list of affected versions on the Apache HTTP Server website.
+
+This vulnerability belongs to the OWASP Top 10 2021 category of Broken Authentication. This category includes vulnerabilities that allow attackers to bypass authentication or authorization controls. These vulnerabilities can allow attackers to gain unauthorized access to systems and data.
+
+In addition to upgrading your Apache HTTP Server, you can also take steps to mitigate the risk of this vulnerability, such as:
+
+* Enabling HTTP Strict Transport Security (HSTS) on your web server. HSTS tells browsers to only connect to your web server over HTTPS. This can help to prevent attackers from intercepting traffic between the browser and the web server.
+* Using a web application firewall (WAF) to filter out malicious traffic. A WAF can help to block requests that are likely to be from attackers.
+* Keeping your software up to date. Software updates often include security patches that can help to protect your systems from vulnerabilities.
+
+By taking these steps, you can help to protect your systems from the CVE-2019-17567 vulnerability and other vulnerabilities that allow attackers to bypass authentication and authorization controls.

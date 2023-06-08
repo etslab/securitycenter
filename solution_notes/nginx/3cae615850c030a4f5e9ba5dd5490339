@@ -1,0 +1,21 @@
+###How to fix the Certificates issue of cert expirationStatus, expired in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the certificate expirationStatus, expired in nginx web server issue, you can follow these steps:
+
+1. Check the expiration date of your certificate. You can do this by using the following command:
+
+```
+openssl x509 -in certificate.crt -enddate -noout
+```
+
+2. If the expiration date is approaching or has already passed, you will need to renew your certificate. You can do this by contacting your certificate authority (CA).
+3. Once you have renewed your certificate, you will need to import it into your nginx web server. You can do this by following the instructions in your nginx documentation.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1: Broken Authentication**. This category includes vulnerabilities that allow attackers to gain unauthorized access to user accounts. One way that attackers can exploit this vulnerability is by using a expired certificate to impersonate a legitimate user.
+
+Here are some additional tips to help you prevent this issue from happening again:
+
+* Set up automatic certificate renewals. This will help ensure that your certificates are always up to date.
+* Use a reputable CA. Reputable CAs take steps to ensure that the certificates they issue are valid and secure.
+* Keep your nginx web server software up to date. Software updates often include security patches that can help protect your server from vulnerabilities.
+
+By following these tips, you can help protect your website from attacks that exploit expired certificates.

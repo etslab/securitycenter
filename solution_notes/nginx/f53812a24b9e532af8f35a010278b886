@@ -1,0 +1,19 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-17567 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities issue of CVE-2019-17567 in nginx web server, you can follow these steps:
+
+1. Upgrade your nginx web server to a version that is not vulnerable to this issue. The latest version of nginx is 1.21.1, which was released on March 8, 2023.
+2. If you cannot upgrade your nginx web server, you can disable the mod_proxy_wstunnel module. To do this, open the nginx configuration file and comment out the following line:
+```
+    include /etc/nginx/modules-enabled/mod_proxy_wstunnel.conf;
+```
+
+CVE-2019-17567 is a vulnerability in the mod_proxy_wstunnel module of the nginx web server. This vulnerability allows an attacker to tunnel arbitrary HTTP requests through a web server that is configured to use the mod_proxy_wstunnel module. This can allow an attacker to bypass authentication and authorization mechanisms that are in place on the web server.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Broken Authentication and Session Management. This category includes vulnerabilities that allow an attacker to bypass authentication, steal session tokens, or impersonate a legitimate user.
+
+Here are some additional tips for preventing and mitigating this type of vulnerability:
+
+* Keep your software up to date. Software vendors often release security patches to fix vulnerabilities. It is important to install these patches as soon as they are available.
+* Use a web application firewall (WAF). A WAF can help to block malicious requests and prevent attacks.
+* Implement strong authentication and authorization mechanisms. This includes using strong passwords, multi-factor authentication, and least privilege.
+* Monitor your web server for signs of attack. This includes monitoring for unusual traffic patterns and suspicious requests.

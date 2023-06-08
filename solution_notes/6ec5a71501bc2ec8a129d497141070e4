@@ -1,0 +1,13 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10009
+CVE-2016-10009 is a remote code execution vulnerability in the Apache HTTP Server. It occurs when the server is configured to allow remote file inclusion (RFI) and the attacker can control the value of the "file" parameter in a URL. The attacker can then use this to include a malicious file on the server, which will be executed when the URL is accessed.
+
+To fix this vulnerability, you should update your Apache HTTP Server to a version that includes the security patch for CVE-2016-10009. You can find the latest security patches for Apache HTTP Server on the Apache Software Foundation website.
+
+CVE-2016-10009 belongs to the OWASP Top 10 Web Application Security Risks category of "A1 - Injection". Injection flaws, such as RFI, allow attackers to inject malicious code into a web application. This malicious code can then be executed by the application, allowing the attacker to take control of the application or steal sensitive data.
+
+Here are some additional steps you can take to protect your Apache HTTP Server from CVE-2016-10009 and other injection attacks:
+
+* Disable RFI by setting the "AllowOverride" directive to "None" in your Apache configuration file.
+* Use a web application firewall (WAF) to block common attack vectors, such as RFI.
+* Keep your Apache HTTP Server software up to date with the latest security patches.
+* Train your employees on security best practices, such as not clicking on links in emails from unknown senders.

@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-6210 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2016-6210 issue in the Nginx web server, you can follow these steps:
+
+1. Update your Nginx installation to the latest version. The latest version of Nginx includes a fix for this vulnerability.
+2. If you cannot update your Nginx installation, you can apply a patch to the vulnerable version. The patch can be found on the Nginx website.
+3. If you are using a custom configuration for your Nginx installation, you should review your configuration to make sure that it does not allow for remote code execution.
+
+CVE-2016-6210 is a remote code execution vulnerability that affects the Nginx web server. This vulnerability allows an attacker to execute arbitrary code on the system running Nginx if the attacker can send a specially crafted request to the server. This vulnerability is ranked as a critical vulnerability and should be fixed as soon as possible.
+
+CVE-2016-6210 belongs to the OWASP Top 10 Web Application Security Risks in 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is inserted into an application. This can lead to unauthorized access, data loss, and other security problems.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements or parameterized queries to avoid SQL injection.
+* Sanitize all user input before inserting it into the database.
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Educate your developers about injection vulnerabilities and how to prevent them.

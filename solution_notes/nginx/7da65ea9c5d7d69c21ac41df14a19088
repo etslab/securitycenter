@@ -1,0 +1,26 @@
+###How to fix the Certificates issue of X-Content-Type-Options header not implemented in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the X-Content-Type-Options header not implemented in nginx web server, you can add the following line to your nginx configuration file:
+
+```
+add_header X-Content-Type-Options "nosniff";
+```
+
+This will tell browsers not to sniff the content type of the response, which can help to prevent cross-site scripting (XSS) attacks.
+
+The X-Content-Type-Options header belongs to the following OWASP Top 10 Web 2021 category:
+
+* **A1: Injection**
+
+Injection flaws, such as SQL, NoSQL, OS, and LDAP injection, occur when unvalidated or malicious data is sent to an application. The attacker's hostile data can trick the application into executing unintended commands or accessing data without proper authorization.
+
+The X-Content-Type-Options header can help to mitigate XSS attacks by preventing browsers from changing the content type of a response. This can help to prevent attackers from exploiting XSS vulnerabilities to inject malicious code into a website.
+
+Here are some additional tips for securing your nginx web server:
+
+* Keep your nginx software up to date.
+* Use a strong password for your nginx server.
+* Enable HTTPS for your website.
+* Use a web application firewall (WAF) to protect your website from attacks.
+* Implement other security best practices, such as input validation and output encoding.
+
+By following these tips, you can help to keep your nginx web server secure and protect your website from attacks.

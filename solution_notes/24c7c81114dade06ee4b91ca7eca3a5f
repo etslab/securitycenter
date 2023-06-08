@@ -1,0 +1,18 @@
+###How to fix the Certificates issue of cert subjectAltName, No SAN browsers are complaining
+There are a few things you can do to fix the Certificates issue of cert subjectAltName in Apache web server.
+
+1. **Check the certificate configuration.** Make sure that the certificate is properly configured in Apache. The configuration file for Apache is typically located at `/etc/apache2/sites-available/default`. In this file, you will see a section for the certificate. Make sure that the `SSLCertificateFile` and `SSLCertificateKeyFile` directives are pointing to the correct files.
+2. **Check the certificate validity.** Make sure that the certificate is still valid. You can do this by using the `openssl` command. For example, to check the validity of a certificate named `example.com.crt`, you would use the following command:
+
+```
+openssl x509 -in example.com.crt -text -noout | grep "Valid:"
+```
+
+The output of this command will show the start and end dates of the certificate's validity.
+3. **Reinstall the certificate.** If you have checked the configuration and validity of the certificate and it is still not working, you can try reinstalling the certificate. To do this, you will need to download the certificate from the certificate authority (CA) and then use the `SSLCertificateFile` directive in the Apache configuration file to point to the new certificate file.
+
+Once you have fixed the certificate issue, you should no longer see any errors in the Apache error log.
+
+The Certificates issue of cert subjectAltName belongs to the OWASP Top 10 Web 2021 category of **Injection**. This category includes vulnerabilities that allow attackers to inject malicious code into a web application. In the case of the Certificates issue, an attacker could inject a malicious certificate into the Apache configuration file. This would allow the attacker to impersonate a trusted website and steal sensitive information from users.
+
+To mitigate this risk, you should always use a valid certificate from a trusted CA. You should also regularly check the validity of your certificates and make sure that they are not expired. Additionally, you should use a web application firewall (WAF) to help protect your website from attacks.

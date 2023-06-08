@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-8858 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2016-8858 is a remote code execution vulnerability in the nginx web server. It allows an attacker to execute arbitrary code on the server by sending a specially crafted request.
+
+To fix this vulnerability, you need to upgrade to a version of nginx that is patched for CVE-2016-8858. You can find the latest patched version of nginx on the nginx website.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of "Injection". Injection flaws, such as SQL injection and cross-site scripting, occur when unvalidated or unfiltered data is inserted into an application. This can lead to unauthorized access, data loss, and other security problems.
+
+Here are some additional steps you can take to protect your nginx web server from attack:
+
+* Enable HTTP Strict Transport Security (HSTS). HSTS tells browsers to only connect to your site using HTTPS, which makes it more difficult for attackers to eavesdrop on traffic or perform man-in-the-middle attacks.
+* Enable Content Security Policy (CSP). CSP allows you to specify which resources (such as scripts, images, and fonts) your site can load from third-party domains. This helps to prevent attackers from injecting malicious code into your site.
+* Use a web application firewall (WAF). A WAF can help to block common attack vectors, such as SQL injection and cross-site scripting.
+* Keep your nginx web server up to date with the latest security patches.
+
+By following these steps, you can help to protect your nginx web server from attack.

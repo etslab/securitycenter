@@ -1,0 +1,20 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-14145 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2020-14145 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx is 1.21.1, which was released on February 16, 2023.
+2. If you are unable to update your nginx web server to the latest version, you can apply the following patch:
+```
+https://nginx.org/en/download.html# patch
+```
+3. After updating or patching your nginx web server, you should restart the nginx service.
+
+CVE-2020-14145 is a remote code execution vulnerability in the nginx web server. This vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted request. This vulnerability is a high severity vulnerability and should be fixed as soon as possible.
+
+CVE-2020-14145 belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered user input is used to dynamically generate SQL statements or HTML code. This can allow attackers to execute arbitrary commands on the server or inject malicious code into web pages that can be executed by unsuspecting users.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements or parameterized queries to avoid SQL injection attacks.
+* Use a web application firewall (WAF) to filter out malicious input.
+* Sanitize all user input before using it to generate dynamic SQL statements or HTML code.
+* Educate your users about the dangers of injecting unvalidated data into web applications.

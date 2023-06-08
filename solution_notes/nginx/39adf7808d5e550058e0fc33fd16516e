@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-34798 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2021-34798 is a security vulnerability in the nginx web server that allows an attacker to cause a denial of service (DoS) by sending a malformed HTTP request. The vulnerability is caused by a NULL pointer dereference in the nginx code.
+
+To fix this vulnerability, you should upgrade your nginx web server to a version that includes the security patch for CVE-2021-34798. You can find the latest version of nginx on the nginx website.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of "A1 - Injection". Injection vulnerabilities occur when unvalidated or malicious data is inserted into an application, resulting in unintended consequences. In this case, the attacker is injecting malformed HTTP requests into the nginx web server, which causes the server to crash.
+
+Here are some additional tips for preventing and mitigating injection vulnerabilities:
+
+* Use input validation to ensure that all data entered by users is properly sanitized before being processed by the application.
+* Use prepared statements or stored procedures to avoid dynamically building SQL queries, which can make it easier for attackers to inject malicious code.
+* Use output encoding to prevent attackers from injecting malicious code into outputted data, such as HTML or JavaScript.
+* Keep your applications up to date with the latest security patches.
+
+By following these tips, you can help to protect your applications from injection vulnerabilities.

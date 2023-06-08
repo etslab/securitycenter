@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-36160
+CVE-2021-36160 is a vulnerability in the Apache HTTP Server that allows an attacker to crash the server by sending a specially crafted request. The vulnerability affects Apache HTTP Server versions 2.4.30 to 2.4.48.
+
+To fix this vulnerability, you should upgrade your Apache HTTP Server to version 2.4.49 or later. You can download the latest version of Apache HTTP Server from the Apache Software Foundation website.
+
+CVE-2021-36160 belongs to the OWASP Top 10 Web Application Security Risks category of "A1 - Injection". Injection vulnerabilities occur when unvalidated user input is used to control the behavior of an application. This can lead to a variety of attacks, including DoS attacks, data modification attacks, and privilege escalation attacks.
+
+To prevent injection attacks, it is important to validate all user input before using it in an application. This can be done by using input filters to remove dangerous characters, such as <, >, and &. It is also important to use prepared statements when executing queries against a database. Prepared statements prevent SQL injection attacks by escaping dangerous characters before they are sent to the database.
+
+In addition to upgrading your Apache HTTP Server and validating user input, you can also take the following steps to protect your web applications from injection attacks:
+
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Implement input validation and output encoding at the application layer.
+* Use a database abstraction layer to prevent SQL injection attacks.
+* Keep your software up to date with the latest security patches.
+
+By following these steps, you can help to protect your web applications from injection attacks.

@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-22721 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2022-22721 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx includes a security patch that fixes this vulnerability.
+2. If you are unable to update your nginx web server to the latest version, you can disable the LimitXMLRequestBody directive. This directive allows you to set a maximum size for XML request bodies. If you disable this directive, nginx will not be able to process XML request bodies that are larger than a certain size.
+
+CVE-2022-22721 is a buffer overflow vulnerability. Buffer overflow vulnerabilities occur when a program tries to write data to a buffer that is not large enough to hold the data. This can cause the program to crash or, in some cases, allow an attacker to execute arbitrary code on the system.
+
+CVE-2022-22721 falls under the OWASP Top 10 Web Application Security Risks category of "A2: Broken Authentication and Session Management." This category includes vulnerabilities that allow attackers to gain unauthorized access to a web application.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use strong passwords and enable password hashing.
+* Use a firewall to block unauthorized access to your web server.
+* Keep your nginx web server up to date with the latest security patches.
+* Use a web application firewall (WAF) to protect your web server from common attack vectors.
+* Implement a web application scanning program to detect and fix security vulnerabilities.

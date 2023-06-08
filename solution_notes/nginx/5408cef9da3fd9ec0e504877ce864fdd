@@ -1,0 +1,20 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10012 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the CVE-2016-10012 vulnerability in nginx web server, you can follow these steps:
+
+1. Upgrade to a newer version of nginx that has the vulnerability fixed. The latest version of nginx is 1.21.1, which was released on March 8, 2023.
+2. If you cannot upgrade to a newer version of nginx, you can apply the security patch that was released for this vulnerability. The patch can be found on the nginx website.
+
+CVE-2016-10012 is a buffer overflow vulnerability in the nginx web server. This vulnerability can be exploited by a remote attacker to execute arbitrary code on the server. The vulnerability is ranked as a critical severity vulnerability.
+
+The CVE-2016-10012 vulnerability belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is inserted into an application. This can lead to unauthorized access, data modification, or denial of service attacks.
+
+To prevent injection flaws, it is important to properly validate and filter all input data. This includes data that is entered by users, as well as data that is retrieved from external sources, such as databases and files.
+
+Here are some additional tips for preventing injection flaws:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use a web application firewall (WAF) to help block common XSS attacks.
+* Sanitize all output data to prevent XSS attacks.
+* Educate developers about the risks of injection flaws and how to prevent them.
+
+By following these tips, you can help to protect your web applications from injection flaws.

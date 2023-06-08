@@ -1,0 +1,31 @@
+###How to fix the Certificates issue of HSTS, not offered in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Certificates issue of HSTS, not offered in nginx web server, you can do the following:
+
+1. Install a valid SSL certificate on your web server.
+2. Enable the HSTS header in your nginx configuration file.
+3. Restart your web server.
+
+The following is an example of how to enable the HSTS header in your nginx configuration file:
+
+```
+server {
+  listen 443 ssl default_server;
+  server_name example.com;
+
+  ssl_certificate /etc/ssl/example.com.pem;
+  ssl_certificate_key /etc/ssl/example.com.key;
+
+  add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";
+}
+```
+
+The HSTS header tells browsers to always connect to your website using HTTPS. This helps to protect your users from man-in-the-middle attacks.
+
+The Certificates issue of HSTS, not offered in nginx web server belongs to the OWASP Top 10 Web Application Security Risks category of **Injection**. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. Injection vulnerabilities can be used to steal user data, hijack sessions, or take control of a web application.
+
+Here are some additional tips for securing your website:
+
+* Use strong passwords and two-factor authentication.
+* Keep your software up to date.
+* Use a web application firewall (WAF).
+* Monitor your website for signs of attack.

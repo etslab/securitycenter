@@ -1,0 +1,18 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-0197 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The CVE-2019-0197 vulnerability is a remote code execution vulnerability in the NGINX web server. It occurs when an attacker is able to send a specially crafted request to the server, which can then be used to execute arbitrary code on the server.
+
+To fix this vulnerability, you should upgrade your NGINX server to a version that is patched for the vulnerability. You can find the latest patched version of NGINX on the NGINX website.
+
+The CVE-2019-0197 vulnerability falls under the OWASP Top 10 2021 category of Injection. Injection vulnerabilities occur when unvalidated input is used to control the execution of code. This can lead to a variety of security problems, including remote code execution, data exfiltration, and denial of service.
+
+To mitigate injection vulnerabilities, it is important to validate all input before using it to control the execution of code. This can be done by using input validation libraries or by manually validating the input yourself.
+
+Here are some additional tips for mitigating injection vulnerabilities:
+
+* Use input validation libraries. Input validation libraries can help you to validate input in a consistent and secure manner.
+* Manually validate input. If you cannot use an input validation library, you should manually validate the input yourself. This can be done by checking the input for specific characters or patterns that could indicate malicious intent.
+* Use prepared statements. Prepared statements can help to prevent SQL injection attacks.
+* Use strong passwords. Strong passwords can help to prevent brute-force attacks.
+* Keep your software up to date. Software updates often include security patches that can help to protect you from known vulnerabilities.
+
+By following these tips, you can help to protect your web server from injection vulnerabilities.

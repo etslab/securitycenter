@@ -1,0 +1,18 @@
+###How to fix the Web Threats issue of CSP: Wildcard Directive in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Web Threats issue of CSP: Wildcard Directive in nginx web server, you can add a more specific directive to the Content Security Policy (CSP) header. For example, if you are using a third-party JavaScript library, you can add the following directive to the CSP header:
+
+```
+script-src 'self' https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js;
+```
+
+This will allow your website to load JavaScript from the specified sources, but it will prevent it from loading JavaScript from any other sources.
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks category of **Injection**. Injection attacks are a type of attack where an attacker injects malicious code into a web application. This malicious code can then be executed by the web application, which can lead to a variety of security problems, such as data theft, site defacement, and malware infection.
+
+Here are some additional tips for securing your website with CSP:
+
+* Use a strict CSP policy. The stricter the policy, the more secure your website will be. However, you may need to loosen the policy if you experience compatibility issues with certain browsers or plugins.
+* Monitor your CSP logs. CSP logs can help you identify and troubleshoot security issues.
+* Keep your CSP policy up to date. CSP is a constantly evolving technology, so it's important to keep your policy up to date with the latest recommendations.
+
+By following these tips, you can help to protect your website from injection attacks and other security threats.

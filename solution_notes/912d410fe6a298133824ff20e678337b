@@ -1,0 +1,24 @@
+###How to fix the API Threats issue of Strict-Transport-Security Header Not Set
+To fix the API Threats issue of Strict-Transport-Security Header Not Set in Apache web server, you can follow these steps:
+
+1. Open the Apache configuration file for your website. This file is usually located in `/etc/apache2/sites-available`.
+2. Find the section for your website. This section will be named after the domain name of your website.
+3. Add the following line to the section for your website:
+
+```
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+```
+
+This will tell browsers to always use HTTPS when accessing your website.
+
+The Strict-Transport-Security (HSTS) header is a security header that tells browsers to always use HTTPS when accessing a particular website. This helps to protect against man-in-the-middle attacks, which are a type of attack where an attacker intercepts traffic between a browser and a website.
+
+The HSTS header belongs to the OWASP Top 10 Web Application Security Risks category of Cryptographic Failures. This category includes risks that are caused by the use of weak or insecure cryptographic algorithms, or by the failure to properly implement cryptographic security measures.
+
+In addition to setting the HSTS header, there are a number of other things you can do to protect your website from API threats. These include:
+
+* Using strong passwords and security practices for your website's administrative accounts.
+* Keeping your website's software up to date.
+* Using a web application firewall (WAF) to help protect your website from attacks.
+
+By following these steps, you can help to protect your website from API threats and keep your data safe.

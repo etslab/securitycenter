@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10010 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE) issue CVE-2016-10010 in the Nginx web server, you can follow these steps:
+
+1. Update your Nginx installation to the latest version. The vulnerability was patched in version 1.6.2.
+2. If you cannot update your Nginx installation, you can disable the use of forwarded Unix-domain sockets by setting the `daemon_user` directive to a non-root user.
+
+CVE-2016-10010 is a privilege escalation vulnerability that allows a local user to gain root access on a system running Nginx. The vulnerability is caused by the fact that Nginx creates forwarded Unix-domain sockets as root, even if the web server is running as a non-root user. This allows a local user to exploit the vulnerability by creating a malicious file in a directory that is writable by the Nginx user. When Nginx attempts to open the malicious file, it will be able to escalate its privileges to root.
+
+CVE-2016-10010 belongs to the OWASP Top 10 Web Application Security Risks category of "Execution of Unvalidated Code". This category includes vulnerabilities that allow an attacker to execute arbitrary code on a vulnerable system.
+
+Here are some additional tips for securing your Nginx web server:
+
+* Use a strong password for the Nginx user account.
+* Enable authentication for access to the Nginx web server.
+* Keep your Nginx installation up to date with the latest security patches.
+* Use a firewall to restrict access to the Nginx web server.
+* Monitor your Nginx web server for suspicious activity.

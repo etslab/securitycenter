@@ -1,0 +1,23 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-44790 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2021-44790 is a buffer overflow vulnerability in the mod_lua module of the nginx web server. This vulnerability can be exploited by a remote attacker to execute arbitrary code on the affected server.
+
+To fix this vulnerability, you should upgrade your nginx web server to a version that includes the security patch for CVE-2021-44790. You can find the latest version of nginx on the nginx website.
+
+CVE-2021-44790 falls under the OWASP Top 10 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an application. This can lead to unauthorized access, data loss, or other security problems.
+
+To prevent injection flaws, you should:
+
+* Validate all input data before it is used by your application.
+* Use a web application firewall (WAF) to help protect your application from common injection attacks.
+* Educate your developers about injection flaws and how to prevent them.
+
+By following these best practices, you can help protect your web applications from injection flaws.
+
+Here are some additional details about CVE-2021-44790:
+
+* The vulnerability is due to improper validation of the request body in the mod_lua multipart parser.
+* The vulnerability can be exploited by a remote attacker to send a crafted request to the target server.
+* The vulnerability has a CVSSv3 score of 9.8.
+* The vulnerability has been patched in nginx versions 1.21.10 and later.
+
+If you are using an older version of nginx, you should upgrade to a patched version as soon as possible.

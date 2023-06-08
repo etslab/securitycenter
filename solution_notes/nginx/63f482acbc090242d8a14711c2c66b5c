@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-36160 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2021-36160 is a vulnerability in the mod_proxy_uwsgi module of the Apache HTTP Server. It allows a remote attacker to cause the server to crash by sending a specially crafted request.
+
+To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that includes the security patch for CVE-2021-36160. You can find the latest security patches for Apache HTTP Server on the Apache Software Foundation website.
+
+CVE-2021-36160 falls under the OWASP Top 10 2021 category of A1: Broken Authentication. This category covers vulnerabilities that allow attackers to gain unauthorized access to systems or data.
+
+Here are some additional steps you can take to protect your web server from this vulnerability:
+
+* Keep your software up to date. Software vendors regularly release security patches to fix vulnerabilities. By keeping your software up to date, you can help to protect your systems from attack.
+* Use a firewall to restrict access to your web server. A firewall can help to prevent unauthorized access to your web server.
+* Use strong passwords and authentication methods. Strong passwords and authentication methods can help to prevent unauthorized access to your web server.
+* Monitor your web server for signs of attack. You can use a variety of tools to monitor your web server for signs of attack. By monitoring your web server, you can quickly identify and respond to attacks.
+
+By following these steps, you can help to protect your web server from the CVE-2021-36160 vulnerability and other vulnerabilities.

@@ -1,0 +1,20 @@
+###How to fix the API Threats issue of Absence of Anti-CSRF Tokens
+The OWASP Top 10 Web Application Security Risks 2021 includes a category called "A3: Cross-Site Request Forgery (CSRF)". CSRF is a type of attack where an attacker tricks a victim into performing an action on a website that they did not intend to do. This can be done by sending the victim a malicious link or by embedding malicious code in a website that the victim visits.
+
+To fix the API Threats issue of Absence of Anti-CSRF Tokens in apache web server, you can use the following steps:
+
+1. Generate a CSRF token for each user. This can be done using a random number generator or a cryptographic hash function.
+2. Store the CSRF token in the user's session or cookie.
+3. Include the CSRF token in all forms that allow the user to perform actions on the website.
+4. Validate the CSRF token on the server before performing any actions.
+
+If you follow these steps, you will be able to protect your website from CSRF attacks.
+
+Here are some additional tips for preventing CSRF attacks:
+
+* Use POST requests for all forms that perform actions on the website.
+* Do not allow GET requests to change the state of the website.
+* Use a web application firewall (WAF) to block known CSRF attack vectors.
+* Educate your users about CSRF attacks and how to protect themselves.
+
+By following these tips, you can help to protect your website from CSRF attacks.

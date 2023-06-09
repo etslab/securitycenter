@@ -1,0 +1,22 @@
+###How to fix the Web Threats issue of Private IP Disclosure
+There are a few ways to fix the Web Threats issue of Private IP Disclosure in Apache web server.
+
+* **Remove the private IP address from the HTTP response body.** This can be done by editing the Apache configuration file and adding the following line:
+
+```
+RemovePrivateIPHeaders On
+```
+
+* **Use JSP/ASP/PHP comments instead of HTML/JavaScript comments.** JSP/ASP/PHP comments are not visible to client browsers, so they can be used to hide private IP addresses.
+
+* **Set the ServerName variable to the external hostname.** This will prevent the Apache server from revealing the internal hostname, which could be used to identify the private IP address range.
+
+The Private IP Disclosure issue belongs to the OWASP Top 10 Web 2021 category of **Information Exposure**. This category includes vulnerabilities that can lead to the disclosure of sensitive information, such as private IP addresses, passwords, and credit card numbers.
+
+In addition to the above, there are a few other things that can be done to prevent Private IP Disclosure:
+
+* **Use a web application firewall (WAF).** A WAF can be configured to block requests that contain private IP addresses.
+* **Keep your software up to date.** Software updates often include security patches that can help to prevent vulnerabilities like Private IP Disclosure.
+* **Educate your employees about security risks.** Employees should be aware of the dangers of disclosing private information and should be trained on how to protect sensitive data.
+
+By following these steps, you can help to protect your website from the Private IP Disclosure vulnerability.

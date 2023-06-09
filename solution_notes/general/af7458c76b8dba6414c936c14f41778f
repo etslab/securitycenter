@@ -1,0 +1,38 @@
+###How to fix the Web Threats issue of CSP: Wildcard Directive
+The CSP wildcard directive issue in Apache web server can be fixed by replacing the wildcard directive with the specific information. To do this, you will need to:
+
+1. Enable the mod_headers module by running the following command:
+
+```
+a2enmod headers
+```
+
+2. Restart Apache by running the following command:
+
+```
+systemctl restart apache2
+```
+
+3. Browse to the URL of your website and look for the Content-Security-Policy header. The header should be something like this:
+
+```
+Content-Security-Policy: default-src 'self'; img-src *
+```
+
+4. Replace the wildcard directive (`*`) with the specific information. For example, if you want to allow your website to load images from Google Images, you would change the header to this:
+
+```
+Content-Security-Policy: default-src 'self'; img-src https://www.google.com/images
+```
+
+5. Save the changes and restart Apache again.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1: Injection**. Injection attacks are a type of attack where an attacker injects malicious code into a vulnerable application. This malicious code can then be executed by the application, allowing the attacker to take control of the application or steal data.
+
+The CSP wildcard directive issue is a vulnerability that can allow an attacker to inject malicious code into a website. This is because the wildcard directive allows the attacker to load resources from any source, including malicious sources. By replacing the wildcard directive with the specific information, you can prevent this vulnerability from being exploited.
+
+In addition to replacing the wildcard directive, you can also take other steps to protect your website from injection attacks. These steps include:
+
+* Using a web application firewall (WAF) to filter out malicious traffic.
+* Validating all input data before it is used by the application.
+* Using strong passwords and security practices.

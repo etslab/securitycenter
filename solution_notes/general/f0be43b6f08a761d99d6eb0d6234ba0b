@@ -1,0 +1,19 @@
+###How to fix the Certificates issue of BREACH, potentially VULNERABLE gzip HTTP compression detected - only supplied tested
+The BREACH attack is a type of data breach that can be used to steal sensitive information from websites. The attack works by exploiting the way that HTTP compression works. When a website is compressed, it is made smaller by removing unnecessary characters. This can make the website load faster, but it can also make it easier for attackers to steal sensitive information.
+
+The BREACH attack works by sending a series of requests to a website. Each request contains a different piece of sensitive information. The attacker then measures the size of the compressed response for each request. By comparing the sizes of the responses, the attacker can infer which pieces of information are present in the response.
+
+To fix the BREACH attack, you can disable HTTP compression on your website. This will prevent the attacker from being able to exploit the vulnerability. You can also use a different type of compression, such as DEFLATE. DEFLATE is less vulnerable to the BREACH attack.
+
+The BREACH attack is a serious security vulnerability that can be used to steal sensitive information from websites. If you are running a website, you should take steps to mitigate the risk of a BREACH attack.
+
+The BREACH attack is a type of information disclosure vulnerability that falls under the OWASP Top 10 2021 category of **Information Exposure**. This category includes vulnerabilities that can lead to the exposure of sensitive information, such as passwords, credit card numbers, and social security numbers.
+
+To mitigate the risk of a BREACH attack, you should follow these best practices:
+
+* Disable HTTP compression on your website.
+* Use a different type of compression, such as DEFLATE.
+* Implement strong security controls to protect sensitive information.
+* Monitor your website for signs of attack.
+
+By following these best practices, you can help to protect your website from the BREACH attack and other information disclosure vulnerabilities.

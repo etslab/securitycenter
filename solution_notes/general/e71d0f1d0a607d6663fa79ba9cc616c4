@@ -1,0 +1,23 @@
+###How to fix the Web Threats issue of Strict-Transport-Security Header Not Set
+The Strict-Transport-Security (HSTS) header is a security header that tells browsers to only connect to a website over HTTPS. This helps to protect against man-in-the-middle attacks, which are a type of attack where an attacker intercepts traffic between a browser and a website.
+
+To fix the Web Threats issue of Strict-Transport-Security Header Not Set in Apache web server, you can follow these steps:
+
+1. Open the Apache configuration file. This file is typically located in `/etc/apache2/apache2.conf`.
+2. Locate the `<VirtualHost>` section for your website.
+3. Add the following line to the `<VirtualHost>` section:
+
+```
+Header always set Strict-Transport-Security "max-age=31556926"
+```
+
+The `max-age` parameter specifies the amount of time that the browser should remember the HSTS header. In this example, the browser will remember the HSTS header for one year.
+
+4. Save the Apache configuration file.
+5. Restart Apache.
+
+Once you have completed these steps, the HSTS header will be set for your website. This will help to protect your website from man-in-the-middle attacks.
+
+The Strict-Transport-Security header belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Cryptographic Failures. This category includes risks that can be caused by weak or missing cryptography, such as the use of weak encryption algorithms or the failure to implement security headers.
+
+By setting the HSTS header, you can help to protect your website from these risks.

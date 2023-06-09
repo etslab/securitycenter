@@ -1,0 +1,22 @@
+###How to fix the Certificates issue of Subresource Integrity (SRI) not implemented and external scripts are loaded over HTTP or use protocol-relative URLs via src
+To fix the Certificates issue of Subresource Integrity (SRI) not implemented and external scripts are loaded over HTTP or use protocol-relative URLs via src in apache web server, you can follow these steps:
+
+1. Enable SRI in your Apache web server. You can do this by editing your Apache configuration file and adding the following line:
+
+```
+SSLEngine on
+```
+
+2. Generate the SRI hash for each external script that you want to protect. You can do this using a tool like openssl.
+
+3. Add the SRI hash to the src attribute of the script tag. The SRI hash should be in the following format:
+
+```
+integrity="sha256-<hash>"
+```
+
+4. Restart your Apache web server.
+
+Once you have completed these steps, your Apache web server will be using SRI to protect your external scripts from tampering.
+
+The Subresource Integrity (SRI) not implemented and external scripts are loaded over HTTP or use protocol-relative URLs via src issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. This category includes risks that allow an attacker to inject malicious code into a web application. SRI is a security feature that can help to mitigate this risk by ensuring that external scripts are loaded from a trusted source and have not been tampered with.

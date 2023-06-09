@@ -1,0 +1,18 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-9490
+CVE-2020-9490 is a vulnerability in the Apache HTTP Server that could allow an attacker to crash the server by sending a specially crafted HTTP/2 request. The vulnerability was patched in Apache HTTP Server 2.4.44 and later.
+
+To fix CVE-2020-9490, you should upgrade your Apache HTTP Server to a version that is at least 2.4.44. If you cannot upgrade your Apache HTTP Server, you can mitigate the vulnerability by disabling HTTP/2 by adding the following line to your Apache configuration file:
+
+```
+H2Push off
+```
+
+CVE-2020-9490 belongs to the OWASP Top 10 Web Application Security Risks category of "Injection". Injection flaws occur when unvalidated or unfiltered data is inserted into an application. This can lead to attackers being able to execute arbitrary code on the server or steal sensitive data.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements or parameterized queries to avoid SQL injection attacks.
+* Sanitize all user input before inserting it into an application.
+* Use a web application firewall (WAF) to help block common injection attacks.
+
+By following these tips, you can help to protect your web applications from injection attacks.

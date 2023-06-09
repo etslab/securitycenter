@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2018-15919
+CVE-2018-15919 is a vulnerability in the Apache HTTP Server that allows an attacker to execute arbitrary code on the server by sending a specially crafted request. The vulnerability is caused by a flaw in the way the server handles HTTP/2 requests.
+
+To fix the vulnerability, you should upgrade your Apache HTTP Server to a version that includes the security patch for CVE-2018-15919. You can find the latest security patches for Apache HTTP Server on the Apache Software Foundation website.
+
+CVE-2018-15919 belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+
+Here are some additional steps you can take to protect your Apache HTTP Server from attack:
+
+* Use a firewall to restrict access to the server.
+* Enable authentication and authorization for all resources.
+* Use a web application firewall (WAF) to block known attack vectors.
+* Keep your software up to date with the latest security patches.
+
+By following these steps, you can help to protect your Apache HTTP Server from attack and keep your data safe.

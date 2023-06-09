@@ -1,0 +1,17 @@
+###How to fix the Certificates issue of cert trust, certificate does not match supplied URI (same wo SNI)
+There are a few ways to fix the "Certificate does not match supplied URI" error in Apache.
+
+* **Use a trusted certificate provider.** The most common way to fix this error is to use a trusted certificate provider, such as Let's Encrypt or Comodo. These providers issue certificates that are trusted by most browsers.
+* **Import the certificate into the browser's trust store.** If you cannot use a trusted certificate provider, you can import the certificate into the browser's trust store. This will allow the browser to trust the certificate, even though it is not issued by a trusted provider.
+* **Configure Apache to ignore the error.** If you do not want to use a trusted certificate provider or import the certificate into the browser's trust store, you can configure Apache to ignore the error. This is not recommended, as it will make your website vulnerable to attack.
+
+The "Certificate does not match supplied URI" error is a security vulnerability, as it allows attackers to impersonate your website. This vulnerability is classified as a "Cryptographic Failure" in the OWASP Top 10 Web Security Risks.
+
+Here are some additional tips to help you secure your Apache web server:
+
+* Use strong passwords for your website and server accounts.
+* Keep your software up to date.
+* Use a firewall to protect your server from attack.
+* Monitor your server for signs of attack.
+
+By following these tips, you can help to protect your Apache web server from attack.

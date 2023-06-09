@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of hardlink.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of hardlink.tar in nginx web server, you can follow these steps:
+
+1. Remove the hardlink.tar file from the nginx web server.
+2. Restart the nginx web server.
+3. Reinstall the app dependencies that were affected by the hardlink.tar file.
+
+The App Dependencies issue of hardlink.tar in nginx web server belongs to the OWASP Top 10 Web 2021 category of Broken Access Control. This category of vulnerabilities allows attackers to gain unauthorized access to sensitive data or systems.
+
+Here are some additional details about the App Dependencies issue of hardlink.tar in nginx web server:
+
+* The hardlink.tar file is a compressed archive file that contains app dependencies.
+* When the hardlink.tar file is removed from the nginx web server, the app dependencies that were contained in the file are no longer available to the nginx web server.
+* This can cause the nginx web server to fail to start or to function incorrectly.
+* To fix this issue, you must remove the hardlink.tar file from the nginx web server and then reinstall the app dependencies that were affected by the hardlink.tar file.
+
+Here are some tips for preventing the App Dependencies issue of hardlink.tar in nginx web server:
+
+* Do not remove the hardlink.tar file from the nginx web server unless you are sure that you have all of the app dependencies that were contained in the file.
+* If you must remove the hardlink.tar file, be sure to reinstall the app dependencies that were affected by the hardlink.tar file.
+* Keep your app dependencies up to date.
+* Use a web application firewall (WAF) to help protect your nginx web server from attacks.
+
+I hope this helps!

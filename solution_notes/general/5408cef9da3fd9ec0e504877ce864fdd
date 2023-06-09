@@ -1,0 +1,13 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10012
+CVE-2016-10012 is a remote code execution vulnerability in the Apache HTTP Server. It is caused by a flaw in the way the server handles HTTP requests that contain certain types of special characters. An attacker can exploit this vulnerability to execute arbitrary code on the server.
+
+To fix this vulnerability, you need to upgrade your Apache HTTP Server to a version that includes the security patch for CVE-2016-10012. You can find the latest version of the Apache HTTP Server on the Apache website.
+
+CVE-2016-10012 belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+
+Here are some additional steps you can take to protect your Apache HTTP Server from attack:
+
+* Enable the mod_security module. Mod_security is a web application firewall that can help to protect your server from a variety of attacks, including CVE-2016-10012.
+* Configure mod_security to block known attack patterns. There are a number of pre-configured mod_security rules that can help to block known attack patterns. You can find these rules in the mod_security documentation.
+* Use a web application firewall (WAF). A WAF can provide additional protection for your Apache HTTP Server from attack. WAFs can block known attack patterns and can also help to prevent attacks that are not yet known.
+* Keep your Apache HTTP Server up to date. The Apache Software Foundation regularly releases security patches for the Apache HTTP Server. It is important to install these patches as soon as they are available to protect your server from known vulnerabilities.

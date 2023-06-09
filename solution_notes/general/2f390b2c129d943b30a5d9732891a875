@@ -1,0 +1,26 @@
+###How to fix the Certificates issue of cert revocation, Neither CRL nor OCSP URI provided
+To fix the certificates issue of cert revocation, neither CRL nor OCSP URI provided in apache web server, you can do the following:
+
+1. **Configure CRL checking.** To do this, you will need to specify the location of the CRL file in the Apache configuration file. The following is an example of how to do this:
+
+```
+SSLCARevocationFile /etc/ssl/crl.pem
+```
+
+2. **Configure OCSP stapling.** OCSP stapling is a more efficient way to check for certificate revocation than CRL checking. To configure OCSP stapling, you will need to specify the URL of the OCSP responder in the Apache configuration file. The following is an example of how to do this:
+
+```
+SSLOCSPEnable on
+SSLOCSPDefaultResponder http://ocsp.example.com
+```
+
+3. **Restart Apache.** Once you have made the necessary changes to the Apache configuration file, you will need to restart Apache for the changes to take effect.
+
+The issue of neither CRL nor OCSP URI provided in apache web server belongs to the OWASP Top 10 Web Application Security Risks 2021 category of **Insecure Transport Layer Security (TLS)**. This category includes risks related to the use of weak cryptography, insecure cipher suites, and inadequate certificate validation. By configuring CRL checking or OCSP stapling, you can help to mitigate these risks and improve the security of your web application.
+
+In addition to configuring CRL checking or OCSP stapling, you can also take other steps to improve the security of your web application's TLS configuration, such as:
+
+* Using strong cryptography, such as 256-bit encryption.
+* Enabling HSTS (HTTP Strict Transport Security).
+* Using a valid certificate from a trusted certificate authority.
+* Regularly updating your web application's TLS configuration.

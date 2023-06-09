@@ -1,0 +1,16 @@
+###How to fix the Certificates issue of Subresource Integrity (SRI) is implemented and all scripts are loaded securely
+Subresource Integrity (SRI) is a security feature that helps to protect web applications from content injection attacks. SRI works by specifying a cryptographic hash of the expected content for each resource that is loaded from an external source. When the browser loads the resource, it verifies the hash to ensure that the content has not been tampered with.
+
+To implement SRI in Apache, you can use the mod_headers module. The following configuration directive specifies that all scripts loaded from the `https://cdnjs.cloudflare.com` domain must have a hash of `sha256-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+
+
+Header always set X-Content-Security-Policy "script-src 'self' https://cdnjs.cloudflare.com; object-src 'self' https://cdnjs.cloudflare.com"
+
+
+If you are using a different web server, you may need to consult the documentation for that server to find out how to configure SRI.
+
+The Certificates issue of SRI is a vulnerability that can be exploited to inject malicious content into a web application. This vulnerability occurs when a web application does not properly validate the certificates of the resources that it loads. This can allow an attacker to create a fake resource that has the same hash as a legitimate resource, but that contains malicious content.
+
+The Certificates issue of SRI is a critical vulnerability that can be exploited to compromise a web application. To mitigate this vulnerability, it is important to ensure that all resources that are loaded from external sources are properly validated. This can be done by using SRI or by other means, such as verifying the certificate chain of the resource.
+
+The Certificates issue of SRI belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. Injection vulnerabilities are often difficult to detect and can be very difficult to patch.

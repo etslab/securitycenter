@@ -1,0 +1,29 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10010
+CVE-2016-10010 is a remote code execution vulnerability in the Apache HTTP Server. It can be exploited by an attacker to execute arbitrary code on the server. To fix this vulnerability, you need to upgrade to a patched version of the Apache HTTP Server. You can find the latest patched versions on the Apache website.
+
+This vulnerability belongs to the OWASP Top 10 Web Security Risks 2021 category of Arbitrary Code Execution.
+
+Here are the steps on how to fix CVE-2016-10010 in Apache web server:
+
+1. Check the version of your Apache HTTP Server. You can do this by running the following command:
+
+```
+apachectl -V
+```
+
+2. If your version is not up to date, you need to upgrade to the latest patched version. You can find the latest patched versions on the Apache website.
+
+3. Once you have upgraded to the latest version, restart the Apache HTTP Server. You can do this by running the following command:
+
+```
+sudo service apache2 restart
+```
+
+After you have completed these steps, the CVE-2016-10010 vulnerability will be fixed.
+
+Here are some additional tips to help you protect your Apache web server from vulnerabilities:
+
+* Keep your Apache web server up to date with the latest security patches.
+* Use a firewall to block unauthorized access to your Apache web server.
+* Use strong passwords for your Apache web server.
+* Use a web application firewall (WAF) to help protect your Apache web server from attacks.

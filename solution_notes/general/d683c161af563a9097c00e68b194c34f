@@ -1,0 +1,14 @@
+###How to fix the Common Vulnerabilities issue of CVE-2017-15906
+CVE-2017-15906 is a vulnerability in the Apache web server that allows an attacker to create zero-length files. This can be exploited to cause a denial of service or to inject malicious code into the web server.
+
+To fix this vulnerability, you should upgrade your Apache web server to a version that is not affected. You can find the latest version of Apache at the Apache Software Foundation website.
+
+CVE-2017-15906 belongs to the OWASP Top 10 Web Security Risks 2021 category of **Injection**. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements or parameterized queries to avoid SQL injection attacks.
+* Sanitize all user input before sending it to the browser to avoid XSS attacks.
+* Use a web application firewall (WAF) to help block common injection attacks.
+
+By following these tips, you can help protect your web server from injection attacks.

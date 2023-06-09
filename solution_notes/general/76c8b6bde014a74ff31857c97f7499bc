@@ -1,0 +1,29 @@
+###How to fix the Web Threats issue of Content Security Policy (CSP) Header Not Set
+To fix the Web Threats issue of Content Security Policy (CSP) Header Not Set in apache web server, you can follow these steps:
+
+1. Open the Apache configuration file for your website. This file is typically located in `/etc/apache2/sites-available/`.
+2. Find the section for your website. This section will be named after the domain name of your website.
+3. Add the following line to the section for your website:
+
+```
+Header set Content-Security-Policy "default-src 'self';"
+```
+
+This will set a basic CSP policy that only allows scripts and resources to be loaded from the same domain as the website.
+
+4. Save the configuration file and restart Apache.
+
+Once you have completed these steps, the CSP header will be set for your website. This will help to protect your website from a variety of attacks, including cross-site scripting (XSS) attacks.
+
+The CSP header not set issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category A1: Cross-site Scripting (XSS). XSS is a type of attack where an attacker can inject malicious code into a website that is then executed by the victim's browser. This can allow the attacker to steal cookies, hijack sessions, or even take control of the victim's browser.
+
+By setting a CSP header, you can help to prevent XSS attacks by restricting the types of scripts that can be executed on your website. This can help to protect your website from a variety of XSS attacks, including reflected XSS, stored XSS, and DOM-based XSS attacks.
+
+In addition to setting a CSP header, there are a number of other things you can do to protect your website from XSS attacks. These include:
+
+* Using a web application firewall (WAF)
+* Validating all user input
+* Escaping all output
+* Keeping your software up to date
+
+By following these best practices, you can help to protect your website from XSS attacks and other security threats.

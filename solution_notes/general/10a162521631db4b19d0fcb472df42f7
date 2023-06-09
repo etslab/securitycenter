@@ -1,0 +1,30 @@
+###How to fix the App Dependencies issue of gui-64.exe in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gui-64.exe in nginx web server, you can try the following steps:
+
+1. Check if the gui-64.exe file is present in the nginx installation directory. If it is not present, download the file from the nginx website and install it.
+2. Make sure that the nginx configuration file (nginx.conf) has the following line:
+
+```
+location ~* ^/gui-64/ {
+    include /etc/nginx/conf.d/gui-64.conf;
+}
+```
+
+3. Restart the nginx service.
+
+If the issue persists, you can try the following:
+
+1. Check the nginx error log for any errors related to gui-64.exe.
+2. Contact nginx support for help.
+
+The App Dependencies issue of gui-64.exe in nginx web server belongs to the OWASP Top 10 Web 2021 category of Injection. This category includes vulnerabilities that allow an attacker to inject code into a web application, which can then be executed on the server. This can lead to a variety of security issues, such as data theft, denial of service, and remote code execution.
+
+Here are some additional tips to help you secure your nginx web server:
+
+* Keep your nginx software up to date.
+* Use a strong password for the nginx user account.
+* Enable HTTP Strict Transport Security (HSTS).
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Implement input validation to prevent attackers from injecting malicious code into your web application.
+
+By following these tips, you can help to protect your nginx web server from security vulnerabilities.

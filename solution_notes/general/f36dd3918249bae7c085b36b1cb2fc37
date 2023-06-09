@@ -1,0 +1,18 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-10092
+The CVE-2019-10092 vulnerability is a cross-site scripting (XSS) vulnerability in the Apache HTTP Server mod_proxy module. This vulnerability allows an attacker to inject malicious code into the output of the mod_proxy error page. The vulnerability is exploitable only if the Apache HTTP Server is configured to proxy requests and the mod_proxy error page is displayed.
+
+To fix the CVE-2019-10092 vulnerability, you must update your Apache HTTP Server to a version that includes the fix. The fix was released in Apache HTTP Server 2.4.40. If you are unable to update your Apache HTTP Server to a patched version, you can mitigate the vulnerability by disabling the mod_proxy error page. To do this, add the following line to your Apache HTTP Server configuration file:
+
+```
+ProxyErrorOverride Off
+```
+
+The CVE-2019-10092 vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection flaws, such as XSS, occur when unvalidated or unfiltered data is inserted into an application. This can allow an attacker to execute arbitrary code on the victim's machine.
+
+Here are some additional tips for preventing XSS attacks:
+
+* Use a web application firewall (WAF) to filter out malicious requests.
+* Sanitize all user input before it is inserted into the application.
+* Use a content management system (CMS) that has been properly configured and patched.
+* Keep your software up to date.
+* Train your users to be aware of XSS attacks.

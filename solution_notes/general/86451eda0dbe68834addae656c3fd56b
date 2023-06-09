@@ -1,0 +1,17 @@
+###How to fix the Certificates issue of cipherlist AVERAGE, offered
+To fix the Certificates issue of cipherlist AVERAGE, offered in apache web server, you can do the following:
+
+1. Edit the Apache configuration file.
+2. Find the line that starts with `SSLCipherSuite`.
+3. Change the value of the `SSLCipherSuite` directive to a more secure cipherlist.
+4. Restart the Apache web server.
+
+The following is an example of a secure cipherlist:
+
+
+SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:AES256-SHA256:AES128-SHA256:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA
+
+
+This cipherlist includes a variety of ciphers that are considered to be secure. It also excludes ciphers that are known to be insecure or that are not supported by all browsers.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is A1: Injection. Insecure ciphers can allow attackers to inject malicious code into a web application, which can lead to a variety of security vulnerabilities.

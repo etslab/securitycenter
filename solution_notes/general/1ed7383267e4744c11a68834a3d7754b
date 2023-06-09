@@ -1,0 +1,16 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-35452
+CVE-2020-35452 is a vulnerability in the Apache HTTP Server that allows an attacker to cause a stack overflow in the mod_auth_digest module. This can be exploited to execute arbitrary code on the server.
+
+To fix this vulnerability, you need to upgrade your Apache HTTP Server to a version that is patched for this issue. You can find the latest patched versions on the Apache HTTP Server website.
+
+CVE-2020-35452 belongs to the OWASP Top 10 Web Security Risks 2021 category of "Broken Authentication." This category includes vulnerabilities that allow attackers to gain unauthorized access to a system by bypassing or manipulating authentication mechanisms.
+
+Here are some additional steps you can take to protect your Apache HTTP Server from this and other vulnerabilities:
+
+* Keep your Apache HTTP Server software up to date with the latest security patches.
+* Use a strong password policy for your Apache HTTP Server accounts.
+* Enable authentication for all sensitive resources.
+* Use a firewall to restrict access to your Apache HTTP Server server.
+* Monitor your Apache HTTP Server server for signs of attack.
+
+By taking these steps, you can help to protect your Apache HTTP Server server from attack and keep your data safe.

@@ -1,0 +1,19 @@
+###How to fix the Certificates issue of TLS1 1, offered (deprecated)
+To fix the certificates issue of TLS1 1, offered (deprecated) in Apache web server, you need to update your Apache configuration to disable TLS 1.0 and 1.1. You can do this by adding the following lines to your Apache configuration file:
+
+```
+SSLProtocol all -SSLv2 -SSLv3 -TLSv1
+```
+
+You should also make sure that your Apache web server is using a valid certificate that is signed by a trusted certificate authority.
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks category of **Cryptographic Failures**. Cryptographic failures can occur when a web application does not use strong cryptography or when it uses cryptography incorrectly. This can lead to a variety of security vulnerabilities, including data breaches, man-in-the-middle attacks, and denial-of-service attacks.
+
+Here are some additional tips for securing your Apache web server:
+
+* Use a strong password for your Apache web server.
+* Enable mod_security. Mod_security is a web application firewall that can help to protect your web server from a variety of attacks.
+* Keep your Apache software up to date. Software updates often include security patches that can help to protect your web server from known vulnerabilities.
+* Use a content delivery network (CDN). A CDN can help to protect your web server from DDoS attacks by distributing your website's content across multiple servers.
+
+By following these tips, you can help to secure your Apache web server and protect your website from a variety of security threats.

@@ -1,0 +1,21 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-26691
+CVE-2021-26691 is a vulnerability in the Apache HTTP Server that allows an attacker to cause a heap overflow by sending a specially crafted SessionHeader header. This can lead to a denial-of-service attack or arbitrary code execution.
+
+To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is at least 2.4.47. If you are unable to upgrade, you can apply the following patch:
+
+```
+https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2021-26691
+```
+
+CVE-2021-26691 belongs to the OWASP Top 10 Web Application Security Risks category of "Injection." Injection flaws occur when unvalidated or malicious data is inserted into an application. This can lead to a variety of attacks, including data modification, privilege escalation, and denial-of-service.
+
+To prevent injection attacks, it is important to validate all input data before it is used by an application. This can be done by using a variety of techniques, such as input validation libraries, regular expressions, and white lists.
+
+In addition to input validation, it is also important to implement other security controls, such as:
+
+* Strong passwords and authentication
+* File permissions
+* Data encryption
+* Web application firewalls
+
+By implementing these security controls, you can help to protect your web applications from injection attacks and other security threats.

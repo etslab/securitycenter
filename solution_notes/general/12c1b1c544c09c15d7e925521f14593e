@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of immer:1.10.0 of pkg:npm/immer@1.10.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of immer:1.10.0 of pkg:npm/immer@1.10.0 in nginx web server can be fixed by updating the immer package to a newer version. The issue is caused by a security vulnerability in the older version of the package. The vulnerability allows an attacker to execute arbitrary code on the server by injecting malicious code into a web request.
+
+To update the immer package, you can use the following command:
+
+```
+npm install --save immer@latest
+```
+
+This will update the immer package to the latest version, which is 8.0.0 at the time of writing.
+
+The issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection vulnerabilities occur when unvalidated user input is passed to an interpreter as part of a command or query. This can allow an attacker to execute arbitrary code on the server or to modify the behavior of the application.
+
+To prevent injection vulnerabilities, it is important to validate all user input before passing it to an interpreter. This can be done by using a library or framework that provides input validation features, or by manually validating the input yourself.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements instead of dynamic SQL.
+* Use parameterized queries instead of string concatenation.
+* Sanitize all user input before using it in a web request.
+* Use input validation libraries or frameworks.
+* Educate developers about injection vulnerabilities.
+
+By following these tips, you can help to prevent injection vulnerabilities in your applications.

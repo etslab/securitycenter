@@ -1,0 +1,27 @@
+###How to fix the API Threats issue of Cookie No HttpOnly Flag
+The HTTPOnly flag is a security feature that prevents JavaScript from accessing cookies. This helps to protect against cross-site scripting (XSS) attacks, which can be used to steal cookies and hijack user sessions.
+
+To fix the API Threats issue of Cookie No HttpOnly Flag in Apache web server, you can use the following steps:
+
+1. Enable the mod_headers module in Apache.
+2. Add the following line to your httpd.conf file:
+
+```
+Header set Set-Cookie HttpOnly;Secure;SameSite=None
+```
+
+3. Restart Apache.
+
+This will set the HttpOnly flag for all cookies that are created by Apache.
+
+The Cookie No HttpOnly Flag issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. This can be done by exploiting a variety of vulnerabilities, such as XSS, SQL injection, and command injection.
+
+By setting the HttpOnly flag for cookies, you can help to protect your web application from XSS attacks. This is because JavaScript will not be able to access the cookies, which makes it more difficult for attackers to steal them.
+
+In addition to setting the HttpOnly flag, you should also take other steps to protect your web application from XSS attacks. These steps include:
+
+* Using a web application firewall (WAF) to filter out malicious traffic.
+* Validating all user input before it is processed by the application.
+* Using strong passwords and security practices.
+
+By taking these steps, you can help to protect your web application from XSS attacks and other security risks.

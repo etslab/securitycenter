@@ -1,0 +1,23 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-0197
+CVE-2019-0197 is a vulnerability in the Apache HTTP Server that could allow an attacker to crash the server or execute arbitrary code. The vulnerability is caused by a race condition in the handling of HTTP/2 upgrade requests.
+
+To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is not affected. The following versions are not affected:
+
+* 2.4.39 and later
+* 2.4.38 with the following configuration:
+    * `H2Upgrade off`
+    * `Protocols h2`
+
+If you cannot upgrade your Apache HTTP Server, you can mitigate the vulnerability by disabling HTTP/2. To do this, add the following directive to your Apache configuration file:
+
+```
+H2Upgrade off
+```
+
+This vulnerability belongs to the OWASP Top 10 2021 category of **A1: Injection**. Injection flaws occur when unvalidated or unfiltered data is inserted into an application. This can lead to attackers being able to execute arbitrary code on the server or gain unauthorized access to data.
+
+To prevent injection attacks, it is important to validate and filter all input data before it is used by an application. This can be done using a variety of techniques, such as input validation libraries or regular expressions.
+
+In addition to validating and filtering input data, it is also important to use secure coding practices. This includes using secure functions and avoiding known security vulnerabilities.
+
+By following these security best practices, you can help to protect your applications from injection attacks.

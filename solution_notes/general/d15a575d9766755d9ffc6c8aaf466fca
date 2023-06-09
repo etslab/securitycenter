@@ -1,0 +1,30 @@
+###How to fix the Certificates issue of Does not redirect to an HTTPS site
+There are a few things you can do to fix the issue of your Apache web server not redirecting to an HTTPS site.
+
+1. Make sure that you have installed an SSL certificate on your server. You can purchase an SSL certificate from a variety of vendors.
+2. Once you have installed your SSL certificate, you need to configure your Apache web server to use it. You can do this by editing your Apache configuration file.
+3. In your Apache configuration file, you need to add a directive that tells Apache to redirect all HTTP traffic to HTTPS. The following directive will do this:
+
+```
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+```
+
+4. Once you have made these changes, you need to restart your Apache web server.
+
+If you are still having problems, you can try the following:
+
+1. Check your Apache error logs for any errors that may be causing the problem.
+2. Contact your hosting provider for help.
+
+The issue of your Apache web server not redirecting to an HTTPS site belongs to the OWASP Top 10 Web Application Security Risks category of **Information Exposure**. This category includes risks that can lead to the exposure of sensitive information, such as passwords, credit card numbers, and personal information.
+
+By redirecting all HTTP traffic to HTTPS, you can help to protect your website from these risks. HTTPS encrypts all traffic between the user's browser and your server, making it much more difficult for attackers to steal sensitive information.
+
+Here are some additional tips for securing your website:
+
+* Use strong passwords and change them regularly.
+* Keep your software up to date.
+* Use a web application firewall (WAF).
+* Monitor your website for attacks.

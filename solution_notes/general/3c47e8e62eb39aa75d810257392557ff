@@ -1,0 +1,15 @@
+###How to fix the API Threats issue of Information Disclosure - Suspicious Comments
+To fix the API Threats issue of Information Disclosure - Suspicious Comments in apache web server, you can follow these steps:
+
+1. **Remove any suspicious comments from your code.** Comments that contain sensitive information, such as passwords or API keys, should be removed from your code.
+2. **Use a code scanner to find and remove any hidden comments.** Code scanners can be used to find hidden comments that may contain sensitive information.
+3. **Use a configuration management tool to track changes to your code.** A configuration management tool can be used to track changes to your code, so that you can easily identify and remove any suspicious comments that are added in the future.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **Information Exposure**. Information exposure vulnerabilities can allow attackers to view sensitive information, such as passwords, API keys, or credit card numbers. This information can be used to gain unauthorized access to systems or to commit fraud.
+
+Here are some additional tips for preventing information exposure vulnerabilities:
+
+* Use strong passwords and security measures to protect sensitive information.
+* Regularly scan your systems for vulnerabilities.
+* Keep your software up to date with the latest security patches.
+* Train your employees on security best practices.

@@ -1,0 +1,32 @@
+####patch script to remediate CVE-2013-0169, CWE-310 cert notAfter, 2023-06-12 13 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 cert notAfter, 2023-06-12 13 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Get the current date and time
+  now=$(date +"%Y-%m-%d %H:%M:%S")
+
+  # Check if the certificate is about to expire
+  if [ "$now" -gt "2023-06-12 13:00:00" ]; then
+
+    # Stop Apache
+    systemctl stop httpd
+
+    # Update the certificate
+    certutil -d sql:$APACHE_SSL_CERT_FILE -A -n apache -t TC -s my -i /path/to/new.crt
+
+    # Restart Apache
+    systemctl start httpd
+
+  fi
+
+fi
+```
+
+This script will first check if Apache is running. If it is, it will then get the current date and time. If the current date and time is greater than or equal to the expiration date of the certificate, the script will stop Apache, update the certificate, and then restart Apache.
+
+Please note that this is just a sample script and you may need to modify it to fit your specific needs. For example, you may need to change the path to the Apache SSL certificate file and the path to the new certificate. You may also need to add additional error checking to the script.

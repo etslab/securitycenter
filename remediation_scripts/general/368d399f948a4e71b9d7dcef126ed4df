@@ -1,0 +1,42 @@
+####patch script to remediate CVE-2013-3587, CWE-310 X-XSS-Protection header not implemented in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-3587, CWE-310 X-XSS-Protection header not implemented in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if ! pgrep httpd >/dev/null; then
+  echo "Apache is not running"
+  exit 1
+fi
+
+# Check if the X-XSS-Protection header is already enabled
+if grep -q "X-XSS-Protection" /etc/apache2/apache2.conf; then
+  echo "The X-XSS-Protection header is already enabled"
+  exit 0
+fi
+
+# Enable the X-XSS-Protection header
+echo "X-XSS-Protection: 1; mode=block" >> /etc/apache2/apache2.conf
+
+# Restart Apache
+service apache2 restart
+
+echo "The X-XSS-Protection header has been enabled"
+```
+
+This patch script will first check if Apache is running. If it is not, the script will exit. If Apache is running, the script will check if the X-XSS-Protection header is already enabled. If it is, the script will exit. If the header is not enabled, the script will add the following line to the Apache configuration file:
+
+```
+X-XSS-Protection: 1; mode=block
+```
+
+The script will then restart Apache. Once Apache has restarted, the X-XSS-Protection header will be enabled.
+
+The X-XSS-Protection header is a HTTP response header that can be used to mitigate Cross-Site Scripting (XSS) attacks. The header can be set to one of three modes:
+
+* **1; mode=block:** This mode instructs browsers to block all XSS attacks.
+* **0:** This mode instructs browsers to allow all XSS attacks.
+* **1; mode=detect:** This mode instructs browsers to attempt to detect and block XSS attacks.
+
+The default value for the X-XSS-Protection header is 0. This means that browsers will allow all XSS attacks. By setting the X-XSS-Protection header to 1; mode=block, you can help to mitigate XSS attacks against your website.

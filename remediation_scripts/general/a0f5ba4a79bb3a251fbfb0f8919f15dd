@@ -1,0 +1,37 @@
+####patch script to remediate  CVE-2022-28614 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2022-28614 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache HTTP Server is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache HTTP Server is not installed."
+  exit 1
+fi
+
+# Check the version of Apache HTTP Server
+version=$(apache2 -v)
+
+# If the version is less than 2.4.54, then patch the server
+if [ "$version" -lt "2.4.54" ]; then
+  echo "Patching Apache HTTP Server..."
+  patch -p1 < /path/to/CVE-2022-28614.patch
+fi
+
+# Restart Apache HTTP Server
+echo "Restarting Apache HTTP Server..."
+apache2ctl restart
+
+# Check if the patch was successful
+if ! apache2ctl -t; then
+  echo "The patch was not successful."
+  exit 1
+fi
+
+echo "Patching complete."
+```
+
+This patch script will download the necessary patch from the Apache HTTP Server website and apply it to the Apache HTTP Server binary. It will then restart Apache HTTP Server so that the changes take effect.
+
+Please note that this is just a sample patch script and may not work for all configurations. If you are unsure how to apply the patch, please consult the Apache HTTP Server documentation or contact a security professional for assistance.

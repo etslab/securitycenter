@@ -1,0 +1,37 @@
+####patch script to remediate  CVE-2019-0197 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2019-0197 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the version of Apache
+  apache_version=$(apache2 -V | awk '{print $2}')
+
+  # If Apache is vulnerable, patch it
+  if [[ $apache_version -lt 2.4.39 ]]; then
+    echo "Patching Apache..."
+    wget https://archive.apache.org/dist/httpd/binaries/httpd-2.4.39.tar.gz
+    tar -xvf httpd-2.4.39.tar.gz
+    cd httpd-2.4.39
+    make
+    make install
+
+    # Restart Apache
+    apache2ctl restart
+
+    echo "Apache patched successfully."
+  else
+    echo "Apache is not vulnerable."
+  fi
+
+else
+  echo "Apache is not running."
+fi
+```
+
+This script will check if Apache is running and, if it is, check the version of Apache. If Apache is vulnerable, the script will download the latest patched version of Apache, extract it, compile it, and install it. The script will then restart Apache.
+
+Please note that this is just a sample script and may need to be modified to work on your specific system.

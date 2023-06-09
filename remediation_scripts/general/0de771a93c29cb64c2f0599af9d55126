@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2021-39275 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2021-39275 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the version of Apache
+  apache_version=$(apache2 -V | awk '{print $3}')
+
+  # If Apache is version 2.4.48 or earlier, then patch it
+  if [[ $apache_version -le 2.4.48 ]]; then
+
+    # Download the patch
+    wget https://www.apache.org/dist/httpd/patches/2.4/CVE-2021-39275.patch
+
+    # Apply the patch
+    patch -p1 < CVE-2021-39275.patch
+
+    # Restart Apache
+    sudo service apache2 restart
+
+  fi
+
+fi
+```
+
+This script will check if Apache is running and, if it is, it will check the version of Apache. If Apache is version 2.4.48 or earlier, then the script will download a patch from the Apache website and apply it. Finally, the script will restart Apache.
+
+Please note that this is just a basic patch script. It may not work for all configurations of Apache. If you are unsure about how to apply the patch, please consult the Apache documentation or contact your system administrator.

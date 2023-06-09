@@ -1,0 +1,36 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Missing Anti-clickjacking Header in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 Missing Anti-clickjacking Header in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /etc/apache2/apache2.conf ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the anti-clickjacking header is already enabled
+if grep -q "X-Frame-Options: SAMEORIGIN" /etc/apache2/apache2.conf; then
+  echo "The anti-clickjacking header is already enabled."
+  exit 0
+fi
+
+# Add the anti-clickjacking header to Apache's configuration file
+echo "X-Frame-Options: SAMEORIGIN" >> /etc/apache2/apache2.conf
+
+# Restart Apache
+service apache2 restart
+
+# Check that the anti-clickjacking header is now enabled
+if grep -q "X-Frame-Options: SAMEORIGIN" /etc/apache2/apache2.conf; then
+  echo "The anti-clickjacking header has been enabled."
+else
+  echo "The anti-clickjacking header could not be enabled."
+  exit 1
+fi
+```
+
+This patch script will check if Apache is installed and if the anti-clickjacking header is already enabled. If the header is not enabled, the script will add it to Apache's configuration file and restart Apache. The script will then check that the header is now enabled.
+
+This patch script should be used with caution. If you are not familiar with Apache configuration files, you should consult with a system administrator before running this script.

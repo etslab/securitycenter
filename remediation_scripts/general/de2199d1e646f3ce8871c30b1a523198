@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2018-15919 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2018-15919 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check if the Apache version is vulnerable
+  if [[ $(apache2 -V | awk '{print $2}') -lt 2.4.38 ]]; then
+
+    # Download the latest Apache security patch
+    wget https://archive.apache.org/dist/httpd/binaries/latest/httpd-2.4.38.tar.gz
+
+    # Extract the Apache security patch
+    tar -xzf httpd-2.4.38.tar.gz
+
+    # Replace the existing Apache binaries with the patched binaries
+    cp httpd-2.4.38/bin/* /usr/sbin/
+
+    # Restart Apache
+    systemctl restart apache2
+
+  fi
+
+fi
+```
+
+This patch script will check if Apache is running and if the Apache version is vulnerable to CVE-2018-15919. If Apache is vulnerable, the patch script will download the latest Apache security patch, extract it, and replace the existing Apache binaries with the patched binaries. Finally, the patch script will restart Apache.
+
+It is important to note that this is just a sample patch script and may not work for all configurations. It is always best to consult with a security expert to ensure that your Apache installation is properly patched.

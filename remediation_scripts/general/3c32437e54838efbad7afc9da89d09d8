@@ -1,0 +1,32 @@
+####patch script to remediate CVE-2013-0169, CWE-310 cert expirationStatus, expires < 60 days (47) in Apache HTTP Server
+Sure, here is the patch script to remediate CVE-2013-0169, CWE-310 cert expirationStatus, expires < 60 days (47) in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Get the current date
+  now=$(date +%s)
+
+  # Get the expiration date of the SSL certificate
+  cert_expiration=$(openssl s_client -connect localhost:443 2>/dev/null | grep -Po "(?<=expires=)\d{10,13}")
+
+  # Check if the SSL certificate is expiring within 60 days
+  if [ $(($(now - cert_expiration)) / 86400) -lt 60 ]; then
+
+    # Renew the SSL certificate
+    openssl renew -x509 -nodes -keyout /etc/ssl/private/apache.key -out /etc/ssl/certs/apache.crt
+
+    # Restart Apache
+    service httpd restart
+
+  fi
+
+fi
+
+
+This script will first check if Apache is running. If it is, the script will get the current date and the expiration date of the SSL certificate. If the SSL certificate is expiring within 60 days, the script will renew the certificate and restart Apache.
+
+Please note that this is just a basic patch script. You may need to modify it to fit your specific environment.

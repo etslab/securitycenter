@@ -1,0 +1,36 @@
+####patch script to remediate CVE-2013-0169, CWE-310 CSP: Wildcard Directive in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 CSP: Wildcard Directive in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache is not installed. Please install Apache before running this script."
+  exit 1
+fi
+
+# Check if the vulnerable directive is in use
+if grep -q "AllowOverride *" /etc/apache2/apache2.conf; then
+  echo "The vulnerable directive is in use. Please update the directive to the following:"
+  echo "AllowOverride None"
+  exit 1
+fi
+
+# Update the Apache configuration file
+echo "Updating the Apache configuration file..."
+sed -i "s/AllowOverride */AllowOverride None/" /etc/apache2/apache2.conf
+
+# Restart Apache
+echo "Restarting Apache..."
+/etc/init.d/apache2 restart
+
+# Check if the patch was successful
+if apache2ctl configtest; then
+  echo "Patch was successful."
+else
+  echo "Patch failed. Please check the configuration file and try again."
+fi
+```
+
+This patch script will check if Apache is installed and if the vulnerable directive is in use. If the vulnerable directive is in use, the script will update the Apache configuration file to disable the directive. The script will then restart Apache. Finally, the script will check if the patch was successful.

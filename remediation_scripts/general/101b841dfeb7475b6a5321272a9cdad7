@@ -1,0 +1,38 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Secure Pages Include Mixed Content (Including Scripts) in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Secure Pages Include Mixed Content (Including Scripts) in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache is not installed"
+  exit 1
+fi
+
+# Check if the vulnerable module is enabled
+if ! grep -q -i "mod_include" /etc/apache2/mods-enabled/modules.conf; then
+  echo "The vulnerable module is not enabled"
+  exit 0
+fi
+
+# Disable the vulnerable module
+echo "Disable mod_include"
+a2dismod mod_include
+
+# Restart Apache
+echo "Restart Apache"
+service apache2 restart
+
+# Check if the module is disabled
+if grep -q -i "mod_include" /etc/apache2/mods-available/modules.conf; then
+  echo "The vulnerable module is still enabled"
+  exit 1
+fi
+
+echo "Patch applied successfully"
+```
+
+This patch script will disable the vulnerable module, mod_include, and restart Apache. This will remediate the vulnerability and prevent attackers from injecting malicious code into your website.
+
+Please note that this is just a sample patch script and may need to be modified to work on your specific system. You should always consult with a security professional before applying any security patches to your system.

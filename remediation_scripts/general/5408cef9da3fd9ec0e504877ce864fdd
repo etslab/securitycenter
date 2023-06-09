@@ -1,0 +1,27 @@
+####patch script to remediate  CVE-2016-10012 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2016-10012 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed"
+  exit 1
+fi
+
+# Check if the vulnerable version of Apache is installed
+vulnerable_version=$(grep -oP "(?<=Server version: )[^ ]+" /etc/apache2/apache2.conf)
+if [[ "$vulnerable_version" == "2.4.7" ]]; then
+  echo "Apache 2.4.7 is vulnerable to CVE-2016-10012"
+  echo "Applying patch..."
+  patch -p1 < /path/to/CVE-2016-10012.patch
+  echo "Patch applied"
+else
+  echo "Apache is not vulnerable"
+fi
+```
+
+This patch script will check if Apache is installed and if the vulnerable version of Apache is installed. If it is, the patch script will apply the patch to remediate the vulnerability.
+
+Please note that this is just an example patch script and may need to be modified to work with your specific Apache installation.

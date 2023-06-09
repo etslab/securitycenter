@@ -1,0 +1,29 @@
+####patch script to remediate  Content Security Policy (CSP) implemented unsafely. This includes unsafe-inline or data: inside script-src overly broad sources such as https: inside object-src or script-src or not restricting the sources for object-src or script-src. in Apache HTTP Server
+Sure, here are the steps on how to patch a script to remediate Content Security Policy (CSP) implemented unsafely in Apache HTTP Server:
+
+1. Open the Apache configuration file. The default location of this file is `/etc/apache2/apache2.conf`.
+2. Locate the section that defines the CSP policy. This section will typically start with the following line:
+
+```
+<ContentSecurityPolicy>
+```
+
+3. Review the CSP policy and make sure that it does not include any of the following unsafe features:
+
+    * `unsafe-inline` or `data:` inside `script-src`
+    * Overly broad sources such as `https:` inside `object-src` or `script-src`
+    * Not restricting the sources for `object-src` or `script-src`
+
+4. If any of the unsafe features are present, remove them from the CSP policy.
+5. Save the Apache configuration file.
+6. Restart the Apache web server.
+
+Once you have completed these steps, the CSP policy will be remediated and your website will be more secure.
+
+Here are some additional tips for securing your website with CSP:
+
+* Use a strong CSP policy that includes a wide variety of sources. This will help to prevent attackers from injecting malicious code into your website.
+* Update your CSP policy regularly to reflect changes in the threat landscape.
+* Use a CSP auditor to help you identify and fix any vulnerabilities in your CSP policy.
+
+By following these tips, you can help to keep your website safe from attack.

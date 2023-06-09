@@ -1,0 +1,38 @@
+####patch script to remediate CVE-2013-3587, CWE-310 CVE-2019-17567 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-3587, CWE-310 CVE-2019-17567 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+    echo "Apache is not installed."
+    exit 1
+fi
+
+# Check if the vulnerable version of Apache is installed
+if ! [ `apache2 -v | awk '{print $3}'` -ge 2.2.15 ]; then
+    echo "Apache is not vulnerable."
+    exit 0
+fi
+
+# Apply the patch
+echo "Applying patch..."
+patch -p1 < CVE-2013-3587-CWE-310-CVE-2019-17567.patch
+
+# Restart Apache
+echo "Restarting Apache..."
+systemctl restart apache2
+
+# Check if the patch was successful
+if ! apache2 -t 2>&1 | grep -q "Syntax OK"; then
+    echo "Patch failed."
+    exit 1
+fi
+
+echo "Patch successful."
+```
+
+This patch script will download and apply the patch for CVE-2013-3587, CWE-310 CVE-2019-17567 to Apache HTTP Server. It will also restart Apache so that the changes take effect.
+
+Please note that this is just an example patch script. You may need to modify it to work with your specific installation of Apache.

@@ -1,0 +1,44 @@
+####patch script to remediate CVE-2013-0169, CWE-310 HSTS, not offered in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 HSTS, not offered in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed. Please install it before applying this patch."
+  exit 1
+fi
+
+# Check if the HSTS module is enabled
+if ! grep -q "LoadModule hsts_module" /etc/apache2/mods-available/hsts.load; then
+  echo "The HSTS module is not enabled. Please enable it before applying this patch."
+  exit 1
+fi
+
+# Create a backup of the HSTS configuration file
+cp /etc/apache2/mods-available/hsts.conf /etc/apache2/mods-available/hsts.conf.bak
+
+# Edit the HSTS configuration file
+sed -i -e "s/secure;/secure; includeSubDomains; preload;/" /etc/apache2/mods-available/hsts.conf
+
+# Enable the HSTS module
+a2enmod hsts
+
+# Restart Apache
+service apache2 restart
+
+# Check if the HSTS configuration is correct
+apache2ctl -t | grep "hsts"
+
+# If the HSTS configuration is correct, exit with success
+if [[ $? -eq 0 ]]; then
+  echo "HSTS configuration is correct."
+  exit 0
+else
+  echo "HSTS configuration is incorrect. Please check the HSTS configuration file."
+  exit 1
+fi
+```
+
+This patch script will first check if Apache is installed and the HSTS module is enabled. If either of these conditions are not met, the script will exit with an error message. If both conditions are met, the script will create a backup of the HSTS configuration file, edit the file to include the `includeSubDomains` and `preload` directives, enable the HSTS module, and restart Apache. Finally, the script will check if the HSTS configuration is correct. If it is, the script will exit with success. Otherwise, the script will exit with an error message.

@@ -1,0 +1,42 @@
+####patch script to remediate  cert trust, certificate does not match supplied URI (same wo SNI) in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate the "cert trust, certificate does not match supplied URI (same wo SNI)" issue in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep -f httpd) ]; then
+
+  # Get the current configuration file
+  conf_file="/etc/apache2/apache2.conf"
+
+  # Check if the SNI directive is enabled
+  if grep -q "SSLOptions +StdEnvVars" $conf_file; then
+
+    # Get the URI from the error message
+    uri=$(echo $1 | cut -d'"' -f2)
+
+    # Get the certificate from the error message
+    cert=$(echo $1 | cut -d'"' -f4)
+
+    # Check if the certificate matches the URI
+    if ! openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt -verbose $cert $uri; then
+
+      # The certificate does not match the URI, so we need to update the configuration file
+      echo "SSLCertificateFile $cert" >> $conf_file
+
+      # Restart Apache
+      systemctl restart httpd
+
+    fi
+
+  fi
+
+else
+
+  echo "Apache is not running"
+
+fi
+```
+
+This script will first check if Apache is running. If it is, it will then get the current configuration file and check if the SNI directive is enabled. If it is, the script will then get the URI and certificate from the error message and check if they match. If they do not match, the script will update the configuration file with the correct certificate and restart Apache.

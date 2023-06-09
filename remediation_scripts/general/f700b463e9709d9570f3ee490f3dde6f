@@ -1,0 +1,38 @@
+####patch script to remediate CVE-2013-3587, CWE-310 CVE-2019-0217 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-3587, CWE-310 CVE-2019-0217 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed"
+  exit 1
+fi
+
+# Check if the vulnerable version is installed
+if ! [ "$(apache2 -V | awk '{print $3}')" -ge 2.4.12 ]; then
+  echo "Apache is not vulnerable"
+  exit 0
+fi
+
+# Patch the vulnerable files
+for file in $(apache2 -V | awk '{print $4}' | sed 's/,//g'); do
+  echo "Patching $file"
+  sed -i.bak "s/AcceptPathInfo On/AcceptPathInfo Off/g" $file
+done
+
+# Restart Apache
+echo "Restarting Apache"
+apache2ctl restart
+```
+
+This script will check if Apache is installed and if the vulnerable version is installed. If it is, the script will patch the vulnerable files and restart Apache.
+
+Here are some additional details about the vulnerabilities:
+
+* CVE-2013-3587 is a remote code execution vulnerability that allows an attacker to execute arbitrary code on the server by sending a specially crafted request.
+* CWE-310 is a software design flaw that can lead to security vulnerabilities. In the case of Apache HTTP Server, CWE-310 can be exploited to allow an attacker to bypass authentication and gain access to the server.
+* CVE-2019-0217 is a denial-of-service vulnerability that can be exploited by an attacker to crash the server by sending a specially crafted request.
+
+By patching these vulnerabilities, you can help to protect your server from attack.

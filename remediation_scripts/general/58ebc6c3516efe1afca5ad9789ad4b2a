@@ -1,0 +1,42 @@
+####patch script to remediate CVE-2013-0169, CWE-310 HTTP Strict Transport Security (HSTS) header not implemented in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 HTTP Strict Transport Security (HSTS) header not implemented in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the HSTS header is already enabled
+if grep -q "HSTS On" /etc/apache2/apache2.conf; then
+  echo "HSTS is already enabled."
+  exit 0
+fi
+
+# Add the following line to /etc/apache2/apache2.conf
+# HSTS On
+
+# Restart Apache
+/etc/init.d/apache2 restart
+
+# Check if the HSTS header is now enabled
+if grep -q "HSTS On" /etc/apache2/apache2.conf; then
+  echo "HSTS has been enabled."
+else
+  echo "HSTS could not be enabled."
+  exit 1
+fi
+```
+
+This patch script will check if Apache is installed and if the HSTS header is already enabled. If the HSTS header is not enabled, the script will add the following line to /etc/apache2/apache2.conf:
+
+```
+HSTS On
+```
+
+The script will then restart Apache and check if the HSTS header is now enabled. If the HSTS header is enabled, the script will exit with a status of 0. Otherwise, the script will exit with a status of 1.
+
+Please note that this is just a sample patch script. You may need to modify it to fit your specific environment.

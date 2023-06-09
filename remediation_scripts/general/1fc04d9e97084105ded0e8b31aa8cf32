@@ -1,0 +1,32 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Cookie Without Secure Flag in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Cookie Without Secure Flag in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# This script will remediate CVE-2013-0169, CWE-310 Cookie Without Secure Flag in Apache HTTP Server.
+
+# Check if Apache is running
+if [ -f /etc/init.d/apache2 ]; then
+
+  # Stop Apache
+  service apache2 stop
+
+  # Edit the Apache configuration file
+  sed -i -e 's/CookieHttpOnly On/CookieHttpOnly On; CookieSecure On/g' /etc/apache2/apache2.conf
+
+  # Restart Apache
+  service apache2 start
+
+else
+
+  echo "Apache is not running."
+
+fi
+
+
+This script will first check if Apache is running. If it is, the script will stop Apache, edit the Apache configuration file to add the `CookieSecure On` directive, and then restart Apache. If Apache is not running, the script will simply output a message stating that Apache is not running.
+
+This patch will remediate CVE-2013-0169 by ensuring that all cookies set by Apache are marked as secure. This will prevent attackers from stealing cookies over an insecure connection.
+
+It is important to note that this is just a sample patch script. The specific steps required to remediate CVE-2013-0169 may vary depending on the specific version of Apache HTTP Server that is in use. It is always best to consult the Apache documentation for the latest instructions on how to remediate security vulnerabilities.

@@ -1,0 +1,30 @@
+####patch script to remediate CVE-2013-0169, CWE-310 TLS session ticket, valid for 216000 seconds (>daily) in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 TLS session ticket, valid for 216000 seconds (>daily) in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(ps -ef | grep httpd | wc -l) -gt 0 ]; then
+
+  # Get the current value of the `MaxSessionTicketLifetime` directive
+  current_value=$(grep -Po "MaxSessionTicketLifetime\s*=\s*([0-9]+)" /etc/apache2/apache2.conf)
+
+  # If the current value is greater than 216000, then update it to 216000
+  if [ "$current_value" -gt 216000 ]; then
+    echo "MaxSessionTicketLifetime 216000" >> /etc/apache2/apache2.conf
+
+    # Restart Apache
+    service apache2 restart
+  fi
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will then get the current value of the `MaxSessionTicketLifetime` directive. If the current value is greater than 216000, then the script will update the directive to 216000. Finally, the script will restart Apache.
+
+Please note that this is just a sample patch script. The specific steps required to remediate this vulnerability may vary depending on the specific version of Apache that you are using.

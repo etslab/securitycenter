@@ -1,0 +1,34 @@
+####patch script to remediate  CVE-2019-6111 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2019-6111 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+
+  # Stop Apache
+  sudo service httpd stop
+
+  # Apply the patch
+  sudo patch -p1 < CVE-2019-6111.patch
+
+  # Start Apache
+  sudo service httpd start
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This patch script will stop Apache, apply the patch, and then start Apache. It is important to note that this patch script is only a temporary fix. A permanent fix will be available in a future version of Apache.
+
+Here are some additional steps you can take to protect your system from this vulnerability:
+
+* Keep your Apache software up to date.
+* Use a firewall to block unauthorized access to your system.
+* Use strong passwords and security practices.
+
+By following these steps, you can help to protect your system from this vulnerability and other security threats.

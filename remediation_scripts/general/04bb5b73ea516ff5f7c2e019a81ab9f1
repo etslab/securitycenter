@@ -1,0 +1,33 @@
+####patch script to remediate  CVE-2016-10011 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2016-10011 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep -f httpd) ]; then
+  # Stop Apache
+  echo "Stopping Apache..."
+  systemctl stop httpd
+
+  # Apply the patch
+  echo "Applying patch..."
+  patch -p1 < CVE-2016-10011.patch
+
+  # Restart Apache
+  echo "Restarting Apache..."
+  systemctl start httpd
+else
+  echo "Apache is not running."
+fi
+```
+
+This patch script will stop Apache, apply the patch, and then restart Apache. It is important to note that this patch script is only a generic example and may need to be modified to work with your specific Apache configuration.
+
+Here are some additional steps that you may want to take after applying the patch:
+
+* Reconfigure Apache to disable any features that are known to be vulnerable to CVE-2016-10011.
+* Monitor your Apache logs for any signs of suspicious activity.
+* Keep your Apache software up to date with the latest security patches.
+
+By following these steps, you can help to protect your Apache server from CVE-2016-10011 and other security vulnerabilities.

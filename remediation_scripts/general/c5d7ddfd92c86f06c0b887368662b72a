@@ -1,0 +1,39 @@
+####patch script to remediate  CVE-2020-11993 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2020-11993 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the version of Apache
+  VERSION=$(apache2 -V | awk '{print $2}')
+
+  # If the version is vulnerable, patch it
+  if [[ "$VERSION" -lt "2.4.44" ]]; then
+
+    # Download the patch
+    wget https://www.apache.org/dist/httpd/binaries/latest/src/httpd-2.4.44.tar.gz
+
+    # Extract the patch
+    tar -xf httpd-2.4.44.tar.gz
+
+    # Apply the patch
+    cd httpd-2.4.44
+    patch -p1 < CVE-2020-11993.patch
+
+    # Recompile Apache
+    make
+
+    # Install the new version of Apache
+    make install
+
+  fi
+
+fi
+```
+
+This script will first check if Apache is running. If it is, it will then check the version of Apache. If the version is vulnerable, the script will download the latest patch, extract it, and apply it. The script will then recompile Apache and install the new version.
+
+It is important to note that this is just a sample script. You may need to modify it to fit your specific environment. For example, you may need to change the path to the Apache binary or the location where you download the patch. You should also test the script in a development environment before running it on a production server.

@@ -1,0 +1,32 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Cross-Domain JavaScript Source File Inclusion in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Cross-Domain JavaScript Source File Inclusion in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /etc/apache2/apache2.conf ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable module is enabled
+if grep -q "mod_include" /etc/apache2/apache2.conf; then
+  echo "The vulnerable module is enabled."
+
+  # Patch the vulnerable module
+  sed -i -e "s/AllowOverride None/AllowOverride All/g" /etc/apache2/mods-available/include.conf
+  a2enmod include
+
+  # Restart Apache
+  systemctl restart apache2
+
+  echo "The vulnerability has been remediated."
+else
+  echo "The vulnerable module is not enabled."
+fi
+```
+
+This patch script will check if Apache is installed and if the vulnerable module is enabled. If the vulnerable module is enabled, the script will patch the module and restart Apache. If the vulnerable module is not enabled, the script will print a message stating that the vulnerability has not been remediated.
+
+Please note that this is just a sample patch script and may need to be modified to work with your specific Apache configuration.

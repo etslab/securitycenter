@@ -1,0 +1,37 @@
+####patch script to remediate CVE-2013-3587, CWE-310 Files Recently Modified in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-3587, CWE-310 Files Recently Modified in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Get the list of recently modified files
+  files=$(find / -type f -mmin -60)
+
+  # Disable HTTP compression
+  sed -i "s/^\(mod_deflate\).*/\1\n\tOptions -compression/" /etc/apache2/mods-available/deflate.conf
+
+  # Restart Apache
+  systemctl restart apache2
+
+  # Check if the patch was successful
+  if [ $(pgrep httpd) ]; then
+    echo "Patch applied successfully."
+  else
+    echo "Patch failed to apply."
+  fi
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will get a list of files that have been modified in the last 60 minutes. The script will then disable HTTP compression in the Apache configuration file and restart Apache. Finally, the script will check if the patch was successful.
+
+This patch will mitigate the BREACH vulnerability by disabling HTTP compression. HTTP compression can be used by an attacker to exfiltrate sensitive information from a website by sending many targeted requests to the server and trying to figure out the encrypted information byte-by-byte using the pattern in responses. By disabling HTTP compression, this attack vector is no longer available.
+
+It is important to note that this patch is not a complete solution to the BREACH vulnerability. Other mitigations, such as separating secrets from user input and randomizing secrets per request, should also be implemented.

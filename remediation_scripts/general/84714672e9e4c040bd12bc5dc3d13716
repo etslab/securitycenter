@@ -1,0 +1,54 @@
+####patch script to remediate  CVE-2016-3115 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2016-3115 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /etc/init.d/apache2 ]; then
+  service apache2 status
+  if [ $? -eq 0 ]; then
+    echo "Apache is running."
+  else
+    echo "Apache is not running."
+    exit 1
+  fi
+else
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable version of Apache is installed
+if [ -f /etc/apache2/version ]; then
+  version=$(cat /etc/apache2/version)
+  if [[ $version =~ ^2\.4\.21-.* ]]; then
+    echo "Apache version $version is vulnerable."
+  else
+    echo "Apache version $version is not vulnerable."
+    exit 0
+  fi
+else
+  echo "Apache version cannot be determined."
+  exit 1
+fi
+
+# Apply the patch
+echo "Applying patch..."
+patch -p1 < CVE-2016-3115.patch
+if [ $? -ne 0 ]; then
+  echo "Patch failed to apply."
+  exit 1
+fi
+
+# Restart Apache
+echo "Restarting Apache..."
+service apache2 restart
+if [ $? -ne 0 ]; then
+  echo "Restart of Apache failed."
+  exit 1
+fi
+
+echo "Patch applied successfully."
+```
+
+This patch script will check if Apache is running, if the vulnerable version of Apache is installed, and if the patch can be applied successfully. If all of these conditions are met, the patch script will restart Apache.

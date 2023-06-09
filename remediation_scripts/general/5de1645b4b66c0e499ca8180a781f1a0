@@ -1,0 +1,31 @@
+####patch script to remediate  CVE-2019-0196 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2019-0196 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache HTTP Server is installed
+if ! [ -f /usr/sbin/httpd ]; then
+  echo "Apache HTTP Server is not installed."
+  exit 1
+fi
+
+# Check the version of Apache HTTP Server
+version=$(/usr/sbin/httpd -V | awk '{print $2}')
+
+# If the version is vulnerable, patch it
+if [[ "$version" -lt 2.4.39 ]]; then
+  echo "Apache HTTP Server is vulnerable to CVE-2019-0196. Patching..."
+  wget https://www.apache.org/dist/httpd/binaries/latest/httpd-2.4.39.tar.gz
+  tar -xf httpd-2.4.39.tar.gz
+  cd httpd-2.4.39
+  ./configure --prefix=/usr
+  make
+  make install
+  echo "Patching complete."
+else
+  echo "Apache HTTP Server is not vulnerable to CVE-2019-0196."
+fi
+```
+
+This script will check if Apache HTTP Server is installed and the version. If the version is vulnerable, it will download the latest patched version of Apache HTTP Server and install it.

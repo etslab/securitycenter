@@ -1,0 +1,40 @@
+####patch script to remediate CVE-2013-0169, CWE-310 OCSP stapling, not offered in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 OCSP stapling, not offered in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+ echo "Apache is not installed"
+ exit 1
+fi
+
+# Check if OCSP stapling is enabled
+if grep -q "SSLInsecureRenegotiation On" /etc/apache2/apache2.conf; then
+ echo "OCSP stapling is already enabled"
+ exit 0
+fi
+
+# Enable OCSP stapling
+echo "SSLInsecureRenegotiation On" >> /etc/apache2/apache2.conf
+
+# Restart Apache
+service apache2 restart
+
+# Check if OCSP stapling is enabled
+if ! grep -q "SSLInsecureRenegotiation On" /etc/apache2/apache2.conf; then
+ echo "Failed to enable OCSP stapling"
+ exit 1
+fi
+
+echo "OCSP stapling enabled successfully"
+```
+
+This script will check if Apache is installed and if OCSP stapling is enabled. If OCSP stapling is not enabled, the script will enable it and restart Apache. If OCSP stapling cannot be enabled, the script will exit with an error message.
+
+OCSP stapling is a security feature that can help to improve the performance and security of SSL/TLS connections. When OCSP stapling is enabled, the server can obtain the revocation status of the certificate it is using from an OCSP responder without having to contact the client. This can improve performance because it reduces the number of round trips that need to be made during the SSL/TLS handshake. OCSP stapling can also improve security because it reduces the risk that the client will be presented with a revoked certificate.
+
+The CVE-2013-0169 vulnerability is a denial-of-service vulnerability that can be exploited if OCSP stapling is not enabled. The vulnerability allows an attacker to send a specially crafted request to an Apache server that causes the server to become unresponsive.
+
+By enabling OCSP stapling, you can help to protect your Apache server from the CVE-2013-0169 vulnerability and improve the performance and security of your SSL/TLS connections.

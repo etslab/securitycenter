@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2016-6515 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2016-6515 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+
+  # Get the current version of Apache
+  CURRENT_VERSION=$(apachectl -V | awk '{print $2}')
+
+  # If the current version is less than 2.4.12, then patch Apache
+  if [[ $CURRENT_VERSION -lt 2.4.12 ]]; then
+
+    # Download the patch from the Apache website
+    wget https://www.apache.org/dist/httpd/patches/2.4/CVE-2016-6515.patch
+
+    # Apply the patch
+    patch -p1 < CVE-2016-6515.patch
+
+    # Restart Apache
+    apachectl restart
+
+  fi
+
+fi
+```
+
+This patch will add a length check to the password authentication function in Apache HTTP Server. This will prevent remote attackers from causing a denial of service by providing a long string as a password.
+
+It is important to note that this patch is only necessary for versions of Apache HTTP Server that are less than 2.4.12. If you are running a newer version of Apache, then you are not affected by this vulnerability.

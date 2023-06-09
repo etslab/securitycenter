@@ -1,0 +1,37 @@
+####patch script to remediate  CVE-2021-33193 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2021-33193 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /var/run/httpd.pid ]; then
+
+  # Get the current version of Apache
+  version=$(apachectl -V | awk '{print $2}')
+
+  # If the current version is vulnerable, upgrade Apache
+  if [[ $version -lt "2.4.49" ]]; then
+
+    echo "Upgrading Apache to 2.4.49..."
+    apt-get update
+    apt-get install -y apache2
+
+  # Otherwise, the server is already patched
+  else
+
+    echo "Apache is already patched against CVE-2021-33193."
+
+  fi
+
+# If Apache is not running, do nothing
+else
+
+  echo "Apache is not running. No action required."
+
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will get the current version of Apache. If the current version is vulnerable, the script will upgrade Apache to 2.4.49. Otherwise, the script will print a message stating that the server is already patched. If Apache is not running, the script will do nothing.
+
+Please note that this is just an example script. You may need to modify it to fit your specific environment.

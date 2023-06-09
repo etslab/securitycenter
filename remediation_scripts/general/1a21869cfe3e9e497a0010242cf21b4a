@@ -1,0 +1,27 @@
+####patch script to remediate  cert notAfter, 2020-09-03 06 in Apache HTTP Server
+Sure, here is a patch script to remediate a expired certificate in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if the certificate is expired
+if [[ $(openssl x509 -enddate -noout -in /etc/ssl/certs/apache.pem) < $(date +"%Y-%m-%d %H:%M:%S") ]]; then
+
+  # Generate a new certificate
+  openssl req -new -keyout /etc/ssl/private/apache.key -out /etc/ssl/certs/apache.pem
+
+  # Restart Apache
+  systemctl restart httpd
+
+fi
+
+
+This script will first check if the certificate is expired. If it is, the script will generate a new certificate and restart Apache.
+
+Here are some additional notes:
+
+* The path to the certificate and key files may vary depending on your system configuration.
+* You may need to adjust the permissions on the certificate and key files after generating them.
+* You may also need to update the configuration of your web application to use the new certificate.
+
+I hope this helps!

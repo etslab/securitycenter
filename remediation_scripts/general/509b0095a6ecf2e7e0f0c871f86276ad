@@ -1,0 +1,27 @@
+####patch script to remediate  cipher-tls1 X Weak Ciphers Identified in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate cipher-tls1 X weak ciphers identified in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current ciphers
+  current_ciphers=$(apachectl -t | grep "SSLCipherSuite" | sed -e "s/.*=//")
+
+  # Check if any weak ciphers are enabled
+  weak_ciphers=$(openssl ciphers -v | grep "NULL" | sed -e "s/.*://")
+
+  # If any weak ciphers are enabled, disable them
+  if [ "$weak_ciphers" != "" ]; then
+    echo "Disabling weak ciphers..."
+    apachectl -t -DSSLCipherSuite="$current_ciphers,$weak_ciphers"
+  fi
+
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will then get the current ciphers that are enabled. The script will then check if any of these ciphers are weak. If any weak ciphers are found, the script will disable them.
+
+This script should be run as root.

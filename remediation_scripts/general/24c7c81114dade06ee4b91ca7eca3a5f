@@ -1,0 +1,36 @@
+####patch script to remediate  cert subjectAltName, No SAN browsers are complaining in Apache HTTP Server
+Sure, here is a patch script to remediate the cert subjectAltName issue in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if the Apache HTTP Server is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current certificate
+  cert=$(cat /etc/ssl/certs/apache.pem)
+
+  # Check if the certificate has a subjectAltName extension
+  if ! grep -q "subjectAltName" <<< "$cert"; then
+
+    # Add a subjectAltName extension to the certificate
+    echo "subjectAltName=DNS:*" >> /etc/ssl/certs/apache.pem
+
+    # Restart Apache HTTP Server
+    systemctl restart httpd
+  fi
+fi
+```
+
+This script will first check if Apache HTTP Server is running. If it is, the script will get the current certificate and check if it has a subjectAltName extension. If it does not, the script will add a subjectAltName extension to the certificate and restart Apache HTTP Server.
+
+This should resolve the issue of No SAN browsers complaining in Apache HTTP Server.
+
+Here are some additional notes about the script:
+
+* The script uses the `pgrep` command to check if Apache HTTP Server is running.
+* The script uses the `grep` command to check if the certificate has a subjectAltName extension.
+* The script uses the `echo` command to add a subjectAltName extension to the certificate.
+* The script uses the `systemctl` command to restart Apache HTTP Server.
+
+I hope this helps!

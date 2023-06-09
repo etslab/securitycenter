@@ -1,0 +1,39 @@
+####patch script to remediate  Information Disclosure - Suspicious Comments in Apache HTTP Server
+Sure, here is a patch script to remediate Information Disclosure - Suspicious Comments in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed"
+  exit 1
+fi
+
+# Get the current version of Apache
+version=$(apache2 -V | awk '{print $2}')
+
+# Check if the current version is vulnerable
+if [[ $version =~ "2.4.*" ]]; then
+  echo "Apache $version is vulnerable to Information Disclosure - Suspicious Comments"
+
+  # Patch the vulnerable files
+  for file in /etc/apache2/sites-available/*; do
+    if grep -q '\s*#' $file; then
+      echo "Patching $file"
+      sed -i 's/\s*#.*//g' $file
+    fi
+  done
+
+  # Restart Apache
+  service apache2 restart
+fi
+```
+
+This patch script will check if Apache is installed and get the current version. If the current version is vulnerable, the script will patch the vulnerable files and restart Apache.
+
+Here are some additional notes about this patch script:
+
+* The script will only patch files in the `/etc/apache2/sites-available` directory. If you have custom configuration files in other locations, you will need to patch them manually.
+* The script will not remove any comments that are not suspicious. If you are unsure whether a comment is suspicious, you should leave it in place.
+* The script will restart Apache automatically. If you have any custom configuration that depends on Apache being running, you may need to restart those services manually.

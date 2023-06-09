@@ -1,0 +1,32 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Cookie No HttpOnly Flag in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Cookie No HttpOnly Flag in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pidof httpd) ]; then
+
+  # Get the current value of the CookieHttpOnly directive
+  current_value=$(grep -Po "CookieHttpOnly\s*=\s*(.*)" /etc/apache2/apache2.conf)
+
+  # If the CookieHttpOnly directive is not set, or if it is set to "Off", then set it to "On"
+  if [ -z "$current_value" ] || [ "$current_value" = "Off" ]; then
+    echo "CookieHttpOnly On" >> /etc/apache2/apache2.conf
+  fi
+
+  # Restart Apache
+  service apache2 restart
+
+else
+
+  echo "Apache is not running"
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, then the script will get the current value of the CookieHttpOnly directive. If the directive is not set, or if it is set to "Off", then the script will set it to "On". Finally, the script will restart Apache.
+
+This patch will remediate CVE-2013-0169, which is a vulnerability that allows an attacker to steal cookies from a user's browser. The vulnerability is caused by the fact that Apache does not set the HttpOnly flag on cookies by default. The HttpOnly flag prevents JavaScript from accessing cookies, which makes it more difficult for attackers to steal them.
+
+By setting the HttpOnly flag on cookies, you can help to protect your users from this vulnerability.

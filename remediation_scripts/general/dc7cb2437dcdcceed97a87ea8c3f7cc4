@@ -1,0 +1,31 @@
+####patch script to remediate CVE-2013-0169, CWE-310  in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ "$(pgrep httpd)" ]]; then
+  echo "Apache is running. Stopping..."
+  sudo systemctl stop httpd
+fi
+
+# Patch the source code
+echo "Patching the source code..."
+sed -i -e 's/Lucky13=0/Lucky13=1/g' src/modules/ssl/ssl_engine_config.c
+
+# Restart Apache
+echo "Restarting Apache..."
+sudo systemctl start httpd
+
+# Check if the patch was successful
+if [[ "$(grep Lucky13 src/modules/ssl/ssl_engine_config.c)" == "Lucky13=1" ]]; then
+  echo "Patch successful!"
+else
+  echo "Patch failed!"
+fi
+```
+
+This patch will disable the Lucky13 ciphers in Apache HTTP Server. The Lucky13 ciphers are vulnerable to a timing attack that can be used to recover secret data. By disabling these ciphers, you can mitigate the risk of this attack.
+
+It is important to note that this patch is only a temporary fix. A permanent fix will require a new version of Apache HTTP Server that has been patched for this vulnerability. However, this patch can be used to protect your server until a new version of Apache HTTP Server is available.

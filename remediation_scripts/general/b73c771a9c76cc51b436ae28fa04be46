@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2021-26691 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2021-26691 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+  # Stop Apache
+  sudo systemctl stop httpd
+
+  # Apply the patch
+  sudo patch -p1 < CVE-2021-26691.patch
+
+  # Restart Apache
+  sudo systemctl start httpd
+else
+  echo "Apache is not running."
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will stop Apache, apply the patch, and then restart Apache. If Apache is not running, the script will simply print a message stating that Apache is not running.
+
+The patch file can be downloaded from the Apache Security Announcements page: https://httpd.apache.org/security/vulnerabilities_24.html
+
+Please note that this is just a sample patch script. It may need to be modified to work with your specific Apache installation.
+
+Here are some additional things to keep in mind when remediating CVE-2021-26691:
+
+* Make sure that you are using a supported version of Apache. The vulnerability was fixed in Apache 2.4.47 and later.
+* If you are using a custom configuration, make sure that you review it carefully to make sure that it does not introduce any new vulnerabilities.
+* Monitor your Apache installation for signs of exploitation. If you see any suspicious activity, such as unusual requests or errors, take immediate action to investigate and remediate the issue.

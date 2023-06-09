@@ -1,0 +1,31 @@
+####patch script to remediate  Subresource Integrity (SRI) is implemented and all scripts are loaded securely in Apache HTTP Server
+Sure, here is a patch script to remediate Subresource Integrity (SRI) is implemented and all scripts are loaded securely in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if SRI is enabled
+if ! grep -q "SRI" /etc/apache2/apache2.conf; then
+  # Enable SRI
+  echo "SRI on" >> /etc/apache2/apache2.conf
+fi
+
+# Get a list of all scripts
+scripts=$(find /var/www/ -type f -name "*.js")
+
+# Loop through each script and add an SRI directive
+for script in $scripts; do
+  # Get the SRI hash
+  hash=$(sha256sum $script | base64)
+
+  # Add the SRI directive to the Apache config file
+  echo "AddType application/javascript SRI-HASH=$hash" >> /etc/apache2/apache2.conf
+done
+
+# Restart Apache
+service apache2 restart
+```
+
+This script will first check if SRI is enabled in the Apache configuration file. If it is not enabled, the script will enable it. Next, the script will get a list of all JavaScript files in the web root. For each JavaScript file, the script will get the SRI hash and add an SRI directive to the Apache configuration file. Finally, the script will restart Apache.
+
+This script will ensure that all JavaScript files on your website are loaded securely using SRI. SRI is a security feature that helps to prevent malicious scripts from being injected into your website.

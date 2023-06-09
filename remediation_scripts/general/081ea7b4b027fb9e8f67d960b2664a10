@@ -1,0 +1,33 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Re-examine Cache-control Directives in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 Re-examine Cache-control Directives in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /etc/init.d/apache2 ]; then
+  /etc/init.d/apache2 stop
+fi
+
+# Find all instances of the "Cache-Control" directive in Apache's configuration
+find /etc/apache2/ -type f -exec grep -HE "Cache-Control" {} \;
+
+# For each instance of the "Cache-Control" directive, check if it has the "no-store" directive
+for file in $(find /etc/apache2/ -type f -exec grep -HE "Cache-Control" {} \;); do
+  if grep -q "no-store" $file; then
+    echo "The file $file already has the 'no-store' directive."
+  else
+    echo "The file $file does not have the 'no-store' directive. Adding it now."
+    echo "Cache-Control no-store" >> $file
+  fi
+done
+
+# Restart Apache
+if [ -f /etc/init.d/apache2 ]; then
+  /etc/init.d/apache2 start
+fi
+```
+
+This patch script will first check if Apache is running. If it is, it will stop Apache. Next, it will find all instances of the "Cache-Control" directive in Apache's configuration. For each instance of the "Cache-Control" directive, it will check if it has the "no-store" directive. If it does not, the patch script will add the "no-store" directive to the file. Finally, the patch script will restart Apache.
+
+The "no-store" directive tells the browser not to store the response in the cache. This helps to mitigate the CVE-2013-0169 vulnerability, which allows an attacker to recover plaintext data from a TLS connection by exploiting timing differences in the server's responses.

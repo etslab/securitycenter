@@ -1,0 +1,49 @@
+####patch script to remediate CVE-2013-0169, CWE-310 CSP: style-src unsafe-inline in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 CSP: style-src unsafe-inline in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /etc/apache2/apache2.conf ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable module is enabled
+if grep -q "mod_ssl.so" /etc/apache2/modules; then
+  echo "mod_ssl is enabled."
+else
+  echo "mod_ssl is not enabled. Skipping patch."
+  exit 0
+fi
+
+# Create a backup of the Apache configuration file
+cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf.bak
+
+# Open the Apache configuration file for editing
+sudo nano /etc/apache2/apache2.conf
+
+# Find the following line:
+#
+#SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5
+#
+# And replace it with the following line:
+#
+#SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5:!RC4
+
+# Save the file and exit the editor
+
+# Restart Apache
+sudo service apache2 restart
+
+# Check if the patch was successful
+if ! grep -q "!RC4" /etc/apache2/apache2.conf; then
+  echo "Patch failed."
+  exit 1
+fi
+
+echo "Patch successful."
+```
+
+This patch will disable the RC4 cipher suite in Apache, which is vulnerable to the Lucky Thirteen attack. The RC4 cipher suite should not be used for any new deployments, and it should be disabled in existing deployments as soon as possible.

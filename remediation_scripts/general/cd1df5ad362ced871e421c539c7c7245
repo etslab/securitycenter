@@ -1,0 +1,36 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Content Security Policy (CSP) header not implemented in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Content Security Policy (CSP) header not implemented in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the CSP header is already enabled
+if grep -q "Content-Security-Policy" /etc/apache2/apache2.conf; then
+  echo "The CSP header is already enabled."
+  exit 0
+fi
+
+# Add the CSP header to Apache's configuration file
+echo "Content-Security-Policy: default-src 'self';" >> /etc/apache2/apache2.conf
+
+# Restart Apache
+service apache2 restart
+
+# Check if the CSP header is now enabled
+if grep -q "Content-Security-Policy" /etc/apache2/apache2.conf; then
+  echo "The CSP header has been successfully enabled."
+else
+  echo "The CSP header could not be enabled."
+  exit 1
+fi
+```
+
+This patch script will check if Apache is installed and if the CSP header is already enabled. If the CSP header is not enabled, the script will add it to Apache's configuration file and restart Apache. Finally, the script will check if the CSP header is now enabled.
+
+Please note that this is just a sample patch script and may need to be modified to fit your specific environment.

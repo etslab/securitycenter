@@ -1,0 +1,38 @@
+####patch script to remediate  Vulnerable JS Library in Apache HTTP Server
+Here is a patch script to remediate a vulnerable JavaScript library in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if the vulnerable library is installed
+if [ -f /usr/lib/apache2/modules/mod_js.so ]; then
+
+  # Disable the module
+  a2dismod mod_js
+
+  # Remove the library
+  rm -f /usr/lib/apache2/modules/mod_js.so
+
+  # Restart Apache
+  systemctl restart apache2
+
+  # Success message
+  echo "Vulnerable JS library has been removed."
+
+else
+
+  # Error message
+  echo "Vulnerable JS library is not installed."
+
+fi
+```
+
+This script will first check if the vulnerable library is installed. If it is, the script will disable the module, remove the library, and restart Apache. If the library is not installed, the script will print an error message.
+
+Here are some additional things to keep in mind when using this script:
+
+* The script should be run as root or with sudo privileges.
+* The script should only be used to remove vulnerable libraries that are known to be insecure.
+* The script should not be used to remove libraries that are essential for the operation of Apache.
+
+If you are unsure whether or not a library is vulnerable, you should consult with a security expert.

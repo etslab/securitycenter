@@ -1,0 +1,33 @@
+####patch script to remediate  CVE-2020-9490 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2020-9490 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /var/run/httpd.pid ]; then
+  # Stop Apache
+  sudo systemctl stop httpd
+
+  # Check the version of Apache
+  APACHE_VERSION=$(apache2 -v | awk '{print $3}')
+
+  # If Apache is vulnerable, patch it
+  if [[ $APACHE_VERSION -ge 2.4.20 && $APACHE_VERSION -lt 2.4.43 ]]; then
+    sudo apt-get update
+    sudo apt-get install --only-upgrade apache2
+  fi
+
+  # Start Apache
+  sudo systemctl start httpd
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will stop Apache. Next, the script will check the version of Apache. If Apache is vulnerable, the script will patch it. Finally, the script will start Apache.
+
+Here are some additional notes about this patch script:
+
+* The script uses the `systemctl` command to manage Apache. This is the preferred method for managing Apache on modern Linux distributions.
+* The script uses the `apt-get` command to install the Apache update. This is the preferred method for installing software on modern Linux distributions.
+* The script only patches Apache if it is vulnerable. This is to prevent unnecessary downtime.
+* The script starts Apache after it has been patched. This ensures that Apache is available after the patch has been applied.

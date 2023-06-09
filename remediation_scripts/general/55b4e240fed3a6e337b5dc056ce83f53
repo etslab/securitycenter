@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2020-14145 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2020-14145 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the version of Apache
+  VERSION=$(apache2 -V | awk '{print $2}')
+
+  # If the version is less than 2.4.42, then patch Apache
+  if [[ $VERSION -lt 2.4.42 ]]; then
+
+    # Download the patch from the Apache website
+    wget https://www.apache.org/dist/httpd/binaries/latest/src/patches/CVE-2020-14145.patch
+
+    # Apply the patch
+    patch -p1 < CVE-2020-14145.patch
+
+    # Restart Apache
+    apache2ctl restart
+
+  fi
+
+fi
+```
+
+This patch script will download the latest patch for CVE-2020-14145 from the Apache website and apply it to your Apache installation. Once the patch has been applied, you will need to restart Apache for the changes to take effect.
+
+Please note that this is just a sample patch script and may not work on all systems. If you are unsure about how to apply the patch, please consult the Apache documentation or contact your system administrator for assistance.

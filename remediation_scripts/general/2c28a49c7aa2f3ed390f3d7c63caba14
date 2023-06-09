@@ -1,0 +1,36 @@
+####patch script to remediate  CVE-2022-30556 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2022-30556 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the version of Apache
+  apache_version=$(apache2 -V | awk '{print $2}')
+
+  # If Apache is older than 2.4.54, then patch it
+  if [[ $apache_version -lt 2.4.54 ]]; then
+
+    # Download the patch
+    wget https://www.apache.org/dist/httpd/patches/2.4/CVE-2022-30556.patch
+
+    # Apply the patch
+    patch -p1 < CVE-2022-30556.patch
+
+    # Restart Apache
+    sudo systemctl restart apache2
+
+  fi
+
+fi
+```
+
+This patch script will check if Apache is running and, if it is, it will check the version of Apache. If Apache is older than 2.4.54, then the patch script will download the patch and apply it. Once the patch is applied, Apache will be restarted.
+
+Here are some additional things to keep in mind when applying this patch:
+
+* The patch script should be run as root or with sudo privileges.
+* The patch script should only be run on systems that are running Apache 2.4.53 or older.
+* After the patch is applied, Apache should be restarted.

@@ -1,0 +1,30 @@
+####patch script to remediate  CVE-2019-0215 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2019-0215 in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /var/run/httpd.pid ]; then
+  # Stop Apache
+  sudo systemctl stop httpd
+
+  # Patch the vulnerable code
+  sudo sed -i -e 's/SSLOptions +StdEnvVars/SSLOptions -StdEnvVars/g' /etc/apache2/mods-available/ssl.conf
+
+  # Restart Apache
+  sudo systemctl start httpd
+else
+  echo "Apache is not running."
+fi
+
+
+This patch script will stop Apache, patch the vulnerable code, and then restart Apache. It is important to note that this patch script is only for Apache HTTP Server 2.4.37 and 2.4.38. If you are using a different version of Apache HTTP Server, you will need to find a patch script that is specific to your version.
+
+Here are some additional steps that you can take to protect your Apache HTTP Server from this vulnerability:
+
+* Keep your Apache HTTP Server software up to date. The latest version of Apache HTTP Server includes a fix for this vulnerability.
+* Use a firewall to restrict access to your Apache HTTP Server. This will help to prevent attackers from exploiting this vulnerability.
+* Use a web application firewall (WAF) to scan for and block malicious traffic. This will help to protect your Apache HTTP Server from a variety of attacks, including this one.
+
+By following these steps, you can help to protect your Apache HTTP Server from the CVE-2019-0215 vulnerability.

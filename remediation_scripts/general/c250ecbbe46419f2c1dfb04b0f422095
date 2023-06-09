@@ -1,0 +1,35 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Timestamp Disclosure - Unix in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Timestamp Disclosure - Unix in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# This script patches Apache HTTP Server to remediate CVE-2013-0169, CWE-310 Timestamp Disclosure - Unix.
+
+# Check if Apache is installed.
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable version of Apache is installed.
+vulnerable_version="2.2.15"
+current_version=$(apache2 -V | awk '{print $2}')
+if [[ "$current_version" == "$vulnerable_version" ]]; then
+  echo "Apache $current_version is vulnerable to CVE-2013-0169."
+  echo "Patching..."
+
+  # Patch the vulnerable file.
+  vulnerable_file="/etc/apache2/conf.d/userdir.conf"
+  sed -i -e 's/AllowOverride None/AllowOverride FileInfo AuthConfig/g' $vulnerable_file
+
+  # Restart Apache.
+  service apache2 restart
+
+  echo "Patching complete."
+else
+  echo "Apache $current_version is not vulnerable to CVE-2013-0169."
+fi
+
+
+This script will check if Apache is installed and if the vulnerable version of Apache is installed. If the vulnerable version is installed, the script will patch the vulnerable file and restart Apache.

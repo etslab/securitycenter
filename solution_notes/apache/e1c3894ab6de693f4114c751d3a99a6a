@@ -1,0 +1,27 @@
+###How to fix the App Dependencies issue of zip_cp437_header.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of zip_cp437_header.zip in apache web server can be fixed by following these steps:
+
+1. Download the zip_cp437_header.zip file from the Apache website.
+2. Unzip the file to a directory on your computer.
+3. Open the httpd.conf file in a text editor.
+4. Locate the line that starts with "LoadModule".
+5. Add the following line to the end of the line:
+```
+LoadModule zip_module modules/mod_zip.so
+```
+6. Save the file and restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "Injection". Injection attacks are a type of attack where an attacker injects malicious code into a vulnerable application. This can be done by exploiting a vulnerability in the application's input validation or input sanitization mechanisms.
+
+In the case of the App Dependencies issue, the vulnerability is in the Apache web server's mod_zip module. This module allows Apache to serve ZIP files. However, the module is not properly configured to prevent attackers from injecting malicious code into ZIP files.
+
+If an attacker is able to successfully inject malicious code into a ZIP file, they could then exploit the vulnerability in the Apache web server to execute arbitrary code on the server. This could allow the attacker to gain access to the server and steal data, install malware, or disrupt operations.
+
+To prevent this issue, it is important to properly configure the Apache web server's mod_zip module. This can be done by following the instructions in the Apache documentation.
+
+In addition to configuring the Apache web server, it is also important to implement other security measures to protect against injection attacks. These measures include:
+
+* Using input validation to prevent attackers from injecting malicious code into input fields.
+* Using input sanitization to remove dangerous characters from input data.
+* Using a web application firewall (WAF) to block malicious traffic.
+* Keeping software up to date with the latest security patches.

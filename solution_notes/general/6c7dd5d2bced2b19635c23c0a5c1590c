@@ -1,0 +1,26 @@
+###How to fix the App Dependencies issue of w32.exe in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of w32.exe in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. In the Apache configuration directory, find the file named `w32.conf`.
+3. Open the `w32.conf` file in a text editor.
+4. Locate the line that starts with `LoadModule`.
+5. Add the following line to the end of the `LoadModule` line:
+
+```
+AppDependencies On
+```
+
+6. Save the `w32.conf` file.
+7. Restart the Apache web server.
+
+The App Dependencies issue of w32.exe in Apache web server belongs to the OWASP Top 10 Web 2021 category of **A1: Injection**. This category includes vulnerabilities that allow attackers to inject malicious code into web applications. The App Dependencies issue can be exploited by attackers to inject malicious code into Apache web applications, which could allow them to take control of the application or server.
+
+Here are some additional tips for preventing and mitigating the App Dependencies issue:
+
+* Keep your Apache web server software up to date.
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Implement input validation and output encoding to prevent attackers from injecting malicious code into your web applications.
+* Educate your users about the dangers of clicking on links in emails or opening attachments from unknown senders.
+
+By following these tips, you can help to protect your Apache web server from the App Dependencies issue and other injection vulnerabilities.

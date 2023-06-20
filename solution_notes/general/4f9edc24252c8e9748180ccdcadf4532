@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of crc32-not-streamed.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of crc32-not-streamed.zip in Apache web server can be fixed by changing the configuration of the mod_deflate module. The following steps can be taken to fix the issue:
+
+1. Open the Apache configuration file.
+2. Locate the mod_deflate module.
+3. Add the following line to the mod_deflate module configuration:
+```
+deflate_method DEFLATE
+```
+4. Save the Apache configuration file.
+5. Restart the Apache web server.
+
+The App Dependencies issue of crc32-not-streamed.zip belongs to the OWASP Top 10 Web 2021 category of A1 - Injection. This issue allows an attacker to inject malicious code into a web application by exploiting a vulnerability in the mod_deflate module.
+
+Here are some additional details about the App Dependencies issue of crc32-not-streamed.zip:
+
+* The issue is caused by a bug in the mod_deflate module that allows an attacker to inject arbitrary data into the output of the module.
+* The issue can be exploited by an attacker to inject malicious code into a web application.
+* The issue has been assigned the CVE identifier CVE-2022-22720.
+* The issue has been patched in Apache versions 2.4.53 and 2.4.54.
+
+If you are using an older version of Apache, you should upgrade to a patched version as soon as possible. You can also mitigate the risk of this issue by disabling the mod_deflate module. However, disabling the mod_deflate module may impact the performance of your web application.

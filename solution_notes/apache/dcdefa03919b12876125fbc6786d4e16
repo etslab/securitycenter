@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of t64.exe in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of t64.exe in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Delete the t64.exe file from the Apache installation directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws occur when unvalidated or unfiltered data is used to control the execution of software. This can lead to a variety of security vulnerabilities, including code execution, privilege escalation, and data exfiltration.
+
+The App Dependencies issue of t64.exe is a type of injection vulnerability that can be exploited to execute arbitrary code on the Apache web server. This can be done by creating a malicious file that contains the t64.exe file and then uploading it to a web server that is running Apache. When a user visits the web page that contains the malicious file, the t64.exe file will be executed and could potentially cause any number of problems, such as stealing data, installing malware, or taking down the web server.
+
+To prevent this type of vulnerability, it is important to carefully validate and filter all input data before using it to control the execution of software. This can be done by using a variety of techniques, such as input validation libraries, regular expressions, and white lists.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use a web application firewall (WAF) to help protect your web server from common injection attacks.
+* Keep your software up to date with the latest security patches.
+* Train your developers on how to prevent injection vulnerabilities.
+
+By following these tips, you can help to protect your web server from injection vulnerabilities.

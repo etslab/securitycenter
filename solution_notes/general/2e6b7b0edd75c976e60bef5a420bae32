@@ -1,0 +1,30 @@
+###How to fix the App Dependencies issue of async:2.6.3 of pkg:npm/async@2.6.3 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of async:2.6.3 of pkg:npm/async@2.6.3 in apache web server, you can follow these steps:
+
+1. Update the async package to the latest version. You can do this by running the following command in your terminal:
+
+```
+npm update async
+```
+
+2. Restart your Apache web server. You can do this by running the following command:
+
+```
+sudo service apache2 restart
+```
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1 - Broken Access Control**. This is because the async package allows unauthenticated users to access sensitive data.
+
+Here are some additional information about the OWASP Top 10 Web 2021 category A1 - Broken Access Control:
+
+* **Description:** Broken access control is the most commonly seen web application security vulnerability. It allows attackers to access unauthorized data, execute unauthorized actions, or perform other actions that they should not be able to do.
+* **Impact:** Broken access control can have a significant impact on an organization, including:
+    * Data breaches
+    * Financial losses
+    * Reputational damage
+* **Recommendations:** To mitigate the risk of broken access control, organizations should implement the following security controls:
+    * Use role-based access control (RBAC) to restrict user access to data and functionality
+    * Implement input validation to prevent attackers from injecting malicious code into web applications
+    * Use secure coding practices to develop web applications that are resistant to attack
+
+I hope this helps!

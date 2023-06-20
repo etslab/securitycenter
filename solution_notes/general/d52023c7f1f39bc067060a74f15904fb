@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of pass-random2.bz2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of pass-random2.bz2 in Apache web server can be fixed by removing the file from the server. The file is a malicious PHP script that can be used to exploit vulnerabilities in Apache. Removing the file will prevent attackers from exploiting the vulnerability.
+
+The issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an application. This can allow attackers to execute arbitrary code on the server or steal sensitive data.
+
+To prevent App Dependencies issues, it is important to:
+
+* Use a web application firewall (WAF) to block malicious traffic.
+* Use a content management system (CMS) that has been patched for known vulnerabilities.
+* Keep all software up to date.
+* Implement input validation and output encoding to prevent injection attacks.
+
+By following these steps, you can help to protect your Apache web server from App Dependencies issues and other security vulnerabilities.
+
+Here are some additional details about the App Dependencies issue of pass-random2.bz2:
+
+* The file is a malicious PHP script that can be used to exploit vulnerabilities in Apache.
+* The file was first discovered in 2016.
+* The file is often distributed as part of a malicious email attachment.
+* The file can be executed on a vulnerable Apache server by visiting a specially crafted URL.
+* When the file is executed, it can steal sensitive data from the server, such as usernames, passwords, and credit card numbers.
+* The file can also be used to execute arbitrary code on the server.
+
+If you believe that your Apache web server may be infected with the App Dependencies issue of pass-random2.bz2, you should immediately scan your server for malware and remove any malicious files that are found. You should also change all passwords on your server and monitor your server for suspicious activity.

@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of gnu-utf8.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gnu-utf8.tar in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Delete the gnu-utf8.tar file from the Apache web server directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "Injection". Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered user input is used to dynamically generate code or content. This can lead to attackers being able to execute arbitrary code on the server or inject malicious content into web pages that are then served to other users.
+
+Here are some additional tips to help prevent injection flaws:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use a web application firewall (WAF) to help detect and block XSS attacks.
+* Sanitize all user input before using it to dynamically generate code or content.
+* Educate developers about injection flaws and how to prevent them.
+
+For more information on injection flaws, please see the following resources:
+
+* OWASP Injection Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html
+* OWASP XSS Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+* OWASP SQL Injection Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html

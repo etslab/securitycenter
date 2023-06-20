@@ -1,0 +1,30 @@
+###How to fix the App Dependencies issue of paramiko-2.7.1.tar.gz:paramiko-2.7.1.tar:jquery-1.11.1.js in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of paramiko-2.7.1.tar.gz:paramiko-2.7.1.tar:jquery-1.11.1.js in apache web server can be fixed by installing the following dependencies:
+
+* paramiko-2.7.1
+* jquery-1.11.1
+
+To install these dependencies, you can use the following commands:
+
+```
+sudo apt install paramiko-2.7.1
+sudo apt install jquery-1.11.1
+```
+
+Once the dependencies are installed, you can restart the Apache web server by running the following command:
+
+```
+sudo service apache2 restart
+```
+
+The App Dependencies issue belongs to the OWASP Top 10 Web 2021 category of **A1 - Injection**. Injection flaws, such as SQL injection and XSS, occur when unvalidated user input is used to dynamically generate SQL statements or HTML output. This can lead to data loss, server takeover, and other security vulnerabilities.
+
+To prevent App Dependencies issues, you should always validate user input before using it to dynamically generate SQL statements or HTML output. You should also use a web application firewall (WAF) to help protect your web server from common injection attacks.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Use a framework or library that handles dependency management for you.
+* Keep your dependencies up to date.
+* Use a version control system to track changes to your dependencies.
+* Use a static analysis tool to scan your code for potential injection vulnerabilities.
+* Train your developers on how to prevent injection vulnerabilities.

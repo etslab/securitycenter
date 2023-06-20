@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of json-schema:0.2.3 of pkg:npm/json-schema@0.2.3 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of json-schema:0.2.3 of pkg:npm/json-schema@0.2.3 in Apache web server can be fixed by updating the json-schema dependency to a newer version. The 0.2.3 version of json-schema is vulnerable to Prototype Pollution, which is a type of code injection vulnerability that can allow an attacker to modify the behavior of the application.
+
+To update the json-schema dependency, you can use the following command:
+
+```
+npm update json-schema
+```
+
+This will update the json-schema dependency to the latest version, which is 0.3.2 at the time of writing.
+
+The Prototype Pollution vulnerability that is present in the 0.2.3 version of json-schema belongs to the OWASP Top 10 Web 2021 category of Injection. This category includes vulnerabilities that allow an attacker to inject code into an application, which can then be executed by the application.
+
+Here are some additional steps you can take to improve the security of your Apache web server:
+
+* Keep all of your software up to date, including your web server, web application, and any dependencies.
+* Use a web application firewall (WAF) to help protect your application from common attacks.
+* Implement security best practices, such as input validation, output encoding, and session management.
+
+By following these steps, you can help to protect your Apache web server from security vulnerabilities.

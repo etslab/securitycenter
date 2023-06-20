@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of steep/ruby-3.0.0.tar.gz:ruby-3.0.0.tar:Gemfile.lock:activesupport in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of steep/ruby-3.0.0.tar.gz:ruby-3.0.0.tar:Gemfile.lock:activesupport in apache web server can be fixed by following these steps:
+
+1. Check the version of Ruby that is installed on your server. If it is not the same version as the one that is specified in the Gemfile.lock file, then you will need to install the correct version of Ruby.
+2. Once the correct version of Ruby is installed, you can then install the activesupport gem by running the following command:
+
+```
+gem install activesupport
+```
+
+3. Once the activesupport gem is installed, you can then restart the Apache web server.
+
+The App Dependencies issue of steep/ruby-3.0.0.tar.gz:ruby-3.0.0.tar:Gemfile.lock:activesupport in apache web server belongs to the OWASP Top 10 Web 2021 category of **A2 - Broken Access Control**. This category includes vulnerabilities that allow an attacker to gain unauthorized access to a system or data. In this case, the attacker could gain unauthorized access to the Apache web server by exploiting the App Dependencies issue.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your software up to date. Software updates often include security patches that can help to prevent vulnerabilities.
+* Use a configuration management tool to manage your software dependencies. This can help to ensure that you are using the correct versions of software and that they are installed in the correct locations.
+* Use a vulnerability scanner to scan your systems for known vulnerabilities. This can help to identify any App Dependencies issues that may exist.

@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of cli-64.exe in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of cli-64.exe in Apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Delete the cli-64.exe file from the Apache installation directory.
+3. Download the latest version of cli-64.exe from the Apache website.
+4. Copy the downloaded cli-64.exe file to the Apache installation directory.
+5. Start the Apache web server.
+
+The App Dependencies issue of cli-64.exe in Apache web server belongs to the OWASP Top 10 Web 2021 category of Broken Access Control. This means that the issue allows an attacker to gain unauthorized access to the Apache web server.
+
+The OWASP Top 10 Web 2021 is a list of the top 10 security risks to web applications. The list is updated every year to reflect the latest security threats. The Broken Access Control category includes vulnerabilities that allow attackers to gain unauthorized access to web applications.
+
+Here are some additional tips for preventing Broken Access Control vulnerabilities:
+
+* Use least privilege. Only give users the permissions they need to perform their job duties.
+* Encrypt sensitive data. This will make it more difficult for attackers to access even if they do gain unauthorized access.
+* Use a web application firewall (WAF). A WAF can help to block common attack vectors that could be used to exploit Broken Access Control vulnerabilities.
+
+By following these tips, you can help to protect your web applications from Broken Access Control vulnerabilities.

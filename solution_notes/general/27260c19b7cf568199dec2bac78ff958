@@ -1,0 +1,44 @@
+###How to fix the App Dependencies issue of v7.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of v7.tar in Apache web server can be fixed by installing the missing dependencies. The following are the steps to fix the issue:
+
+1. Download the missing dependencies.
+2. Install the dependencies.
+3. Restart Apache.
+
+The following are the dependencies that need to be installed:
+
+* APR (Apache Portable Runtime)
+* APR-Util
+* OpenSSL
+
+The following are the steps to install the dependencies:
+
+1. Download the APR and APR-Util packages from the Apache website.
+2. Install the packages using the following command:
+
+```
+sudo apt-get install apr apr-util
+```
+
+3. Download the OpenSSL package from the OpenSSL website.
+4. Install the package using the following command:
+
+```
+sudo apt-get install libssl-dev
+```
+
+5. Restart Apache using the following command:
+
+```
+sudo service apache2 restart
+```
+
+The App Dependencies issue of v7.tar in Apache web server belongs to the OWASP Top 10 Web Security Risks 2021 category of **A1: Broken Access Control**. This category includes vulnerabilities that allow attackers to gain unauthorized access to systems or data. The App Dependencies issue can allow attackers to gain unauthorized access to Apache web servers by exploiting the missing dependencies.
+
+Here are some additional tips to help prevent the App Dependencies issue:
+
+* Keep your software up to date.
+* Use a vulnerability scanner to scan your systems for known vulnerabilities.
+* Implement a security policy that includes a process for managing software dependencies.
+
+By following these tips, you can help to protect your Apache web servers from the App Dependencies issue and other security vulnerabilities.

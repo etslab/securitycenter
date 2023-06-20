@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of loader-utils:1.4.0 of pkg:npm/loader-utils@1.4.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of loader-utils:1.4.0 of pkg:npm/loader-utils@1.4.0 in Apache web server, you can do the following:
+
+1. Update the loader-utils package to a version that is not vulnerable. The latest version of loader-utils is 3.2.1, which is not vulnerable to the issue.
+2. If you are unable to update the loader-utils package, you can work around the issue by using the following configuration in your Apache web server:
+
+```
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/loader-utils/1\.4\.0$
+RewriteRule .* - [F]
+</IfModule>
+```
+
+This configuration will redirect any requests to the vulnerable loader-utils package to a 404 error page.
+
+The App Dependencies issue of loader-utils:1.4.0 of pkg:npm/loader-utils@1.4.0 belongs to the OWASP Top 10 Web Security 2021 category of **A1: Injection**. This category includes vulnerabilities that allow an attacker to inject code into a web application. Injection vulnerabilities can be used to steal sensitive data, execute arbitrary code, or disrupt the application's functionality.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements or parameterized queries when interacting with databases.
+* Sanitize all user input before using it in any context.
+* Use a web application firewall (WAF) to help protect against injection attacks.
+
+By following these tips, you can help to protect your web application from injection vulnerabilities.

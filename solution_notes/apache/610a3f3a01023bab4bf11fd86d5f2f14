@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of readme.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of readme.zip in Apache web server, you can follow these steps:
+
+1. Open the Apache configuration file for the affected website.
+2. Locate the line that defines the readme.zip file.
+3. Change the line to include the following directive:
+
+```
+<LocationMatch "^/readme\.zip$">
+    Order allow,deny
+    Deny from all
+</LocationMatch>
+```
+
+4. Save the configuration file and restart Apache.
+
+This will prevent Apache from serving the readme.zip file to any users.
+
+The App Dependencies issue of readme.zip in Apache web server is a security vulnerability that can be exploited by attackers to gain access to the website's files. This vulnerability is a part of OWASP Top 10 2021 - A1 - Broken Access Control.
+
+The OWASP Top 10 is a list of the most critical web application security risks. These risks are ranked according to their severity and likelihood of exploitation. The A1 - Broken Access Control risk is the most critical risk on the list. It is a risk that allows attackers to gain unauthorized access to a web application's data or functionality.
+
+There are a number of ways to mitigate the risk of Broken Access Control. One way is to use a web application firewall (WAF). A WAF can help to prevent attackers from exploiting vulnerabilities in a web application. Another way to mitigate the risk is to implement proper access control measures. This includes using strong passwords, role-based access control, and least privilege.
+
+It is important to note that the App Dependencies issue of readme.zip in Apache web server is just one example of a Broken Access Control vulnerability. There are many other ways that Broken Access Control can be exploited. It is important to be aware of these risks and to take steps to mitigate them.

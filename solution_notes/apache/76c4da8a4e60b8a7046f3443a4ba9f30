@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of pax-nul-path.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of pax-nul-path.tar in apache web server can be fixed by removing the file from the server. The file is a malicious tarball that can be used to exploit a vulnerability in the Apache web server to execute arbitrary code on the server. The vulnerability is in the mod_dir module and affects Apache versions 2.4.49 and earlier.
+
+To fix the issue, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Remove the pax-nul-path.tar file from the server.
+3. Restart the Apache web server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Injection. Injection flaws, such as code injection, SQL injection, and XML injection, occur when unvalidated or malicious data is sent to an application. This can lead to attackers being able to execute arbitrary code on the server, steal data, or modify data.
+
+Here are some additional tips to help you secure your Apache web server:
+
+* Keep your Apache web server software up to date.
+* Use a firewall to restrict access to the server.
+* Use strong passwords for the server and any accounts that have access to the server.
+* Enable mod_rewrite to help prevent directory traversal attacks.
+* Use mod_security to help prevent common web attacks.
+* Use a web application firewall (WAF) to help protect against even more sophisticated attacks.
+
+By following these tips, you can help to protect your Apache web server from attack.

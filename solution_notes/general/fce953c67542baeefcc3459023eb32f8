@@ -1,0 +1,29 @@
+###How to fix the App Dependencies issue of Chart.bundle.js of pkg:javascript/chart.js@2.7.2,pkg:javascript/moment.js@2.20.1 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of Chart.bundle.js of pkg:javascript/chart.js@2.7.2,pkg:javascript/moment.js@2.20.1 in apache web server can be fixed by following these steps:
+
+1. Install the latest versions of Chart.js and Moment.js.
+2. Update the references to these libraries in your application code.
+3. Restart your Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Vulnerable and Outdated Components. This category highlights the importance of using up-to-date software components, as outdated components can contain known security vulnerabilities.
+
+Here are the steps in more detail:
+
+1. To install the latest versions of Chart.js and Moment.js, you can use a package manager like npm or yarn.
+
+```
+npm install chart.js@latest
+npm install moment@latest
+```
+
+2. Once you have installed the latest versions of the libraries, you need to update the references to them in your application code. This will vary depending on the framework or language you are using.
+
+3. Finally, you need to restart your Apache web server. This will ensure that the new versions of the libraries are loaded.
+
+By following these steps, you can fix the App Dependencies issue and improve the security of your application.
+
+Here are some additional tips for preventing this issue in the future:
+
+* Use a package manager to manage your dependencies. This will help you to keep track of the versions of your dependencies and make it easier to upgrade them when new versions are released.
+* Set up a continuous integration (CI) process to automatically test your application for known security vulnerabilities. This will help you to identify and fix security issues early on.
+* Stay up-to-date on the latest security threats and vulnerabilities. This will help you to make informed decisions about the security of your applications.

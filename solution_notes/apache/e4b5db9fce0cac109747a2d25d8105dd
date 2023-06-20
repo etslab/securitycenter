@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of follow-redirects:1.13.1 of pkg:npm/follow-redirects@1.13.1 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of follow-redirects:1.13.1 of pkg:npm/follow-redirects@1.13.1 in apache web server can be fixed by updating the follow-redirects package to a newer version. The OWASP Top 10 Web 2021 category that this issue belongs to is Broken Access Control (A9).
+
+To fix the issue, follow these steps:
+
+1. Update the follow-redirects package to a newer version. You can do this by running the following command:
+
+```
+npm install follow-redirects@latest
+```
+
+2. Restart the Apache web server.
+
+Once you have completed these steps, the App Dependencies issue should be fixed.
+
+The Broken Access Control (A9) category of the OWASP Top 10 Web 2021 covers vulnerabilities that allow attackers to access resources that they should not be able to access. This can include data, files, or systems. The follow-redirects package vulnerability allows attackers to redirect users to unintended destinations, which could lead to data theft or other attacks.
+
+Here are some additional tips for preventing and mitigating Broken Access Control vulnerabilities:
+
+* Use role-based access control (RBAC) to restrict users' access to resources.
+* Use input validation to prevent attackers from injecting malicious code into requests.
+* Use output encoding to prevent attackers from injecting malicious code into responses.
+* Implement a web application firewall (WAF) to block common attack vectors.
+* Keep your software up to date with the latest security patches.

@@ -1,0 +1,26 @@
+###How to fix the App Dependencies issue of utf8-7zip.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of utf8-7zip.zip in apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Delete the utf8-7zip.zip file from the Apache web server's document root directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "A4 - Insecure Design". This category includes vulnerabilities that can be exploited due to poor design or implementation of web applications.
+
+Here are some additional information about this issue:
+
+* The utf8-7zip.zip file is a third-party library that is used by the Apache web server to compress and decompress files.
+* The issue occurs when the utf8-7zip.zip file is not installed correctly on the Apache web server.
+* When the issue occurs, the Apache web server will not be able to compress or decompress files.
+* This issue can be exploited by an attacker to denial of service the Apache web server.
+
+To prevent this issue from occurring, it is important to ensure that the utf8-7zip.zip file is installed correctly on the Apache web server. The utf8-7zip.zip file can be downloaded from the Apache web server's documentation website.
+
+Here are some additional tips for preventing OWASP Top 10 Web 2021 category of "A4 - Insecure Design" vulnerabilities:
+
+* Use a web application firewall (WAF) to scan for and block malicious traffic.
+* Implement input validation to prevent attackers from injecting malicious code into web applications.
+* Use strong passwords and authentication mechanisms to protect web applications.
+* Keep web applications up to date with the latest security patches.
+
+By following these tips, you can help to prevent OWASP Top 10 Web 2021 category of "A4 - Insecure Design" vulnerabilities from affecting your web applications.

@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of jquery.min.js of pkg:javascript/jquery@3.1.1 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of jquery.min.js of pkg:javascript/jquery@3.1.1 in Apache web server, you can do the following:
+
+1. Check if the jquery.min.js file is actually installed on your server. If it is not, you can download it from the jQuery website.
+2. Once you have the jquery.min.js file, you need to configure Apache to serve it. You can do this by adding the following line to your Apache configuration file:
+
+```
+<Location /jquery.min.js>
+    Order allow,deny
+    Allow from all
+</Location>
+```
+
+3. Once you have configured Apache, you need to restart the server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1 - Injection**. This category includes vulnerabilities that allow attackers to inject malicious code into web applications. The jquery.min.js file is a JavaScript library that is often used by web applications. If an attacker can inject malicious code into this file, they could potentially take control of the application.
+
+Here are some additional tips for preventing Injection vulnerabilities:
+
+* Use a web application firewall (WAF) to help protect your application from known Injection attacks.
+* Use input validation to check for malicious characters in user input.
+* Use output encoding to prevent malicious code from being executed in the browser.
+* Keep your web application software up to date with the latest security patches.
+
+By following these tips, you can help to prevent Injection vulnerabilities in your web applications.

@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of axios:0.21.1 of pkg:npm/axios@0.21.1 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The axios:0.21.1 of pkg:npm/axios@0.21.1 vulnerability is a Server-Side Request Forgery (SSRF) vulnerability. This means that an attacker can trick the server into making requests to arbitrary URLs, including those that are not allowed by the server's configuration. This can be used to steal sensitive data, such as user credentials, or to perform other malicious actions.
+
+To fix this vulnerability, you need to upgrade to a patched version of the axios package. You can do this by running the following command:
+
+```
+npm install axios@^0.21.2
+```
+
+This will install the latest version of the axios package, which is patched for the vulnerability.
+
+This vulnerability belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as SSRF, occur when unvalidated or unfiltered data is passed to an interpreter as part of a command or query. The attacker can then modify the data to cause the interpreter to execute unintended commands or access unauthorized data.
+
+Here are some additional tips for preventing SSRF attacks:
+
+* Use a web application firewall (WAF) to block requests to unauthorized URLs.
+* Sanitize all user input before passing it to an interpreter.
+* Use a content security policy (CSP) to restrict the types of requests that can be made from your application.
+* Keep your software up to date with the latest security patches.
+
+By following these tips, you can help to protect your application from SSRF attacks.

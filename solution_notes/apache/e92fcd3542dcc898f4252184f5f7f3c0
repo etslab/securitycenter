@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of gnu-not-utf8.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of gnu-not-utf8.tar in Apache web server can be fixed by removing the gnu-not-utf8.tar file from the Apache web server's directory. This file is not needed by Apache and can cause errors when it is present.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Injection. Injection vulnerabilities occur when unvalidated or malicious data is inserted into an application. This can lead to a variety of attacks, including code execution, data manipulation, and denial of service.
+
+Here are the steps on how to fix the App Dependencies issue of gnu-not-utf8.tar in Apache web server:
+
+1. Stop the Apache web server.
+2. Locate the gnu-not-utf8.tar file in the Apache web server's directory.
+3. Delete the gnu-not-utf8.tar file.
+4. Start the Apache web server.
+
+Once the gnu-not-utf8.tar file has been removed, the App Dependencies issue should be resolved.
+
+Here are some additional tips for preventing Injection vulnerabilities:
+
+* Use prepared statements to avoid SQL injection attacks.
+* Sanitize all user input before inserting it into an application.
+* Use a web application firewall (WAF) to help protect against Injection attacks.
+
+By following these tips, you can help to prevent Injection vulnerabilities in your web applications.

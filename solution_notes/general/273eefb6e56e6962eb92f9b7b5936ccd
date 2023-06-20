@@ -1,0 +1,38 @@
+###How to fix the App Dependencies issue of utf8-winzip.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of utf8-winzip.zip in apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Delete the utf8-winzip.zip file from the Apache web server's directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection attacks are a type of attack where an attacker injects malicious code into a vulnerable application. This can be done by exploiting a vulnerability in the application's input validation or output encoding. Injection attacks can allow an attacker to take control of the application or to steal sensitive data.
+
+The OWASP Top 10 Web 2021 is a list of the top 10 web application security risks. These risks are ranked according to their severity and likelihood of occurrence. The Injection category includes the following vulnerabilities:
+
+* SQL injection
+* NoSQL injection
+* LDAP injection
+* OS command injection
+* XML injection
+* JSON injection
+* Template injection
+* Browser injection
+* Parameter tampering
+
+These vulnerabilities can be exploited by attackers to gain unauthorized access to a web application, steal sensitive data, or disrupt the application's functionality.
+
+To mitigate the risk of injection attacks, it is important to implement proper input validation and output encoding. Input validation is the process of checking incoming data for malicious content. Output encoding is the process of converting output data into a format that cannot be interpreted by attackers.
+
+There are a number of tools and techniques that can be used to implement input validation and output encoding. Some of these tools and techniques include:
+
+* Regular expressions
+* Whitelisting
+* Blacklisting
+* Escaping
+* Sanitization
+
+It is important to choose the appropriate input validation and output encoding techniques for the specific application. The specific techniques that are used will depend on the type of data that is being entered into the application and the potential threats that the application faces.
+
+In addition to implementing proper input validation and output encoding, it is also important to keep the application's software up to date. Software updates often include security patches that can help to protect the application from known vulnerabilities.
+
+By following these steps, it is possible to mitigate the risk of injection attacks and protect web applications from unauthorized access, data theft, and disruption.

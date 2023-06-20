@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of time-osx.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of time-osx.zip in Apache web server can be fixed by installing the missing dependencies. The following steps can be followed to fix the issue:
+
+1. Download the time-osx.zip file from the official website.
+2. Extract the contents of the zip file to a directory.
+3. Open a terminal window and navigate to the directory where the extracted files are located.
+4. Run the following command to install the missing dependencies:
+
+```
+sudo apt-get install libssl-dev libcrypto-dev
+```
+
+5. Once the dependencies are installed, restart the Apache web server.
+
+The App Dependencies issue of time-osx.zip in Apache web server belongs to the OWASP Top 10 Web Vulnerabilities 2021 category of **A03: Broken Access Control**. This vulnerability allows an attacker to bypass access controls and gain unauthorized access to sensitive data or resources.
+
+Here are some additional tips to help you prevent this vulnerability:
+
+* Keep your software up to date. Software updates often include security patches that can help to prevent vulnerabilities.
+* Use a web application firewall (WAF). A WAF can help to block common attack vectors, including those that exploit vulnerabilities like App Dependencies.
+* Implement proper access control. Ensure that users only have access to the data and resources that they need.
+* Use secure coding practices. When developing web applications, use secure coding practices to help prevent vulnerabilities.
+
+By following these tips, you can help to protect your web applications from the App Dependencies vulnerability and other vulnerabilities.

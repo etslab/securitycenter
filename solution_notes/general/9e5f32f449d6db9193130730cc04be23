@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of postcss:7.0.21 of pkg:npm/postcss@7.0.21 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of postcss:7.0.21 of pkg:npm/postcss@7.0.21 in apache web server, you can follow these steps:
+
+1. Update the postcss package to the latest version. You can do this by running the following command:
+
+```
+npm install postcss@latest
+```
+
+2. Clear the Apache web server's cache. You can do this by restarting the Apache web server.
+
+3. Test the application to make sure that it is working properly.
+
+The App Dependencies issue of postcss:7.0.21 of pkg:npm/postcss@7.0.21 in apache web server belongs to the OWASP Top 10 Web 2021 category of **A03: Broken Access Control**. This category is concerned with vulnerabilities that allow unauthorized users to access sensitive data or resources. In this case, the vulnerability allows an attacker to bypass the Apache web server's security controls and access the postcss package, which contains sensitive information about the application.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your dependencies up to date. This will help to mitigate the risk of known vulnerabilities.
+* Use a dependency management tool to help you track and manage your dependencies. This can help to prevent you from accidentally using outdated or vulnerable dependencies.
+* Implement a security testing process to identify and fix security vulnerabilities in your application. This process should include testing for App Dependencies issues.
+
+By following these tips, you can help to protect your application from App Dependencies vulnerabilities.

@@ -1,0 +1,29 @@
+###How to fix the App Dependencies issue of Python-3.10.4.tgz in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of Python-3.10.4.tgz in Apache web server, you can follow these steps:
+
+1. Install the Python-3.10.4.tgz package.
+2. Create a new directory called "app" in the Apache web server root directory.
+3. Copy the Python-3.10.4.tgz package into the "app" directory.
+4. Edit the Apache configuration file and add the following line to the end of the file:
+
+```
+<Directory "/var/www/app">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+```
+
+5. Restart the Apache web server.
+
+The App Dependencies issue of Python-3.10.4.tgz in Apache web server belongs to the OWASP Top 10 Web 2021 category of "A1 - Injection". This category is concerned with vulnerabilities that allow an attacker to inject untrusted data into a web application, which can then be used to execute arbitrary code on the server.
+
+Here are some additional tips for preventing App Dependencies issues in Apache web servers:
+
+* Use a web application firewall (WAF) to help block common attack vectors.
+* Keep your software up to date with the latest security patches.
+* Use a secure coding methodology to develop your web applications.
+* Implement a web application security testing program to identify and fix vulnerabilities.
+
+By following these tips, you can help to protect your Apache web servers from App Dependencies issues and other security vulnerabilities.

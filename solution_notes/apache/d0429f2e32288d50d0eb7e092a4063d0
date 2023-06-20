@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of url-parse:1.4.7 of pkg:npm/url-parse@1.4.7 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The `url-parse` package is a JavaScript library that parses URLs. The version 1.4.7 of this package has a security vulnerability that allows attackers to inject malicious code into web applications. To fix this vulnerability, you should upgrade to a newer version of the `url-parse` package.
+
+To upgrade the `url-parse` package in an Apache web server, you can use the following steps:
+
+1. Open the Apache configuration file.
+2. Locate the line that defines the `url-parse` module.
+3. Change the version of the `url-parse` module to a newer version.
+4. Save the Apache configuration file.
+5. Restart the Apache web server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1 - Injection**. Injection flaws, such as SQL injection and cross-site scripting, are one of the most common web application security vulnerabilities. These flaws can allow attackers to inject malicious code into web applications, which can then be used to steal data, execute arbitrary commands, or hijack user sessions.
+
+Here are some additional tips for preventing injection flaws:
+
+* Use prepared statements or parameterized queries to prevent SQL injection.
+* Use a web application firewall (WAF) to filter out malicious requests.
+* Sanitize all user input before it is used in a web application.
+* Use a code review process to find and fix injection flaws.
+
+By following these tips, you can help to prevent injection flaws in your web applications.

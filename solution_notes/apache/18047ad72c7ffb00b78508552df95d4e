@@ -1,0 +1,18 @@
+###How to fix the App Dependencies issue of pax-nul-xattrs.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The pax-nul-xattrs.tar file is a dependency of the Apache web server. It is used to enable extended attributes on files, which can be used to store additional metadata about the file. However, this file can also be used to exploit a security vulnerability in Apache.
+
+To fix the App Dependencies issue of pax-nul-xattrs.tar in Apache web server, you can do the following:
+
+1. Remove the pax-nul-xattrs.tar file from your system.
+2. Update Apache to a newer version that has patched the vulnerability.
+3. If you cannot update Apache, you can disable extended attributes on files by editing the /etc/fuse.conf file and adding the following line:
+
+```
+user_xattr = no
+```
+
+The pax-nul-xattrs.tar file is a vulnerability that belongs to the OWASP Top 10 Web 2021 category of Injection. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. This can be done by exploiting vulnerabilities in the application's code, or by using a vulnerability in a dependency of the application, such as the pax-nul-xattrs.tar file.
+
+Once an attacker has injected malicious code into a web application, they can then use it to execute arbitrary commands on the server, steal data, or take other actions.
+
+It is important to keep your Apache web server up to date with the latest security patches to help protect against vulnerabilities like this one. You should also regularly scan your system for vulnerabilities using a security scanner.

@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of hosted-git-info:2.8.8 of pkg:npm/hosted-git-info@2.8.8 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of hosted-git-info:2.8.8 of pkg:npm/hosted-git-info@2.8.8 in Apache web server can be fixed by upgrading the hosted-git-info dependency to a newer version. The vulnerability that this issue is related to is CVE-2021-23362, which is a remote code execution vulnerability. This vulnerability allows an attacker to execute arbitrary code on the server by exploiting a flaw in the hosted-git-info module.
+
+To fix this issue, you can use the following steps:
+
+1. Use the `npm ls` command to list all of the dependencies for your project.
+2. Look for the `hosted-git-info` dependency.
+3. If the version of the dependency is 2.8.8 or lower, upgrade it to a newer version.
+4. Once you have upgraded the dependency, restart your Apache web server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Injection. Injection vulnerabilities occur when untrusted data is inserted into code or data structures in a way that can cause unintended consequences. In this case, the untrusted data is the attacker's code, which is injected into the hosted-git-info module. This allows the attacker to execute arbitrary code on the server.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use input validation to ensure that all user input is properly sanitized before it is used in code or data structures.
+* Use prepared statements instead of dynamic SQL queries to prevent SQL injection attacks.
+* Use object-oriented programming techniques to encapsulate data and code, which can help to prevent code injection attacks.
+* Use secure coding practices to help prevent injection vulnerabilities.
+
+By following these tips, you can help to protect your web applications from injection vulnerabilities.

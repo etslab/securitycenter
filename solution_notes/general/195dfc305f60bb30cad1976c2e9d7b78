@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of pax-bad-hdr-file.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pax-bad-hdr-file.tar in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Remove the pax-bad-hdr-file.tar file from the Apache web server's directory.
+3. Restart the Apache web server.
+
+The pax-bad-hdr-file.tar file is a malicious file that can exploit a vulnerability in the Apache web server. This vulnerability allows an attacker to execute arbitrary code on the victim's computer.
+
+The App Dependencies issue of pax-bad-hdr-file.tar belongs to the OWASP Top 10 Web 2021 category of Injection. Injection vulnerabilities occur when unvalidated data is injected into an application. This can lead to attackers being able to execute arbitrary code on the victim's computer.
+
+To prevent this type of vulnerability, it is important to validate all input data before it is used in an application. This can be done by using input validation libraries or by manually checking all input data for potential problems.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements instead of dynamic SQL queries.
+* Sanitize all user input before using it in an application.
+* Use input validation libraries to help you validate input data.
+* Manually check all input data for potential problems.
+* Keep your software up to date with the latest security patches.
+
+By following these tips, you can help to prevent injection vulnerabilities from occurring in your applications.

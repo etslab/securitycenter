@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of utf8-infozip.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of utf8-infozip.zip in Apache web server, you can follow these steps:
+
+1. Download the utf8-infozip.zip file from the Apache website.
+2. Unzip the file to a directory on your server.
+3. Edit the Apache httpd.conf file and add the following line to the end of the file:
+
+```
+LoadModule infozip_module modules/mod_infozip.so
+```
+
+4. Restart the Apache web server.
+
+The utf8-infozip.zip file is a dependency of the mod_infozip module, which is required for Apache to support UTF-8 encoding. If this module is not loaded, Apache will not be able to serve web pages that are encoded in UTF-8.
+
+The App Dependencies issue of utf8-infozip.zip in Apache web server belongs to the OWASP Top 10 Web 2021 category of "A3: Broken Access Control". This category includes vulnerabilities that allow attackers to gain unauthorized access to resources. In this case, the vulnerability allows attackers to access web pages that are encoded in UTF-8, even if they do not have the appropriate permissions.
+
+Here are some additional tips for preventing and mitigating App Dependencies issues:
+
+* Use a web application firewall (WAF) to help block common attack vectors.
+* Keep all software up to date, including web server software, application software, and third-party libraries.
+* Use a secure coding methodology to develop and maintain web applications.
+* Implement a comprehensive security testing program to identify and fix security vulnerabilities.
+
+By following these tips, you can help to protect your web applications from App Dependencies vulnerabilities.

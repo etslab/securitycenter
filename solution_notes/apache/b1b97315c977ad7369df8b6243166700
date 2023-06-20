@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of elliptic:6.5.3 of pkg:npm/elliptic@6.5.3 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of elliptic:6.5.3 of pkg:npm/elliptic@6.5.3 in Apache web server, you can follow these steps:
+
+1. Update the elliptic package to the latest version. You can do this by running the following command:
+
+```
+npm update elliptic
+```
+
+2. Restart the Apache web server.
+
+This will fix the App Dependencies issue and make your Apache web server more secure.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Insufficient Logging and Monitoring. This category covers issues that can lead to security vulnerabilities due to a lack of logging and monitoring of web applications.
+
+By fixing this issue, you can help to improve the security of your Apache web server by making it more difficult for attackers to exploit vulnerabilities.
+
+Here are some additional tips for improving the security of your Apache web server:
+
+* Use a strong password for the Apache web server.
+* Enable SSL/TLS encryption for all connections to the Apache web server.
+* Keep the Apache web server software up to date.
+* Use a web application firewall (WAF) to protect the Apache web server from common attacks.
+* Monitor the Apache web server for signs of attack.

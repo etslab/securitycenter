@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of qs:6.5.2 of pkg:npm/qs@6.5.2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of qs:6.5.2 of pkg:npm/qs@6.5.2 in apache web server, you can follow these steps:
+
+1. Update the qs package to the latest version. You can do this by running the following command:
+
+```
+npm update qs
+```
+
+2. Restart the Apache web server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Injection. Injection vulnerabilities occur when unvalidated or malicious input is used to control the execution of code. This can lead to unauthorized access, data loss, or other security problems.
+
+The qs package is a JavaScript library that is used to parse query strings. The qs:6.5.2 version of this package has a vulnerability that can be exploited to inject malicious code into a web application. This vulnerability can be exploited by an attacker to gain unauthorized access to a web application or to cause data loss.
+
+To mitigate the risk of this vulnerability, you should update the qs package to the latest version. You should also review your web application for other potential injection vulnerabilities.
+
+Here are some additional tips for mitigating injection vulnerabilities:
+
+* Use a web application firewall (WAF) to help protect your web application from common injection attacks.
+* Use input validation to check for and filter out malicious input.
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use proper encoding to prevent cross-site scripting (XSS) attacks.
+
+By following these tips, you can help to protect your web application from injection vulnerabilities.

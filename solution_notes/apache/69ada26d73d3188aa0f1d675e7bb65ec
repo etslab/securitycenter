@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of issue12435.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of issue12435.tar in Apache web server, you can follow these steps:
+
+1. Download the latest version of the Apache web server.
+2. Extract the tar file to a directory of your choice.
+3. Edit the `httpd.conf` file and add the following line to the end of the file:
+
+```
+LoadModule app_dependencies_module modules/mod_app_dependencies.so
+```
+
+4. Restart the Apache web server.
+
+The App Dependencies issue is a security vulnerability that allows an attacker to execute arbitrary code on the server by uploading a malicious tar file. This issue is a critical vulnerability and should be fixed as soon as possible.
+
+The App Dependencies issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting, occur when unvalidated data is inserted into an application. This can lead to unauthorized access, data modification, or denial of service.
+
+Here are some additional tips to help you secure your Apache web server:
+
+* Keep your software up to date. Software vendors often release security updates to fix vulnerabilities. It is important to install these updates as soon as possible.
+* Use a firewall to protect your server from unauthorized access.
+* Use strong passwords and keep them secret.
+* Use a web application firewall (WAF) to help protect your server from common web attacks.
+
+By following these tips, you can help to keep your Apache web server secure.

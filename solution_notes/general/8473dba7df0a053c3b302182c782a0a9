@@ -1,0 +1,29 @@
+###How to fix the App Dependencies issue of json5:1.0.1 of pkg:npm/json5@1.0.1 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of json5:1.0.1 of pkg:npm/json5@1.0.1 in Apache web server, you can follow these steps:
+
+1. Update the json5 package to a newer version. You can do this by running the following command:
+
+```
+npm update json5
+```
+
+2. Remove the old json5 package from your project. You can do this by running the following command:
+
+```
+npm uninstall json5@1.0.1
+```
+
+3. Restart your Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1: Broken Access Control**. This category covers vulnerabilities that allow attackers to access resources they should not be able to access, such as sensitive data or administrative features.
+
+In this case, the vulnerability is caused by the use of an outdated version of the json5 package. This package has a known security vulnerability that allows attackers to execute arbitrary code on the server. By updating the json5 package to a newer version, you can fix this vulnerability and protect your server from attack.
+
+Here are some additional tips for preventing and mitigating vulnerabilities in your web applications:
+
+* Use a secure coding methodology, such as OWASP's Top 10.
+* Keep your software up to date with the latest security patches.
+* Use a web application firewall (WAF) to help block common attacks.
+* Implement a security awareness training program for your employees.
+
+By following these tips, you can help to protect your web applications from attack.

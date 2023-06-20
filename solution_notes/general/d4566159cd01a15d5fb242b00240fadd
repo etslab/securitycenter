@@ -1,0 +1,31 @@
+###How to fix the App Dependencies issue of issue11169.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of issue11169.tar in apache web server can be fixed by following these steps:
+
+1. Download the latest version of the Apache web server.
+2. Extract the downloaded file to a new directory.
+3. Copy the issue11169.tar file to the new directory.
+4. Open a terminal window and navigate to the new directory.
+5. Run the following command to install the dependencies:
+
+```
+sudo apt-get install -y libapache2-mod-php7.4
+```
+
+6. Restart the Apache web server:
+
+```
+sudo service apache2 restart
+```
+
+The issue should now be fixed.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A9: Using Components with Known Vulnerabilities**. This category includes vulnerabilities that can occur when software components are used that have known security vulnerabilities. These vulnerabilities can be exploited by attackers to compromise the software system.
+
+To prevent this type of vulnerability, it is important to keep all software components up to date with the latest security patches. It is also important to use a vulnerability management system to scan for known vulnerabilities in software components.
+
+Here are some additional tips for preventing this type of vulnerability:
+
+* Use a vulnerability management system to scan for known vulnerabilities in software components.
+* Keep all software components up to date with the latest security patches.
+* Use a secure configuration management system to ensure that software components are configured securely.
+* Implement a security awareness training program for all employees to educate them about security risks and how to mitigate them.

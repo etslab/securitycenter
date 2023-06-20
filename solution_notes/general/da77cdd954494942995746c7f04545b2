@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of writer-big-long.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of writer-big-long.tar in apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Remove the writer-big-long.tar file from the Apache web server directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "A1 - Injection". Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an application. This can lead to unauthorized access, data loss, or other security problems.
+
+To prevent injection flaws, it is important to:
+
+* Validate all input data before it is used by an application.
+* Sanitize all output data before it is sent to a user.
+* Use prepared statements or stored procedures to prevent SQL injection attacks.
+* Use a web application firewall (WAF) to help protect against XSS attacks.
+
+For more information on how to prevent injection flaws, please see the following resources:
+
+* OWASP Injection Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html
+* OWASP XSS Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+
+I hope this helps!

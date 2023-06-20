@@ -1,0 +1,33 @@
+###How to fix the App Dependencies issue of browserslist:4.10.0 of pkg:npm/browserslist@4.10.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of browserslist:4.10.0 of pkg:npm/browserslist@4.10.0 in apache web server, you can follow these steps:
+
+1. Update the browserslist package to the latest version. You can do this by running the following command:
+
+```
+npm install browserslist@latest
+```
+
+2. Update the Apache configuration file to use the latest version of browserslist. You can find the Apache configuration file in the `/etc/apache2/` directory. Open the file and search for the following line:
+
+```
+Browserslist: 4.10.0
+```
+
+Replace the version number with the latest version of browserslist.
+
+3. Restart the Apache web server. You can do this by running the following command:
+
+```
+sudo service apache2 restart
+```
+
+Once you have completed these steps, the App Dependencies issue should be fixed.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1 - Injection**. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. The browserslist issue can allow an attacker to inject malicious code into an Apache web server by exploiting a vulnerability in the browserslist package.
+
+Here are some additional tips to help you prevent this type of vulnerability:
+
+* Keep your software up to date. This includes the Apache web server, the browserslist package, and any other software that is used to build or deploy your web application.
+* Use a web application firewall (WAF). A WAF can help to protect your web application from common web attacks, including injection attacks.
+* Implement input validation. Input validation is a technique that can help to prevent attackers from injecting malicious code into your web application.
+* Use a secure coding methodology. A secure coding methodology can help you to write code that is less vulnerable to attack.

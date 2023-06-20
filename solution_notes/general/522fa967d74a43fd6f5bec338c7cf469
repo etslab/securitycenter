@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of file-and-dir.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of file-and-dir.tar in apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Open the file-and-dir.tar file in a text editor.
+3. Locate the line that starts with "dependencies".
+4. Add the following line to the dependencies list:
+
+```
+apache-tomcat
+```
+
+5. Save the file.
+6. Start the Apache web server.
+
+The App Dependencies issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of "A03: Broken Access Control". This category includes vulnerabilities that allow attackers to gain unauthorized access to resources. In the case of the App Dependencies issue, an attacker could gain unauthorized access to the Apache web server by exploiting the dependency vulnerability.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your software up to date. Software vendors often release security updates to fix vulnerabilities. By keeping your software up to date, you can help to protect your systems from attacks.
+* Use a web application firewall (WAF). A WAF can help to protect your systems from attacks by blocking common attack vectors.
+* Implement least privilege. This means giving users and applications only the permissions they need to do their jobs. By implementing least privilege, you can help to reduce the risk of unauthorized access.
+* Educate your users. Users should be aware of the risks of clicking on links in emails or opening attachments from unknown senders. They should also be aware of the importance of using strong passwords and not sharing their passwords with others.
+
+By following these tips, you can help to prevent App Dependencies issues and protect your systems from attack.

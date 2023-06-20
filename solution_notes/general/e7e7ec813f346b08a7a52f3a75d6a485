@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of hdr-only.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of hdr-only.tar in apache web server can be fixed by following these steps:
+
+1. Download the latest version of the hdr-only.tar file from the Apache website.
+2. Unzip the file to a directory of your choice.
+3. Edit the httpd.conf file and add the following line to the VirtualHost section for the affected website:
+
+```
+LoadModule hdr_only_module modules/mod_hdr_only.so
+```
+
+4. Restart the Apache web server.
+
+The App Dependencies issue of hdr-only.tar belongs to the OWASP Top 10 Web 2021 category of "Injection". This category includes vulnerabilities that allow an attacker to inject malicious code into a web application, such as through SQL injection, cross-site scripting (XSS), or code injection.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep all software up to date, including the Apache web server and any third-party modules.
+* Use a web application firewall (WAF) to help protect your website from attacks.
+* Implement proper input validation to prevent attackers from injecting malicious code into your website.
+* Educate your users about the dangers of clicking on links in emails or on websites they do not trust.
+
+By following these tips, you can help to protect your website from App Dependencies issues and other security vulnerabilities.

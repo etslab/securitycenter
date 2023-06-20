@@ -1,0 +1,27 @@
+###How to fix the App Dependencies issue of terser:4.8.0 of pkg:npm/terser@4.8.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of terser:4.8.0 of pkg:npm/terser@4.8.0 in Apache web server, you can follow these steps:
+
+1. Update the terser dependency to the latest version. You can do this by running the following command:
+
+```
+npm install terser@latest
+```
+
+2. Restart the Apache web server.
+
+This will fix the issue and prevent any security vulnerabilities from being exploited.
+
+The App Dependencies issue of terser:4.8.0 of pkg:npm/terser@4.8.0 belongs to the OWASP Top 10 Web 2021 category of **A2: Broken Authentication**. This category includes vulnerabilities that allow attackers to gain unauthorized access to a system by bypassing or circumventing the authentication mechanism.
+
+In this case, the vulnerability is caused by the use of an outdated version of the terser dependency. This version of terser contains a security vulnerability that could allow attackers to bypass authentication and gain unauthorized access to the system.
+
+By updating the terser dependency to the latest version, you can fix this vulnerability and protect your system from attack.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Always use the latest versions of software dependencies.
+* Keep an eye on security advisories for software dependencies that you use.
+* Use a tool like npm audit to scan your dependencies for known vulnerabilities.
+* Implement a continuous integration (CI) process that includes security scanning.
+
+By following these tips, you can help to prevent App Dependencies issues and protect your system from attack.

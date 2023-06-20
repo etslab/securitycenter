@@ -1,0 +1,35 @@
+###How to fix the App Dependencies issue of tmpl:1.0.4 of pkg:npm/tmpl@1.0.4 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of tmpl:1.0.4 of pkg:npm/tmpl@1.0.4 in Apache web server, you can follow these steps:
+
+1. Check the current version of tmpl by running the following command:
+
+```
+npm show tmpl
+```
+
+2. If the current version is less than 1.0.4, upgrade it by running the following command:
+
+```
+npm install tmpl@1.0.4
+```
+
+3. Check if the upgrade was successful by running the following command:
+
+```
+npm show tmpl
+```
+
+If the output of the command shows that the version is now 1.0.4, then the App Dependencies issue has been fixed.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **Using Components with Known Vulnerabilities**. This category focuses on the importance of using up-to-date software components, as older versions may contain known vulnerabilities that can be exploited by attackers.
+
+By following the steps above, you can help to protect your Apache web server from this and other security vulnerabilities.
+
+Here are some additional tips for managing app dependencies:
+
+* Use a dependency management tool to help you track and manage the versions of your dependencies.
+* Set up automated checks to ensure that your dependencies are up to date.
+* Regularly review your dependencies for known vulnerabilities.
+* Patch or upgrade any dependencies that are found to be vulnerable.
+
+By following these tips, you can help to keep your Apache web server and its dependencies secure.

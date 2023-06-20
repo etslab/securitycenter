@@ -1,0 +1,27 @@
+###How to fix the App Dependencies issue of issue10968.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of issue10968.tar in apache web server, you can follow these steps:
+
+1. Download the latest version of the Apache web server.
+2. Extract the downloaded file to a directory.
+3. Open the httpd.conf file in a text editor.
+4. Locate the line that starts with "LoadModule".
+5. Add the following line to the end of the line:
+
+```
+LoadModule app_dependencies_module modules/mod_app_dependencies.so
+```
+
+6. Save the file and restart the Apache web server.
+
+This will fix the App Dependencies issue and allow Apache to load modules that are required by applications.
+
+The App Dependencies issue belongs to the OWASP Top 10 Web 2021 category of "A2: Broken Authentication". This category includes vulnerabilities that allow attackers to bypass or obtain authentication credentials, such as passwords or session tokens.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your software up to date. Software vendors often release security updates that fix vulnerabilities.
+* Use a web application firewall (WAF). A WAF can help to block common attack vectors, such as SQL injection and cross-site scripting.
+* Implement strong authentication. Use strong passwords and two-factor authentication to protect your applications.
+* Educate your users. Make sure your users are aware of the risks of phishing and other social engineering attacks.
+
+By following these tips, you can help to protect your applications from App Dependencies issues and other security vulnerabilities.

@@ -1,0 +1,30 @@
+###How to fix the App Dependencies issue of eventsource:1.0.7 of pkg:npm/eventsource@1.0.7 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of eventsource:1.0.7 of pkg:npm/eventsource@1.0.7 in nginx web server can be fixed by upgrading to the latest version of the eventsource package, which is 1.1.0. This issue is a known vulnerability in the eventsource package that can be exploited to allow attackers to execute arbitrary code on the server. To upgrade the eventsource package, follow these steps:
+
+1. Remove the existing eventsource package:
+
+```
+npm uninstall eventsource
+```
+
+2. Install the latest version of the eventsource package:
+
+```
+npm install eventsource@latest
+```
+
+3. Restart the nginx web server:
+
+```
+service nginx restart
+```
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category A1: Injection. Injection occurs when an attacker is able to control the input to a program and use that input to cause the program to execute unintended actions. In the case of the eventsource package vulnerability, an attacker could control the input to the eventsource parser and use that input to cause the parser to execute arbitrary code on the server.
+
+To protect against injection attacks, it is important to validate all user input before processing it. This can be done using a variety of methods, such as input filtering, data validation, and escaping. It is also important to keep software up to date, as vendors often release security patches to address known vulnerabilities.
+
+## Additional information
+
+The eventsource package is a Node.js module that provides a simple way to implement event sourcing in web applications. Event sourcing is a software design pattern that involves storing all changes to an application's state as a sequence of events. This approach can be used to build more scalable and resilient applications.
+
+The OWASP Top 10 Web Application Security Risks 2021 is a list of the most common and dangerous web application security risks. The list is published by the Open Web Application Security Project (OWASP), a non-profit organization that works to improve the security of web applications.

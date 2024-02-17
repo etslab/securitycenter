@@ -1,0 +1,18 @@
+###How to fix the Common Vulnerabilities issue of CVE-2017-17428 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2017-17428 is a vulnerability in Nginx that allows an attacker to inject arbitrary code into the server's response. This can be exploited to take control of the server, steal data, or launch attacks against other servers.
+
+To fix this vulnerability, you should upgrade to a version of Nginx that has been patched against CVE-2017-17428. You can also mitigate the vulnerability by configuring Nginx to filter out malicious requests and validating all user input before processing it.
+
+Here are some specific recommendations:
+
+* Use a web application firewall (WAF) to filter out malicious requests.
+* Validate all user input before processing it.
+* Use a content security policy (CSP) to restrict the types of scripts that can be executed on your website.
+
+**OWASP Top 10 2021 category**
+
+CVE-2017-17428 falls under the **A1 - Injection** category of the OWASP Top 10 2021. Injection vulnerabilities occur when an attacker is able to inject malicious code into a web application's database or other data stores. This code can then be executed by the web application, giving the attacker control of the application or its data.
+
+Injection vulnerabilities are one of the most common and dangerous types of web application vulnerabilities. They can be exploited to steal data, take control of servers, and launch attacks against other systems.
+
+It is important to take steps to protect your web applications from injection vulnerabilities. This includes validating all user input, using prepared statements when interacting with databases, and using a WAF to filter out malicious requests.

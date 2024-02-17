@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of postcss:7.0.21 of pkg:npm/postcss@7.0.21 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of postcss:7.0.21 of pkg:npm/postcss@7.0.21 in nginx web server can be fixed by upgrading to a newer version of postcss.
+
+To upgrade postcss, you can use the following command:
+
+```
+npm install postcss@latest
+```
+
+Once you have upgraded postcss, you will need to restart your nginx web server.
+
+The App Dependencies issue of postcss:7.0.21 of pkg:npm/postcss@7.0.21 in nginx web server belongs to the **A1: Injection** category of the OWASP Top 10 Web Application Security Risks 2021.
+
+The Injection category refers to attacks that exploit vulnerabilities in applications that allow attackers to inject malicious code into the application. This can be done through a variety of methods, such as SQL injection, cross-site scripting (XSS), and command injection.
+
+The App Dependencies issue of postcss:7.0.21 of pkg:npm/postcss@7.0.21 in nginx web server is a vulnerability that can be exploited by attackers to inject malicious code into the nginx web server. This could allow the attacker to take control of the web server and execute arbitrary code.
+
+To mitigate the App Dependencies issue of postcss:7.0.21 of pkg:npm/postcss@7.0.21 in nginx web server, you should upgrade to a newer version of postcss. You should also keep your nginx web server up to date with the latest security patches.
+
+In addition to the above, you should also implement the following security measures to help protect your nginx web server from injection attacks:
+
+* Use input validation to sanitize all user input before it is processed by the application.
+* Use prepared statements to execute database queries.
+* Use an escape mechanism to escape all special characters in user input before it is displayed on the page.
+* Use a web application firewall (WAF) to protect your web server from common injection attacks.

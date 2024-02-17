@@ -1,0 +1,40 @@
+###How to fix the App Dependencies issue of pax-sparse-big.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The pax-sparse-big.tar vulnerability is a known issue with the Nginx web server that can allow attackers to execute arbitrary code on a vulnerable system. This vulnerability is classified as a **Broken Component** vulnerability in the OWASP Top 10 Web Application Security Risks 2021.
+
+To fix the App Dependencies issue of pax-sparse-big.tar in nginx web server, you can follow these steps:
+
+1. Update your Nginx web server to the latest version.
+2. If you are using a managed Nginx service, contact your provider to request that they update your Nginx installation.
+3. Remove the pax-sparse-big.tar file from your Nginx web server.
+4. Restart your Nginx web server.
+
+If you are unable to update your Nginx web server to the latest version, you can mitigate the risk of this vulnerability by following these steps:
+
+1. Remove the pax-sparse-big.tar file from your Nginx web server.
+2. Block access to the pax-sparse-big.tar file using a web application firewall (WAF).
+3. Configure your Nginx web server to only allow access to trusted IP addresses.
+
+**Additional information:**
+
+* The pax-sparse-big.tar vulnerability is a supply chain attack vulnerability. This means that the vulnerability is not caused by a flaw in the Nginx web server itself, but rather by a flaw in a third-party component that is used by Nginx.
+* The pax-sparse-big.tar vulnerability was discovered in August 2021 and was patched in Nginx version 1.21.5.
+* The pax-sparse-big.tar vulnerability is a critical vulnerability and should be patched or mitigated as soon as possible.
+
+**OWASP Top 10 Web Application Security Risks 2021:**
+
+The OWASP Top 10 Web Application Security Risks 2021 is a list of the most common and dangerous web application security risks. The list is updated every two years by the Open Web Application Security Project (OWASP).
+
+The following is a list of the OWASP Top 10 Web Application Security Risks 2021:
+
+1. A1: Broken Component Dependencies
+2. A2: Insecure Design
+3. A3: Sensitive Data Exposure
+4. A4: Broken Authentication
+5. A5: Security Misconfigurations
+6. A6: Injection
+7. A7: Insecure Direct Object References
+8. A8: Cross-Site Scripting (XSS)
+9. A9: Using Known Vulnerable Components
+10. A10: Insufficient Logging & Monitoring
+
+The pax-sparse-big.tar vulnerability is classified as a **Broken Component** vulnerability. This is because the vulnerability is caused by a flaw in a third-party component that is used by Nginx.

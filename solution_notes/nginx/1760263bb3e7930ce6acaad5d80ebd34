@@ -1,0 +1,26 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-23017 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities issue of CVE-2021-23017 in the nginx web server, you should upgrade to the latest version of nginx. Nginx versions 1.20.2, 1.18.0, and 1.16.1 address this vulnerability.
+
+If you are unable to upgrade to the latest version of nginx, you can mitigate the vulnerability by disabling the DNS resolver functionality in nginx. To do this, add the following line to your nginx configuration file:
+
+```
+resolver off;
+```
+
+This will prevent nginx from resolving DNS names, but it will also mean that nginx will not be able to access any resources that require DNS resolution.
+
+CVE-2021-23017 is a heap-based buffer overflow vulnerability in the NGINX implementation of DNS resolution. An attacker could exploit this vulnerability to execute arbitrary code on a vulnerable system.
+
+**OWASP Top 10 Web 2021 Category**
+
+CVE-2021-23017 belongs to the **Injection** category of the OWASP Top 10 Web 2021. This category covers vulnerabilities that allow an attacker to inject malicious code into a web application.
+
+**Recommendation**
+
+If you are using nginx, it is important to upgrade to the latest version as soon as possible to fix CVE-2021-23017. If you are unable to upgrade, you should disable the DNS resolver functionality in nginx.
+
+You should also implement other security measures to protect your web application from injection attacks, such as:
+
+* Input validation: Validate all user input before using it in your application.
+* Output encoding: Encode all output before sending it to the user's browser.
+* Use a web application firewall (WAF): A WAF can help to protect your application from a variety of attacks, including injection attacks.

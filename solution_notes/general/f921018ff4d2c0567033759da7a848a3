@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of recursion.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of recursion.tar in the Apache web server is a vulnerability that can allow an attacker to execute arbitrary code on the server. The issue is caused by the fact that the recursion.tar file can be used to recursively call the Apache web server, which can lead to a resource exhaustion attack.
+
+To fix the App Dependencies issue of recursion.tar in the Apache web server, you can do the following:
+
+1. Remove the recursion.tar file from the Apache web server.
+2. Update the Apache web server to the latest version.
+3. Enable the mod_security module and add the following rule to the Apache web server configuration:
+
+```
+SecRule REQUEST_FILENAME "^/recursion.tar" Forbidden "id:98111,phase:1,deny,status:403,log,auditlog"
+```
+
+This rule will block all requests for the recursion.tar file.
+
+The App Dependencies issue of recursion.tar in the Apache web server belongs to the **A2: Broken Authentication** category of the OWASP Top 10 Web Application Security Risks 2021. This category refers to vulnerabilities that can be exploited by attackers to gain unauthorized access to a web application.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your Apache web server up to date with the latest security patches.
+* Use a web application firewall (WAF) to protect your web application from known and unknown attacks.
+* Implement least privilege access control so that users only have access to the resources they need.
+* Regularly review your web application code for security vulnerabilities.

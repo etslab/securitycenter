@@ -1,0 +1,27 @@
+###How to fix the App Dependencies issue of pax.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The issue of App Dependencies in pax.tar files is a common vulnerability that can be exploited by attackers to gain access to a web server. This issue is categorized as **A5: Broken Access Control** in the OWASP Top 10 Web Application Security Risks 2021.
+
+To fix this issue, you can follow these steps:
+
+1. Identify the vulnerable pax.tar files. You can use a tool like Nginx Scanner to scan your web server for vulnerable files.
+2. Remove the vulnerable pax.tar files from your web server.
+3. Update your Nginx configuration to prevent the execution of pax.tar files. You can do this by adding the following line to your `nginx.conf` file:
+
+```
+location ~ \.pax\.tar$ {
+  deny all;
+}
+```
+
+4. Restart your Nginx web server.
+
+Once you have taken these steps, your web server will be protected from the App Dependencies issue.
+
+Here are some additional tips for preventing the App Dependencies issue:
+
+* Keep your Nginx software up to date.
+* Use a firewall to restrict access to your web server.
+* Use a web application firewall (WAF) to protect your web server from common attacks.
+* Scan your web server regularly for vulnerabilities.
+
+By following these tips, you can help to protect your web server from the App Dependencies issue and other vulnerabilities.

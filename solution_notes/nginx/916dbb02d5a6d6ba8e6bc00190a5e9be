@@ -1,0 +1,14 @@
+###How to fix the App Dependencies issue of pax-nil-sparse-data.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pax-nil-sparse-data.tar in nginx web server, you can follow these steps:
+
+1. Identify the specific dependency that is causing the issue. You can do this by checking the error logs or using a tool like Dependency Check.
+2. Update the dependency to the latest version. If this is not possible, you can try using a different version of the dependency or removing it altogether.
+3. Restart the nginx web server.
+
+If you are unable to fix the issue, you can contact the developer of the nginx web server for help.
+
+This issue belongs to the **A4: Insecure Design** category of the OWASP Top 10 Web 2021. This category is concerned with applications that are not designed securely, and which may contain vulnerabilities that can be exploited by attackers.
+
+In the case of the pax-nil-sparse-data.tar vulnerability, an attacker could exploit this vulnerability to execute arbitrary code on the nginx web server. This could allow the attacker to take control of the server, install malware, or steal data.
+
+To mitigate this risk, you should ensure that all of the dependencies used by your nginx web server are up to date and that you are using a secure version of the web server. You should also consider using a web application firewall (WAF) to protect your server from attack.

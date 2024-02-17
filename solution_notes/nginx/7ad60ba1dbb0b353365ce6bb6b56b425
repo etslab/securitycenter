@@ -1,0 +1,17 @@
+###How to fix the App Dependencies issue of ustar-file-devs.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of ustar-file-devs.tar in nginx web server is a security vulnerability that can be exploited by attackers to gain unauthorized access to the server. The issue is caused by a flaw in the way that nginx handles tar files. When nginx is configured to serve tar files, it does not properly check the permissions of the files in the tar file. This can allow attackers to upload a malicious tar file that contains files with executable permissions. If the attacker is able to successfully upload the malicious tar file, they can then exploit the flaw to execute arbitrary code on the server.
+
+To fix the App Dependencies issue of ustar-file-devs.tar in nginx web server, you can:
+
+1. Upgrade to a version of nginx that has been patched for the vulnerability.
+2. Disable the ability to serve tar files by setting the `tar_open_files` directive to `no`.
+3. Configure nginx to only serve tar files from a trusted source.
+
+The App Dependencies issue of ustar-file-devs.tar in nginx web server belongs to the **Broken Access Control** category of the OWASP Top 10 Web 2021. Broken Access Control occurs when an attacker is able to exploit a vulnerability in a web application to gain access to data or functionality that they are not authorized to access.
+
+Here are some additional recommendations for preventing Broken Access Control vulnerabilities:
+
+* Use strong authentication and authorization mechanisms to control access to your web application.
+* Regularly review your web application's security configuration to ensure that it is properly configured.
+* Keep your web application software up to date with the latest security patches.
+* Implement a Web Application Firewall (WAF) to protect your web application from common attacks.

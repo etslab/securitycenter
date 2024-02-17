@@ -1,0 +1,50 @@
+###How to fix the Common Vulnerabilities issue of CVE-2014-0224 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities issue of CVE-2014-0224 in nginx web server, you need to upgrade your version of OpenSSL. This vulnerability was fixed in OpenSSL 1.0.1g and later.
+
+Here are the steps to upgrade OpenSSL on Debian/Ubuntu:
+
+1. Update your package list:
+
+```
+sudo apt update
+```
+
+2. Install the latest version of OpenSSL:
+
+```
+sudo apt install openssl
+```
+
+3. Restart Nginx:
+
+```
+sudo systemctl restart nginx
+```
+
+Here are the steps to upgrade OpenSSL on CentOS/RHEL:
+
+1. Update your package list:
+
+```
+sudo yum update
+```
+
+2. Install the latest version of OpenSSL:
+
+```
+sudo yum install openssl
+```
+
+3. Restart Nginx:
+
+```
+sudo systemctl restart nginx
+```
+
+CVE-2014-0224 is a man-in-the-middle (MITM) vulnerability that allows an attacker to intercept and modify traffic between a client and a server. This vulnerability belongs to the **Broken Authentication** category of the OWASP Top 10 Web Application Security Risks.
+
+**Broken Authentication** is a security vulnerability that occurs when an application does not properly authenticate users. This can allow attackers to gain unauthorized access to accounts, data, or functionality.
+
+**OWASP Top 10 Web Application Security Risks** is a list of the most common and dangerous security vulnerabilities found in web applications. This list is updated every few years to reflect the latest threats.
+
+It is important to note that CVE-2014-0224 is a very old vulnerability. If you are still running a version of Nginx that is vulnerable to this exploit, you should upgrade immediately.

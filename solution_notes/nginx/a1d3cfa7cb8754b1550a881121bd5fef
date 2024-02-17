@@ -1,0 +1,24 @@
+###How to fix the Common Vulnerabilities issue of CVE-2011-3389 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**To fix the Common Vulnerabilities issue of CVE-2011-3389 in nginx web server:**
+
+1. Upgrade to the latest version of nginx. The CVE-2011-3389 vulnerability was fixed in nginx version 1.2.3 and later.
+2. Disable the use of SSL/TLS cipher-block chaining (CBC) mode. CBC mode is vulnerable to this attack, so it is best to disable it altogether. To do this, edit your nginx configuration file and add the following line:
+
+```
+ssl_prefer_server_ciphers on;
+```
+
+This will cause nginx to prefer cipher suites that use other modes, such as GCM.
+3. Enable HTTP/2 support. HTTP/2 uses a newer version of the SSL/TLS protocol that is not vulnerable to this attack. To enable HTTP/2 support, edit your nginx configuration file and add the following line:
+
+```
+http2_protocol on;
+```
+
+**Which OWASP Top 10 Web 2021 category does this issue belong to?**
+
+CVE-2011-3389 belongs to the **Sensitive Data Exposure** category of the OWASP Top 10 Web 2021. This category covers vulnerabilities that can allow attackers to steal sensitive data, such as credit card numbers, passwords, and personal information.
+
+In the case of CVE-2011-3389, an attacker could exploit this vulnerability to steal cookie data from a user's web browser. This data could then be used to impersonate the user and gain access to their account on the website.
+
+To mitigate this risk, it is important to keep your nginx web server up to date and to disable the use of SSL/TLS CBC mode. You should also enable HTTP/2 support to take advantage of the latest security features of the SSL/TLS protocol.

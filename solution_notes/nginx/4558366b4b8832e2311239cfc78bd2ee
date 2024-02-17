@@ -1,0 +1,100 @@
+###How to fix the Common Vulnerabilities issue of CVE-2015-4000 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2015-4000 is a vulnerability in the Nginx web server that allows attackers to bypass authentication and gain unauthorized access to accounts. This vulnerability is classified as a **Broken Authentication** vulnerability in the OWASP Top 10 Web 2021.
+
+To fix the CVE-2015-4000 vulnerability in Nginx, you need to upgrade to the latest version of Nginx. You can also mitigate the vulnerability by enabling the `auth_http_basic_user_file` directive and configuring a password file for your users.
+
+Here are the steps to upgrade Nginx to the latest version:
+
+1. Stop the Nginx service:
+
+```
+sudo systemctl stop nginx
+```
+
+2. Download the latest version of Nginx from the official website:
+
+```
+wget https://nginx.org/download/nginx-latest.tar.gz
+```
+
+3. Extract the Nginx archive:
+
+```
+tar -xvzf nginx-latest.tar.gz
+```
+
+4. Change to the Nginx directory:
+
+```
+cd nginx-latest
+```
+
+5. Configure Nginx:
+
+```
+./configure
+```
+
+6. Compile Nginx:
+
+```
+make
+```
+
+7. Install Nginx:
+
+```
+sudo make install
+```
+
+8. Start the Nginx service:
+
+```
+sudo systemctl start nginx
+```
+
+Here are the steps to mitigate the CVE-2015-4000 vulnerability by enabling the `auth_http_basic_user_file` directive and configuring a password file for your users:
+
+1. Open the Nginx configuration file:
+
+```
+sudo nano /etc/nginx/nginx.conf
+```
+
+2. Find the following section:
+
+```
+http {
+  ...
+}
+```
+
+3. Add the following lines to the section:
+
+```
+auth_http_basic_user_file /etc/nginx/htpasswd;
+
+location / {
+  auth_http_basic "Restricted Area";
+}
+```
+
+4. Save and close the configuration file.
+
+5. Create a password file for your users:
+
+```
+sudo htpasswd -c /etc/nginx/htpasswd username
+```
+
+6. Replace `username` with the username of the user you want to create a password for.
+
+7. Enter the password for the user when prompted.
+
+8. Restart the Nginx service:
+
+```
+sudo systemctl restart nginx
+```
+
+Once you have completed these steps, the CVE-2015-4000 vulnerability in Nginx will be fixed.

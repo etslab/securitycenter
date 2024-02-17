@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of ansi-regex:5.0.0 of pkg:npm/ansi-regex@5.0.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of ansi-regex:5.0.0 of pkg:npm/ansi-regex@5.0.0 in nginx web server, you can either:
+
+* Upgrade to a newer version of ansi-regex that addresses the vulnerability.
+* Remove ansi-regex from your dependencies.
+* Use a different dependency that does not have the vulnerability.
+
+If you are unable to upgrade or remove ansi-regex, you can mitigate the vulnerability by:
+
+* Using a web application firewall (WAF) to block malicious requests.
+* Implementing input validation to prevent malicious input from being processed.
+
+The App Dependencies issue of ansi-regex:5.0.0 of pkg:npm/ansi-regex@5.0.0 belongs to the **Sensitive Data Exposure** OWASP Top 10 Web 2021 category. This is because the vulnerability can allow attackers to access sensitive data, such as passwords and credit card numbers, that is stored in the environment variables of the nginx web server.
+
+Here are some additional steps you can take to secure your nginx web server:
+
+* Keep your nginx software up to date.
+* Use a strong password for the nginx root user account.
+* Disable unnecessary modules.
+* Configure nginx to listen on a non-standard port.
+* Use a WAF to block malicious requests.
+
+By following these steps, you can help to protect your nginx web server from attack.

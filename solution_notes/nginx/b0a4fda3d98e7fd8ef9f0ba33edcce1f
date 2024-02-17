@@ -1,0 +1,43 @@
+###How to fix the App Dependencies issue of writer-big.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of writer-big.tar in nginx web server, you can try the following:
+
+1. **Identify the dependencies that are causing the issue.** You can do this by running the following command:
+
+```
+nginx -T
+```
+
+This will print out the configuration of your nginx server, including the list of dependencies that are loaded. Once you have identified the dependencies that are causing the issue, you can try to update them or remove them if they are not necessary.
+
+2. **Update the dependencies.** If the dependencies that are causing the issue are out of date, you can try to update them. You can do this by running the following command:
+
+```
+apt-get update && apt-get upgrade
+```
+
+This will update all of the packages on your system, including the nginx dependencies.
+
+3. **Remove the dependencies.** If the dependencies that are causing the issue are not necessary, you can try to remove them. You can do this by running the following command:
+
+```
+apt-get remove dependency-name
+```
+
+This will remove the specified dependency from your system.
+
+If you are still having problems after following these steps, you can try searching for help online or contacting the nginx support team.
+
+This issue belongs to the **A7: Broken Resource References** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that occur when an application references a resource that no longer exists. This can be caused by a number of factors, such as developers moving or removing resources without updating the application's code, or attackers deleting or moving resources in order to exploit the vulnerability.
+
+Broken resource references can lead to a number of problems, such as:
+
+* **Denial-of-service attacks:** Attackers can delete or move resources in order to make the application unavailable to users.
+* **Information disclosure:** Attackers can exploit broken resource references to access sensitive information, such as configuration files or database passwords.
+* **Cross-site scripting (XSS) attacks:** Attackers can inject malicious code into broken resource references in order to execute arbitrary code on the user's browser.
+
+To mitigate the risk of broken resource references, developers should:
+
+* **Keep track of all resources that are used by the application.**
+* **Update the application's code whenever a resource is moved or removed.**
+* **Validate all resource references before using them.**
+* **Implement a web application firewall (WAF) to block requests to non-existent resources.**

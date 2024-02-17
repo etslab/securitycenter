@@ -1,0 +1,28 @@
+###How to fix the App Dependencies issue of random.data.bz2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of random.data.bz2 in Apache Web Server, you can follow these steps:
+
+1. **Identify the application that is using random.data.bz2.** You can do this by checking the Apache error logs or by using a tool such as Apache Status.
+2. **Update the application to use a newer version of random.data.bz2.** If the application is no longer supported, you may need to switch to a different application.
+3. **Remove the random.data.bz2 file from the Apache Web Server.**
+
+If you are unable to update the application or remove the random.data.bz2 file, you can configure Apache to deny access to the file. To do this, add the following lines to your Apache configuration file:
+
+```
+<Directory />
+    Deny from all
+    Allow from 127.0.0.1
+</Directory>
+```
+
+This will prevent all users from accessing the random.data.bz2 file, except for the local server.
+
+The App Dependencies issue of random.data.bz2 belongs to the **Vulnerable and Outdated Components** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that are caused by using outdated or vulnerable components, such as libraries, frameworks, and plugins.
+
+Here are some tips for preventing the App Dependencies issue of random.data.bz2:
+
+* Keep your applications and components up to date.
+* Use a vulnerability scanner to scan your applications and components for known vulnerabilities.
+* Use a dependency management tool to track the dependencies of your applications and components.
+* Monitor your applications and components for suspicious activity.
+
+It is also important to note that the App Dependencies issue of random.data.bz2 is not the only vulnerability that can be caused by outdated or vulnerable components. There are many other known vulnerabilities that can be exploited by attackers. Therefore, it is important to keep all of your applications and components up to date.

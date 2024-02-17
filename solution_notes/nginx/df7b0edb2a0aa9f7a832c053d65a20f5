@@ -1,0 +1,16 @@
+###How to fix the App Dependencies issue of minimist:1.2.5 of pkg:npm/minimist@1.2.5 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of **minimist:1.2.5 of pkg:npm/minimist@1.2.5** in nginx web server, you can try the following:
+
+* Update the version of minimist to a newer version. The latest version of minimist is 1.2.6.
+* Lock the version of minimist in your package.json file. This will prevent the version of minimist from being updated automatically.
+* Use a different package manager that does not install dependencies automatically. For example, you could use yarn or pnpm.
+
+This issue belongs to the **A3:Injection** category of the OWASP Top 10 web vulnerabilities. This category is concerned with vulnerabilities that allow attackers to inject malicious code into a web application.
+
+Here are some additional steps you can take to mitigate this issue:
+
+* Use a content security policy (CSP) to restrict the types of scripts that can be loaded by your web application.
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Keep your web application software up to date.
+
+It is also important to note that the App Dependencies issue is not specific to nginx web servers. It can affect any web server that uses the minimist package.

@@ -1,0 +1,17 @@
+###How to fix the App Dependencies issue of top_level_portion1.zip in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of top_level_portion1.zip in nginx web server, you can try the following steps:
+
+1. Identify the specific dependencies that are causing the issue. You can do this by checking the nginx error logs or using a tool like the Nginx App Dependencies Scanner.
+2. Once you have identified the dependencies, you can update them to the latest versions.
+3. If you are unable to update the dependencies, you can try to mitigate the issue by using a firewall or other security measures to block access to the vulnerable dependencies.
+
+This issue belongs to the **A1: Broken or Insecure Software Development Practices** category of the OWASP Top 10 Web 2021. This category includes vulnerabilities that are caused by insecure software development practices, such as not using a secure software development lifecycle (SDLC) or not keeping software up to date.
+
+Here are some additional tips for fixing the App Dependencies issue of top_level_portion1.zip in nginx web server:
+
+* Use a dependency management tool to keep your dependencies up to date.
+* Use a security scanner to regularly scan your web application for vulnerabilities.
+* Implement a secure SDLC to prevent vulnerabilities from being introduced into your code.
+* Monitor your web application for suspicious activity and respond to security incidents promptly.
+
+If you are unsure how to fix the App Dependencies issue of top_level_portion1.zip in nginx web server, you should consult with a security professional.

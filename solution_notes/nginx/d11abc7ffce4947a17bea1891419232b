@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of dns-packet:1.3.1 of pkg:npm/dns-packet@1.3.1 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of dns-packet:1.3.1 of pkg:npm/dns-packet@1.3.1 in nginx web server, you can either:
+
+* Upgrade to a newer version of dns-packet that has fixed the vulnerability.
+* Use a different DNS library that is not vulnerable.
+* Configure nginx to use a different DNS resolver that is not affected by the vulnerability.
+
+You can find more information on how to do this in the Nginx documentation: https://nginx.org/en/docs/.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021. This category covers vulnerabilities that allow attackers to inject malicious code into web applications. In this case, the attacker could inject malicious code into DNS queries, which could then be executed by the nginx web server.
+
+To protect against this type of vulnerability, it is important to validate all input to your web application before using it. You should also use a web application firewall (WAF) to filter out malicious traffic.
+
+Here are some additional tips for fixing the App Dependencies issue:
+
+* Use a dependency management tool such as npm or yarn to keep your dependencies up to date.
+* Review your dependencies regularly for known vulnerabilities.
+* Use a security scanner to scan your web application for vulnerabilities.
+* Implement a security monitoring solution to detect and respond to security incidents.

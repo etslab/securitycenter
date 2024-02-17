@@ -1,0 +1,39 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-6883 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2016-6883 is a vulnerability in nginx that allows attackers to execute arbitrary code on the affected server. It is caused by a buffer overflow in the `ngx_http_parse_chunked_request()` function.
+
+To fix the Common Vulnerabilities issue of CVE-2016-6883 in nginx web server, you can do the following:
+
+1. Upgrade to nginx version 1.11.10 or higher.
+2. If you cannot upgrade, you can apply the following patch to the `ngx_http_parse_chunked_request()` function:
+
+```c
+diff --git a/src/http/ngx_http_parse.c b/src/http/ngx_http_parse.c
+index 6210d788..895a4169 100644
+--- a/src/http/ngx_http_parse.c
++++ b/src/http/ngx_http_parse.c
+@@ -426,7 +426,7 @@ ngx_http_parse_chunked_request(ngx_http_request_t *r, ngx_buf_t *b)
+     while (buf->last - buf->pos >= 2) {
+         if (ngx_tolower(buf->pos[0]) == '0' && ngx_tolower(buf->pos[1]) == '\r') {
+-            buf->pos += 2;
++            if (buf->last - buf->pos >= 3 && buf->pos[2] == '\n') {
++                buf->pos += 3;
++                break;
++            } else {
++                return NGX_ERROR;
++            }
+         }
+
+         buf->pos++;
+```
+
+This patch will prevent the buffer overflow by checking if the next byte in the buffer is a newline character before incrementing the buffer pointer.
+
+CVE-2016-6883 belongs to the **Broken Authentication** category of the OWASP Top 10 Web Application Security Risks 2021.
+
+**Broken Authentication** vulnerabilities occur when applications fail to implement secure authentication and authorization mechanisms. This can allow attackers to gain unauthorized access to applications and their data.
+
+CVE-2016-6883 is a particularly dangerous vulnerability because it allows attackers to execute arbitrary code on the affected server. This means that attackers can use this vulnerability to install malware, steal data, or even launch denial-of-service attacks.
+
+It is important to note that CVE-2016-6883 is a relatively old vulnerability. However, it is still important to fix it because many nginx servers are still vulnerable to this attack.
+
+If you are using nginx, I recommend that you upgrade to the latest version or apply the patch above as soon as possible.

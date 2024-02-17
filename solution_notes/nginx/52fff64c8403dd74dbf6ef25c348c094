@@ -1,0 +1,22 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-3618 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**How to fix the Common Vulnerabilities issue of CVE-2021-3618 in nginx web server**
+
+To fix the CVE-2021-3618 vulnerability in nginx web server, you need to upgrade to nginx version 1.21.0 or higher. This vulnerability has been fixed in all subsequent versions of nginx.
+
+If you are unable to upgrade to nginx version 1.21.0 or higher, you can mitigate the vulnerability by configuring nginx to use SNI (Server Name Indication). SNI allows the client to specify the server name that it is trying to connect to when it initiates a TLS connection. This allows nginx to select the correct TLS certificate for the server name, which can help to prevent ALPACA attacks.
+
+**Which OWASP Top 10 Web 2021 category does CVE-2021-3618 belong to?**
+
+The CVE-2021-3618 vulnerability belongs to the following OWASP Top 10 Web 2021 category:
+
+* **A2: Broken Authentication and Session Management**
+
+This category includes vulnerabilities that allow attackers to bypass authentication or session management mechanisms. The CVE-2021-3618 vulnerability allows attackers to bypass TLS authentication by redirecting traffic from one subdomain to another.
+
+**Recommendations**
+
+In addition to upgrading to nginx version 1.21.0 or higher, you can also take the following steps to mitigate the CVE-2021-3618 vulnerability:
+
+* **Use SNI (Server Name Indication)**. SNI allows the client to specify the server name that it is trying to connect to when it initiates a TLS connection. This allows nginx to select the correct TLS certificate for the server name, which can help to prevent ALPACA attacks.
+* **Use a web application firewall (WAF)**. A WAF can help to protect your web application from a variety of attacks, including ALPACA attacks.
+* **Keep your nginx software up to date**. Nginx releases security updates on a regular basis. It is important to keep your nginx software up to date to mitigate the latest vulnerabilities.

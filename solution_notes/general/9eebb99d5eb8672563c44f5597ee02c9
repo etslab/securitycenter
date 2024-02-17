@@ -1,0 +1,21 @@
+###How to fix the Common Vulnerabilities issue of CVE-2014-3566 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2014-3566 is a vulnerability in nginx that allows an attacker to execute arbitrary code on the target system. The vulnerability is caused by a flaw in the way that nginx handles certain types of requests.
+
+To fix the Common Vulnerabilities issue of CVE-2014-3566 in nginx web server, you can do any of the following:
+
+1. **Upgrade to a version of nginx that is not affected by the vulnerability.** The vulnerability was fixed in nginx versions 1.4.6, 1.6.1, and 1.7.9.
+2. **Apply a patch to the affected version of nginx.** Patches are available for nginx versions 1.4.0 and later.
+3. **Configure nginx to disable the affected functionality.** This can be done by setting the `ngx_http_fastcgi_module` directive to `off` in the nginx configuration file.
+4. **Use a web application firewall (WAF) to protect the nginx server.** A WAF can be used to filter out requests that are known to exploit the vulnerability.
+
+CVE-2014-3566 belongs to the OWASP Top 10 Web Application Security Risks 2021 category of **A1: Injection**. Injection attacks occur when an attacker injects malicious code into a web application. The malicious code is then executed by the web application, which can give the attacker control over the application or the system on which it is running.
+
+Here are some additional tips for preventing CVE-2014-3566 attacks:
+
+* **Keep nginx up to date.** Apply security patches as soon as they are released.
+* **Use a strong password for the nginx administration interface.**
+* **Restrict access to the nginx administration interface to authorized users.**
+* **Use a WAF to protect the nginx server.**
+* **Implement input validation on all user input.** This will help to prevent attackers from injecting malicious code into the web application.
+
+I hope this information is helpful. Please let me know if you have any other questions.

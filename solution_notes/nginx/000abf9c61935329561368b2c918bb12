@@ -1,0 +1,23 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-6329 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**CVE-2016-6329** is a vulnerability in the nginx web server that allows an attacker to execute arbitrary code on the target system. This vulnerability is exploited by sending a specially crafted HTTP request to the nginx server.
+
+**To fix the issue of CVE-2016-6329 in nginx web server, you can:**
+
+1. Upgrade to the latest version of nginx.
+2. Apply the patch for CVE-2016-6329.
+3. Configure nginx to disable the `ngx_http_dav_module` module.
+4. Configure nginx to restrict access to the `/` directory.
+
+**CVE-2016-6329 belongs to the following OWASP Top 10 Web Application Security Risk category:**
+
+* **A2: Broken Authentication**
+
+This category includes vulnerabilities that allow attackers to gain unauthorized access to web applications or sensitive data. CVE-2016-6329 allows an attacker to execute arbitrary code on the target system, which could be used to gain unauthorized access to the web application or sensitive data.
+
+**Here are some additional steps you can take to mitigate the risk of CVE-2016-6329:**
+
+* Implement a web application firewall (WAF) to block malicious traffic.
+* Use a content security policy (CSP) to restrict the types of scripts that can be executed on your web pages.
+* Keep your nginx server up to date with the latest security patches.
+
+**If you are using a third-party nginx module, such as the `ngx_http_dav_module` module, make sure that the module is up to date and that it is configured securely.**

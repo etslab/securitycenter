@@ -1,0 +1,18 @@
+###How to fix the Common Vulnerabilities issue of CVE-2013-3587 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2013-3587 is a vulnerability in Nginx web servers that allows attackers to discover secrets wrapped in HTTP compression inside of SSL. This vulnerability can be exploited to steal sensitive information such as cookies, session tokens, and credit card numbers.
+
+To fix the CVE-2013-3587 vulnerability in Nginx, you need to upgrade to a version of Nginx that has been patched for this vulnerability. The current stable version of Nginx is 1.23.2, which has been patched for CVE-2013-3587. You can upgrade to Nginx 1.23.2 or later by following the instructions in the Nginx documentation.
+
+In addition to upgrading Nginx, you should also take the following steps to mitigate the CVE-2013-3587 vulnerability:
+
+* Enable HTTP Strict Transport Security (HSTS) on your Nginx server. This will help to prevent attackers from downgrading your connection to HTTP, which is required to exploit the CVE-2013-3587 vulnerability.
+* Disable HTTP compression on your Nginx server. This will remove the attack vector for the CVE-2013-3587 vulnerability.
+* Use a web application firewall (WAF) to protect your Nginx server from attacks. A WAF can be used to block malicious requests, including those that attempt to exploit the CVE-2013-3587 vulnerability.
+
+CVE-2013-3587 belongs to the following OWASP Top 10 Web 2021 category:
+
+* **A1: Injection**
+
+This category includes vulnerabilities that allow attackers to inject malicious code into web applications. The CVE-2013-3587 vulnerability can be exploited to inject malicious code into web applications, which can then be used to steal sensitive information or take control of the web application.
+
+To protect your Nginx web server from the CVE-2013-3587 vulnerability, it is important to upgrade to a patched version of Nginx and to take the other mitigation steps described above.

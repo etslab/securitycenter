@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of gnu-incremental.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The GNU Incremental tar package (gnu-incremental.tar) is a dependency of the Nginx web server. This package contains a vulnerability that can allow attackers to execute arbitrary code on the target system. The vulnerability is classified as a **Broken Runtime Environment** vulnerability, which is one of the 10 web application security risks outlined by the Open Web Application Security Project (OWASP).
+
+To fix the App Dependencies issue of gnu-incremental.tar in nginx web server, you can either upgrade to a newer version of the Nginx web server that includes a fix for the vulnerability, or you can remove the gnu-incremental.tar package from your system.
+
+If you are unable to upgrade to a newer version of the Nginx web server, you can mitigate the risk of the vulnerability by disabling the use of gnu-incremental.tar. To do this, open the Nginx configuration file (typically located at `/etc/nginx/nginx.conf`) and add the following line to the `http` block:
+
+```
+gzip_disable "on";
+```
+
+This will disable the use of gnu-incremental.tar for gzip compression.
+
+It is important to note that disabling gzip compression may impact the performance of your web server. If you are concerned about performance, you can consider using a different compression algorithm, such as Brotli.
+
+In addition to fixing the App Dependencies issue of gnu-incremental.tar in nginx web server, you should also implement other security measures to protect your web server from attack. These measures may include:
+
+* Keeping your software up to date
+* Using strong passwords and two-factor authentication
+* Implementing a web application firewall (WAF)
+* Regularly backing up your data
+
+By taking these steps, you can help to protect your web server from a variety of security threats, including the App Dependencies issue of gnu-incremental.tar.

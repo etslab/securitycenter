@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of recursion.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of recursion.tar in nginx web server is a vulnerability that can be exploited to allow an attacker to execute arbitrary code on the server. The issue is caused by a flaw in the way that nginx handles recursion in tar files.
+
+To fix the issue, you should upgrade to the latest version of nginx. The issue has been fixed in nginx version 1.18.0 or later.
+
+If you are unable to upgrade to the latest version of nginx, you can mitigate the issue by configuring nginx to disallow recursion in tar files. To do this, add the following directive to your nginx configuration file:
+
+```
+tar_recursion_limit 0;
+```
+
+This will prevent nginx from processing tar files that contain more than 0 levels of recursion.
+
+The App Dependencies issue of recursion.tar in nginx web server belongs to the **Insecure Design** category of the OWASP Top 10 Web 2021 list.
+
+Insecure Design is a vulnerability that arises when a developer does not take the necessary steps to secure an application. This can include using insecure coding practices, failing to properly validate input, or not using appropriate security controls.
+
+In the case of the App Dependencies issue of recursion.tar in nginx web server, the developer did not take the necessary steps to secure the application against recursion attacks. This allowed an attacker to exploit the vulnerability to execute arbitrary code on the server.
+
+**To mitigate the App Dependencies issue of recursion.tar in nginx web server, you should:**
+
+* Upgrade to the latest version of nginx.
+* Configure nginx to disallow recursion in tar files.
+* Implement a web application firewall (WAF) to protect your application from attacks.
+* Regularly review your application code for security vulnerabilities.

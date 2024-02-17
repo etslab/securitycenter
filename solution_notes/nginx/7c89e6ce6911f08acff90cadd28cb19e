@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of gnu-nil-sparse-data.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gnu-nil-sparse-data.tar in nginx web server, you can:
+
+1. **Identify the vulnerable dependency.** Use a dependency scanner to identify the vulnerable dependency in your application. In this case, the vulnerable dependency is gnu-nil-sparse-data.tar.
+2. **Upgrade the vulnerable dependency to a patched version.** If a patched version of gnu-nil-sparse-data.tar is available, upgrade to that version.
+3. **Remove the vulnerable dependency from your application.** If a patched version of gnu-nil-sparse-data.tar is not available, or if it is not feasible to upgrade, you can remove the dependency from your application.
+
+If you are unable to remove the dependency from your application, you can mitigate the risk by implementing security controls such as:
+
+* **Input validation.** Implement input validation to prevent attackers from exploiting the vulnerability.
+* **Output encoding.** Implement output encoding to prevent attackers from injecting malicious code into your application's output.
+* **Web application firewall (WAF).** Use a WAF to block attacks targeting the vulnerability.
+
+The App Dependencies issue of gnu-nil-sparse-data.tar in nginx web server belongs to the **Broken Access Control** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that allow attackers to access resources that they are not authorized to access.
+
+Broken Access Control vulnerabilities can be caused by a variety of factors, such as:
+
+* **Insecure object references.** When an application uses insecure object references, it can allow attackers to access resources that they are not authorized to access. For example, if an application uses a predictable session ID, an attacker could guess the session ID and access the user's account.
+* **Incorrect authorization logic.** When an application's authorization logic is incorrect, it can allow attackers to bypass access controls and access resources that they are not authorized to access. For example, if an application does not properly check whether a user is logged in before granting them access to a resource, an attacker could exploit this vulnerability to access the resource without logging in.
+* **Path traversal.** Path traversal vulnerabilities allow attackers to access files and directories that they are not authorized to access. For example, if an application allows users to specify the path to a file that they want to download, an attacker could specify a path to a file that is outside of the application's web root directory.
+
+To prevent Broken Access Control vulnerabilities, it is important to implement secure coding practices and to test applications for these vulnerabilities.

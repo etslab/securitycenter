@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of t32.exe in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of t32.exe in nginx web server is a **Broken Access Control** issue, which is category A2 of the OWASP Top 10 Web 2021 list.
+
+Broken Access Control occurs when an attacker can access data or functionality that they should not have access to. This can be caused by a number of factors, including:
+
+* Weak or nonexistent authentication and authorization controls
+* Improper configuration of security settings
+* Exploiting vulnerabilities in software or hardware
+
+In the case of t32.exe, this issue can occur if the nginx web server is configured to allow users to execute arbitrary code. This could allow an attacker to upload a malicious file and execute it on the server, giving them access to sensitive data or functionality.
+
+To fix this issue, you should:
+
+* Ensure that the nginx web server is configured to only allow users to execute authorized code.
+* Keep the nginx web server software up to date.
+* Implement a web application firewall (WAF) to protect against common attacks.
+
+Here are some additional steps you can take to mitigate the risk of Broken Access Control attacks:
+
+* Use strong passwords and enable multi-factor authentication for all user accounts.
+* Implement least privilege access, so that users only have the access they need to perform their job duties.
+* Regularly review security settings and make sure they are configured correctly.
+* Scan your web applications for vulnerabilities and patch them promptly.
+
+By taking these steps, you can help to protect your web server from Broken Access Control attacks and other security threats.

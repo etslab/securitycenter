@@ -1,0 +1,26 @@
+###How to fix the Common Vulnerabilities issue of CVE-2013-2566 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2013-2566 is a vulnerability in nginx versions 0.7.66 and earlier that allows attackers to execute arbitrary code on vulnerable systems. The vulnerability is caused by an error in the way nginx handles certain types of HTTP requests.
+
+To fix this vulnerability, you should upgrade your nginx server to version 0.7.67 or later. If you are unable to upgrade your server, you can mitigate the vulnerability by configuring nginx to deny requests that contain the malicious code.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks 2021 category **A5: Broken Access Control**.
+
+Here are the steps to fix the Common Vulnerabilities issue of CVE-2013-2566 in nginx web server:
+
+1. Upgrade nginx to version 0.7.67 or later.
+2. If you are unable to upgrade nginx, configure nginx to deny requests that contain the malicious code.
+
+Here is an example of how to configure nginx to deny requests that contain the malicious code:
+
+```
+location / {
+  deny all;
+  if ($request_uri ~* ".*(cve-2013-2566).*") {
+    return 403;
+  }
+}
+```
+
+This configuration will deny all requests that contain the string "cve-2013-2566" in the request URI.
+
+If you are still having trouble fixing this vulnerability, you can contact nginx support for assistance.

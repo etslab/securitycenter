@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of jquery.min.js of pkg:javascript/jquery@3.1.1 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of jquery.min.js of pkg:javascript/jquery@3.1.1 in an nginx web server, you can:
+
+1. **Check the version of jQuery you are using.** If you are using an older version of jQuery, you may need to upgrade to a newer version that has been patched for security vulnerabilities.
+2. **Make sure that the jQuery library you are using is from a trusted source.** There are many fake or malicious jQuery libraries available online, so it is important to make sure that you are downloading the library from a trusted website.
+3. **Use a content security policy (CSP) to restrict the scripts that can be executed on your website.** A CSP is a security header that tells the browser which scripts are allowed to run on a website. You can use a CSP to block malicious scripts from being executed on your website.
+4. **Use a web application firewall (WAF) to protect your website from common web attacks.** A WAF is a security device that can be used to filter and block malicious traffic from reaching your website.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021. Injection is a type of attack where an attacker inserts malicious code into a web application. This code can then be executed by the web application, giving the attacker control over the application.
+
+In the case of the App Dependencies issue, an attacker could inject malicious code into the jquery.min.js library. This code could then be executed by the web application, giving the attacker control over the application.
+
+To mitigate this risk, it is important to use a trusted jQuery library and to implement a CSP to restrict the scripts that can be executed on your website. A WAF can also be used to filter and block malicious traffic from reaching your website.
+
+Here are some additional tips to help protect your website from injection attacks:
+
+* Use parameterized queries when accessing databases. Parameterized queries prevent attackers from injecting malicious code into SQL statements.
+* Validate all user input. This will help to prevent attackers from injecting malicious code into your web application.
+* Use a web application firewall (WAF) to protect your website from common web attacks.
+
+By following these tips, you can help to protect your website from injection attacks and other security vulnerabilities.

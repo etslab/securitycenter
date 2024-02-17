@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2012-5081 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2012-5081 is a vulnerability in the nginx web server that allows attackers to execute arbitrary code on the server. This vulnerability is classified as a **Broken Authentication** vulnerability in the OWASP Top 10 Web 2021 category.
+
+To fix the CVE-2012-5081 vulnerability in nginx web server, you can do the following:
+
+1. **Update nginx to the latest version.** The vulnerability was fixed in nginx version 1.2.1.
+2. **Configure nginx to use a stronger authentication method.** The default authentication method for nginx is HTTP Basic Auth, which is not secure. You can configure nginx to use a more secure authentication method, such as OAuth2 or SAML.
+3. **Use a web application firewall (WAF) to protect your nginx web server.** A WAF can help to protect your web server from a variety of attacks, including Broken Authentication attacks.
+
+Here are some additional steps that you can take to mitigate the risk of Broken Authentication attacks:
+
+* Use strong passwords and multi-factor authentication for all user accounts.
+* Implement rate limiting and other measures to prevent brute-force attacks.
+* Use a password manager to generate and store strong passwords for all of your user accounts.
+* Monitor your web server logs for suspicious activity.
+
+If you are unsure how to fix the CVE-2012-5081 vulnerability in your nginx web server, you should contact a security professional for assistance.

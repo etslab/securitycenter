@@ -1,0 +1,18 @@
+###How to fix the App Dependencies issue of paramiko-2.7.1.tar.gz:paramiko-2.7.1.tar:jquery-3.2.1.js in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of paramiko-2.7.1.tar.gz:paramiko-2.7.1.tar:jquery-3.2.1.js in nginx web server, you can do the following:
+
+1. Update the dependencies to the latest versions.
+2. Use a dependency management tool such as pip or npm to manage your dependencies.
+3. Use a security scanner such as Nmap or Snyk to scan your dependencies for vulnerabilities.
+4. Remove any unused dependencies.
+
+This issue belongs to the **OWASP Top 10 Web 2021 category A1: Injection**. Injection is a type of security vulnerability that occurs when an attacker is able to inject malicious code into a web application. This can be done through a variety of methods, such as SQL injection, cross-site scripting (XSS), and command injection.
+
+Here are some additional tips for fixing App Dependencies issues:
+
+* Use a dependency management tool to manage your dependencies. This will help you to ensure that your dependencies are up to date and that you are not using any vulnerable dependencies.
+* Use a security scanner to scan your dependencies for vulnerabilities. This will help you to identify any vulnerabilities in your dependencies and take steps to fix them.
+* Remove any unused dependencies. This will help to reduce the attack surface of your web application.
+* Keep your dependencies up to date. This is one of the most important things you can do to secure your web application.
+
+If you are unable to fix the App Dependencies issue yourself, you may need to contact your web application vendor or a security consultant for assistance.

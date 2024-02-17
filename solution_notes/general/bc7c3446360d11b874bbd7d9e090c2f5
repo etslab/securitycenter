@@ -1,0 +1,33 @@
+###How to fix the Common Vulnerabilities issue of CVE-2014-0160 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the CVE-2014-0160 vulnerability in Nginx, you need to upgrade to a version of Nginx that is not affected by the vulnerability. The following versions of Nginx are not affected by the vulnerability:
+
+* Nginx 1.3.10
+* Nginx 1.4.2
+* Nginx 1.5.1
+
+If you are unable to upgrade to a non-affected version of Nginx, you can apply a workaround to mitigate the vulnerability. The workaround involves disabling the vulnerable OpenSSL cipher suite. To do this, add the following line to your Nginx configuration file:
+
+```
+ssl_protocols TLSv1.2 TLSv1.3;
+```
+
+This will disable the vulnerable OpenSSL cipher suite and mitigate the CVE-2014-0160 vulnerability.
+
+**OWASP Top 10 Web 2021 Category**
+
+The CVE-2014-0160 vulnerability belongs to the following OWASP Top 10 Web 2021 category:
+
+* **A1: Broken Access Control**
+
+This category refers to vulnerabilities that allow attackers to gain unauthorized access to sensitive data or resources. The CVE-2014-0160 vulnerability allows attackers to retrieve private memory of an application that uses the vulnerable OpenSSL library in chunks of 64k at a time. This could include sensitive data such as passwords, credit card numbers, and other confidential information.
+
+**Recommendations**
+
+In addition to fixing the CVE-2014-0160 vulnerability, you should also implement the following security recommendations:
+
+* Keep your Nginx software up to date.
+* Apply all security patches promptly.
+* Use a strong password for your Nginx user account.
+* Enable two-factor authentication for your Nginx user account.
+* Configure Nginx to only allow access from trusted IP addresses.
+* Use a web application firewall (WAF) to protect your Nginx web server from attack.

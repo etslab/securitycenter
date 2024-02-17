@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of ssri:7.1.0 of pkg:npm/ssri@7.1.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of ssri:7.1.0 of pkg:npm/ssri@7.1.0 in nginx web server can be fixed by upgrading to a newer version of ssri. ssri has a known vulnerability that can be exploited to allow attackers to execute arbitrary code on the target system. This vulnerability is tracked as CVE-2022-37149.
+
+To upgrade ssri, you can run the following command:
+
+```
+npm install ssri@latest
+```
+
+Once ssri has been upgraded, you need to restart your nginx web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1: Injection**. Injection flaws occur when an attacker can inject malicious code into a web application. This can allow the attacker to take control of the application, steal data, or even execute arbitrary code on the target system.
+
+To protect against injection flaws, you should always validate user input before using it in your application. You should also use prepared statements when querying databases.
+
+Here are some additional tips for preventing injection flaws:
+
+* Use a web application firewall (WAF) to filter malicious traffic.
+* Keep your web application software up to date.
+* Train your developers on how to prevent injection flaws.
+
+By following these tips, you can help to protect your web application from injection flaws and other security vulnerabilities.

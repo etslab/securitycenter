@@ -1,0 +1,17 @@
+###How to fix the App Dependencies issue of ustar-file-reg.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of ustar-file-reg.tar in nginx web server, you can do the following:
+
+1. Check the security updates for ustar-file-reg.tar and apply any updates that are available.
+2. If there are no updates available, you can try to mitigate the issue by restricting access to the affected file.
+3. You can also try to find a replacement for the affected file that is not vulnerable to the issue.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A6: Sensitive Data Exposure**. This category refers to the situation where sensitive data is leaked to unauthorized users. This can happen due to a variety of factors, such as security misconfigurations, software vulnerabilities, or human error.
+
+Here are some additional tips for avoiding this issue:
+
+* Keep your software up to date.
+* Use a web application firewall (WAF) to protect your web server from common attacks.
+* Implement strong security controls for your database and other sensitive data stores.
+* Train your employees on security best practices.
+
+If you are unsure how to fix this issue, you should consult with a security expert.

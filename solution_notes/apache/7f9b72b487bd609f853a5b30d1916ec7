@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of e.txt.bz2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of e.txt.bz2 in Apache web server, you can follow these steps:
+
+1. **Identify the vulnerable applications.** Use a dependency scanner to identify all of the applications that are dependent on the vulnerable library or package.
+2. **Update the vulnerable applications.** Update the vulnerable applications to the latest versions, which should patch the vulnerability.
+3. **Remove the vulnerable applications.** If the vulnerable applications are no longer needed, remove them from the server.
+4. **Monitor the server.** Monitor the server for signs of compromise, and take appropriate action if any suspicious activity is detected.
+
+This issue is related to the **Broken Component Dependencies** category of the OWASP Top 10 Web Application Security Risks 2021.
+
+Here are some additional tips for fixing App Dependencies issues:
+
+* Use a dependency management tool to keep track of all of the dependencies of your applications.
+* Regularly scan your applications for vulnerabilities, including outdated or vulnerable dependencies.
+* Keep your applications and their dependencies up to date.
+* Remove any unnecessary dependencies from your applications.
+* Monitor your applications and servers for signs of compromise.
+
+It is important to note that the specific steps required to fix App Dependencies issues will vary depending on the specific application and web server environment.

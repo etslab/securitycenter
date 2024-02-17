@@ -1,0 +1,30 @@
+###How to fix the App Dependencies issue of t64.exe in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of t64.exe in nginx web server, you can try the following:
+
+1. Make sure that the t64.exe file is present in the nginx configuration directory.
+2. Make sure that the t64.exe file is executable by the nginx user.
+3. Add the following line to the nginx configuration file:
+
+```
+exec t64.exe;
+```
+
+This will tell nginx to execute the t64.exe file when it starts up.
+
+If you are still having problems, you can try restarting the nginx web server.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021.
+
+This category refers to attacks where an attacker injects malicious code into a web application. The code can then be executed by the web application, which can give the attacker control over the application.
+
+In the case of the t64.exe issue, an attacker could inject malicious code into the nginx configuration file. This code could then be executed by nginx when it starts up, which could give the attacker control over the nginx web server.
+
+To mitigate this risk, it is important to validate all user input before it is used in the nginx configuration file. It is also important to use a secure configuration management tool to manage the nginx configuration file.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Use a secure coding framework to help you write secure code.
+* Use a dependency scanner to identify and fix known vulnerabilities in your dependencies.
+* Keep your dependencies up to date.
+* Use a least privilege model to ensure that your dependencies only have the permissions they need.
+* Monitor your applications for suspicious activity.

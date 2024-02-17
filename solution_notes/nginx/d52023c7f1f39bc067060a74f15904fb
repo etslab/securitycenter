@@ -1,0 +1,35 @@
+###How to fix the App Dependencies issue of pass-random2.bz2 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pass-random2.bz2 in nginx web server, you can try the following:
+
+1. **Identify the dependency.** Use a tool like `ldd` to identify the specific library that the application is trying to load from pass-random2.bz2.
+2. **Install the dependency.** Once you have identified the dependency, install it using your package manager.
+3. **Restart the application.** Once the dependency is installed, restart the application to see if the issue has been resolved.
+
+If the issue persists, you can try the following:
+
+1. **Update the application.** Check if there is an updated version of the application available. If so, update the application to see if the issue has been resolved.
+2. **Recompile the application.** If there is no updated version of the application available, you may need to recompile the application with the required dependency. This is typically done by downloading the source code for the application and compiling it with the appropriate flags.
+3. **Contact the developer.** If you are unable to resolve the issue on your own, you can contact the developer of the application for assistance.
+
+This issue belongs to the **OWASP Top 10 2021** category **A1: Broken or Outdated Components**.
+
+**What is OWASP Top 10 2021?**
+
+OWASP Top 10 2021 is a list of the most critical web application security risks. It is published by the Open Web Application Security Project (OWASP), a non-profit organization that works to improve the security of web applications.
+
+The OWASP Top 10 2021 list is based on the findings of OWASP's annual web application security risks survey. The survey is conducted by security professionals from around the world and identifies the most common and dangerous web application security risks.
+
+**Why is A1: Broken or Outdated Components a critical security risk?**
+
+Broken or outdated components can introduce a variety of security vulnerabilities into web applications. For example, an attacker may be able to exploit a vulnerability in a third-party library to gain access to a web application or its data.
+
+**How to mitigate the A1: Broken or Outdated Components security risk**
+
+There are a number of steps that organizations can take to mitigate the A1: Broken or Outdated Components security risk. These include:
+
+* Using a software composition analysis (SCA) tool to identify all of the third-party components used in web applications.
+* Keeping all third-party components up to date.
+* Removing any third-party components that are no longer needed.
+* Using a web application firewall (WAF) to protect web applications from attacks that exploit vulnerabilities in outdated or broken components.
+
+By following these steps, organizations can reduce their risk of being exploited by attackers who target broken or outdated components.

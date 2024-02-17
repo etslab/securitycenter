@@ -1,0 +1,34 @@
+###How to fix the App Dependencies issue of json-schema:0.2.3 of pkg:npm/json-schema@0.2.3 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**How to fix the App Dependencies issue of json-schema:0.2.3 of pkg:npm/json-schema@0.2.3 in nginx web server**
+
+To fix the App Dependencies issue of json-schema:0.2.3 of pkg:npm/json-schema@0.2.3 in nginx web server, you need to update the dependency to the latest version. You can do this by running the following command:
+
+```
+npm update json-schema
+```
+
+This will install the latest version of json-schema, which is currently 2.0.0.
+
+Once the dependency has been updated, you need to restart the nginx web server. You can do this by running the following command:
+
+```
+sudo systemctl restart nginx
+```
+
+**Which OWASP Top 10 Web 2021 category does this issue belong to?**
+
+The App Dependencies issue of json-schema:0.2.3 of pkg:npm/json-schema@0.2.3 in nginx web server belongs to the **A1: Broken or Outdated Components** category of the OWASP Top 10 Web 2021.
+
+This category refers to the use of outdated or vulnerable components in web applications. Outdated components may have known vulnerabilities that can be exploited by attackers. Vulnerable components may have security weaknesses that can be exploited by attackers, even if the components are up to date.
+
+**How to prevent App Dependencies issues**
+
+To prevent App Dependencies issues, you should keep all of the components in your web application up to date. You can do this by using a dependency management tool, such as npm or yarn. You should also regularly scan your web application for vulnerabilities. You can use a variety of tools to do this, such as Snyk or OWASP Dependency-Track.
+
+**Additional information**
+
+The json-schema package is a popular JavaScript library for validating JSON data. It is used by many other JavaScript libraries and frameworks, such as Express and Hapi.
+
+The App Dependencies issue of json-schema:0.2.3 of pkg:npm/json-schema@0.2.3 in nginx web server is a known vulnerability. It was discovered in 2019 and has been patched in the latest version of json-schema.
+
+If you are using an outdated version of json-schema in your web application, you should update to the latest version as soon as possible.

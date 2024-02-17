@@ -1,0 +1,24 @@
+###How to fix the Web Threats issue of Information Disclosure - Suspicious Comments in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The Information Disclosure - Suspicious Comments issue in nginx web server is a type of Cross-Site Scripting (XSS) vulnerability. XSS vulnerabilities allow attackers to inject malicious code into web pages, which can then be executed by other users when they visit the pages.
+
+To fix the Information Disclosure - Suspicious Comments issue in nginx web server, you can:
+
+* **Enable the `ngx_http_xss_filter` module.** This module provides protection against XSS attacks by filtering out malicious code from HTTP requests and responses.
+* **Configure the `ngx_http_xss_filter` module to block suspicious comments.** You can do this by adding the following lines to your nginx configuration file:
+
+```
+    location / {
+        xss_filter on;
+        xss_filter_blocks suspicious_comments;
+    }
+```
+
+* **Scan your web application for XSS vulnerabilities.** There are a number of tools available to help you scan your web application for XSS vulnerabilities. Once you have identified any vulnerabilities, you can patch them to prevent attackers from exploiting them.
+
+This issue belongs to the A1: Injection category of the OWASP Top 10 Web Application Security Risks 2021.
+
+Here are some additional tips for preventing XSS vulnerabilities:
+
+* **Use a web application firewall (WAF).** A WAF can help to protect your web application from a variety of attacks, including XSS attacks.
+* **Encode all user input.** This will help to prevent malicious code from being injected into your web pages.
+* **Keep your software up to date.** Software vendors often release security patches to fix vulnerabilities. Make sure to install these patches as soon as they are available.

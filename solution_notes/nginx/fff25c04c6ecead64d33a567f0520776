@@ -1,0 +1,32 @@
+###How to fix the App Dependencies issue of qs:6.7.0 of pkg:npm/qs@6.7.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of qs:6.7.0 of pkg:npm/qs@6.7.0 in nginx web server can be fixed by updating the qs package to version 6.9.1 or later. This issue is related to the OWASP Top 10 Web 2021 category **A3: Injection**.
+
+**To update the qs package in nginx:**
+
+1. Stop the nginx web server.
+2. Update the qs package using the following command:
+
+```
+npm update qs
+```
+
+3. Start the nginx web server.
+
+**More information about the OWASP Top 10 Web 2021 category A3: Injection:**
+
+Injection is a security vulnerability that occurs when an attacker is able to inject malicious code into a web application. This can be done through a variety of methods, such as SQL injection, cross-site scripting (XSS), and command injection.
+
+Injection attacks can be used to steal data, compromise accounts, or even take control of a web application.
+
+**To prevent injection attacks:**
+
+* Validate all user input before using it in a query or command.
+* Use prepared statements or parameterized queries when interacting with databases.
+* Use an escape function to encode all user input before it is displayed on the web page.
+* Keep your software up to date and apply security patches promptly.
+
+**Additional tips for preventing injection attacks:**
+
+* Use a web application firewall (WAF) to protect your web application from common attacks.
+* Implement a content security policy (CSP) to restrict the types of scripts that can be executed on your web pages.
+* Educate your developers about injection vulnerabilities and how to prevent them.

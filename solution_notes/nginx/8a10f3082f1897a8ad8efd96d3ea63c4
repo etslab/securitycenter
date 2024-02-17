@@ -1,0 +1,26 @@
+###How to fix the App Dependencies issue of loader-utils:2.0.0 of pkg:npm/loader-utils@2.0.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of loader-utils:2.0.0 of pkg:npm/loader-utils@2.0.0 in an nginx web server, you can follow these steps:
+
+1. **Identify which applications are using loader-utils 2.0.0.** You can use the following command to find all of the applications on your system that depend on loader-utils:
+
+```
+npm ls loader-utils --all
+```
+
+This will list all of the applications, including both direct and transitive dependencies, that depend on loader-utils 2.0.0.
+
+2. **Upgrade loader-utils to a version that is not vulnerable.** The latest version of loader-utils is 3.2.1, which is not vulnerable to the Regular Expression Denial of Service (ReDoS) vulnerability that exists in version 2.0.0. You can upgrade loader-utils using the following command:
+
+```
+npm install loader-utils@3.2.1
+```
+
+3. **Restart your nginx web server.** Once you have upgraded loader-utils to a non-vulnerable version, you should restart your nginx web server to ensure that the changes are applied.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021. Injection flaws occur when untrusted data is allowed to enter a command or query string. In this case, the attacker is able to inject a malicious regular expression into the `urlToRequest()` function, which can cause the application to crash or consume excessive resources.
+
+Here are some additional tips for preventing injection attacks:
+
+* **Sanitize all user input.** This includes validating user input for expected characters and formats, and escaping any special characters.
+* **Use prepared statements or parameterized queries.** This will help to prevent SQL injection attacks.
+* **Use a web application firewall (WAF).** A WAF can help to protect your application from a variety of attacks, including injection attacks.

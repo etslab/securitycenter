@@ -1,0 +1,13 @@
+**Fixing the Certificates Issue for Secure Renegotiation**
+
+1. **Verify Certificates:** Ensure that the server and client certificates are valid and trusted. Check if the certificates are expired, revoked, or self-signed.
+2. **Configure OpenSSL:** Add the following directives to the OpenSSL configuration file (usually `/etc/openssl.cnf`):
+```
+RenegotiatePriority = none
+```
+This will disable SSL/TLS renegotiation.
+3. **Restart Apache:** Restart the Apache web server to apply the changes.
+
+**OWASP Top 10 Web 2021 Category**
+
+This issue falls under the **A8:2021 Broken Access Control** category of the OWASP Top 10 Web 2021. Renegotiation can be used to perform attacks that exploit access control logic in the application.

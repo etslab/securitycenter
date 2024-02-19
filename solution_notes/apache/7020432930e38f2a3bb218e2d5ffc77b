@@ -1,0 +1,10 @@
+**Fixing SWEET32 Certificate Issue in Apache Web Servers**
+
+* **Update OpenSSL to Version 1.0.2 and Later:** This includes patching all affected Apache versions. Refer to your distribution's security bulletins for specific instructions.
+* **Disable SWEET32 Cipher Suites:** Remove any cipher suites that include TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 or TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256.
+* **Enable Perfect Forward Secrecy (PFS):** Configure Apache to use PFS cipher suites such as ECDHE-RSA or ECDHE-ECDSA with AES-256 or stronger ciphers.
+* **Use TLS 1.3 or Later:** TLS 1.3 is not vulnerable to SWEET32. Consider upgrading to TLS 1.3 if available in your environment.
+
+**OWASP Top 10 Web 2021 Category**
+
+SWEET32 falls under the **A1: Broken Access Control** category of the OWASP Top 10 Web 2021. This category addresses vulnerabilities that allow attackers to access unauthorized resources or perform unauthorized actions within an application.

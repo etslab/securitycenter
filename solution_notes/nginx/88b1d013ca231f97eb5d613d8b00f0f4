@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of pax-multi-hdrs.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pax-multi-hdrs.tar in nginx web server, you can follow these steps:
+
+1. Identify the version of the pax-multi-hdrs.tar package that is causing the issue.
+2. Upgrade to a newer version of the pax-multi-hdrs.tar package that has been patched for the vulnerability.
+3. If a newer version of the pax-multi-hdrs.tar package is not available, you can mitigate the vulnerability by removing the package from your nginx web server.
+
+This issue belongs to the **Injection** category of the OWASP Top 10 Web Application Security Risks 2021. Injection flaws occur when untrusted data is inserted into a command or query. This can allow an attacker to execute arbitrary commands or access unauthorized data.
+
+In the case of the pax-multi-hdrs.tar issue, an attacker could exploit the vulnerability to inject malicious code into the nginx web server. This could allow the attacker to take control of the web server or access sensitive data.
+
+To prevent injection flaws, you should always validate and sanitize user input before using it in commands or queries. You should also use strong passwords and keep your software up to date.
+
+Here are some additional tips for preventing injection flaws:
+
+* Use prepared statements when executing SQL queries.
+* Escape all user input before using it in commands or queries.
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Keep your software up to date.
+
+Please note that these are just general guidelines and may not be applicable to all situations. It is important to consult with a security expert to assess your specific risks and develop a mitigation plan.

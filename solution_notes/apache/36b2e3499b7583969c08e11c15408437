@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-0220
+CVE-2019-0220 is a vulnerability in Apache HTTP Server that allows an attacker to bypass access controls and execute arbitrary code on the server. The vulnerability is caused by a bug in the way that Apache handles duplicate slashes in URL paths.
+
+To fix CVE-2019-0220, you should upgrade your Apache HTTP Server to a version that has been patched for the vulnerability. You can find the latest patched versions of Apache HTTP Server on the Apache Software Foundation website.
+
+CVE-2019-0220 belongs to the OWASP Top 10 Web Application Security Risks category of "A01 - Injection." Injection flaws, such as this one, occur when unvalidated or malicious data is inserted into an application. This can lead to a variety of security problems, including data exfiltration, privilege escalation, and denial of service.
+
+Here are some additional steps you can take to protect your Apache HTTP Server from CVE-2019-0220 and other vulnerabilities:
+
+* Keep your Apache HTTP Server software up to date.
+* Use a web application firewall (WAF) to help block malicious traffic.
+* Implement strong security controls, such as user authentication and access control lists.
+* Monitor your Apache HTTP Server for signs of attack.
+
+By taking these steps, you can help to protect your Apache HTTP Server from CVE-2019-0220 and other vulnerabilities.

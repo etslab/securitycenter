@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of ruby-3.0.0.tar.gz:ruby-3.0.0.tar:load_fixture.ext.dll in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of ruby-3.0.0.tar.gz:ruby-3.0.0.tar:load_fixture.ext.dll in nginx web server is a Broken Access Control issue. This means that an attacker could exploit this vulnerability to gain access to unauthorized files or resources on the web server.
+
+To fix this issue, you can try the following:
+
+1. Update the version of ruby-3.0.0.tar.gz:ruby-3.0.0.tar to the latest version. This will patch the vulnerability and make it more difficult for attackers to exploit.
+2. Remove the load_fixture.ext.dll file from the web server. This will prevent attackers from accessing the file and exploiting the vulnerability.
+3. Configure the web server to restrict access to the load_fixture.ext.dll file. This will make it more difficult for attackers to access the file, even if they are able to find it.
+
+You can also try the following:
+
+1. Use a web application firewall (WAF) to protect your web server from common attacks, including Broken Access Control attacks.
+2. Implement security best practices, such as input validation and output encoding, to help protect your web server from attack.
+
+This issue belongs to the **A5: Broken Access Control** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that allow attackers to gain access to unauthorized files or resources on a web server.
+
+Here are some additional tips for preventing Broken Access Control vulnerabilities:
+
+* Use least privilege to ensure that users and processes only have the permissions they need.
+* Implement role-based access control (RBAC) to restrict access to sensitive resources.
+* Use strong passwords and multi-factor authentication to protect user accounts.
+* Keep software up to date to patch known vulnerabilities.
+* Regularly test your web applications for security vulnerabilities.

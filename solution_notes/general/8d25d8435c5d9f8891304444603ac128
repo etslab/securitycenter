@@ -1,0 +1,17 @@
+###How to fix the Certificates issue of cipherlist OBSOLETED, offered
+To fix the Certificates issue of cipherlist OBSOLETED, offered in apache web server, you can follow these steps:
+
+1. Open the Apache configuration file. This file is usually located at `/etc/apache2/apache2.conf`.
+2. Find the section that contains the cipherlist directive. This directive is usually located near the top of the file.
+3. Change the cipherlist directive to use a different cipherlist. You can find a list of supported cipherlists in the Apache documentation.
+4. Restart the Apache web server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is A1: Injection. This category includes vulnerabilities that allow attackers to inject malicious code into web applications. By injecting malicious code, attackers can take control of the application or steal sensitive data.
+
+Here are some additional tips for preventing this type of vulnerability:
+
+* Use a secure cipherlist. A secure cipherlist is one that uses strong encryption algorithms and does not allow for weak ciphers.
+* Keep your software up to date. Software updates often include security patches that can help to protect against vulnerabilities.
+* Use a web application firewall (WAF). A WAF can help to block common attack vectors, such as SQL injection and cross-site scripting (XSS).
+
+By following these tips, you can help to protect your web applications from vulnerabilities that could allow attackers to inject malicious code.

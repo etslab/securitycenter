@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of gnu-incremental.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gnu-incremental.tar in apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Remove the gnu-incremental.tar file from the Apache web server's directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1: Injection**. Injection flaws, such as SQL injection and XSS, occur when unvalidated or unfiltered user input is used to dynamically generate SQL statements or HTML code. This can allow an attacker to execute arbitrary SQL commands or inject malicious code into a web page, which can then be executed by other users.
+
+To prevent injection flaws, it is important to validate and filter all user input before it is used to generate dynamic SQL statements or HTML code. This can be done using a variety of techniques, such as input validation libraries, prepared statements, and parameterized queries.
+
+Here are some additional tips for preventing injection flaws:
+
+* Use input validation libraries to help you validate and filter user input.
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use HTML escaping to prevent XSS attacks.
+* Educate your developers about injection flaws and how to prevent them.
+
+By following these tips, you can help to protect your web applications from injection flaws.

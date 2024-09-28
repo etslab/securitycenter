@@ -1,0 +1,29 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Initial redirection from HTTP to HTTPS is to a different host preventing HSTS in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 Initial redirection from HTTP to HTTPS is to a different host preventing HSTS in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current configuration
+  conf=$(apache2 -V | grep "ServerName")
+
+  # Check if the configuration contains the vulnerable directive
+  if [[ $conf =~ "Redirect" && $conf =~ "HTTPS" && $conf =~ "Host" ]]; then
+
+    # Replace the vulnerable directive with a safe one
+    sed -i "s/Redirect\s+HTTPS\s+//" /etc/apache2/apache2.conf
+
+    # Restart Apache
+    apache2ctl restart
+
+  fi
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, it will then get the current configuration. The script will then check if the configuration contains the vulnerable directive, which is a redirect from HTTP to HTTPS to a different host. If the vulnerable directive is found, the script will replace it with a safe one that does not redirect to a different host. Finally, the script will restart Apache.
+
+This patch script should be used in conjunction with other security measures, such as keeping Apache up to date with the latest security patches and using a strong HSTS policy.

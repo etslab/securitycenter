@@ -1,0 +1,35 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Information Disclosure - Suspicious Comments in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Information Disclosure - Suspicious Comments in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if the Apache HTTP Server is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache HTTP Server is not installed"
+  exit 1
+fi
+
+# Check the version of the Apache HTTP Server
+VERSION=$(apache2 -v | awk '{print $2}')
+
+# If the version is less than 2.4.6, then apply the patch
+if [ "$VERSION" -lt "2.4.6" ]; then
+  echo "Applying patch to Apache HTTP Server"
+  patch -p1 < CVE-2013-0169.patch
+fi
+
+# Restart the Apache HTTP Server
+service apache2 restart
+
+# Check if the patch was successful
+if ! apache2 -v | grep -q "CVE-2013-0169"; then
+  echo "Patch was not successful"
+  exit 1
+fi
+
+# Success!
+echo "Patch applied successfully"
+```
+
+This patch script will first check if the Apache HTTP Server is installed. If it is not installed, the script will exit. If the Apache HTTP Server is installed, the script will then check the version of the server. If the version is less than 2.4.6, the script will apply the patch. After the patch is applied, the script will restart the Apache HTTP Server. Finally, the script will check if the patch was successful. If the patch was successful, the script will exit with a status of 0. If the patch was not successful, the script will exit with a status of 1.

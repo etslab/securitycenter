@@ -1,0 +1,44 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Private IP Disclosure in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Private IP Disclosure in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current Apache version
+  CURRENT_VERSION=$(apachectl -V | awk '{print $2}')
+
+  # Check if the current version is vulnerable
+  if [[ $CURRENT_VERSION < "2.4.6" ]]; then
+
+    # Download the latest security patch
+    wget https://archive.apache.org/dist/httpd/binaries/latest/httpd-2.4.6.tar.gz
+
+    # Extract the patch
+    tar -xvf httpd-2.4.6.tar.gz
+
+    # Apply the patch
+    cd httpd-2.4.6/
+    ./configure
+    make
+    make install
+
+    # Restart Apache
+    apachectl restart
+
+  fi
+
+fi
+```
+
+This patch script will download the latest security patch for Apache 2.4.6, extract it, and apply it. Once the patch has been applied, you will need to restart Apache for the changes to take effect.
+
+Here are some additional things to keep in mind when remediating this vulnerability:
+
+* If you are using a version of Apache that is not listed above, you should check with the Apache Security Team to see if there is a patch available.
+* You should also make sure that you have enabled the mod_ssl module in Apache. This module provides support for secure connections using SSL/TLS.
+* You should also configure Apache to use a strong cipher suite. This will help to protect your data from being intercepted by unauthorized individuals.
+
+By following these steps, you can help to protect your Apache servers from the Lucky Thirteen vulnerability.

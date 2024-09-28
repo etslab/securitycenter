@@ -1,0 +1,29 @@
+###How to fix the App Dependencies issue of node-notifier:5.4.3 of pkg:npm/node-notifier@5.4.3 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of node-notifier:5.4.3 of pkg:npm/node-notifier@5.4.3 in nginx web server, you can follow these steps:
+
+1. Update node-notifier to the latest version:
+
+```
+npm update node-notifier
+```
+
+2. If the update fails, you can try to install node-notifier manually:
+
+```
+npm install node-notifier@latest
+```
+
+3. Once node-notifier is updated, restart your nginx web server.
+
+This issue belongs to the **A3:Insecure Design** category of the OWASP Top 10 Web 2021. This category refers to security weaknesses that arise from the design of a web application. In this case, the security weakness is that the node-notifier package is outdated. Outdated packages can contain known security vulnerabilities.
+
+To prevent this type of issue, it is important to keep all of your web application dependencies up to date. You can use a tool like npm outdated to check for outdated dependencies.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Use a package manager like npm or Yarn to manage your dependencies. This will help you to keep your dependencies up to date and avoid conflicts between different versions of the same package.
+* Use a security scanner like Snyk or OWASP Dependency-Check to scan your dependencies for known vulnerabilities.
+* Use a dependency checker like npm audit to check your dependencies for known vulnerabilities.
+* Set up a continuous integration (CI) pipeline to automatically test your application and dependencies for security vulnerabilities.
+
+By following these tips, you can help to prevent App Dependencies issues and improve the security of your web application.

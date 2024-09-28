@@ -1,0 +1,22 @@
+###How to fix the URL Inspection issue of Files Recently Modified in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the URL Inspection issue of Files Recently Modified in nginx web server, you can use the following steps:
+
+1. Open the nginx configuration file.
+2. Find the location directive for the directory where the files that you want to protect are located.
+3. Add the following line to the location directive:
+```
+try_files $uri =404;
+```
+This will tell nginx to return a 404 error if a request is made for a file that does not exist. This will prevent an attacker from being able to determine which files have been recently modified.
+
+The URL Inspection issue of Files Recently Modified belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Information Exposure. This category includes risks that allow an attacker to gain access to sensitive information, such as passwords, credit card numbers, or intellectual property.
+
+Here are some additional tips for protecting your web server from this and other security risks:
+
+* Keep your software up to date. Software updates often include security patches that can help to protect your server from known vulnerabilities.
+* Use a strong password for your web server. This will help to prevent unauthorized access.
+* Enable two-factor authentication for your web server. This will add an extra layer of security by requiring a code from your phone in addition to your password.
+* Use a firewall to block unauthorized access to your web server.
+* Monitor your web server for unusual activity. This will help you to identify and respond to attacks quickly.
+
+By following these tips, you can help to keep your web server secure and protect your sensitive information from attackers.

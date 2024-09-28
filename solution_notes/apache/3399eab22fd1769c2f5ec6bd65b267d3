@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of gnu-long-nul.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of gnu-long-nul.tar in apache web server can be fixed by removing the file from the server. The file is a vulnerability that can be exploited by attackers to gain access to the server. To remove the file, follow these steps:
+
+1. Log in to the server as root or an administrator user.
+2. Use the `cd` command to navigate to the directory where the file is located.
+3. Use the `rm` command to remove the file.
+4. Restart the Apache web server.
+
+The gnu-long-nul.tar file is a vulnerability that belongs to the OWASP Top 10 Web 2021 category of Injection. Injection vulnerabilities occur when unvalidated or unfiltered user input is injected into a system, resulting in unexpected or malicious behavior. In the case of the gnu-long-nul.tar file, an attacker could inject malicious code into the file, which would then be executed when the file is opened by the Apache web server. This could allow the attacker to gain access to the server or to execute arbitrary commands on the server.
+
+The following are some additional tips for preventing injection vulnerabilities:
+
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Use input validation to check all user input for harmful characters or patterns.
+* Use output encoding to escape all special characters in output data.
+* Regularly scan your systems for vulnerabilities.
+* Keep your software up to date with the latest security patches.
+
+By following these tips, you can help to protect your systems from injection vulnerabilities.

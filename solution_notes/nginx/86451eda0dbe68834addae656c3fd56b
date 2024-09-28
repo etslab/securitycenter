@@ -1,0 +1,18 @@
+###How to fix the Certificates issue of cipherlist AVERAGE, offered in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Certificates issue of cipherlist AVERAGE, offered in nginx web server, you can do the following:
+
+1. Open the nginx configuration file. This file is typically located at `/etc/nginx/nginx.conf`.
+2. Find the section that defines the ciphers for the HTTPS (SSL/TLS) server. This section will typically start with the keyword `ssl_ciphers`.
+3. Change the cipherlist from `AVERAGE` to a more secure cipherlist. A good option is to use the `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384` cipherlist.
+4. Save the configuration file and restart the nginx server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1 - Injection**. This category covers vulnerabilities that allow attackers to inject malicious code into web applications. The use of the cipherlist `AVERAGE` can allow attackers to downgrade the security of the connection between the client and the server, which can make it easier for them to inject malicious code.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use a strong password for the nginx server.
+* Enable HTTP Strict Transport Security (HSTS). This will force clients to use HTTPS for all connections to your server.
+* Install and configure a web application firewall (WAF). This can help to protect your server from common web attacks.
+* Keep your nginx software up to date. Updates often include security fixes.
+
+By following these tips, you can help to keep your nginx web server secure.

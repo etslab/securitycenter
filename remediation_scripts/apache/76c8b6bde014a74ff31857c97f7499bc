@@ -1,0 +1,28 @@
+####patch script to remediate  Content Security Policy (CSP) Header Not Set in Apache HTTP Server
+Sure, here is a patch script to remediate the Content Security Policy (CSP) Header Not Set in Apache HTTP Server:
+
+
+#! /bin/bash
+
+# Check if the CSP header is set
+if ! grep -q "Content-Security-Policy" /etc/apache2/apache2.conf; then
+
+  # Set the CSP header to a default value
+  echo "Header always set Content-Security-Policy \"default-src 'self'\"" >> /etc/apache2/apache2.conf
+
+  # Restart Apache
+  service apache2 restart
+
+fi
+
+
+This script will first check if the CSP header is set in the Apache configuration file. If it is not set, the script will then set the header to a default value. Finally, the script will restart Apache so that the new header is applied.
+
+Here is an explanation of the commands used in the script:
+
+* `grep` - This command is used to search for a pattern in a file. In this case, we are using it to search for the string "Content-Security-Policy" in the Apache configuration file.
+* `echo` - This command is used to print a string to the console. In this case, we are using it to add the CSP header to the Apache configuration file.
+* `>>` - This operator is used to append text to a file. In this case, we are using it to append the CSP header to the end of the Apache configuration file.
+* `service` - This command is used to start, stop, or restart a service. In this case, we are using it to restart the Apache service so that the new CSP header is applied.
+
+I hope this helps!

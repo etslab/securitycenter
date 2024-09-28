@@ -1,0 +1,34 @@
+####patch script to remediate  cert revocation, Neither CRL nor OCSP URI provided in Apache HTTP Server
+Here is a patch script to remediate cert revocation, Neither CRL nor OCSP URI provided in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current Apache configuration
+  config=$(apachectl -t -D DUMP_CONFIG)
+
+  # Check if CRL or OCSP URI is configured
+  if ! [[ $config =~ ^SSLCARevocationPath|^SSLCARevocationFile ]]; then
+
+    # Add CRL or OCSP URI to the configuration
+    echo "SSLCARevocationPath /etc/ssl/crl" >> $config
+
+    # Reload Apache
+    apachectl -t && apachectl -k graceful
+
+  fi
+
+else
+
+  # Apache is not running, no need to remediate
+  echo "Apache is not running, no need to remediate"
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will get the current Apache configuration. The script will then check if CRL or OCSP URI is configured. If it is not, the script will add CRL or OCSP URI to the configuration. Finally, the script will reload Apache.
+
+It is important to note that this patch script is just an example. The specific steps required to remediate cert revocation may vary depending on the specific Apache configuration.

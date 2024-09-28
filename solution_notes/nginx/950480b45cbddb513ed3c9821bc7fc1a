@@ -1,0 +1,31 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-6110 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the CVE-2019-6110 vulnerability in nginx web server, you need to update your nginx version to 1.15.10 or later. You can do this by following these steps:
+
+1. Check your current nginx version by running the following command:
+
+```
+nginx -v
+```
+
+2. If your version is older than 1.15.10, you can download the latest version from the nginx website.
+
+3. Once you have downloaded the latest version, you need to install it. The installation process will vary depending on your operating system.
+
+4. Once you have installed the latest version, you need to restart nginx. You can do this by running the following command:
+
+```
+sudo service nginx restart
+```
+
+CVE-2019-6110 is a remote code execution vulnerability that can be exploited by an attacker to execute arbitrary code on the nginx server. This vulnerability is in the nginx HTTP/2 parser, and it can be exploited by sending a specially crafted HTTP/2 request to the server.
+
+This vulnerability belongs to the OWASP Top 10 2021 category of Injection. Injection vulnerabilities occur when unvalidated or unfiltered data is inserted into an application. This can lead to an attacker being able to execute arbitrary code on the server, or to steal sensitive data.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use a strong password for the nginx user account.
+* Enable HTTP Strict Transport Security (HSTS).
+* Use a web application firewall (WAF) to protect your server from common attacks.
+* Keep your nginx software up to date.
+
+By following these tips, you can help to protect your nginx web server from attack.

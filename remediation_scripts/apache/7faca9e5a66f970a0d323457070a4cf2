@@ -1,0 +1,39 @@
+####patch script to remediate CVE-2013-0169, CWE-310  in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check for the vulnerable version of Apache
+if [ "$(apache2 -v | awk '{print $3}')" -lt "2.2.15" ]; then
+  echo "Apache is vulnerable to CVE-2013-0169."
+  echo "Please upgrade to a patched version of Apache."
+  exit 1
+fi
+
+# Apply the patch
+patch -p1 < CVE-2013-0169.patch
+
+# Restart Apache
+service apache2 restart
+
+# Check that the patch was applied successfully
+apache2 -t
+
+if [ $? -eq 0 ]; then
+  echo "The patch was applied successfully."
+else
+  echo "The patch failed to apply."
+  exit 1
+fi
+```
+
+This patch script will first check if Apache is installed. If it is not, the script will exit. Next, the script will check for the vulnerable version of Apache. If the vulnerable version is detected, the script will exit with a message instructing the user to upgrade to a patched version of Apache. If the Apache version is not vulnerable, the script will apply the patch. Finally, the script will restart Apache and check that the patch was applied successfully.
+
+Please note that this is just an example patch script. The specific steps required to remediate CVE-2013-0169 may vary depending on the specific Apache version and configuration.

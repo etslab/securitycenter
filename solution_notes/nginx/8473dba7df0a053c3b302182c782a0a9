@@ -1,0 +1,16 @@
+###How to fix the App Dependencies issue of json5:1.0.1 of pkg:npm/json5@1.0.1 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of json5:1.0.1 of pkg:npm/json5@1.0.1 in nginx web server, you can follow these steps:
+
+1. Identify the vulnerable dependency. In this case, the vulnerable dependency is json5:1.0.1.
+2. Update the vulnerable dependency to a fixed version. The latest version of json5 is 2.2.1, which is fixed against this vulnerability.
+3. Restart the nginx web server.
+
+This issue belongs to the **A2: Broken Authentication** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that allow attackers to gain unauthorized access to a web application. In this case, the vulnerable dependency could allow an attacker to execute arbitrary code on the web server.
+
+Here are some additional recommendations for fixing this issue:
+
+* Use a dependency management tool, such as npm or yarn, to manage your project's dependencies. This will help you to keep your dependencies up to date and to identify and fix vulnerabilities early on.
+* Regularly scan your project's dependencies for vulnerabilities. There are a number of tools available for this, such as npm audit and yarn audit.
+* Use a web application firewall (WAF) to protect your web application from attack. A WAF can be used to block malicious traffic, including traffic that is trying to exploit vulnerabilities in your application's dependencies.
+
+If you are using a managed nginx web service, such as AWS Elastic Beanstalk or Heroku, you may be able to update the vulnerable dependency automatically. Please consult the documentation for your managed service for more information.

@@ -1,0 +1,36 @@
+###How to fix the App Dependencies issue of jsdom:14.1.0 of pkg:npm/jsdom@14.1.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of jsdom:14.1.0 of pkg:npm/jsdom@14.1.0 in nginx web server, you can follow these steps:
+
+1. Update the jsdom package to a newer version. You can do this by running the following command in your terminal:
+
+```
+npm update jsdom
+```
+
+2. Restart your nginx web server.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021 list. This category refers to vulnerabilities that allow attackers to inject malicious code into a web application. In the case of the jsdom:14.1.0 dependency vulnerability, an attacker could exploit this vulnerability to inject arbitrary JavaScript code into your web application.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your packages up to date.
+* Use a dependency management tool such as npm or Yarn to track your dependencies and make it easier to update them.
+* Use a security scanner to scan your code for vulnerabilities.
+* Use a web application firewall (WAF) to protect your web application from common attacks.
+
+OWASP Top 10 Web 2021 is a list of the most common and dangerous web application security risks. The list is published by the Open Web Application Security Project (OWASP), a non-profit organization that works to improve the security of software.
+
+The OWASP Top 10 list is updated every few years to reflect the latest trends in web application security. The current list was published in 2021 and includes the following categories:
+
+* A1: Injection
+* A2: Broken Authentication
+* A3: Sensitive Data Exposure
+* A4: XML External Entities (XXE)
+* A5: Broken Access Control
+* A6: Security Misconfigurations
+* A7: Cross-Site Scripting (XSS)
+* A8: Insecure Direct Object References
+* A9: Using Known Vulnerable Components
+* A10: Insufficient Logging & Monitoring
+
+By following the tips above, you can help to protect your web application from App Dependencies issues and other security vulnerabilities.

@@ -1,0 +1,14 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10708
+CVE-2016-10708 is a vulnerability in the OpenSSH server that could allow an attacker to cause a denial of service (DoS) by sending an out-of-sequence NEWKEYS message. To fix this vulnerability, you should upgrade your OpenSSH server to a version that includes the security patch for this vulnerability. You can find the latest version of OpenSSH for your operating system at the OpenSSH website.
+
+The CVE-2016-10708 vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of A1 - Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an application. This can allow an attacker to execute arbitrary code on the application's server or steal sensitive data from the application's users.
+
+To prevent injection flaws, you should carefully validate all input data before it is sent to an application. You should also use a web application firewall (WAF) to help block common injection attacks.
+
+Here are some additional steps you can take to protect your Apache web server from CVE-2016-10708 and other vulnerabilities:
+
+* Keep your Apache web server software up to date with the latest security patches.
+* Use a strong password for your Apache web server.
+* Enable the mod_security Apache module to help prevent common web application attacks.
+* Use a WAF to help block common web application attacks.
+* Implement a security awareness program for your organization to help employees identify and report potential security threats.

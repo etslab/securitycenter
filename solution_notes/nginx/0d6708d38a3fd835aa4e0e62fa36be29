@@ -1,0 +1,29 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-9244 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2016-9244 is a remote code execution vulnerability in the nginx web server that allows attackers to execute arbitrary code on the server. The vulnerability is caused by a buffer overflow in the nginx parser that can be exploited by sending a specially crafted HTTP request.
+
+To fix CVE-2016-9244, you must upgrade to nginx version 1.12.0 or higher. If you cannot upgrade to nginx 1.12.0 or higher, you can mitigate the vulnerability by applying the following workaround:
+
+```
+location / {
+    limit_except GET POST HEAD {
+        deny all;
+    }
+}
+```
+
+This workaround will prevent nginx from parsing requests that are not GET, POST, or HEAD requests.
+
+CVE-2016-9244 belongs to the following OWASP Top 10 Web 2021 category:
+
+* **A2: Broken Authentication**
+
+This category includes vulnerabilities that allow attackers to compromise authentication credentials or exploit authentication flaws. CVE-2016-9244 is a remote code execution vulnerability that can be exploited by unauthenticated attackers.
+
+To protect your nginx server from CVE-2016-9244, you should:
+
+* Upgrade to nginx version 1.12.0 or higher.
+* Apply the workaround provided above if you cannot upgrade to nginx 1.12.0 or higher.
+* Implement strong authentication and authorization controls for your nginx server.
+* Keep your nginx server up to date with the latest security patches.
+
+You can also use a web application firewall (WAF) to protect your nginx server from CVE-2016-9244 and other vulnerabilities. A WAF can filter out malicious traffic before it reaches your nginx server.

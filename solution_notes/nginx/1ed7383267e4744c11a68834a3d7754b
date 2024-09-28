@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-35452 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities issue of CVE-2020-35452 in nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx includes a security patch that fixes CVE-2020-35452.
+2. If you are unable to update your nginx web server, you can disable the mod_auth_digest module. This module is not essential for nginx to function, and disabling it will prevent attackers from exploiting CVE-2020-35452.
+
+CVE-2020-35452 is a stack overflow vulnerability in the mod_auth_digest module of nginx web server. This vulnerability can be exploited by an attacker to execute arbitrary code on the nginx server. The vulnerability is rated as low severity, but it is still important to fix it as soon as possible.
+
+CVE-2020-35452 belongs to the OWASP Top 10 Web Application Security Risks 2021 category of "Injection." Injection vulnerabilities occur when unvalidated or unfiltered data is inserted into an application. This can lead to attackers injecting malicious code into the application, which can then be executed by the application.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements or parameterized queries when interacting with databases. This will help to prevent SQL injection attacks.
+* Sanitize all user input before using it in an application. This will help to prevent cross-site scripting (XSS) attacks.
+* Use a web application firewall (WAF) to help protect your application from common web attacks.
+
+By following these tips, you can help to protect your nginx web server from injection vulnerabilities.

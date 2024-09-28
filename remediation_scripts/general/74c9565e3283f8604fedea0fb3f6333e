@@ -1,0 +1,38 @@
+####patch script to remediate CVE-2013-0169, CWE-310 cert notAfter, 2023-04-23 23 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 cert notAfter, 2023-04-23 23 in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+  # Stop Apache
+  sudo service httpd stop
+
+  # Patch the vulnerable file
+  sudo sed -i "s/SSLCertificateNotAfter.*/SSLCertificateNotAfter \${notAfter}/g" /etc/apache2/conf.d/ssl.conf
+
+  # Restart Apache
+  sudo service httpd start
+else
+  echo "Apache is not running"
+fi
+
+
+This patch script will replace the following line in the Apache configuration file:
+
+```
+SSLCertificateNotAfter 2023-04-23 23:59:59
+```
+
+with the following line:
+
+```
+SSLCertificateNotAfter ${notAfter}
+```
+
+where ${notAfter} is the new expiration date for the SSL certificate.
+
+This patch will remediate the vulnerability by ensuring that the Apache server will no longer accept certificates that have expired.
+
+It is important to note that this patch script is only a general example. The specific steps that need to be taken to remediate this vulnerability may vary depending on the specific version of Apache HTTP Server that is being used. It is always best to consult the Apache documentation for the latest instructions on how to patch and configure the server.

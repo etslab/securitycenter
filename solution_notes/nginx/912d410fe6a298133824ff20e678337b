@@ -1,0 +1,26 @@
+###How to fix the API Threats issue of Strict-Transport-Security Header Not Set in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the API Threats issue of Strict-Transport-Security Header Not Set in nginx web server, you can follow these steps:
+
+1. Open the nginx configuration file.
+2. Find the section for the website or API that you want to secure.
+3. Add the following line to the configuration:
+
+```
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+```
+
+4. Save the configuration file and restart nginx.
+
+This will add the Strict-Transport-Security (HSTS) header to all responses from the website or API. This header tells browsers to only connect to the website or API using HTTPS. This helps to protect against man-in-the-middle attacks and other security threats.
+
+The HSTS header belongs to the OWASP Top 10 Web Application Security Risks category of Cryptographic Failures. This category includes risks that can occur when cryptographic mechanisms are not properly implemented or used. The HSTS header helps to mitigate these risks by forcing browsers to only connect to websites using HTTPS.
+
+Here are some additional tips for securing your APIs:
+
+* Use strong authentication for API access.
+* Use API keys and tokens instead of passwords.
+* Restrict API access to authorized users.
+* Log all API requests and monitor for suspicious activity.
+* Keep your API software up to date.
+
+By following these tips, you can help to protect your APIs from security threats.

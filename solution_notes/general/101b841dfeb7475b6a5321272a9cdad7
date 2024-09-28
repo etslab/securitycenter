@@ -1,0 +1,17 @@
+###How to fix the Web Threats issue of Secure Pages Include Mixed Content (Including Scripts)
+There are a few ways to fix the Web Threats issue of Secure Pages Include Mixed Content (Including Scripts) in Apache web server.
+
+* **Update the HTTP URLs in your database to HTTPS.** This will ensure that your website only ever references HTTPS in your client-side HTML. You can do this by using a tool like htaccess to create a redirect rule.
+* **Use a content security policy (CSP).** A CSP is a set of rules that tells your browser what resources it can and cannot load from other websites. This can help to prevent mixed content attacks.
+* **Use a web application firewall (WAF).** A WAF can help to block malicious traffic and prevent mixed content attacks.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1: Injection**. Injection attacks are a type of attack where an attacker injects malicious code into a website. This malicious code can then be used to steal data, take control of the website, or perform other malicious actions.
+
+Here are some additional tips for preventing mixed content attacks:
+
+* Use a secure content management system (CMS). CMSs like WordPress and Drupal have built-in security features that can help to prevent mixed content attacks.
+* Keep your website software up to date. Software updates often include security patches that can help to protect your website from attack.
+* Use a strong password manager to create and store strong passwords for your website and other online accounts.
+* Be careful about what information you share online. Don't share your personal information, such as your credit card number or Social Security number, unless you absolutely need to.
+
+By following these tips, you can help to protect your website from mixed content attacks.

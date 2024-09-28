@@ -1,0 +1,24 @@
+###How to fix the Web Threats issue of Cookie Without Secure Flag
+The following are the steps to fix the Web Threats issue of Cookie Without Secure Flag in Apache web server:
+
+1. Enable the `mod_headers` module in Apache.
+2. Add the following line to the `httpd.conf` file:
+
+```
+Header set Set-Cookie HttpOnly;Secure
+```
+
+3. Restart Apache.
+
+This will ensure that all cookies set by Apache will have the `HttpOnly` and `Secure` flags set. The `HttpOnly` flag prevents JavaScript from accessing the cookie, and the `Secure` flag prevents the cookie from being sent over HTTP connections.
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of **A1: Injection**. Injection flaws, such as XSS, can be used to steal cookies and hijack user sessions. By setting the `HttpOnly` and `Secure` flags on cookies, you can help to mitigate the risk of these attacks.
+
+In addition to setting the `HttpOnly` and `Secure` flags, you should also take other steps to secure your web application, such as:
+
+* Using strong passwords and password hashing
+* Implementing input validation
+* Keeping your software up to date
+* Using a web application firewall (WAF)
+
+By taking these steps, you can help to protect your web application from attack.

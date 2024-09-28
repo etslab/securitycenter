@@ -1,0 +1,31 @@
+###How to fix the App Dependencies issue of gnu-multi-hdrs.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**Fix for gnu-multi-hdrs.tar App Dependencies issue in nginx web server**
+
+The gnu-multi-hdrs.tar package contains a large number of header files from various GNU projects. If this package is not properly installed or configured, it can lead to a number of security vulnerabilities, including:
+
+* **Cross-site scripting (XSS)**: Attackers can inject malicious code into the web application by exploiting vulnerabilities in the header files.
+* **Remote code execution (RCE)**: Attackers can execute arbitrary code on the web server by exploiting vulnerabilities in the header files.
+* **Information disclosure**: Attackers can access sensitive information on the web server by exploiting vulnerabilities in the header files.
+
+To fix the App Dependencies issue of gnu-multi-hdrs.tar in nginx web server, you can follow these steps:
+
+1. **Ensure that the gnu-multi-hdrs.tar package is properly installed and configured.** This can be done by following the instructions in the package's documentation.
+2. **Review the header files in the gnu-multi-hdrs.tar package for vulnerabilities.** You can use a vulnerability scanner to help you with this task.
+3. **Patch or update any vulnerabilities that you find.** You can usually find patches or updates for security vulnerabilities on the website of the project that maintains the vulnerable header file.
+4. **Restart the nginx web server.**
+
+**Owasp Top 10 Web 2021 category**
+
+The App Dependencies issue of gnu-multi-hdrs.tar in nginx web server belongs to the **Insecure Design** category of the OWASP Top 10 Web 2021.
+
+Insecure Design vulnerabilities occur when software is designed in a way that makes it vulnerable to attack. This can happen for a number of reasons, such as poor security requirements gathering, inadequate security testing, or a lack of security expertise on the development team.
+
+Insecure Design vulnerabilities can be very difficult to fix, as they often require changes to the fundamental design of the software. However, it is important to fix these vulnerabilities as soon as possible, as they can be exploited by attackers to gain access to sensitive data or systems.
+
+**Additional information**
+
+In addition to the steps listed above, you can also take the following steps to mitigate the risk of App Dependencies vulnerabilities:
+
+* **Use a web application firewall (WAF)** to filter out malicious requests.
+* **Keep your software up to date.** Software vendors often release security patches to fix vulnerabilities.
+* **Educate your developers about secure coding practices.** This will help them to avoid writing code that is vulnerable to attack.

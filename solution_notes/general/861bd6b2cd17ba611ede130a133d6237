@@ -1,0 +1,16 @@
+###How to fix the API Threats issue of CSP: style-src unsafe-inline
+The CSP: style-src unsafe-inline issue can be fixed by changing the Apache web server configuration to disallow inline styles. This can be done by adding the following line to the Apache configuration file:
+
+```
+    <FilesMatch .*\.(css|js)$>
+        Header set Content-Security-Policy "style-src 'self'"
+    </FilesMatch>
+    ```
+
+This will prevent any inline styles from being executed, which will help to protect against API threats.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection attacks are a type of attack where an attacker injects malicious code into a web application. This can be done by exploiting vulnerabilities in the web application's code or configuration. Once the malicious code is injected, it can be executed by the web application, which can allow the attacker to take control of the application or steal data.
+
+The CSP: style-src unsafe-inline issue is a vulnerability that can be exploited to inject malicious CSS code into a web application. This malicious CSS code can then be used to steal data from the application or take control of it.
+
+By disabling inline styles, you can help to protect your web application from this vulnerability and other injection attacks.

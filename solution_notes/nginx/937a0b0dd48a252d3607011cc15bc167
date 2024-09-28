@@ -1,0 +1,36 @@
+###How to fix the App Dependencies issue of gui.exe in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The issue of App Dependencies of gui.exe in Nginx web server can be fixed by:
+
+1. **Identifying the app dependencies of gui.exe.** This can be done by running the following command:
+
+```
+ldd gui.exe
+```
+
+This will list all of the shared libraries that gui.exe depends on.
+
+2. **Installing the missing dependencies.** If any of the dependencies are missing, they can be installed using the package manager for your operating system. For example, on Ubuntu, you would use the following command to install the missing dependencies:
+
+```
+sudo apt install <package-name>
+```
+
+3. **Restarting the Nginx web server.** Once the missing dependencies have been installed, you need to restart the Nginx web server. This can be done by running the following command:
+
+```
+sudo systemctl restart nginx
+```
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that allow an attacker to inject arbitrary code into a web application. In the case of this issue, an attacker could inject malicious code into the gui.exe process, which could then be executed by the Nginx web server.
+
+To mitigate this issue, it is important to keep all of the dependencies of the Nginx web server up to date and to use a firewall to restrict access to the web server. It is also important to implement input validation on all user input to prevent attackers from injecting malicious code.
+
+Here are some additional tips for mitigating App Dependencies issues:
+
+* Use a dependency management tool to keep track of all of the dependencies of your web application.
+* Regularly update your dependencies to the latest versions.
+* Use a firewall to restrict access to your web application.
+* Implement input validation on all user input.
+* Use a web application firewall (WAF) to protect your web application from common attacks.
+
+Please note that these are just general guidelines and the specific steps that you need to take will vary depending on the specific configuration of your web application.

@@ -1,0 +1,28 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-28615 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2022-28615 issue in the Nginx web server, you can follow these steps:
+
+1. Update your Nginx installation to the latest version. The latest version of Nginx includes a fix for this vulnerability.
+2. If you cannot update your Nginx installation, you can apply a patch to your existing installation. The patch can be found on the Nginx website.
+
+CVE-2022-28615 is a remote code execution vulnerability that affects the Nginx web server. This vulnerability is caused by an integer overflow in the ap_strcmp_match function. An attacker can exploit this vulnerability by sending a specially crafted request to the Nginx server. This request can cause the Nginx server to execute arbitrary code.
+
+This vulnerability is classified as a critical vulnerability. It is important to fix this vulnerability as soon as possible.
+
+The CVE-2022-28615 vulnerability belongs to the following OWASP Top 10 Web 2021 categories:
+
+* Injection
+* Broken Authentication
+* Sensitive Data Exposure
+* XML External Entity (XXE) Injection
+
+You can learn more about these categories on the OWASP website.
+
+Here are some additional tips for preventing and mitigating web application vulnerabilities:
+
+* Use a web application firewall (WAF) to help protect your web applications from attacks.
+* Implement strong authentication and authorization controls.
+* Use input validation to prevent data injection attacks.
+* Encrypt sensitive data at rest and in transit.
+* Monitor your web applications for signs of attack.
+
+By following these tips, you can help protect your web applications from vulnerabilities.

@@ -1,0 +1,16 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-29404 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2022-29404 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx, as of March 8, 2023, is 1.22.1.
+2. If you cannot update your nginx web server to the latest version, you can mitigate the vulnerability by setting the `lua_max_input_body` directive to a value that is smaller than the maximum size of the request body that you expect to receive. For example, if you expect to receive requests with request bodies that are no larger than 1MB, you would set the `lua_max_input_body` directive to `1m`.
+
+The CVE-2022-29404 issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as this one, occur when unvalidated or malicious data is inserted into an application. This can lead to a variety of security problems, including data breaches, denial of service attacks, and privilege escalation.
+
+Here are some additional tips for protecting your nginx web server from security vulnerabilities:
+
+* Keep your nginx web server up to date with the latest security patches.
+* Use a web application firewall (WAF) to help protect your nginx web server from common attacks.
+* Use strong passwords and configure your nginx web server to use HTTPS.
+* Monitor your nginx web server for signs of attack.
+
+By following these tips, you can help to protect your nginx web server from security vulnerabilities.

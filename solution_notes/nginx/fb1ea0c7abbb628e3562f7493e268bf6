@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of cli-64.exe in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The cli-64.exe App Dependencies issue in nginx web server can be fixed by:
+
+1. **Updating the nginx web server to the latest version.** This will ensure that the web server is using the latest security patches and updates.
+2. **Removing the cli-64.exe file from the nginx web server's installation directory.** This will prevent the web server from using the cli-64.exe file, which is known to be vulnerable to attack.
+3. **Using a firewall to block access to the cli-64.exe file.** This will prevent attackers from accessing the file, even if it is still present on the web server.
+
+The cli-64.exe App Dependencies issue belongs to the **Injection** category of the OWASP Top 10 Web 2021. Injection attacks occur when an attacker injects malicious code into a web application. This code can then be executed by the web application, giving the attacker control over the application.
+
+The cli-64.exe App Dependencies issue is a specific example of an injection attack. In this case, the attacker is injecting malicious code into the nginx web server's configuration file. This code can then be executed by the web server, giving the attacker control over the web server.
+
+To protect against injection attacks, it is important to validate all user input before using it in any way. This includes validating input that is used in web application configuration files.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements when executing SQL queries. This will help to prevent attackers from injecting malicious code into the query.
+* Use input validation to ensure that all user input is valid before using it in any way.
+* Escape any user input that is output to the web page. This will help to prevent attackers from injecting malicious code into the web page.
+* Keep your web applications up to date with the latest security patches.
+
+By following these tips, you can help to protect your web applications from injection attacks and other security vulnerabilities.

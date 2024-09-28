@@ -1,0 +1,44 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Cookie No HttpOnly Flag in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Cookie No HttpOnly Flag in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Get the current version of Apache
+current_version=$(apache2 -v | awk '{print $2}')
+
+# Check if the current version is vulnerable
+if [[ $current_version < 2.4.6 ]]; then
+  echo "Apache $current_version is vulnerable to CVE-2013-0169."
+
+  # Create a backup of the httpd.conf file
+  cp /etc/apache2/httpd.conf /etc/apache2/httpd.conf.bak
+
+  # Open the httpd.conf file for editing
+  vi /etc/apache2/httpd.conf
+
+  # Find the line that starts with "Cookie"
+  line=$(grep -n "Cookie" /etc/apache2/httpd.conf | awk '{print $1}')
+
+  # Add the "HttpOnly" flag to the line
+  sed -i "$line i HttpOnly" /etc/apache2/httpd.conf
+
+  # Save and close the file
+  :wq
+
+  # Restart Apache
+  service apache2 restart
+
+  echo "Apache has been patched."
+else
+  echo "Apache $current_version is not vulnerable to CVE-2013-0169."
+fi
+```
+
+This patch script will first check if Apache is installed. If it is, the script will get the current version of Apache. If the current version is vulnerable to CVE-2013-0169, the script will create a backup of the httpd.conf file, open the file for editing, find the line that starts with "Cookie", and add the "HttpOnly" flag to the line. The script will then save and close the file, restart Apache, and notify the user that Apache has been patched. If the current version of Apache is not vulnerable, the script will notify the user that Apache is not vulnerable.

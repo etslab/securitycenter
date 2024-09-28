@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of sparse-formats.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of sparse-formats.tar in apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Remove the sparse-formats.tar file from the Apache web server directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "A03: Broken Access Control". This category covers vulnerabilities that allow an attacker to access resources that they should not be able to access, such as sensitive data or system files.
+
+The App Dependencies issue can lead to a Broken Access Control vulnerability because it allows an attacker to upload arbitrary files to the Apache web server directory. These files could then be executed by the Apache web server, which could give the attacker access to the system or sensitive data.
+
+To prevent this vulnerability, it is important to only allow authorized users to upload files to the Apache web server directory. Additionally, the Apache web server should be configured to only execute files that are explicitly allowed to be executed.
+
+Here are some additional tips for preventing Broken Access Control vulnerabilities:
+
+* Use least privilege. Only give users the permissions they need to do their job.
+* Restrict access to sensitive data. Only allow authorized users to access sensitive data.
+* Use strong passwords and authentication mechanisms.
+* Keep your software up to date. Software updates often include security patches that can help to prevent vulnerabilities.
+
+By following these tips, you can help to protect your systems from Broken Access Control vulnerabilities.

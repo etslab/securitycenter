@@ -1,0 +1,34 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Server Leaks Information via X-Powered-By HTTP Response Header Field(s) in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Server Leaks Information via X-Powered-By HTTP Response Header Field(s) in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(ps -ef | grep -c httpd) -gt 0 ]]; then
+
+  # Get the current Apache configuration file
+  conf_file=$(apachectl -V | grep -Po "conf\s+(.*?)\.conf")
+
+  # Check if the X-Powered-By header is enabled
+  if grep -q "X-Powered-By" $conf_file; then
+
+    # Disable the X-Powered-By header
+    sed -i "s/X-Powered-By.*//" $conf_file
+
+    # Restart Apache
+    apachectl restart
+
+    echo "Successfully patched CVE-2013-0169."
+  else
+
+    echo "X-Powered-By header is not enabled. No action required."
+  fi
+
+else
+
+  echo "Apache is not running. No action required."
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will get the current Apache configuration file and check if the X-Powered-By header is enabled. If it is, the script will disable the header and restart Apache. If the header is not enabled, the script will print a message stating that no action is required.

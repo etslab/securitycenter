@@ -1,0 +1,28 @@
+###How to fix the Certificates issue of cert notAfter, 2020-09-03 06 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The error message "cert notAfter, 2020-09-03 06" indicates that the SSL/TLS certificate for your nginx web server has expired. This means that your website is no longer secure and visitors will see a warning message in their browser.
+
+To fix this issue, you need to obtain a new SSL/TLS certificate from a trusted certificate authority (CA). Once you have obtained a new certificate, you need to configure nginx to use it.
+
+The following steps show how to fix the "cert notAfter, 2020-09-03 06" error in nginx:
+
+1. Obtain a new SSL/TLS certificate from a trusted CA.
+2. Download the certificate file and the private key file.
+3. Open the nginx configuration file.
+4. Locate the section that defines the HTTPS server.
+5. Add the following lines to the HTTPS server configuration:
+
+```
+ssl_certificate /path/to/certificate.crt;
+ssl_certificate_key /path/to/private.key;
+```
+
+6. Save the nginx configuration file.
+7. Restart nginx.
+
+Once you have completed these steps, your nginx web server will be using a new SSL/TLS certificate and your website will be secure again.
+
+The OWASP Top 10 2021 category for this issue is **A1: Broken Authentication**. This category includes vulnerabilities that allow attackers to bypass or undermine authentication mechanisms, such as passwords, multi-factor authentication, and session tokens.
+
+By failing to renew your SSL/TLS certificate, you are essentially leaving your website open to attack. An attacker could exploit this vulnerability to gain access to your website and steal sensitive data, such as user credentials, credit card numbers, and other personal information.
+
+It is important to renew your SSL/TLS certificates before they expire. This will help to protect your website and its visitors from attack.

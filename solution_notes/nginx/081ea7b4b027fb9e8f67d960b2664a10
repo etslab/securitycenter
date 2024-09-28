@@ -1,0 +1,26 @@
+###How to fix the API Threats issue of Re-examine Cache-control Directives in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the API Threats issue of Re-examine Cache-control Directives in nginx web server, you can follow these steps:
+
+1. Check the nginx configuration file to make sure that the Cache-Control directives are properly set. The Cache-Control directives control how long a resource is cached by the browser. If the directives are not set correctly, it could allow an attacker to request a resource that has been modified or deleted, or to access a resource that they should not be able to access.
+2. Update the nginx configuration file to include the following directives:
+
+```
+Cache-Control: max-age=3600
+Cache-Control: no-cache
+```
+
+The `max-age` directive specifies the maximum amount of time that a resource can be cached by the browser. The `no-cache` directive tells the browser to check with the server for the latest version of the resource before caching it.
+
+3. Restart the nginx server.
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Broken Access Control. Broken access control is a security vulnerability that allows an attacker to access resources that they should not be able to access. This can be done by exploiting a misconfiguration in the web application or by exploiting a vulnerability in the web application code.
+
+Here are some additional tips for preventing API Threats:
+
+* Use strong authentication for all API requests.
+* Use authorization to restrict access to API resources.
+* Implement rate limiting to prevent DoS attacks.
+* Use a WAF to protect against common API attacks.
+* Monitor API traffic for suspicious activity.
+
+By following these tips, you can help to protect your API from attack.

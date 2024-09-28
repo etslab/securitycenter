@@ -1,0 +1,18 @@
+###How to fix the App Dependencies issue of pax-global-records.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pax-global-records.tar in nginx web server, you can follow these steps:
+1. Identify the specific dependencies that are causing the issue. This can be done by using a tool such as OWASP Dependency-Check.
+2. Update the dependencies to the latest versions. If this is not possible, you may need to downgrade to a previous version that is known to be compatible with your application.
+3. If you are unable to update or downgrade the dependencies, you may need to remove them altogether. This should only be done as a last resort, as it may break your application.
+
+This issue belongs to the OWASP Top 10 Web 2021 category **A7: Broken Access Control**. This category refers to vulnerabilities that allow attackers to access resources that they should not have access to. In this case, the attacker is able to exploit the app dependencies to gain access to the nginx web server.
+
+Here are some additional tips for preventing App Dependencies issues:
+* Keep your dependencies up to date. This can be done by using a dependency management tool such as Maven or Gradle.
+* Use a tool such as OWASP Dependency-Check to scan your dependencies for vulnerabilities.
+* Only use dependencies from trusted sources.
+* Avoid using unnecessary dependencies.
+
+If you are using the nginx web server, you can also take the following steps to help mitigate the risk of App Dependencies issues:
+* Use the `location` directive to restrict access to specific resources.
+* Use the `auth_basic` directive to require authentication before accessing certain resources.
+* Use the `mod_security` module to protect your web server from common attacks.

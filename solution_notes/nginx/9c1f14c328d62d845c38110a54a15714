@@ -1,0 +1,30 @@
+###How to fix the Certificates issue of cert notAfter, 2023-06-12 13 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The error message "cert notAfter, 2023-06-12 13" indicates that the certificate for your nginx web server is expiring on June 12, 2023. To fix this issue, you will need to obtain a new certificate from a certificate authority (CA). Once you have obtained a new certificate, you will need to install it on your nginx web server.
+
+To install a new certificate on your nginx web server, you will need to follow these steps:
+
+1. Open the nginx configuration file.
+2. Locate the section for the website that you want to install the certificate for.
+3. Add the following lines to the configuration file:
+
+```
+ssl_certificate /path/to/certificate.crt;
+ssl_certificate_key /path/to/private.key;
+```
+
+4. Save the configuration file.
+5. Restart the nginx web server.
+
+Once you have completed these steps, your nginx web server will be using the new certificate.
+
+The OWASP Top 10 2021 category that this issue belongs to is **A1: Broken Authentication**. This category includes vulnerabilities that allow attackers to gain unauthorized access to systems or data. In this case, the attacker could gain unauthorized access to your nginx web server by exploiting the expired certificate.
+
+To mitigate this risk, you should ensure that you are using valid certificates for your web servers and that you are renewing them before they expire. You should also use a strong password for your private key and keep it in a secure location.
+
+Here are some additional tips for mitigating the risk of broken authentication:
+
+* Use strong passwords for all accounts and services.
+* Enable multi-factor authentication for all accounts and services that support it.
+* Keep software up to date.
+* Use a web application firewall (WAF).
+* Monitor your systems for suspicious activity.

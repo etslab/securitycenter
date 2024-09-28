@@ -1,0 +1,30 @@
+###How to fix the App Dependencies issue of pax-pos-size-file.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of pax-pos-size-file.tar in Apache web server can be fixed by following these steps:
+
+1. Download the latest version of pax-pos-size-file.tar from the Apache website.
+2. Extract the tar file to a directory of your choice.
+3. Edit the file `pax-pos-size-file.conf` and change the following line:
+
+```
+app.dependency.check=false
+```
+
+to
+
+```
+app.dependency.check=true
+```
+
+4. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1 - Injection**. Injection flaws occur when unvalidated or unfiltered data is inserted into an application. This can lead to a variety of security vulnerabilities, including code execution, data modification, and privilege escalation.
+
+Here are some additional tips for preventing injection flaws:
+
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Use input validation to check for and reject invalid or malicious data.
+* Use prepared statements or stored procedures to prevent SQL injection attacks.
+* Use parameterized queries to prevent XSS attacks.
+* Use proper error handling to prevent information disclosure attacks.
+
+By following these tips, you can help to prevent injection flaws and protect your web applications from attack.

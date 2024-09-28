@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of browserslist:4.10.0 of pkg:npm/browserslist@4.10.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of browserslist:4.10.0 of pkg:npm/browserslist@4.10.0 in nginx web server can be fixed by updating the browserlist package to the latest version.
+
+This issue belongs to the **Injection** category of the OWASP Top 10 Web Vulnerabilities 2021.
+
+**Injection** vulnerabilities occur when an attacker is able to inject malicious code into a web application. This can be done through a variety of methods, such as SQL injection, cross-site scripting (XSS), and command injection. Once the malicious code is injected, it can be executed by the web application, potentially giving the attacker control of the application.
+
+The App Dependencies issue of browserslist:4.10.0 of pkg:npm/browserslist@4.10.0 in nginx web server is an injection vulnerability because it can be exploited by an attacker to inject malicious code into the nginx web server. The malicious code could then be executed by the nginx web server, potentially giving the attacker control of the web server.
+
+**To fix the issue, you should update the browserlist package to the latest version.** This can be done using the following command:
+
+```
+npm update browserslist
+```
+
+Once the package has been updated, the nginx web server should be restarted to ensure that the changes take effect.
+
+**Additional security measures that can be taken to mitigate the risk of injection vulnerabilities include:**
+
+* **Input validation:** All user input should be validated before it is used in the application. This can help to prevent malicious code from being injected into the application.
+* **Output encoding:** All output from the application should be encoded to prevent malicious code from being executed by the user's browser.
+* **Use of a web application firewall (WAF):** A WAF can help to protect the web application from a variety of attacks, including injection attacks.

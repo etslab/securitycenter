@@ -1,0 +1,21 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-6515 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2016-6515 issue in the nginx web server, you need to update your nginx installation to a version that is 7.3 or higher. You can check the version of your nginx installation by running the following command:
+
+```
+nginx -v
+```
+
+If your nginx installation is not 7.3 or higher, you can update it by following the instructions on the nginx website.
+
+The CVE-2016-6515 issue is a denial-of-service vulnerability that allows an attacker to crash an nginx server by sending a long string of characters to the server. This issue is a security risk because it allows an attacker to take down an nginx server, which could disrupt the availability of a website or application.
+
+The CVE-2016-6515 issue belongs to the OWASP Top 10 Web Application Security Risks, specifically, the A1 category: Injection. Injection vulnerabilities occur when unvalidated data is used to control the execution of code. In the case of CVE-2016-6515, the unvalidated data is the long string of characters that the attacker sends to the server. This data is then used to control the execution of the code that authenticates users.
+
+To prevent CVE-2016-6515 and other injection vulnerabilities, it is important to validate all input data before using it to control the execution of code. This can be done by using a web application firewall (WAF) or by manually validating the data yourself.
+
+Here are some additional tips for preventing CVE-2016-6515 and other injection vulnerabilities:
+
+* Use a WAF to scan your website for known vulnerabilities.
+* Keep your nginx installation up to date with the latest security patches.
+* Use a strong password policy and require users to change their passwords regularly.
+* Educate your users about security best practices, such as not clicking on links in emails from unknown senders.

@@ -1,0 +1,13 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-14145
+CVE-2020-14145 is a vulnerability in the OpenSSH client that allows an attacker to perform a man-in-the-middle attack. To fix this vulnerability, you should upgrade your OpenSSH client to a version that is not affected. You can find the latest version of OpenSSH on the OpenSSH website.
+
+This vulnerability belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting, occur when unvalidated or malicious data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+
+Here are some additional steps you can take to protect your Apache web server from CVE-2020-14145 and other vulnerabilities:
+
+* Keep your software up to date. Software vendors regularly release security updates to fix vulnerabilities. It is important to install these updates as soon as they are available.
+* Use a firewall to protect your web server from unauthorized access. A firewall can help to block malicious traffic from reaching your web server.
+* Use strong passwords and security settings for your web server. Strong passwords and security settings can help to prevent unauthorized access to your web server.
+* Monitor your web server for signs of attack. There are a number of tools that can help you to monitor your web server for signs of attack. By monitoring your web server, you can quickly identify and respond to attacks.
+
+By following these steps, you can help to protect your Apache web server from CVE-2020-14145 and other vulnerabilities.

@@ -1,0 +1,40 @@
+####patch script to remediate  There is an issue with key exchange algorithms in Apache HTTP Server
+Sure, here is a patch script to remediate the issue with key exchange algorithms in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Get the current SSL configuration
+  SSL_CONF=$(apachectl -t -D DUMP_CONFIG | grep ^SSLCipherSuite)
+
+  # Remove any weak ciphers from the configuration
+  sed -i "s/(.*?),/,!ADH,/g" $SSL_CONF
+
+  # Reload Apache
+  apachectl -k graceful
+
+else
+
+  echo "Apache is not running"
+
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will get the current SSL configuration and remove any weak ciphers from it. Finally, the script will reload Apache.
+
+Here is a list of weak ciphers that should be removed from the SSL configuration:
+
+* 3DES
+* RC2
+* DES
+* IDEA
+* Fortezza
+
+These ciphers are considered weak because they can be broken using modern cryptanalytic techniques. By removing these ciphers from the SSL configuration, you can help to improve the security of your Apache HTTP Server installation.
+
+It is important to note that this is just a basic patch script. You may need to modify it to fit your specific needs. For example, you may need to add additional ciphers to the configuration or change the way that the script removes weak ciphers.
+
+If you are not comfortable making changes to the Apache configuration, you can always contact your system administrator for assistance.

@@ -1,0 +1,21 @@
+###How to fix the Web Threats issue of Server Leaks Version Information via Server HTTP Response Header Field
+To fix the Web Threats issue of Server Leaks Version Information via Server HTTP Response Header Field in Apache web server, you can use the following steps:
+
+1. Open the Apache configuration file, typically located at `/etc/apache2/apache2.conf`.
+2. Locate the `ServerTokens` directive.
+3. Change the value of the `ServerTokens` directive to `Prod`.
+4. Save the configuration file and restart Apache.
+
+This will prevent Apache from sending the version information in the `Server` HTTP response header.
+
+This issue belongs to the OWASP Top 10 Web Security Risks 2021 category of **Information Exposure**. By disclosing the version of your Apache web server, you are providing attackers with information that they can use to exploit known vulnerabilities in your server.
+
+Here are some additional tips for securing your Apache web server:
+
+* Keep your Apache software up to date.
+* Use a strong password for your Apache account.
+* Configure Apache to only listen on the necessary ports.
+* Use a firewall to protect your Apache server from unauthorized access.
+* Implement security best practices, such as least privilege and input validation.
+
+By following these tips, you can help to protect your Apache web server from attack.

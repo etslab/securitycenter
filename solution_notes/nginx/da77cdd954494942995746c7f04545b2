@@ -1,0 +1,26 @@
+###How to fix the App Dependencies issue of writer-big-long.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of writer-big-long.tar in nginx web server, you can try the following:
+
+1. Check the nginx configuration file to make sure that the `app_dependencies` directive is set to `on`.
+2. Make sure that the `app_dependencies` module is installed and enabled.
+3. Make sure that the `app_dependencies` module has access to the `writer-big-long.tar` file.
+4. Restart the nginx web server.
+
+If you are still having problems, you can try the following:
+
+1. Increase the `log_level` directive in the nginx configuration file to `debug`.
+2. Restart the nginx web server and check the error logs for more information.
+3. Search for help online or contact the nginx support team.
+
+The App Dependencies issue of writer-big-long.tar in nginx web server belongs to the **A1: Injection** category of the OWASP Top 10 Web Application Security Risks 2021. This category refers to vulnerabilities that allow attackers to inject malicious code into an application, which can then be executed by the application.
+
+In the case of the App Dependencies issue of writer-big-long.tar in nginx web server, an attacker could exploit this vulnerability to inject malicious code into the `writer-big-long.tar` file. This code could then be executed when the nginx web server serves the file to a user.
+
+To mitigate this risk, it is important to make sure that the nginx web server is configured properly and that the `app_dependencies` module has access to the `writer-big-long.tar` file. It is also important to keep the nginx web server and the `app_dependencies` module up to date with the latest security patches.
+
+Here are some additional tips for mitigating the risk of App Dependencies vulnerabilities:
+
+* Use a secure development framework to help you identify and fix App Dependencies vulnerabilities.
+* Use a dependency management tool to help you manage your application's dependencies.
+* Keep your application's dependencies up to date with the latest security patches.
+* Use a web application firewall (WAF) to help protect your application from App Dependencies attacks.

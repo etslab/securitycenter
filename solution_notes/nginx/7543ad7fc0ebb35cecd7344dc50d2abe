@@ -1,0 +1,14 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-6111 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2019-6111 is a remote code execution vulnerability in the nginx web server. It occurs when the server is configured to use the HTTP/2 protocol and the "large_client_header_buffers" directive is set to a value of 1 or 2. An attacker can exploit this vulnerability by sending a specially crafted HTTP request that causes the server to crash. When the server crashes, it will write a core dump file to the disk. The attacker can then read the core dump file and extract the server's memory, which may include sensitive information such as passwords and encryption keys.
+
+To fix this vulnerability, you should update your nginx web server to a version that includes a patch for CVE-2019-6111. You can also configure your server to use the HTTP/1.1 protocol instead of HTTP/2. If you cannot update your server or configure it to use HTTP/1.1, you can mitigate the risk of this vulnerability by setting the "large_client_header_buffers" directive to a value of 4 or more.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks 2021 category of "Injection". Injection vulnerabilities occur when unvalidated data is inserted into an application in a way that can cause unexpected or unintended behavior. In this case, the unvalidated data is the HTTP request that is sent to the server. The attacker can control the contents of this request, which can allow them to execute arbitrary code on the server.
+
+Here are some additional steps you can take to protect your nginx web server from this and other vulnerabilities:
+
+* Keep your nginx web server up to date with the latest security patches.
+* Use a web application firewall (WAF) to block common attack vectors.
+* Implement strong authentication and authorization controls.
+* Use a content delivery network (CDN) to cache static assets.
+* Monitor your server for signs of attack.

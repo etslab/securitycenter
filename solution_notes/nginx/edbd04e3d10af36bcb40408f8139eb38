@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of w64.exe in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of w64.exe in nginx web server, you can try the following:
+
+1. Check if the w64.exe file is present in the nginx installation directory. If it is not, you can download it from the official nginx website.
+2. Make sure that the w64.exe file has the correct permissions. The file should be executable by the user who is running the nginx web server.
+3. Check if the w64.exe file is in the PATH environment variable. If it is not, you can add it to the PATH variable.
+4. Restart the nginx web server.
+
+If you are still having problems, you can consult the nginx documentation or contact the nginx support team for assistance.
+
+The App Dependencies issue of w64.exe in nginx web server belongs to the **A1: Injection** category of the OWASP Top 10 Web Application Security Risks 2021.
+
+Injection is a common attack technique where an attacker attempts to inject malicious code into a web application. This can be done by exploiting vulnerabilities in the web application's input validation.
+
+The App Dependencies issue of w64.exe in nginx web server can be exploited by an attacker to inject malicious code into the nginx web server. This could allow the attacker to take control of the web server, execute arbitrary code, or steal data.
+
+To protect against injection attacks, it is important to validate all user input before using it in a web application. This can be done using a variety of techniques, such as input filtering, escaping, and whitelisting.
+
+It is also important to keep the nginx web server up to date and to patch any known vulnerabilities.

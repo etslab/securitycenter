@@ -1,0 +1,17 @@
+###How to fix the Certificates issue of Content Security Policy (CSP) implemented unsafely. This includes unsafe-inline or data: inside script-src overly broad sources such as https: inside object-src or script-src or not restricting the sources for object-src or script-src. in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Certificates issue of Content Security Policy (CSP) implemented unsafely in nginx web server, you can do the following:
+
+1. **Remove `unsafe-inline` and `data:` from the `script-src` directive.** These values allow scripts to be executed from inline sources and data URIs, which can be a security risk.
+2. **Remove overly broad sources from the `object-src` and `script-src` directives.** For example, instead of using `https:`, you should specify the specific domains that you trust to serve scripts and objects.
+3. **Restrict the sources for `object-src` and `script-src` directives.** This will prevent scripts and objects from being loaded from untrusted sources.
+
+The Certificates issue of Content Security Policy (CSP) implemented unsafely belongs to the **Injection** category of the OWASP Top 10 Web 2021. This category includes vulnerabilities that allow attackers to inject malicious code into a web application. CSP can help to mitigate these vulnerabilities by restricting the sources of scripts and objects that can be executed on a web page.
+
+Here are some additional tips for securing your nginx web server:
+
+* **Keep your nginx software up to date.** Software updates often include security patches that can help to protect your server from known vulnerabilities.
+* **Use a strong password for your nginx server.** This will help to prevent unauthorized access to your server.
+* **Enable HTTPS for your nginx server.** This will encrypt traffic between your server and your users, which can help to protect sensitive data.
+* **Configure your nginx server to only allow access from trusted sources.** This can help to prevent unauthorized access to your server.
+
+By following these tips, you can help to secure your nginx web server and protect your users from attack.

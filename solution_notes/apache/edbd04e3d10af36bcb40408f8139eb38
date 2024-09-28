@@ -1,0 +1,18 @@
+###How to fix the App Dependencies issue of w64.exe in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of w64.exe in Apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Delete the w64.exe file from the Apache installation directory.
+3. Reinstall Apache web server.
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of **A1: Injection**. Injection flaws, such as SQL injection and code injection, occur when unvalidated data is inserted into an SQL statement or web page. This can allow an attacker to execute arbitrary SQL commands or code on the server, which can lead to data theft, data modification, or denial of service.
+
+To prevent injection attacks, it is important to properly validate all input data before it is used in an SQL statement or web page. This can be done by using prepared statements or parameterized queries for SQL statements, and by using input filters for web pages.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use a web application firewall (WAF) to help protect your web applications from common injection attacks.
+* Keep your software up to date. Software vendors often release security updates that fix known vulnerabilities, including injection vulnerabilities.
+* Train your staff on security best practices. Make sure your staff know how to identify and avoid injection attacks.
+
+By following these tips, you can help to protect your web applications from injection attacks.

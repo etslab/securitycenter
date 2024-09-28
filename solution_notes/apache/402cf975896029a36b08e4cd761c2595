@@ -1,0 +1,20 @@
+###How to fix the Certificates issue of TLS1, offered (deprecated)
+To fix the Certificates issue of TLS1, offered (deprecated) in apache web server, you can follow these steps:
+
+1. Open the Apache configuration file. This file is usually located in `/etc/apache2/apache2.conf`.
+2. Find the `SSLProtocol` directive. This directive specifies which SSL/TLS protocols are enabled.
+3. Change the value of the `SSLProtocol` directive to only include TLS 1.2 and TLS 1.3. For example, you could change the value to `SSLProtocol TLSv1.2 TLSv1.3`.
+4. Save the configuration file and restart Apache.
+
+This will disable TLS 1.0 and TLS 1.1, which are deprecated and considered insecure. All modern web browsers are compatible with TLS 1.2.
+
+The Certificates issue of TLS1, offered (deprecated) in apache web server belongs to the OWASP Top 10 Web Application Security Risks category **A1: Broken Authentication**. This category includes risks that allow attackers to gain unauthorized access to user accounts or systems.
+
+Here are some additional tips for securing your Apache web server:
+
+* Use a strong password for the Apache user account.
+* Enable mod_ssl and configure it to use a strong cipher suite.
+* Keep your Apache software up to date.
+* Use a web application firewall (WAF) to protect your Apache web server from common attacks.
+
+By following these tips, you can help to protect your Apache web server from attack and keep your data safe.

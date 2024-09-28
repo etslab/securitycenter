@@ -1,0 +1,20 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-33193
+CVE-2021-33193 is a vulnerability in the Apache HTTP Server that allows an attacker to split HTTP requests, which can lead to a denial of service or other attacks. The vulnerability affects Apache HTTP Server versions 2.4.17 to 2.4.48.
+
+To fix this vulnerability, you can update your Apache HTTP Server to a version that is not affected. You can also apply the following patch:
+
+```
+https://httpd.apache.org/security/vulnerabilities_24.html#CVE-2021-33193
+```
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of "Injection". Injection attacks occur when unvalidated data is inserted into an application, such as a web application, which can then be used to execute arbitrary code or commands on the server.
+
+Here are some additional steps you can take to protect your Apache HTTP Server from attack:
+
+* Keep your Apache HTTP Server up to date with the latest security patches.
+* Use a firewall to restrict access to your Apache HTTP Server.
+* Use a web application firewall (WAF) to block common attack vectors.
+* Implement strong passwords and authentication methods.
+* Educate your users about security risks and how to avoid them.
+
+By following these steps, you can help to protect your Apache HTTP Server from attack and keep your data safe.

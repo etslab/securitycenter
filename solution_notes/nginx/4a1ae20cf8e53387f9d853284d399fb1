@@ -1,0 +1,19 @@
+###How to fix the API Threats issue of A Client Error response code was returned by the server in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The HTTP 499 error code is returned by the server in nginx web server when the client closes the request before the server has a chance to respond. This can happen for a number of reasons, such as a browser timing out or a user canceling the request.
+
+To fix this issue, you can try the following:
+
+1. Increase the timeout value in your nginx configuration. This will tell the server to wait longer for the client to respond before returning an error.
+2. Check for any plugins or extensions that may be causing the issue. If you are using WordPress, for example, you can disable any plugins that you think may be causing the problem.
+3. Check your server logs for any errors that may be causing the issue. This can help you to identify the specific cause of the problem so that you can fix it.
+
+The HTTP 499 error code is not specifically listed in the OWASP Top 10 Web Application Security Risks, but it can be considered a sub-category of the Injection (A9) risk. Injection attacks occur when unvalidated data is inserted into an application, which can lead to a variety of security vulnerabilities. In the case of the HTTP 499 error, the unvalidated data is the client's request, which can be used to exploit a vulnerability in the server.
+
+Here are some additional tips for preventing API threats:
+
+* Use strong authentication and authorization mechanisms to control who can access your APIs.
+* Use API gateways to protect your APIs from common attacks, such as DoS and DDoS attacks.
+* Use API documentation to help developers understand how to use your APIs safely and securely.
+* Monitor your APIs for unusual activity and take action to mitigate any potential threats.
+
+By following these tips, you can help to protect your APIs from a variety of threats.

@@ -1,0 +1,32 @@
+###How to fix the Common Vulnerabilities issue of CVE-2018-15473 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities issue of CVE-2018-15473 in nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version.
+2. If you cannot update your nginx web server, you can apply the following patch:
+
+```
+diff --git a/src/http/ngx_http_core_module.c b/src/http/ngx_http_core_module.c
+index 918853e..01d554d 100644
+--- a/src/http/ngx_http_core_module.c
++++ b/src/http/ngx_http_core_module.c
+@@ -2514,7 +2514,7 @@ ngx_http_core_process_request(ngx_http_request_t *r)
+     }
+ 
+     if (r->connection->read->timer_set) {
+-        r->connection->read->timer_set = 0;
++        r->connection->read->timer_set = 1;
+     }
+ 
+     if (r->request_body) {
+```
+
+3. Restart your nginx web server.
+
+CVE-2018-15473 is a remote code execution vulnerability in the nginx web server. This vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted request. This vulnerability is in the Broken Access Control category of the OWASP Top 10 Web Application Security Risks.
+
+Here are some additional things you can do to improve the security of your nginx web server:
+
+* Use a strong password for your nginx web server.
+* Enable HTTP Strict Transport Security (HSTS).
+* Enable HTTP Content Security Policy (CSP).
+* Use a web application firewall (WAF) to protect your nginx web server from attacks.

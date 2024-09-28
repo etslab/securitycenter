@@ -1,0 +1,24 @@
+###How to fix the Certificates issue of cert notAfter, 2020-09-03 06
+To fix the Certificates issue of cert notAfter, 2020-09-03 06 in Apache web server, you need to renew your SSL certificate. You can do this by following these steps:
+
+1. Check the expiration date of your current SSL certificate. You can do this by using the following command:
+
+```
+openssl x509 -in /path/to/certificate.crt -noout -enddate
+```
+
+2. If your current certificate has expired, you need to generate a new one. You can do this by using a certificate authority (CA) or by using a self-signed certificate.
+
+3. Once you have generated a new certificate, you need to install it on your Apache web server. You can do this by following the instructions in the documentation for your Apache web server.
+
+4. Once you have installed your new certificate, you need to restart your Apache web server.
+
+The Certificates issue of cert notAfter, 2020-09-03 06 in Apache web server belongs to the OWASP Top 10 Web Security Risks 2021 category of **Insecure Transport Layer Security**. This category includes risks that are related to the use of insecure or untrusted transport protocols, such as HTTP instead of HTTPS.
+
+Insecure transport protocols can allow attackers to eavesdrop on traffic, modify traffic, or impersonate websites. This can lead to a variety of security risks, such as data theft, fraud, and identity theft.
+
+To mitigate the risks associated with insecure transport protocols, it is important to use HTTPS for all sensitive traffic. HTTPS encrypts traffic, making it much more difficult for attackers to eavesdrop on or modify it.
+
+In addition to using HTTPS, it is also important to keep your SSL certificates up to date. Expired SSL certificates are a security risk because they can be easily intercepted by attackers.
+
+By following these simple steps, you can help to protect your website from the risks associated with insecure transport protocols.

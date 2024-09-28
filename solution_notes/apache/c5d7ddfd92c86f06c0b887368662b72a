@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-11993
+CVE-2020-11993 is a vulnerability in the Apache HTTP Server that allows an attacker to crash the server by sending a specially crafted HTTP/2 header. This vulnerability was fixed in Apache HTTP Server 2.4.44.
+
+To fix this vulnerability, you should upgrade your Apache HTTP Server to 2.4.44 or later. If you cannot upgrade, you can mitigate the vulnerability by configuring the LogLevel of mod_http2 to above "info".
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks 2021 category of "Injection". Injection vulnerabilities occur when unvalidated or unfiltered user input is injected into an application's code. This can allow an attacker to execute arbitrary code on the application's server.
+
+Here are some additional steps you can take to protect your Apache HTTP Server from this and other vulnerabilities:
+
+* Keep your Apache HTTP Server up to date with the latest security patches.
+* Use a web application firewall (WAF) to help protect your server from attacks.
+* Implement strong security controls, such as user authentication and authorization, input validation, and output encoding.
+* Monitor your server for signs of attack, such as unusual traffic patterns or failed login attempts.
+
+By taking these steps, you can help protect your Apache HTTP Server from attack and keep your data safe.

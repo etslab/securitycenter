@@ -1,0 +1,18 @@
+###How to fix the App Dependencies issue of go1.17.linux-amd64.tar.gz:go1.17.linux-amd64.tar:time-go.zip in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of go1.17.linux-amd64.tar.gz:go1.17.linux-amd64.tar:time-go.zip in nginx web server can be fixed by:
+
+1. **Upgrading the version of Nginx.** Older versions of Nginx may not be aware of the App Dependencies issue, so upgrading to a newer version may fix it.
+2. **Adding a security rule to the Nginx configuration.** A security rule can be added to the Nginx configuration to block requests for the App Dependencies issue.
+3. **Removing the App Dependencies issue from the Nginx web server.** The App Dependencies issue can be removed from the Nginx web server by deleting the file or directory that contains it.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1: Injection**. Injection vulnerabilities occur when untrusted data is inserted into a command or query in a way that allows an attacker to control the execution of the command or query. In this case, the App Dependencies issue could allow an attacker to inject malicious code into the Nginx web server.
+
+Here are some additional tips for fixing App Dependencies issues in Nginx:
+
+* Keep your Nginx software up to date.
+* Use a web application firewall (WAF) to protect your website from common attacks.
+* Scan your website regularly for vulnerabilities.
+* Use a content security policy (CSP) to restrict the types of scripts and styles that can be loaded on your website.
+* Implement a least privilege model for your Nginx configuration.
+
+If you are unable to fix the App Dependencies issue yourself, you should contact your Nginx administrator or hosting provider for assistance.

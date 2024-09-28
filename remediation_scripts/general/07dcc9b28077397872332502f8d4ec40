@@ -1,0 +1,46 @@
+####patch script to remediate CVE-2013-0169, CWE-310 security headers has issue in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2013-0169, CWE-310 security headers issue in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /etc/init.d/apache2 ]; then
+    service apache2 status >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo "Apache is running"
+    else
+        echo "Apache is not running"
+        exit 1
+    fi
+else
+    echo "Apache is not installed"
+    exit 1
+fi
+
+# Check if the security headers are already enabled
+if grep -q "ServerTokens Prod" /etc/apache2/apache2.conf; then
+    echo "Security headers are already enabled"
+    exit 0
+fi
+
+# Enable the security headers
+echo "ServerTokens Prod" >> /etc/apache2/apache2.conf
+echo "ServerSignature Off" >> /etc/apache2/apache2.conf
+echo "Header always set X-Frame-Options SAMEORIGIN" >> /etc/apache2/apache2.conf
+echo "Header always set X-Content-Type-Options nosniff" >> /etc/apache2/apache2.conf
+echo "Header always set X-XSS-Protection 1; mode=block" >> /etc/apache2/apache2.conf
+
+# Restart Apache
+service apache2 restart
+
+# Check if the security headers are enabled
+if grep -q "ServerTokens Prod" /etc/apache2/apache2.conf; then
+    echo "Security headers are enabled"
+else
+    echo "Security headers are not enabled"
+    exit 1
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will then check if the security headers are already enabled. If they are not, the script will enable them and restart Apache. Finally, the script will check if the security headers are enabled again to make sure that the patch was successful.

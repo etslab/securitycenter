@@ -1,0 +1,14 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-6111
+CVE-2019-6111 is a vulnerability in the OpenSSH scp client that allows a malicious server to overwrite arbitrary files on the client. To fix this vulnerability, you should update your OpenSSH client to a version that is patched for this issue. You can find the latest version of OpenSSH on the OpenSSH website.
+
+This vulnerability belongs to the OWASP Top 10 2021 category of Injection. Injection vulnerabilities occur when unvalidated data is inserted into a system, such as a web application, database, or operating system. This can allow an attacker to execute arbitrary code on the system or gain unauthorized access to data.
+
+To mitigate injection vulnerabilities, you should always validate all input data before using it. This includes data that is entered by users, as well as data that is received from other systems. You should also use input validation libraries and tools to help you avoid injection vulnerabilities.
+
+Here are some additional steps you can take to protect your Apache web server from CVE-2019-6111:
+
+* Use a strong password for your Apache web server.
+* Enable the mod_security module for Apache. Mod_security can help to protect your Apache web server from a variety of attacks, including injection attacks.
+* Keep your Apache web server software up to date. Software updates often include security patches that can help to protect your Apache web server from known vulnerabilities.
+
+By taking these steps, you can help to protect your Apache web server from CVE-2019-6111 and other injection vulnerabilities.

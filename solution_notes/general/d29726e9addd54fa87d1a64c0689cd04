@@ -1,0 +1,23 @@
+###How to fix the Certificates issue of HSTS, not offered
+To fix the Certificates issue of HSTS, not offered in Apache web server, you can follow these steps:
+
+1. Install the mod_headers module for Apache.
+2. Open the Apache configuration file and add the following line to the VirtualHost section for your website:
+
+```
+Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains"
+```
+
+3. Restart Apache.
+
+This will tell browsers to always connect to your website over HTTPS.
+
+The Certificates issue of HSTS, not offered in Apache web server belongs to the OWASP Top 10 Web 2021 category of Injection. This is because the issue allows attackers to inject malicious code into the website's certificate, which can then be used to impersonate the website and steal user credentials.
+
+Here are some additional tips for securing your website with HSTS:
+
+* Use a long max-age value. The max-age value specifies how long the browser should remember the HSTS header. A longer max-age value will make it more difficult for attackers to downgrade the connection to HTTP.
+* Use the includeSubdomains directive. The includeSubdomains directive tells browsers to enforce HSTS for all subdomains of your website. This will help to prevent attackers from exploiting vulnerabilities in subdomains to access your website's main domain over HTTP.
+* Preload your HSTS policy. You can preload your HSTS policy with major browsers by submitting it to the HSTS preload list. This will make it more difficult for attackers to bypass HSTS by using a browser that does not support the HSTS header.
+
+By following these tips, you can help to protect your website from attacks that exploit the Certificates issue of HSTS.

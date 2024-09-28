@@ -1,0 +1,18 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-26690 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2021-26690 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx installation to the latest version. The latest version of nginx includes a security patch that fixes this vulnerability.
+2. If you cannot update your nginx installation, you can disable the mod_session module. This module is not required for nginx to function, and disabling it will prevent exploitation of this vulnerability.
+
+CVE-2021-26690 is a remote code execution vulnerability that affects the mod_session module in nginx. This vulnerability can be exploited by an attacker to execute arbitrary code on the nginx server. This vulnerability is ranked as a high severity vulnerability, and it is important to patch it as soon as possible.
+
+CVE-2021-26690 belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection vulnerabilities occur when unvalidated or unfiltered data is inserted into an application, resulting in unintended consequences. Injection vulnerabilities can be exploited to execute arbitrary code, steal data, or disrupt application functionality.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements or parameterized queries to avoid SQL injection.
+* Sanitize user input before using it in any application code.
+* Use input validation libraries to help you identify and prevent injection vulnerabilities.
+* Keep your application software up to date with the latest security patches.
+
+By following these tips, you can help to prevent injection vulnerabilities in your web applications.

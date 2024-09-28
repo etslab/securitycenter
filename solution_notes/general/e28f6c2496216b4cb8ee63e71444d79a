@@ -1,0 +1,18 @@
+###How to fix the API Threats issue of Cookie without SameSite Attribute
+To fix the API Threats issue of Cookie without SameSite Attribute in Apache web server, you can use the following steps:
+
+1. Open the Apache configuration file (`httpd.conf`).
+2. Find the section that defines the cookies for your website.
+3. Add the following line to the end of the section:
+
+```
+Header always set Set-Cookie ^(.*)$ $1;SameSite=None;Secure
+```
+
+This will set all cookies for your website to the `SameSite=None` value. This will prevent them from being sent with cross-site requests, which can help to mitigate API threats.
+
+The issue of Cookie without SameSite Attribute belongs to the OWASP Top 10 Web Security Risks 2021 category of Injection. Injection flaws, such as this one, occur when unvalidated or malicious data is sent to an application. This can lead to a variety of security vulnerabilities, including data exfiltration, privilege escalation, and denial of service attacks.
+
+By setting the `SameSite` attribute to `None`, you can help to mitigate the risk of these vulnerabilities. This is because the browser will only send the cookie with requests that are initiated from the same origin. This makes it more difficult for attackers to exploit injection flaws to steal data or take control of an application.
+
+It is important to note that the `SameSite` attribute is not a silver bullet. It is still important to implement other security controls, such as input validation and authentication, to protect your application from attack. However, setting the `SameSite` attribute is an important step in mitigating the risk of injection flaws.

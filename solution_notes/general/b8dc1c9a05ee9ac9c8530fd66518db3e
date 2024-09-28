@@ -1,0 +1,20 @@
+###How to fix the API Threats issue of Unexpected Content-Type was returned
+The Unexpected Content-Type was returned in apache web server issue can be fixed by following these steps:
+
+1. Identify the source of the unexpected content type. This could be a misconfiguration in Apache, a bug in the application, or a malicious attack.
+2. Once the source of the issue has been identified, take steps to fix it. This could involve updating Apache, fixing the bug in the application, or implementing security measures to protect against malicious attacks.
+3. Once the issue has been fixed, test the application to make sure that it is working correctly.
+
+The Unexpected Content-Type was returned in apache web server issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection attacks are a type of attack where an attacker injects malicious code into a vulnerable application. This malicious code can then be executed on the victim's system, allowing the attacker to steal data, install malware, or take control of the system.
+
+To protect against injection attacks, it is important to properly configure web applications and to use input validation techniques to prevent malicious code from being injected into the application.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements instead of dynamic SQL queries.
+* Sanitize all user input before it is used in an application.
+* Use input validation techniques to prevent malicious code from being injected into the application.
+* Keep web applications up to date with the latest security patches.
+* Use a web application firewall to protect against common injection attacks.
+
+By following these tips, you can help to protect your web applications from injection attacks.

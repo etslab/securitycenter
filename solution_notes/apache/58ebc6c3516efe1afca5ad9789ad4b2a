@@ -1,0 +1,30 @@
+###How to fix the Certificates issue of HTTP Strict Transport Security (HSTS) header not implemented
+To fix the Certificates issue of HTTP Strict Transport Security (HSTS) header not implemented in Apache web server, you can follow these steps:
+
+1. Enable the headers module in Apache. This can be done by editing the Apache configuration file and adding the following line:
+
+```
+LoadModule headers_module modules/mod_headers.so
+```
+
+2. Add the HSTS header to the Apache configuration file. This can be done by adding the following line to the VirtualHost section for your website:
+
+```
+Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains"
+```
+
+The `max-age` parameter specifies the amount of time in seconds that the browser should remember the HSTS header. The `includeSubdomains` parameter tells the browser to enforce HSTS for all subdomains of your website.
+
+3. Restart Apache.
+
+Once you have completed these steps, the HSTS header will be sent to all browsers that connect to your website over HTTPS. This will help to protect your website from man-in-the-middle attacks.
+
+The Certificates issue of HTTP Strict Transport Security (HSTS) header not implemented in Apache web server belongs to the OWASP Top 10 Web 2021 category of **Injection**. This category includes vulnerabilities that allow attackers to inject malicious code into a web application. By injecting malicious code, attackers can steal sensitive data, hijack sessions, or take control of the application.
+
+The HSTS header helps to protect against injection attacks by preventing browsers from connecting to a website over HTTP. This makes it more difficult for attackers to inject malicious code into the website.
+
+In addition to enabling the HSTS header, you can also take other steps to protect your website from injection attacks. These steps include:
+
+* Using a web application firewall (WAF) to scan traffic for malicious code.
+* Using input validation to prevent attackers from injecting malicious code into forms.
+* Keeping your web application software up to date with the latest security patches.

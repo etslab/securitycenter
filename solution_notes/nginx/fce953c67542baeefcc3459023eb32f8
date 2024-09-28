@@ -1,0 +1,18 @@
+###How to fix the App Dependencies issue of Chart.bundle.js of pkg:javascript/chart.js@2.7.2,pkg:javascript/moment.js@2.20.1 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of Chart.bundle.js of pkg:javascript/chart.js@2.7.2,pkg:javascript/moment.js@2.20.1 in nginx web server, you can:
+
+1. Upgrade the versions of Chart.js and Moment.js to the latest versions.
+2. Use a content security policy (CSP) to restrict the execution of scripts from third-party domains.
+3. Use a web application firewall (WAF) to filter out malicious traffic.
+4. Use a package manager like npm or yarn to manage your dependencies.
+
+This issue belongs to the OWASP Top 10 Web 2021 category **A1: Broken or Outdated Components**. This category refers to the use of outdated or vulnerable components in web applications. Outdated components can contain security vulnerabilities that can be exploited by attackers to gain access to web applications or their data.
+
+Here are some additional tips for fixing App Dependencies issues:
+
+* Keep your dependencies up to date. Regularly check for updates to your dependencies and upgrade them as soon as possible.
+* Use a dependency management tool. A dependency management tool can help you track your dependencies and ensure that they are up to date.
+* Use a security scanner. A security scanner can scan your web application for outdated or vulnerable dependencies.
+* Use a web application firewall (WAF). A WAF can help protect your web application from attacks that exploit vulnerabilities in outdated or vulnerable dependencies.
+
+Please note that this is just a general overview of how to fix App Dependencies issues. The specific steps you need to take will vary depending on your specific situation.

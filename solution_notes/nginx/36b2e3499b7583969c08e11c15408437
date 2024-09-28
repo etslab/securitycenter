@@ -1,0 +1,19 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-0220 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities issue of CVE-2019-0220 in nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version.
+2. If you cannot update your nginx web server, you can apply the following patch:
+```
+http://nginx.org/en/download.html
+```
+3. If you are using a custom configuration for your nginx web server, you will need to make sure that it does not contain any directives that could be exploited by this vulnerability.
+
+CVE-2019-0220 belongs to the OWASP Top 10 Web 2021 category of "A1 - Injection". This category covers vulnerabilities that allow an attacker to inject malicious code into a web application. Injection vulnerabilities can be exploited to steal data, execute arbitrary commands, or take control of a web application.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements instead of dynamic SQL queries.
+* Sanitize all user input before using it in a web application.
+* Use a web application firewall (WAF) to help protect against injection attacks.
+
+By following these steps, you can help to protect your nginx web server from the CVE-2019-0220 vulnerability and other injection vulnerabilities.

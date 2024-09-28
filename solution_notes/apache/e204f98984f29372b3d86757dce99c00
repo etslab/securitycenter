@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of ustar-file-reg.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of ustar-file-reg.tar in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Remove the ustar-file-reg.tar file from the Apache web server's directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as SQL injection and XSS, occur when unvalidated or malicious data is sent to an application. This can lead to unauthorized access, data modification, or denial of service attacks.
+
+Here are some additional tips to help you prevent injection attacks:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use a web application firewall (WAF) to help block XSS attacks.
+* Validate all input data before using it in your application.
+* Educate your developers about injection attacks and how to prevent them.
+
+For more information on injection attacks, please see the following resources:
+
+* OWASP Injection Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html
+* OWASP XSS Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html

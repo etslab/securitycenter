@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2022-22719 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2022-22719 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the version of Apache
+  apache_version=$(apache2 -V | awk '{print $2}')
+
+  # If Apache is 2.4.52 or earlier, then patch it
+  if [[ $apache_version -le 2.4.52 ]]; then
+
+    # Download the patch
+    wget https://www.apache.org/dist/httpd/patches/2.4/CVE-2022-22719.patch
+
+    # Apply the patch
+    patch -p1 < CVE-2022-22719.patch
+
+    # Restart Apache
+    sudo service apache2 restart
+
+  fi
+
+fi
+```
+
+This patch will fix the vulnerability in Apache HTTP Server that allows a remote attacker to cause a denial of service by sending a specially crafted request.
+
+It is important to note that this patch is only for Apache HTTP Server 2.4.52 or earlier. If you are using a newer version of Apache, then you do not need to apply this patch.

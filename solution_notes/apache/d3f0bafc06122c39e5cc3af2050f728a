@@ -1,0 +1,35 @@
+###How to fix the App Dependencies issue of node-notifier:5.4.3 of pkg:npm/node-notifier@5.4.3 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of node-notifier:5.4.3 of pkg:npm/node-notifier@5.4.3 in Apache web server, you can follow these steps:
+
+1. Check the current version of node-notifier using the following command:
+
+```
+npm show node-notifier
+```
+
+2. If the current version is less than 5.4.3, upgrade it using the following command:
+
+```
+npm install node-notifier@5.4.3
+```
+
+3. Check if the upgrade was successful by running the following command:
+
+```
+npm show node-notifier
+```
+
+If the new version is 5.4.3, the upgrade was successful.
+
+The OWASP Top 10 Web 2021 category for this issue is A1 - Injection. Injection flaws, such as SQL injection and XSS, occur when unvalidated or unfiltered user input is used to control the output of a web application. This can lead to data theft, server-side code execution, and other security vulnerabilities.
+
+By upgrading to node-notifier 5.4.3, you can help to mitigate the risk of injection attacks on your Apache web server.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use HTML escaping to prevent XSS attacks.
+* Validate all user input before using it in your application.
+* Keep your software up to date with the latest security patches.
+
+By following these tips, you can help to protect your Apache web server from injection attacks.

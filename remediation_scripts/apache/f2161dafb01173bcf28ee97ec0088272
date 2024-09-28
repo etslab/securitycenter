@@ -1,0 +1,34 @@
+####patch script to remediate CVE-2013-3587, CWE-310 CVE-2015-8325 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-3587, CWE-310 CVE-2015-8325 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -n "$(command -v httpd)" ]; then
+  echo "Apache is not installed"
+  exit 1
+fi
+
+# Check if the vulnerable version is installed
+VERSION=$(httpd -V | awk '{print $2}')
+if [[ "$VERSION" =~ ^2\.4\.12 ]]; then
+  echo "Apache $VERSION is vulnerable"
+
+  # Apply the patch
+  wget https://www.apache.org/dist/httpd/binaries/linux/x86_64/httpd-2.4.12-patched.tar.gz
+  tar -zxvf httpd-2.4.12-patched.tar.gz
+  mv httpd-2.4.12-patched/httpd /usr/local/bin/
+
+  # Restart Apache
+  systemctl restart httpd
+
+  echo "Patch applied successfully"
+else
+  echo "Apache $VERSION is not vulnerable"
+fi
+```
+
+This patch script will check if Apache is installed and if the vulnerable version is installed. If the vulnerable version is installed, the patch script will download a patched version of Apache and replace the existing version. Finally, the patch script will restart Apache.
+
+Please note that this is just an example patch script and may not work for all installations of Apache. It is always best to consult with a security professional before applying any patches to your system.

@@ -1,0 +1,41 @@
+###How to fix the Certificates issue of  in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**How to fix the Certificates issue in Nginx web server:**
+
+To fix the certificates issue in Nginx web server, you can follow these steps:
+
+1. Check if your SSL certificate is valid. You can use a tool like OpenSSL to do this.
+2. Make sure that your Nginx configuration file is correct. The certificate and key files should be specified correctly in the `ssl_certificate` and `ssl_certificate_key` directives.
+3. Restart your Nginx server.
+
+If you are still having problems, you can consult the Nginx documentation or contact your hosting provider for help.
+
+**Which OWASP Top 10 web 2021 category does this issue belong to?**
+
+The Certificates issue in Nginx web server belongs to the **A1: Broken or Outdated Components** category of the OWASP Top 10 web 2021. This category includes vulnerabilities that are caused by using outdated or insecure software components, such as web servers, frameworks, and libraries.
+
+**What is the OWASP Top 10 web 2021?**
+
+The OWASP Top 10 web 2021 is a list of the most common and dangerous web application security risks. The list is updated every three years by the Open Web Application Security Project (OWASP), a non-profit organization that provides resources and guidance for securing web applications.
+
+The OWASP Top 10 web 2021 is as follows:
+
+1. A1: Broken or Outdated Components
+2. A2: Secure Design Defects
+3. A3: XSS (Cross-Site Scripting)
+4. A4: Insecure Direct Object References
+5. A5: Security Misconfigurations
+6. A6: Sensitive Data Exposure
+7. A7: Missing Function Level Access Control
+8. A8: Cross-Site Request Forgery (CSRF)
+9. A9: Using Known Vulnerable Components
+10. A10: Insufficient Logging & Monitoring
+
+**Why is it important to fix the certificates issue in Nginx web server?**
+
+It is important to fix the certificates issue in Nginx web server because it can leave your website vulnerable to attack. For example, an attacker could use the issue to perform a man-in-the-middle attack, which would allow them to intercept and modify traffic between your website and your users.
+
+Additionally, a valid SSL certificate is required for many modern web technologies, such as HTTP/2 and TLS 1.3. If your SSL certificate is invalid, your website may not be able to use these technologies, which can impact its performance and security.
+
+**Conclusion**
+
+The certificates issue in Nginx web server is a serious security vulnerability that should be fixed as soon as possible. By following the steps above, you can fix the issue and protect your website from attack.

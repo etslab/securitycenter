@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-41617 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2021-41617 is a remote code execution vulnerability in the nginx web server. It was first discovered in February 2021 and affects all versions of nginx up to and including 1.20.1. The vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted request to the nginx web server.
+
+To fix this vulnerability, you should upgrade your nginx web server to version 1.20.2 or later. You can download the latest version of nginx from the nginx website.
+
+This vulnerability belongs to the OWASP Top 10 Web Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and XSS, occur when unvalidated or unfiltered data is used to control the output of a web application. This can allow attackers to execute arbitrary code on the server or steal sensitive data.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use HTML escaping to prevent XSS attacks.
+* Sanitize all user input before using it in any output.
+* Use a web application firewall (WAF) to help protect your application from common injection attacks.
+
+By following these tips, you can help to protect your web application from injection attacks.

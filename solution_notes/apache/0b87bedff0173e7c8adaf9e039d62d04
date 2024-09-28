@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of shell-quote:1.7.2 of pkg:npm/shell-quote@1.7.2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of shell-quote:1.7.2 of pkg:npm/shell-quote@1.7.2 in Apache web server can be fixed by upgrading to a newer version of the shell-quote package. The vulnerability in this version of the package allows an attacker to inject arbitrary commands into the shell, which could lead to a variety of attacks, such as privilege escalation, data exfiltration, or denial of service.
+
+To upgrade to a newer version of the shell-quote package, use the following command:
+
+```
+npm install --upgrade shell-quote
+```
+
+Once the package has been upgraded, restart Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection vulnerabilities occur when unvalidated user input is used to control the execution of code. This can lead to a variety of attacks, such as privilege escalation, data exfiltration, or denial of service.
+
+To prevent injection vulnerabilities, it is important to properly validate all user input before using it to control the execution of code. This can be done by using a variety of techniques, such as input filtering, input escaping, and input validation libraries.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use a web application firewall (WAF) to help protect your web applications from common injection attacks.
+* Use input validation libraries to help you validate user input.
+* Educate your developers about injection vulnerabilities and how to prevent them.
+
+By following these tips, you can help to protect your web applications from injection vulnerabilities.

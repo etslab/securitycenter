@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of react-dev-utils:10.2.1 of pkg:npm/react-dev-utils@10.2.1 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of react-dev-utils:10.2.1 of pkg:npm/react-dev-utils@10.2.1 in apache web server can be fixed by upgrading react-dev-utils to version 11.0.4 or higher. This issue is a command injection vulnerability that can be exploited by an attacker to execute arbitrary commands on the server. The vulnerability is caused by the fact that the react-dev-utils package includes a function called `runScript` that allows users to run arbitrary commands on the server. This function is not intended to be used by users, but it can be exploited by an attacker if they are able to inject malicious code into the `runScript` function.
+
+To fix this issue, you can upgrade react-dev-utils to version 11.0.4 or higher. You can do this by running the following command:
+
+```
+npm install --save react-dev-utils@11.0.4
+```
+
+Once you have upgraded react-dev-utils, you should also check your application for any other vulnerabilities that may be present. You can do this by using a security scanner such as OWASP ZAP or Nessus.
+
+The App Dependencies issue of react-dev-utils:10.2.1 of pkg:npm/react-dev-utils@10.2.1 in apache web server belongs to the OWASP Top 10 Web 2021 category of Injection. Injection vulnerabilities occur when unvalidated or unfiltered user input is used to control the behavior of an application. This can allow an attacker to execute arbitrary code, steal data, or disrupt the application.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Always validate and filter user input before using it in your application.
+* Use prepared statements or parameterized queries when interacting with databases.
+* Use input escaping when generating output.
+* Use a web application firewall (WAF) to help protect your application from common injection attacks.

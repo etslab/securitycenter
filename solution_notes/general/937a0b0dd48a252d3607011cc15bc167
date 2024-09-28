@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of gui.exe in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of gui.exe in apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Rename the gui.exe file to gui.exe.bak.
+3. Download the latest version of the gui.exe file from the Apache website.
+4. Copy the new gui.exe file to the Apache installation directory.
+5. Start the Apache web server.
+
+The App Dependencies issue of gui.exe in apache web server belongs to the OWASP Top 10 Web 2021 category of **Broken Access Control**. This issue allows an attacker to execute arbitrary code on the server by exploiting a vulnerability in the Apache web server.
+
+Here are some additional details about the App Dependencies issue of gui.exe in apache web server:
+
+* The issue is caused by a vulnerability in the way that the Apache web server handles dependencies between applications.
+* The vulnerability allows an attacker to exploit a dependency between an application and gui.exe to execute arbitrary code on the server.
+* The issue can be exploited by sending a specially crafted request to the Apache web server.
+* The issue has been assigned the CVE identifier CVE-2022-22720.
+
+To mitigate the risk of exploitation, it is recommended to update to the latest version of the Apache web server. Additionally, it is recommended to implement a web application firewall (WAF) to help protect against exploitation of this and other vulnerabilities.

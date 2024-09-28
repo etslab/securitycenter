@@ -1,0 +1,19 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10009 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2016-10009 issue in nginx web server, you need to upgrade to a version of nginx that is patched for this vulnerability. You can check the nginx website for the latest version of the software.
+
+CVE-2016-10009 is a remote code execution vulnerability that affects the way nginx handles forwarded agent sockets. This vulnerability can be exploited by an attacker to execute arbitrary code on the nginx server.
+
+The OWASP Top 10 Web Application Security Risks 2021 categorizes CVE-2016-10009 as an **A1 - Injection** vulnerability. Injection vulnerabilities occur when unvalidated or unfiltered user input is used to control the behavior of a web application. This can lead to a variety of security problems, including remote code execution, data modification, and denial of service.
+
+To mitigate the risk of injection vulnerabilities, it is important to properly validate and filter all user input before it is used to control the behavior of a web application. This can be done by using a variety of techniques, such as input validation libraries, regular expressions, and white lists.
+
+In addition to proper input validation, it is also important to keep web applications up to date with the latest security patches. This will help to ensure that any known vulnerabilities are patched and that the application is as secure as possible.
+
+Here are some additional tips for mitigating the risk of CVE-2016-10009:
+
+* Use a firewall to restrict access to the nginx server.
+* Use strong passwords for the nginx server.
+* Keep the nginx server software up to date.
+* Monitor the nginx server for signs of attack.
+
+By following these tips, you can help to protect your nginx server from the CVE-2016-10009 vulnerability.

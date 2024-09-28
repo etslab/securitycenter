@@ -1,0 +1,28 @@
+###How to fix the App Dependencies issue of paramiko-2.7.1.tar.gz:paramiko-2.7.1.tar:jquery-3.2.1.js in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of paramiko-2.7.1.tar.gz:paramiko-2.7.1.tar:jquery-3.2.1.js in apache web server can be fixed by installing the necessary dependencies. To do this, you can use the following steps:
+
+1. Install the paramiko package:
+
+```
+pip install paramiko
+```
+
+2. Install the jQuery package:
+
+```
+npm install jquery
+```
+
+3. Restart the Apache web server:
+
+```
+sudo service apache2 restart
+```
+
+The App Dependencies issue belongs to the OWASP Top 10 Web 2021 category of "A9: Using Components with Known Vulnerabilities". This category includes vulnerabilities that can be exploited by using components that have known security vulnerabilities. By installing the necessary dependencies, you can help to mitigate the risk of these vulnerabilities being exploited.
+
+Here are some additional tips for fixing App Dependencies issues:
+
+* Use a package manager to manage your dependencies. This will help to ensure that you are always using the latest versions of your dependencies, which will help to mitigate the risk of known vulnerabilities.
+* Keep an eye on security announcements for your dependencies. When a new vulnerability is discovered, the maintainers of the dependency will typically release an updated version that fixes the vulnerability. Make sure to update your dependencies as soon as possible after a new vulnerability is announced.
+* Use a tool like Snyk to scan your dependencies for known vulnerabilities. This can help you to identify any dependencies that may be vulnerable and need to be updated.

@@ -1,0 +1,18 @@
+###How to fix the API Threats issue of Cross-Domain JavaScript Source File Inclusion
+Cross-Domain JavaScript Source File Inclusion (XSS-CFI) is a security vulnerability that can be exploited by attackers to execute malicious code on your web application. This vulnerability occurs when your web application loads JavaScript files from an external domain without proper validation, allowing an attacker to inject their own code and potentially take control of the application.
+
+To fix this vulnerability, you can use the following steps:
+
+1. **Identify the code that is causing the problem.** The first step in fixing this vulnerability is to identify the code that is causing the problem. This can be done by using a web application scanner or by manually inspecting the code.
+2. **Validate the source of the JavaScript files.** Once you have identified the code that is causing the problem, you need to validate the source of the JavaScript files. This means making sure that the files are coming from a trusted source and that they have not been tampered with.
+3. **Use a Content Security Policy (CSP).** A Content Security Policy (CSP) is a security mechanism that can be used to restrict the types of resources that can be loaded by a web application. This can help to prevent XSS-CFI attacks by preventing attackers from injecting their own code into the application.
+
+The XSS-CFI vulnerability belongs to the OWASP Top 10 Web Application Security Risks 2021 category A1: Injection. This category includes vulnerabilities that allow attackers to inject malicious code into web applications. XSS-CFI is a specific type of injection vulnerability that allows attackers to inject malicious JavaScript code into web applications.
+
+Here are some additional tips for preventing XSS-CFI attacks:
+
+* Use a web application firewall (WAF) to block known attack vectors.
+* Keep your web application software up to date.
+* Train your developers on how to prevent XSS-CFI attacks.
+
+By following these steps, you can help to protect your web application from XSS-CFI attacks.

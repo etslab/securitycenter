@@ -1,0 +1,31 @@
+###How to fix the Common Vulnerabilities issue of CVE-2017-13098 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2017-13098 is a vulnerability in the nginx web server that can allow remote attackers to execute arbitrary code on the target system. The vulnerability is caused by an integer overflow in the way nginx handles certain HTTP requests.
+
+To fix CVE-2017-13098 in nginx, you can either patch the vulnerability or upgrade to a version of nginx that has been patched.
+
+**To patch the vulnerability:**
+
+1. Download the patch for your version of nginx from the nginx website.
+2. Apply the patch to your nginx installation.
+3. Restart nginx.
+
+**To upgrade to a patched version of nginx:**
+
+1. Download the latest version of nginx from the nginx website.
+2. Install the new version of nginx.
+3. Configure the new version of nginx to use the same configuration files as your old installation.
+4. Start the new version of nginx.
+
+CVE-2017-13098 belongs to the OWASP Top 10 2021 category **A4: Broken Access Control**.
+
+Broken Access Control vulnerabilities occur when an attacker is able to access resources that they should not have access to. This can be caused by a variety of factors, such as insecure coding practices, misconfiguration, or inadequate authentication and authorization mechanisms.
+
+CVE-2017-13098 is a specific example of a Broken Access Control vulnerability. In this case, the vulnerability allows attackers to execute arbitrary code on the target system by exploiting an integer overflow in nginx.
+
+**To mitigate the risk of Broken Access Control vulnerabilities:**
+
+* Implement least privilege access controls. This means that users and applications should only be granted access to the resources that they need to perform their tasks.
+* Use strong authentication and authorization mechanisms. This includes using multi-factor authentication and implementing role-based access control.
+* Keep software up to date. This includes applying security patches promptly.
+
+You can also use a web application firewall (WAF) to help protect your web applications from Broken Access Control vulnerabilities. A WAF can be configured to block malicious requests that attempt to exploit these vulnerabilities.

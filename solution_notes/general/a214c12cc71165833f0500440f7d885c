@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of xattrs.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of xattrs.tar in apache web server, you can follow the steps below:
+
+1. Identify the source of the xattrs.tar file. This can be done by checking the Apache error logs or by using a tool like `file` to identify the file type.
+2. Once you have identified the source of the file, you can remove it from the Apache server. If the file is required for a specific application, you can move it to a different location and update the application's configuration to point to the new location.
+3. Once the xattrs.tar file has been removed, restart the Apache server.
+
+This issue belongs to the **Insecure Design** category of the OWASP Top 10 Web 2021. This category includes vulnerabilities that can be exploited by attackers to gain unauthorized access to a web application or its data.
+
+**Additional information:**
+
+* The xattrs.tar file is a compressed archive of extended attributes. Extended attributes are additional information that can be associated with files and directories.
+* Apache web server does not support extended attributes. Therefore, the presence of the xattrs.tar file can indicate that a malicious application is trying to exploit a vulnerability in Apache.
+* The OWASP Top 10 Web is a list of the most common and critical web application security risks. It is published by the Open Web Application Security Project (OWASP), a nonprofit organization dedicated to improving the security of web applications.
+
+**Recommendations:**
+
+* Keep your Apache web server up to date with the latest security patches.
+* Use a web application firewall (WAF) to protect your web applications from common attacks.
+* Review your web application code for security vulnerabilities.
+* Use a secure coding framework to help you write secure code.

@@ -1,0 +1,34 @@
+####patch script to remediate  CVE-2017-15906 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2017-15906 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current version of Apache
+  version=$(apachectl -V | head -n1 | awk '{print $2}')
+
+  # If the version is less than 2.4.25, then patch the vulnerability
+  if [[ $version -lt "2.4.25" ]]; then
+
+    # Download the patch from the Apache website
+    wget https://archive.apache.org/dist/httpd/patches/2.4/CVE-2017-15906.patch
+
+    # Apply the patch
+    patch -p1 < CVE-2017-15906.patch
+
+    # Restart Apache
+    apachectl restart
+
+  fi
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will get the current version of Apache. If the version is less than 2.4.25, then the script will download a patch from the Apache website and apply it. Finally, the script will restart Apache.
+
+It is important to note that this is just a sample patch script. You may need to modify it to fit your specific environment. For example, you may need to change the path to the Apache binary or the location of the patch file.
+
+You can also use a vulnerability scanner to scan your system for CVE-2017-15906. If the scanner finds the vulnerability, it will typically provide instructions on how to remediate it.

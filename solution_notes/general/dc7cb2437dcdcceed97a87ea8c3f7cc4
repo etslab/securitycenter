@@ -1,0 +1,18 @@
+###How to fix the  issue of 
+The issue of directory traversal in Apache web server can be fixed by following these steps:
+
+1. **Check the Apache configuration file.** The Apache configuration file is typically located at `/etc/apache2/apache2.conf`. Make sure that there are no directives that allow directory traversal, such as `AllowOverride` or `Order allow,deny`.
+2. **Use a web application firewall (WAF).** A WAF can help to block directory traversal attacks by inspecting HTTP requests and blocking those that appear to be trying to access sensitive files.
+3. **Keep your software up to date.** Apache and other web server software often have security vulnerabilities that can be exploited by attackers. Make sure that you are using the latest version of the software to minimize your risk of attack.
+
+The directory traversal issue is a security vulnerability that can allow attackers to access sensitive files on a web server. This vulnerability is a part of OWASP Top 10 Web Application Security Risks 2021 category A3: Broken Access Control.
+
+Here are some additional tips to help you prevent directory traversal attacks:
+
+* Use strong passwords for your web server accounts.
+* Enable directory listing protection.
+* Use a content management system (CMS) that has been designed with security in mind.
+* Keep your website's software up to date.
+* Monitor your website for suspicious activity.
+
+By following these tips, you can help to protect your website from directory traversal attacks.

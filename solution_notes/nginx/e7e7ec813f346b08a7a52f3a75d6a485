@@ -1,0 +1,29 @@
+###How to fix the App Dependencies issue of hdr-only.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of hdr-only.tar in nginx web server is a vulnerability that can allow attackers to execute arbitrary code on the server. This vulnerability is caused by the fact that the hdr-only.tar file contains executable code that can be executed by the nginx web server.
+
+To fix this issue, you can either remove the hdr-only.tar file from the nginx web server or disable the execution of executable code in the nginx web server.
+
+This issue belongs to the **A2: Broken Authentication** category of the OWASP Top 10 Web 2021.
+
+Here are some steps to fix the App Dependencies issue of hdr-only.tar in nginx web server:
+
+1. Identify the location of the hdr-only.tar file.
+2. Remove the hdr-only.tar file from the nginx web server.
+3. Disable the execution of executable code in the nginx web server.
+
+To disable the execution of executable code in the nginx web server, you can edit the nginx configuration file and add the following directive:
+
+```
+exec on;
+```
+
+This directive will disable the execution of executable code in the nginx web server.
+
+Once you have completed these steps, you should restart the nginx web server.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Use a secure software development lifecycle (SDLC) to identify and fix security vulnerabilities in your code.
+* Keep your software up to date with the latest security patches.
+* Use a firewall to block unauthorized access to your web server.
+* Use a web application firewall (WAF) to protect your web server from common attacks.

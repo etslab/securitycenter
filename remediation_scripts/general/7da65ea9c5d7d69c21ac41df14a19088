@@ -1,0 +1,32 @@
+####patch script to remediate CVE-2013-0169, CWE-310 X-Content-Type-Options header not implemented in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 X-Content-Type-Options header not implemented in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Check if the X-Content-Type-Options header is already set
+  if ! grep -q "X-Content-Type-Options" /etc/apache2/apache2.conf; then
+
+    # Add the X-Content-Type-Options header to Apache's configuration file
+    echo "Header always set X-Content-Type-Options nosniff" >> /etc/apache2/apache2.conf
+
+    # Restart Apache
+    service apache2 restart
+
+  fi
+
+else
+
+  echo "Apache is not running"
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will then check if the X-Content-Type-Options header is already set in Apache's configuration file. If it is not, the script will add the header to the configuration file and restart Apache.
+
+The X-Content-Type-Options header is a security header that can be used to prevent certain types of cross-site scripting (XSS) attacks. By setting this header, Apache will tell browsers not to allow content type sniffing, which is a technique that attackers can use to trick browsers into interpreting content as a different type than it actually is.
+
+This patch script is a simple way to remediate CVE-2013-0169 and improve the security of your Apache web server.

@@ -1,0 +1,39 @@
+####patch script to remediate  CVE-2022-26377 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2022-26377 in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check if Apache is using mod_proxy_ajp
+  if grep -q "mod_proxy_ajp" /etc/apache2/mods-enabled/; then
+
+    # Stop Apache
+    /usr/sbin/apache2 stop
+
+    # Patch Apache
+    sed -i -e 's/ajp_allow_forwarded_reqs=Off/ajp_allow_forwarded_reqs=On/' /etc/apache2/mods-available/ajp.conf
+
+    # Restart Apache
+    /usr/sbin/apache2 start
+
+  else
+
+    echo "Apache is not using mod_proxy_ajp"
+
+  fi
+
+else
+
+  echo "Apache is not running"
+
+fi
+
+
+This patch script will first check if Apache is running. If it is, the script will then check if Apache is using mod_proxy_ajp. If it is, the script will then patch Apache to enable the `ajp_allow_forwarded_reqs` directive. This directive allows Apache to forward requests to the AJP server even if the request contains a forwarded header. This will remediate the CVE-2022-26377 vulnerability.
+
+After the patch is applied, the script will then restart Apache.
+
+Please note that this is just a sample patch script. You may need to modify it to fit your specific environment.

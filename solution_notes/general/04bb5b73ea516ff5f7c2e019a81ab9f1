@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-10011 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2016-10011 issue in Apache web server, you need to upgrade to a version of Apache that includes the security patch for this vulnerability. The patch was released in Apache version 2.4.25 and 2.4.24-p1. If you are running an older version of Apache, you should upgrade as soon as possible.
+
+The CVE-2016-10011 vulnerability is a buffer overflow vulnerability that can be exploited by a remote attacker to execute arbitrary code on the server. The vulnerability is caused by a flaw in the way that Apache handles large file uploads. An attacker can exploit this vulnerability by uploading a specially crafted file that is larger than the maximum allowed size. When the file is uploaded, the server will attempt to allocate a buffer to store the file data. However, if the file is larger than the maximum allowed size, the buffer will overflow, resulting in a remote code execution vulnerability.
+
+The CVE-2016-10011 vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection vulnerabilities occur when unvalidated data is inserted into an application's code. This can lead to a variety of security problems, including remote code execution, data modification, and denial of service.
+
+To mitigate the risk of injection vulnerabilities, it is important to validate all input data before it is inserted into an application's code. This can be done using a variety of techniques, such as input validation libraries, regular expressions, and white lists.
+
+Here are some additional tips for protecting your Apache web server from security vulnerabilities:
+
+* Keep your Apache software up to date. Security patches are released regularly to address vulnerabilities in Apache software. It is important to install these patches as soon as possible to protect your server from attack.
+* Use a firewall to restrict access to your Apache server. A firewall can help to prevent unauthorized users from accessing your server.
+* Use strong passwords for your Apache server. Strong passwords make it more difficult for attackers to gain access to your server.
+* Use a content management system (CMS) to manage your Apache website. A CMS can help to make your website more secure by providing features such as password protection, user authentication, and content filtering.
+
+By following these tips, you can help to protect your Apache web server from security vulnerabilities.

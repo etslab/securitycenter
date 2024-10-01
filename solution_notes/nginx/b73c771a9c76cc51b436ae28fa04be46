@@ -1,0 +1,18 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-26691 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2021-26691 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx includes a security fix for this vulnerability.
+2. If you cannot update your nginx web server to the latest version, you can apply the security fix manually. The security fix can be found in the nginx security advisory.
+
+The CVE-2021-26691 issue is a heap overflow vulnerability. This vulnerability occurs when an attacker sends a specially crafted request to the nginx web server. The specially crafted request can cause the nginx web server to crash or execute arbitrary code.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is inserted into an application. This can allow an attacker to execute arbitrary code or gain unauthorized access to the application.
+
+To protect your nginx web server from this vulnerability, you should:
+
+* Keep your nginx web server up to date with the latest security patches.
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Implement input validation and output encoding to prevent injection attacks.
+* Educate your users about the importance of security and how to identify and report suspicious activity.
+
+By following these steps, you can help to protect your nginx web server from the CVE-2021-26691 vulnerability and other injection attacks.

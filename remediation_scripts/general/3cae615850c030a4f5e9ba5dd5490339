@@ -1,0 +1,30 @@
+####patch script to remediate  cert expirationStatus, expired in Apache HTTP Server
+Sure, here is a patch script to remediate cert expirationStatus, expired in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Get the current date and time
+now=$(date +%s)
+
+# Get the list of expired certificates
+expired_certs=$(openssl x509 -noout -enddate -in /etc/ssl/certs/*.crt | awk '$2 < $now')
+
+# For each expired certificate, remove it from the Apache configuration
+for cert in $expired_certs; do
+  echo "Removing expired certificate $cert"
+  a2dissite $(echo $cert | sed 's/.*\///')
+done
+
+# Restart Apache
+service httpd restart
+```
+
+This script will first get the current date and time. Then, it will get a list of all expired certificates on the system. For each expired certificate, it will remove it from the Apache configuration and restart Apache.
+
+Here are some things to keep in mind when using this script:
+
+* The script will only work if the Apache configuration is using the default SSLCipherSuite directive. If you have customized the SSLCipherSuite directive, you will need to modify the script accordingly.
+* The script will not remove certificates that are in use by a running Apache process. If you need to remove a certificate that is in use, you will need to stop Apache before running the script.
+
+I hope this helps!

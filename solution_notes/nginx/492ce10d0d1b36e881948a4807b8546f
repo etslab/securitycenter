@@ -1,0 +1,47 @@
+###How to fix the Web Threats issue of Server Leaks Information via X-Powered-By HTTP Response Header Field(s) in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Web Threats issue of Server Leaks Information via X-Powered-By HTTP Response Header Field(s) in Nginx web server, you can follow these steps:
+
+1. Open the Nginx configuration file. The default location is `/etc/nginx/nginx.conf`.
+2. Find the `http` section.
+3. Add the following line to the `http` section:
+
+```
+server_tokens off;
+```
+
+This will disable the `X-Powered-By` header in the Nginx response headers.
+
+4. Save the configuration file.
+5. Restart Nginx.
+
+To restart Nginx, you can run the following command:
+
+```
+service nginx restart
+```
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category **A2: Broken Authentication**.
+
+**What is A2: Broken Authentication?**
+
+Broken authentication is a web application security risk that occurs when an application does not properly authenticate users or when authentication credentials are compromised. This can allow attackers to gain unauthorized access to the application or its data.
+
+**How is the X-Powered-By header related to A2: Broken Authentication?**
+
+The X-Powered-By header can reveal the version of the web server software that is being used. Attackers can use this information to identify known vulnerabilities in the web server software and exploit them to gain unauthorized access to the application.
+
+**Why is it important to disable the X-Powered-By header?**
+
+Disabling the X-Powered-By header removes a potential source of information that attackers can use to exploit vulnerabilities in the web server software. This is a simple and effective way to improve the security of your web application.
+
+**Additional recommendations**
+
+In addition to disabling the X-Powered-By header, there are a number of other things that you can do to improve the security of your Nginx web server, such as:
+
+* Keep your Nginx software up to date.
+* Use a strong password for the Nginx root user.
+* Configure Nginx to use HTTPS for all traffic.
+* Enable mod_security or another web application firewall.
+* Implement a security header policy.
+
+By following these recommendations, you can help to protect your web application from attack.

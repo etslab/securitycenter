@@ -1,0 +1,28 @@
+###How to fix the App Dependencies issue of jsdom:14.1.0 of pkg:npm/jsdom@14.1.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of jsdom:14.1.0 of pkg:npm/jsdom@14.1.0 in Apache web server, you can follow these steps:
+
+1. Install the jsdom package:
+
+```
+npm install jsdom@14.1.0
+```
+
+2. Update the Apache configuration file to include the following line:
+
+```
+LoadModule jsdom_module modules/mod_jsdom.so
+```
+
+3. Restart Apache.
+
+The jsdom package provides a JavaScript environment that can be used to test web applications. The issue that you are experiencing is caused by a mismatch between the version of the jsdom package that is installed on your system and the version that is required by the Apache web server. By installing the correct version of the jsdom package and updating the Apache configuration file, you can resolve this issue.
+
+The App Dependencies issue belongs to the OWASP Top 10 Web 2021 category of Vulnerable and Outdated Components. This category includes vulnerabilities that can be exploited by attackers if outdated or vulnerable components are used in a web application. By keeping your applications up to date and using secure components, you can help to protect your applications from these vulnerabilities.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Use a dependency management tool to track the versions of all of the components that are used in your applications.
+* Set up a process for regularly updating the components that are used in your applications.
+* Test your applications regularly to ensure that they are not vulnerable to known attacks.
+
+By following these tips, you can help to protect your applications from App Dependencies issues.

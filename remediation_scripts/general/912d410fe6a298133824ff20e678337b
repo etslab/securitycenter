@@ -1,0 +1,31 @@
+####patch script to remediate  Strict-Transport-Security Header Not Set in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate the "Strict-Transport-Security Header Not Set" issue in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is running
+if ! pgrep httpd >/dev/null; then
+  echo "Apache is not running."
+  exit 1
+fi
+
+# Check if the HSTS header is set
+if ! grep -q "Strict-Transport-Security" /etc/apache2/httpd.conf; then
+  echo "The HSTS header is not set."
+  echo "Adding the HSTS header..."
+
+  # Add the HSTS header to the Apache configuration file
+  sed -i -e "/<VirtualHost *:443>/ i\
+    Header always set Strict-Transport-Security \"max-age=31536000; includeSubDomains\"" /etc/apache2/httpd.conf
+
+  # Restart Apache
+  service httpd restart
+fi
+
+echo "The HSTS header has been set."
+
+
+This patch script will first check if Apache is running. If it is not running, the script will exit. If Apache is running, the script will then check if the HSTS header is set. If it is not set, the script will add the HSTS header to the Apache configuration file and restart Apache.
+
+The HSTS header is a security header that can be used to force browsers to always use HTTPS when connecting to a particular website. This can help to protect against man-in-the-middle attacks and other security threats.

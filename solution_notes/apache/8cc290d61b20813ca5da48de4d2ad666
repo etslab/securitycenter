@@ -1,0 +1,16 @@
+###How to fix the Web Threats issue of Vulnerable JS Library
+There are a few ways to fix the Web Threats issue of Vulnerable JS Library in Apache web server.
+
+* **Update the JS library to the latest version.** This is the most effective way to fix the issue, as it will patch any known vulnerabilities.
+* **Use a Content Delivery Network (CDN) to serve the JS library.** A CDN will cache the JS library on servers that are closer to your users, which will improve performance and make it more difficult for attackers to exploit the vulnerability.
+* **Use a web application firewall (WAF) to block known attack vectors.** A WAF can be configured to block requests that are known to exploit JS vulnerabilities.
+
+The Vulnerable JS Library issue belongs to the OWASP Top 10 Web Security Risks 2021 category of **A1 - Injection**. Injection attacks are a type of attack where an attacker injects malicious code into a web application. This malicious code can then be executed by the web application, which can allow the attacker to gain access to the application or its data.
+
+Here are some additional tips for preventing Vulnerable JS Library attacks:
+
+* **Use a secure coding methodology.** A secure coding methodology will help you to write code that is less vulnerable to attack.
+* **Scan your code for vulnerabilities.** There are a number of tools available that can scan your code for vulnerabilities.
+* **Educate your developers about security risks.** Make sure that your developers are aware of the security risks associated with JS libraries and how to prevent them.
+
+By following these tips, you can help to protect your web application from Vulnerable JS Library attacks.

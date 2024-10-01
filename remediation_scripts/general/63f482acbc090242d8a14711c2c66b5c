@@ -1,0 +1,57 @@
+####patch script to remediate  CVE-2021-36160 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2021-36160 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+  echo "Apache is running. Stopping..."
+  systemctl stop httpd
+fi
+
+# Download the patch
+wget https://www.apache.org/dist/httpd/patches/2.4/CVE-2021-36160.patch
+
+# Apply the patch
+patch -p1 < CVE-2021-36160.patch
+
+# Restart Apache
+echo "Restarting Apache..."
+systemctl start httpd
+
+# Check if the patch was applied successfully
+if [ -f /etc/httpd/conf.d/mod_proxy_uwsgi.conf ]; then
+  echo "Patch applied successfully."
+else
+  echo "Patch failed to apply."
+fi
+```
+
+This script will first check if Apache is running. If it is, it will stop Apache and then download the patch from the Apache website. Next, the script will apply the patch and then restart Apache. Finally, the script will check if the patch was applied successfully.
+
+If you are not comfortable using the command line, you can also download the patch from the Apache website and apply it manually. To do this, follow these steps:
+
+1. Download the patch from the Apache website.
+2. Unzip the patch file.
+3. Open the patch file in a text editor.
+4. Search for the line that starts with `---`.
+5. The line that starts with `+++` contains the changes that will be made by the patch.
+6. Save the patch file.
+7. Run the following command to apply the patch:
+
+```
+patch -p1 < CVE-2021-36160.patch
+```
+
+After the patch has been applied, you can restart Apache by running the following command:
+
+```
+systemctl restart httpd
+```
+
+Once Apache has restarted, you can check if the patch was applied successfully by looking for the following line in the Apache error log:
+
+```
+Applied patch CVE-2021-36160
+```

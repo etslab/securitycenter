@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of writer-big.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of writer-big.tar in Apache web server can be fixed by following these steps:
+
+1. Download the latest version of the writer-big.tar file from the Apache website.
+2. Extract the contents of the file to a new directory.
+3. Edit the configuration file for the Apache web server.
+4. Locate the section that defines the writer-big.tar module.
+5. Change the value of the "App Dependencies" directive to the path of the new directory that contains the extracted files.
+6. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "A3: Broken Access Control". This category includes vulnerabilities that allow attackers to gain unauthorized access to sensitive data or resources. In this case, the App Dependencies issue allows attackers to gain access to the Apache web server's configuration files, which could potentially allow them to exploit other vulnerabilities in the server.
+
+Here are some additional steps that can be taken to mitigate the risk of this vulnerability:
+
+* Use a web application firewall (WAF) to scan for and block malicious traffic.
+* Keep the Apache web server software up to date with the latest security patches.
+* Use strong passwords for the Apache web server and its configuration files.
+* Implement least privilege, so that only authorized users have access to the Apache web server and its configuration files.
+
+By following these steps, you can help to protect your Apache web server from the App Dependencies vulnerability and other security threats.

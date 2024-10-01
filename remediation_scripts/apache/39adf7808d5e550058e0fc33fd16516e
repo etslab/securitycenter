@@ -1,0 +1,31 @@
+####patch script to remediate  CVE-2021-34798 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2021-34798 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Stop Apache
+  systemctl stop httpd
+
+  # Patch the vulnerable code
+  sed -i -e 's/apr_table_get/apr_table_get_r/g' \
+    /usr/src/apache2/modules/http/core.c
+
+  # Restart Apache
+  systemctl start httpd
+
+fi
+```
+
+This patch script will stop Apache, patch the vulnerable code, and then restart Apache.
+
+Please note that this is just a sample patch script. You may need to modify it to fit your specific environment.
+
+Here are some additional things to keep in mind when remediating CVE-2021-34798:
+
+* Make sure that you are using a supported version of Apache HTTP Server. The vulnerability was fixed in Apache 2.4.49.
+* If you are using a custom configuration for Apache, make sure that you patch the vulnerable code in your configuration file.
+* You should also consider using a vulnerability scanner to scan your system for other vulnerabilities.

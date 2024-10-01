@@ -1,0 +1,30 @@
+###How to fix the App Dependencies issue of go1.17.linux-amd64.tar.gz:go1.17.linux-amd64.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of go1.17.linux-amd64.tar.gz:go1.17.linux-amd64.tar in Apache web server, you can follow these steps:
+
+1. Download the latest version of Go from the Golang website.
+2. Extract the Go archive file to a directory of your choice.
+3. Edit the Apache configuration file and add the following lines to the end of the file:
+
+```
+<Directory /path/to/go/directory>
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+</Directory>
+```
+
+4. Restart Apache.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1: Injection**. Injection vulnerabilities occur when unvalidated data is injected into an application, such as through user input or environmental variables. This can lead to a variety of attacks, such as code execution, data exfiltration, and denial of service.
+
+By following the steps above, you can help to mitigate the risk of injection vulnerabilities in your Apache web server.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements or parameterized queries when interacting with databases.
+* Sanitize all user input before using it in your application.
+* Validate all environmental variables before using them in your application.
+* Use a web application firewall (WAF) to help protect your application from known attack vectors.
+
+By following these tips, you can help to keep your Apache web server safe from injection vulnerabilities.

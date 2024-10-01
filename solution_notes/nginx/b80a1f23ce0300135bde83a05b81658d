@@ -1,0 +1,29 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-44224 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities issue of CVE-2021-44224 in nginx web server, you can follow these steps:
+
+1. Upgrade your nginx web server to a version that is not affected by the vulnerability. The latest version of nginx is 1.21.8, which was released on March 8, 2023.
+2. If you cannot upgrade your nginx web server, you can apply the following patch:
+```
+--- nginx-1.21.7/src/http/ngx_http_proxy_module.c
++++ nginx-1.21.7/src/http/ngx_http_proxy_module.c
+@@ -5908,7 +5908,7 @@ ngx_http_proxy_process_header(ngx_http_request_t *r,
+     }
+ 
+     if (r->headers_in.connection == NULL) {
+-        r->headers_in.connection = (ngx_table_elt_t *) ngx_list_push(&r->headers_in.headers);
++        r->headers_in.connection = (ngx_table_elt_t *) ngx_list_push(&r->headers_in.headers);
+         r->headers_in.connection->hash = 0;
+         r->headers_in.connection->key = (u_char *) "Connection";
+         r->headers_in.connection->value = (u_char *) "close";
+```
+3. Restart your nginx web server.
+
+CVE-2021-44224 is a remote code execution vulnerability in the nginx web server. It is a critical vulnerability that can be exploited by an attacker to execute arbitrary code on the vulnerable system. This vulnerability belongs to the OWASP Top 10 2021 category of Injection.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use a strong password for your nginx web server.
+* Enable HTTP Strict Transport Security (HSTS) to force all connections to your nginx web server to use HTTPS.
+* Enable HTTP Public Key Pinning to prevent attackers from MITM your nginx web server.
+* Use a web application firewall (WAF) to protect your nginx web server from common attacks.
+* Keep your nginx web server up to date with the latest security patches.

@@ -1,0 +1,38 @@
+####patch script to remediate  There is an issue with authentication methods in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate authentication issues in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Stop Apache
+  systemctl stop httpd
+
+  # Update Apache configuration
+  sed -i 's/^(AuthType.*)$/#&/' /etc/apache2/apache2.conf
+  sed -i 's/^(Require.*)$/#&/' /etc/apache2/apache2.conf
+
+  # Restart Apache
+  systemctl start httpd
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This patch script will first check to see if Apache is running. If it is, the script will then stop Apache. Next, the script will update the Apache configuration file to disable authentication. Finally, the script will restart Apache.
+
+After running this patch script, Apache will no longer require authentication. This will help to mitigate the risk of unauthorized access to your web server.
+
+Here are some additional things you can do to secure your Apache HTTP Server:
+
+* Use strong passwords for your web server accounts.
+* Enable password hashing.
+* Use a firewall to restrict access to your web server.
+* Keep your Apache software up to date.
+
+By following these steps, you can help to keep your Apache HTTP Server secure.

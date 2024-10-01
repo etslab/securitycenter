@@ -1,0 +1,33 @@
+###How to fix the Common Vulnerabilities issue of CVE-2018-15919 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The CVE-2018-15919 vulnerability is a buffer overflow bug in the nginx web server that can be exploited by attackers to execute arbitrary code on the server. This vulnerability was patched in nginx version 1.15.6 and 1.14.1. To fix this vulnerability, you should upgrade your nginx server to a patched version.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection vulnerabilities occur when unvalidated or malicious data is injected into an application, resulting in unintended consequences. In this case, the attacker can inject malicious code into the nginx server, which can then be executed on the server.
+
+Here are the steps on how to fix the CVE-2018-15919 vulnerability in nginx web server:
+
+1. Check the version of your nginx server. You can do this by running the following command:
+
+```
+nginx -v
+```
+
+2. If your nginx server is not up to date, you can upgrade it by downloading the latest version from the nginx website.
+
+3. Once you have downloaded the latest version of nginx, you can install it by following the instructions in the nginx installation guide.
+
+4. After you have installed the latest version of nginx, you should restart your nginx server.
+
+5. You can verify that the vulnerability has been fixed by running the following command:
+
+```
+nginx -t
+```
+
+If the command returns without any errors, then the vulnerability has been fixed.
+
+Here are some additional tips to help you prevent similar vulnerabilities in the future:
+
+* Keep your software up to date. Software vendors often release security patches to fix vulnerabilities. It is important to install these patches as soon as possible to protect your system from attack.
+* Use a web application firewall (WAF). A WAF can help to protect your web server from a variety of attacks, including injection attacks.
+* Implement input validation. Input validation is a process of checking incoming data for malicious content. This can help to prevent attackers from injecting malicious code into your application.
+* Educate your users. Users can be a source of vulnerabilities. They can click on malicious links, open infected attachments, or provide sensitive information to attackers. It is important to educate your users about the risks of online attacks and how to protect themselves.

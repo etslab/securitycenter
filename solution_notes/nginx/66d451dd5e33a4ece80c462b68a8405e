@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-9490 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the CVE-2020-9490 vulnerability in nginx web server, you can follow these steps:
+
+1. Update your nginx to the latest version. The latest version of nginx is 1.21.1, which was released on March 8, 2023.
+2. If you cannot update your nginx to the latest version, you can mitigate the vulnerability by disabling HTTP/2 push support. To do this, add the following line to your nginx configuration file:
+
+```
+    h2push off;
+    ```
+
+3. Restart your nginx server.
+
+CVE-2020-9490 is a remote code execution vulnerability that can be exploited by an attacker to execute arbitrary code on the server. This vulnerability is a critical severity vulnerability, and it is important to fix it as soon as possible.
+
+CVE-2020-9490 belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered user input is used to dynamically generate SQL statements or HTML.
+
+To prevent injection attacks, it is important to validate and filter all user input before using it to generate dynamic content. You can also use a web application firewall (WAF) to help protect your web application from injection attacks.

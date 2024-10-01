@@ -1,0 +1,34 @@
+###How to fix the Certificates issue of OCSP stapling, not offered in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**How to fix the Certificates issue of OCSP stapling, not offered in nginx web server?**
+
+To fix the Certificates issue of OCSP stapling, not offered in nginx web server, you can follow these steps:
+
+1. Install the `ngx_http_ocsp_stapling` module for nginx.
+2. Edit the nginx configuration file and add the following lines:
+
+```
+load_module modules/ngx_http_ocsp_stapling.so;
+
+http {
+  ocsp_stapling on;
+  ocsp_stapling_responder_url "https://ocsp.example.com";
+}
+```
+
+3. Restart nginx.
+
+Once you have completed these steps, nginx will offer OCSP stapling to clients.
+
+**Which OWASP Top 10 Web 2021 category does this issue belong to?**
+
+The issue of OCSP stapling not being offered in nginx web server belongs to the **A8:2021 - Broken Authentication** category of the OWASP Top 10 Web 2021. This category is concerned with vulnerabilities that can allow attackers to bypass or compromise authentication mechanisms.
+
+OCSP stapling is a security feature that helps to improve the performance and reliability of TLS connections. By offering OCSP stapling, nginx can help to protect clients from attackers who try to impersonate the server or revoke the server's certificate.
+
+**Additional information:**
+
+* The `ngx_http_ocsp_stapling` module is not included in the core nginx distribution. You can install it from the nginx third-party modules repository.
+* The `ocsp_stapling_responder_url` directive specifies the URL of the OCSP responder that nginx will use to verify the status of the server's certificate.
+* You can test whether or not nginx is offering OCSP stapling by using a tool such as SSL Labs.
+
+I hope this information is helpful.

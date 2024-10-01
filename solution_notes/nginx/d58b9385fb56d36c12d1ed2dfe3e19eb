@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of minimatch:3.0.4 of pkg:npm/minimatch@3.0.4 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of minimatch:3.0.4 of pkg:npm/minimatch@3.0.4 in nginx web server can be fixed by updating the minimatch dependency to a newer version. This issue is a vulnerability in the minimatch package that can be exploited by attackers to execute arbitrary code on the server.
+
+To update the minimatch dependency, you can use the following command:
+
+```
+npm update minimatch
+```
+
+Once the dependency has been updated, you will need to restart the nginx web server.
+
+This issue belongs to the **Injection** category of the OWASP Top 10 Web 2021. Injection attacks occur when an attacker injects malicious code into a web application. This code can then be executed by the web application, giving the attacker control over the application.
+
+To prevent injection attacks, it is important to properly sanitize all user input and to use secure coding practices. It is also important to keep all software up to date, as vulnerabilities are often patched in newer versions of software.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use a web application firewall (WAF) to filter out malicious requests.
+* Use prepared statements to execute SQL queries.
+* Escape all user input before using it in SQL queries or HTML code.
+* Encode all user input before displaying it on the web page.
+* Use a content security policy (CSP) to restrict the types of scripts that can be executed on the web page.
+
+By following these tips, you can help to protect your web application from injection attacks.

@@ -1,0 +1,21 @@
+###How to fix the URL Inspection issue of Files Recently Modified
+The URL Inspection issue of Files Recently Modified in Apache web server can be fixed by disabling the mod_info module. This module allows users to view information about the files on the server, including the file's modification time. This information can be used by attackers to identify files that have been recently modified, which may contain vulnerabilities.
+
+To disable the mod_info module, edit the Apache configuration file and comment out the following line:
+
+```
+LoadModule info_module modules/mod_info.so
+```
+
+Once the mod_info module is disabled, users will no longer be able to view information about the files on the server, including the file's modification time. This will help to protect the server from attacks that exploit recently modified files.
+
+The URL Inspection issue of Files Recently Modified in Apache web server belongs to the OWASP Top 10 Web 2021 category of Information Exposure. This category includes vulnerabilities that allow attackers to view sensitive information about a web application, such as the file system structure, database schema, or user credentials. Information exposure vulnerabilities can be exploited to gain unauthorized access to a web application or to steal sensitive data.
+
+Here are some additional steps that can be taken to mitigate the risk of information exposure vulnerabilities:
+
+* Use strong passwords and security settings for all web applications.
+* Keep web applications up to date with the latest security patches.
+* Use a web application firewall (WAF) to block common attack vectors.
+* Monitor web applications for signs of attack, such as unusual traffic patterns or failed login attempts.
+
+By taking these steps, organizations can help to protect their web applications from information exposure vulnerabilities.

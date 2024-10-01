@@ -1,0 +1,20 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-11993 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2020-11993 issue in Nginx web server, you can follow these steps:
+
+1. Update your Nginx web server to the latest version. The latest version of Nginx includes a security patch that fixes the CVE-2020-11993 issue.
+2. If you cannot update your Nginx web server to the latest version, you can apply the security patch manually. The security patch can be found on the Nginx website.
+
+The CVE-2020-11993 issue is a remote code execution vulnerability. This means that an attacker could exploit this vulnerability to execute arbitrary code on your web server. This could allow the attacker to take control of your web server and steal data, install malware, or disrupt your website.
+
+The CVE-2020-11993 issue belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered user input is used to dynamically generate SQL statements or HTML output. Injection flaws can allow attackers to execute arbitrary code on the server or steal sensitive data from the application.
+
+To prevent injection flaws, it is important to validate and filter all user input before it is used to generate dynamic SQL statements or HTML output. You can use a web application firewall (WAF) to help protect your application from injection attacks.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements instead of dynamic SQL statements.
+* Use input filters to sanitize user input.
+* Do not trust user input for anything that is sensitive, such as passwords or credit card numbers.
+* Keep your software up to date with the latest security patches.
+
+By following these tips, you can help protect your website from injection attacks.

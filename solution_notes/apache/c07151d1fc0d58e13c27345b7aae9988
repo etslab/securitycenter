@@ -1,0 +1,20 @@
+###How to fix the Web Threats issue of CSP: style-src unsafe-inline
+The Web Threats issue of CSP: style-src unsafe-inline in Apache web server can be fixed by adding the following line to the Apache configuration file:
+
+```
+Header set Content-Security-Policy "style-src 'self';"
+```
+
+This will prevent the browser from loading any CSS styles from any other sources, except for the current website.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Cross-Site Scripting (XSS). XSS is a type of security vulnerability that allows an attacker to inject malicious code into a website. This malicious code can then be executed by the victim's browser, which can lead to a variety of attacks, such as stealing cookies, session tokens, or other sensitive information.
+
+By adding the above line to the Apache configuration file, you can help to protect your website from XSS attacks.
+
+Here are some additional tips for preventing XSS attacks:
+
+* Use a Content Security Policy (CSP) to restrict the types of resources that can be loaded by your website.
+* Sanitize all user input before it is displayed on your website.
+* Use a web application firewall (WAF) to help block XSS attacks.
+
+By following these tips, you can help to protect your website from XSS attacks.

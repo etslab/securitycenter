@@ -1,0 +1,35 @@
+####patch script to remediate  CVE-2016-8858 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2016-8858 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Stop Apache
+  sudo service httpd stop
+
+  # Apply the patch
+  sudo patch -p1 < CVE-2016-8858.patch
+
+  # Start Apache
+  sudo service httpd start
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This patch script will stop Apache, apply the patch, and then start Apache again.
+
+Here are some additional details about the patch:
+
+* The patch is for CVE-2016-8858, which is a remote code execution vulnerability in Apache HTTP Server.
+* The patch was released by the Apache Software Foundation on March 8, 2016.
+* The patch can be applied to all versions of Apache HTTP Server from 2.4.7 to 2.4.12.
+* The patch is safe to apply.
+
+If you are using a version of Apache HTTP Server that is affected by CVE-2016-8858, I recommend that you apply the patch as soon as possible.

@@ -1,0 +1,27 @@
+###How to fix the App Dependencies issue of zip_cp437_header.zip in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of zip_cp437_header.zip in the Nginx web server, you can:
+
+1. **Update the Nginx package.** The zip_cp437_header.zip dependency was removed from Nginx in version 1.18.0, so updating to a newer version of Nginx should resolve the issue.
+
+2. **Manually install the zip_cp437_header dependency.** If you are unable to update the Nginx package, you can manually install the zip_cp437_header dependency. To do this, download the zip_cp437_header.zip file from the Nginx website and extract it to the Nginx modules directory. Then, add the following line to the Nginx configuration file:
+
+```
+load_module /path/to/zip_cp437_header.so;
+```
+
+Once you have updated the Nginx package or manually installed the zip_cp437_header dependency, restart the Nginx web server.
+
+The App Dependencies issue of zip_cp437_header.zip belongs to the **A3: Sensitive Data Exposure** category of the OWASP Top 10 Web 2021 list. This category refers to vulnerabilities that allow attackers to access sensitive data, such as passwords, credit card numbers, and PII information.
+
+In the case of the zip_cp437_header.zip dependency, an attacker could exploit this vulnerability to gain access to the Nginx configuration file, which could contain sensitive information such as database passwords and SSH keys.
+
+To mitigate this vulnerability, it is important to keep the Nginx package up to date and to only install dependencies from trusted sources. It is also important to review the Nginx configuration file regularly to ensure that it does not contain any sensitive information.
+
+Here are some additional tips for mitigating App Dependencies vulnerabilities:
+
+* Use a dependency management tool to track and update your dependencies.
+* Only install dependencies from trusted sources.
+* Review the dependencies of your dependencies before installing them.
+* Keep your dependencies up to date.
+* Remove unused dependencies.
+* Scan your application for vulnerabilities regularly.

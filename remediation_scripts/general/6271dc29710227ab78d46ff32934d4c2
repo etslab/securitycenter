@@ -1,0 +1,35 @@
+####patch script to remediate  CVE-2019-0211 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2019-0211 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Stop Apache
+  service httpd stop
+
+  # Patch the vulnerable code
+  sed -i -e 's/ap_scoreboard_get/ap_scoreboard_get_locked/g' \
+    /usr/src/apache2/modules/worker/mod_worker.c
+
+  # Restart Apache
+  service httpd start
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This patch script will stop Apache, patch the vulnerable code, and then restart Apache. It is important to note that this patch script only applies to Apache HTTP Server 2.4 releases 2.4.17 to 2.4.38. If you are running a newer version of Apache, you do not need to apply this patch.
+
+Here are some additional steps you can take to secure your Apache HTTP Server:
+
+* Keep your Apache software up to date.
+* Use a strong password for the Apache user account.
+* Configure Apache to only allow access from trusted sources.
+* Use a firewall to restrict access to Apache.
+* Monitor your Apache server for signs of attack.

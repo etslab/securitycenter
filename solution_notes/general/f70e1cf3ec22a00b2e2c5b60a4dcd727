@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of cli.exe in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of cli.exe in Apache web server can be fixed by following these steps:
+
+1. Disable the execution of CGI scripts in Apache. This can be done by editing the Apache configuration file and setting the `AllowOverride` directive to `None`.
+2. Remove the cli.exe file from the web server's document root directory.
+3. Update the Apache configuration file to deny access to the cli.exe file. This can be done by adding the following line to the Apache configuration file:
+
+```
+<Files "cli.exe">
+Order Deny,Allow
+Deny from all
+</Files>
+```
+
+The App Dependencies issue of cli.exe in Apache web server belongs to the OWASP Top 10 Web 2021 category of **A1: Injection**. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. This can be done by exploiting vulnerabilities in the application's code or configuration. Once the attacker has injected malicious code, they can then execute it on the application's server. This can allow the attacker to steal data, install malware, or take control of the server.
+
+Here are some additional tips for preventing and mitigating the App Dependencies issue of cli.exe in Apache web server:
+
+* Use a web application firewall (WAF) to help prevent attacks that exploit vulnerabilities in the application's code or configuration.
+* Keep the application's software up to date. Software updates often include security patches that can help to protect against known vulnerabilities.
+* Use strong passwords and authentication mechanisms to protect the application.
+* Implement proper input validation to help prevent attackers from injecting malicious code into the application.
+* Monitor the application for signs of attack, such as unusual traffic patterns or changes in system behavior.
+
+By following these tips, you can help to protect your Apache web server from the App Dependencies issue of cli.exe and other security vulnerabilities.

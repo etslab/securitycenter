@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-0215 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2019-0215 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx includes a security patch that fixes the CVE-2019-0215 issue.
+2. If you cannot update your nginx web server to the latest version, you can apply the security patch manually. The security patch can be downloaded from the nginx website.
+
+CVE-2019-0215 is a remote code execution vulnerability that affects the nginx web server. This vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted request to the server.
+
+CVE-2019-0215 belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is inserted into an application. This can lead to attackers being able to execute arbitrary code on the server or steal sensitive data.
+
+To prevent CVE-2019-0215 and other injection attacks, it is important to properly validate and filter all input data before it is inserted into an application. This can be done by using input validation libraries or by manually checking all input data for potential security risks.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use a web application firewall (WAF) to help protect against XSS attacks.
+* Educate your developers about the risks of injection attacks and how to prevent them.

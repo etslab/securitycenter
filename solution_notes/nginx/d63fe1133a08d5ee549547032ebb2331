@@ -1,0 +1,25 @@
+###How to fix the App Dependencies issue of qs:6.5.2 of pkg:npm/qs@6.5.2 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of qs:6.5.2 of pkg:npm/qs@6.5.2 in nginx web server, you can do the following:
+
+1. Update the qs dependency to a version that is not affected by the vulnerability. The latest version of qs is 6.11.0, which is not affected by the vulnerability.
+2. If you are unable to update the qs dependency, you can mitigate the vulnerability by using a content security policy (CSP) to block the malicious code from being executed. To do this, add the following to your nginx configuration file:
+
+```
+content_security_policy "default-src 'self'; script-src 'self' 'unsafe-inline';";
+```
+
+This will prevent any scripts from being executed from other domains, including the malicious code that is exploiting the vulnerability in qs:6.5.2.
+
+This issue belongs to the OWASP Top 10 Web 2021 category **A1: Injection**.
+
+Injection attacks occur when an attacker is able to inject malicious code into a web application. This can be done through a variety of methods, such as SQL injection, command injection, and cross-site scripting (XSS). In this case, the attacker is able to inject malicious code into the qs dependency, which is then executed by the web application.
+
+To prevent injection attacks, it is important to validate all user input and to use prepared statements to execute SQL queries. It is also important to keep all software up to date, as software vendors often release patches to fix known vulnerabilities.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Use a content security policy (CSP) to restrict the types of scripts that can be executed on your website.
+* Implement input validation to ensure that all user input is sanitized before it is processed by your application.
+* Use prepared statements to execute SQL queries to prevent SQL injection attacks.
+* Keep all software up to date, including your web application, database, and operating system.

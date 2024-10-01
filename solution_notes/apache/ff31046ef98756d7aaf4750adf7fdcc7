@@ -1,0 +1,13 @@
+###How to fix the Web Threats issue of CSP: script-src unsafe-inline
+The Web Threats issue of CSP: script-src unsafe-inline in apache web server can be fixed by removing the `unsafe-inline` directive from the Content Security Policy (CSP) header. The `unsafe-inline` directive allows inline scripts to be executed, which can be a security risk. By removing this directive, you will prevent any inline scripts from being executed, which will help to protect your website from cross-site scripting (XSS) attacks.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1: Injection**. XSS attacks are a type of injection attack that can be used to inject malicious code into a website. This malicious code can then be executed by the victim's browser, which can allow the attacker to steal sensitive information or take control of the victim's computer.
+
+Here are some additional steps you can take to protect your website from XSS attacks:
+
+* Use a Content Security Policy (CSP) to restrict the sources of JavaScript, CSS, and other resources that can be loaded on your website.
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Sanitize all user input before it is used in your website.
+* Keep your software up to date.
+
+By taking these steps, you can help to protect your website from XSS attacks.

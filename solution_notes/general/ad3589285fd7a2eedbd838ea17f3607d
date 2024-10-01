@@ -1,0 +1,19 @@
+###How to fix the API Threats issue of CSP: script-src unsafe-inline
+The CSP: script-src unsafe-inline issue can be fixed by adding the following line to the Apache web server's configuration file:
+
+```
+Header always set Content-Security-Policy "script-src 'self';"
+```
+
+This will prevent the browser from executing any inline scripts that are not from the same domain as the web page.
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as this one, occur when unvalidated or unfiltered data is inserted into an application. This can lead to code execution, privilege escalation, data exfiltration, and other security vulnerabilities.
+
+Here are some additional steps that can be taken to mitigate the risk of this issue:
+
+* Use a Content Security Policy (CSP) to restrict the sources of scripts that can be executed on your website.
+* Use input validation to ensure that all user input is properly sanitized before being used in an application.
+* Use proper error handling to prevent sensitive information from being leaked in the event of an error.
+* Keep your software up to date with the latest security patches.
+
+By following these steps, you can help to protect your website from the API Threats issue of CSP: script-src unsafe-inline.

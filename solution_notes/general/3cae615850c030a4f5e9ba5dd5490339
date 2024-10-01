@@ -1,0 +1,18 @@
+###How to fix the Certificates issue of cert expirationStatus, expired
+There are a few ways to fix the Certificates issue of cert expirationStatus, expired in apache web server.
+
+1. You can manually renew the certificate. To do this, you will need to contact the certificate authority (CA) that issued the certificate and request a new one. Once you have received the new certificate, you will need to upload it to your Apache server.
+2. You can use a certificate management tool to automate the renewal process. There are a number of different certificate management tools available, such as OpenSSL and Certbot. These tools can help you to automate the process of renewing your certificates, so that you do not have to do it manually.
+3. You can use a service like Let's Encrypt to automatically renew your certificates. Let's Encrypt is a free, open source certificate authority that offers automatic certificate renewal.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1: Broken Authentication**. This category includes vulnerabilities that allow attackers to gain unauthorized access to user accounts. An expired certificate can be a vulnerability because it can allow an attacker to impersonate a legitimate user.
+
+Here are some additional tips to help you secure your Apache web server:
+
+* Use strong passwords for your server and accounts.
+* Enable SSL/TLS and use strong ciphers.
+* Keep your software up to date.
+* Use a firewall to protect your server from unauthorized access.
+* Monitor your server for signs of attack.
+
+By following these tips, you can help to protect your Apache web server from attack.

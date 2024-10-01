@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of path-parse:1.0.6 of pkg:npm/path-parse@1.0.6 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of path-parse:1.0.6 of pkg:npm/path-parse@1.0.6 in Apache web server, you can follow these steps:
+
+1. Update the path-parse package to a newer version. You can do this by running the following command:
+
+```
+npm update path-parse
+```
+
+2. If you are unable to update the path-parse package, you can work around the issue by using a different library to parse paths. One such library is the `path` module, which is included with Node.js by default.
+
+3. Once you have fixed the issue, you should scan your web server for other potential vulnerabilities. You can do this using a web application scanner such as Nessus or QualysGuard.
+
+The App Dependencies issue of path-parse:1.0.6 of pkg:npm/path-parse@1.0.6 belongs to the OWASP Top 10 Web 2021 category of **A9: Using Components with Known Vulnerabilities**. This category is concerned with the use of components, such as libraries and frameworks, that have known vulnerabilities. When components with known vulnerabilities are used, they can introduce security risks into web applications.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your components up to date. Vendors often release security patches for components with known vulnerabilities. By keeping your components up to date, you can help to mitigate the risk of these vulnerabilities being exploited.
+* Use a component dependency management tool. A component dependency management tool can help you to track the dependencies of your web application and ensure that they are up to date.
+* Scan your web application for potential vulnerabilities. A web application scanner can help you to identify potential vulnerabilities in your web application, including vulnerabilities that may be introduced by outdated components.

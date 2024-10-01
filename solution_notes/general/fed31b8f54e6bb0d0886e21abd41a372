@@ -1,0 +1,16 @@
+###How to fix the App Dependencies issue of decode-uri-component:0.2.0 of pkg:npm/decode-uri-component@0.2.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of decode-uri-component:0.2.0 of pkg:npm/decode-uri-component@0.2.0 in apache web server can be fixed by upgrading the decode-uri-component package to a newer version. The vulnerable version of the package is <=0.2.0, and the patched version is >=0.3.0. To upgrade the package, you can use the following command:
+
+```
+npm install --save decode-uri-component@latest
+```
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Injection. Injection attacks occur when unvalidated or malicious data is injected into an application, resulting in unintended consequences. In this case, the malicious data could be used to cause a Denial of Service (DoS) attack on the Apache web server.
+
+Here are some additional steps you can take to secure your Apache web server:
+
+* Enable the mod_security module. mod_security is a web application firewall that can help to protect your server from a variety of attacks, including injection attacks.
+* Use a Content Security Policy (CSP). A CSP is a security policy that can be used to restrict the types of resources that can be loaded by your web application. This can help to prevent attackers from injecting malicious code into your application.
+* Keep your software up to date. Software updates often include security fixes, so it is important to install them as soon as they are available.
+
+By following these steps, you can help to protect your Apache web server from injection attacks.

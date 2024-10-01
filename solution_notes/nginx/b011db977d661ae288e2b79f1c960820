@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of time-22738.zip in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue in time-22738.zip is a security vulnerability that allows an attacker to exploit a known vulnerability in a third-party library used by the web application. This issue can be fixed by updating the third-party library to the latest version, or by using a different library that is not affected by the vulnerability.
+
+To fix the App Dependencies issue in nginx, you can follow these steps:
+
+1. Identify the third-party library that is affected by the vulnerability. This can be done by reviewing the application's code or by using a tool like Snyk or OWASP Dependency-Check.
+2. Update the third-party library to the latest version. If the latest version of the library is not available, you may need to use a different library that is not affected by the vulnerability.
+3. Restart the nginx web server.
+
+The App Dependencies issue belongs to the **Broken Component Dependencies** category of the OWASP Top 10 Web Application Security Risks 2021.
+
+Here are some additional tips for fixing the App Dependencies issue:
+
+* Keep your third-party libraries up to date. This is one of the best ways to protect your application from known vulnerabilities.
+* Use a dependency management tool to help you track and update your third-party libraries.
+* Scan your application for known vulnerabilities regularly. This will help you identify any vulnerabilities in your third-party libraries before they are exploited by attackers.
+* Use a web application firewall (WAF) to protect your application from common attacks, such as SQL injection and cross-site scripting.
+
+If you are unable to fix the App Dependencies issue yourself, you may need to contact the developer of the web application or the third-party library for assistance.

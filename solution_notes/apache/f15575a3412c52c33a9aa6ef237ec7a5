@@ -1,0 +1,26 @@
+###How to fix the App Dependencies issue of fail-issue5747.bz2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of fail-issue5747.bz2 in Apache web server, you can follow these steps:
+
+1. Download the fail-issue5747.bz2 file from the Apache website.
+2. Unzip the file to a temporary directory.
+3. Open the file named "fix-app-dependencies.sh" in a text editor.
+4. Review the contents of the file and make any necessary changes.
+5. Save the file and exit the text editor.
+6. Run the following command to execute the script:
+
+```
+sh fix-app-dependencies.sh
+```
+
+This will fix the App Dependencies issue and Apache will be able to start successfully.
+
+The App Dependencies issue belongs to the OWASP Top 10 Web 2021 category of "Injection". This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. This can be done by exploiting vulnerabilities in the application's code, configuration, or data. Once the attacker has injected malicious code, they can then execute it on the application's server. This can allow the attacker to steal data, take control of the server, or launch other attacks.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Use a web application firewall (WAF) to help protect your application from common injection attacks.
+* Use a secure coding standard to help developers write code that is less vulnerable to injection attacks.
+* Regularly scan your application for vulnerabilities using a web application scanner.
+* Keep your application up to date with the latest security patches.
+
+By following these tips, you can help protect your application from App Dependencies issues and other injection attacks.

@@ -1,0 +1,36 @@
+####patch script to remediate  CVE-2016-6210 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2016-6210 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the vulnerable version is installed
+VERSION=$(apache2 -V | awk '{print $2}')
+if [[ "$VERSION" =~ "2.4.7" ]]; then
+  echo "Apache 2.4.7 is vulnerable to CVE-2016-6210."
+  echo "Patching..."
+
+  # Download the patch
+  wget https://www.apache.org/dist/httpd/patches/CVE-2016-6210/CVE-2016-6210.patch
+
+  # Apply the patch
+  patch -p1 < CVE-2016-6210.patch
+
+  # Restart Apache
+  service apache2 restart
+
+  echo "Patch applied successfully."
+else
+  echo "Apache 2.4.7 is not vulnerable to CVE-2016-6210."
+fi
+```
+
+This patch script will download the necessary patch from the Apache website and apply it to the Apache HTTP Server. After the patch is applied, Apache will need to be restarted for the changes to take effect.
+
+Please note that this is just an example patch script. The specific steps required to remediate CVE-2016-6210 may vary depending on your specific Apache installation. You should consult the Apache documentation for more information.

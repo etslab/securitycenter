@@ -1,0 +1,21 @@
+###How to fix the Certificates issue of TLS session ticket, valid for 216000 seconds (>daily)
+To fix the Certificates issue of TLS session ticket, valid for 216000 seconds (>daily) in Apache web server, you can do the following:
+
+1. Open the Apache configuration file. This file is usually located at `/etc/apache2/apache2.conf`.
+2. Find the section that starts with `SSLSessionCache`.
+3. Change the value of `timeout` to a shorter value, such as 600 (10 minutes).
+4. Save the file and restart Apache.
+
+This will prevent the TLS session tickets from being valid for more than 10 minutes.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1: Injection**. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered user input is used to dynamically generate code or content. This can allow attackers to execute arbitrary code on the server or client, steal sensitive data, or hijack user sessions.
+
+In this case, the attacker could exploit the long session ticket lifetime to hijack a user's session by simply connecting to the server with the same browser and IP address as the victim. Once the attacker has hijacked the session, they could then access the victim's account and data.
+
+To prevent this attack, it is important to configure Apache to use a shorter session ticket lifetime. This will make it more difficult for attackers to hijack user sessions.
+
+In addition to configuring Apache, you should also implement other security measures to protect your website from injection attacks. These measures include:
+
+* Using a web application firewall (WAF) to filter out malicious traffic.
+* Using input validation to prevent unvalidated or unfiltered user input from being used to dynamically generate code or content.
+* Educating users about the dangers of social engineering attacks and how to avoid them.

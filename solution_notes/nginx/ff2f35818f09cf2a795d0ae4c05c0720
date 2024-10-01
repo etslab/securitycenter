@@ -1,0 +1,31 @@
+###How to fix the App Dependencies issue of time-win7.zip in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of time-win7.zip in nginx web server, you can follow these steps:
+
+1. Identify the specific app dependencies that are causing the issue. To do this, you can use the `nginx -T` command to test your nginx configuration and identify any errors.
+2. Once you have identified the specific app dependencies that are causing the issue, you can try to find updated versions of those dependencies. If no updated versions are available, you can try to find alternative dependencies that are compatible with your nginx configuration.
+3. Once you have found updated or alternative dependencies, you can update your nginx configuration and restart the nginx web server.
+
+This issue belongs to the **A1: Broken or Outdated Components** category of the OWASP Top 10 Web Application Security Risks 2021.
+
+**OWASP Top 10 Web 2021 category**
+
+* **A1: Broken or Outdated Components**
+* A2: Insecure Design
+* A3: Sensitive Data Exposure
+* A4: Broken Authentication and Session Management
+* A5: Security Misconfiguration
+* A6: Injection
+* A7: Insecure Cryptography
+* A8: Missing Function Level Access Control
+* A9: Cross-Site Scripting (XSS)
+* A10: Insecure Direct Object References
+
+**How to avoid this issue**
+
+There are a few things you can do to avoid App Dependency issues:
+
+* Keep your nginx configuration up to date.
+* Use a version control system to track changes to your nginx configuration.
+* Test your nginx configuration regularly.
+* Use a dependency management tool to keep your app dependencies up to date.
+* Scan your nginx configuration and app dependencies for vulnerabilities.

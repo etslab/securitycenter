@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of pax-multi-hdrs.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pax-multi-hdrs.tar in Apache web server, you can follow these steps:
+
+1. Download the latest version of pax-multi-hdrs.tar from the Apache website.
+2. Unzip the file to a directory of your choice.
+3. Edit the file `conf/httpd.conf` and add the following line to the end of the file:
+
+```
+Include /path/to/pax-multi-hdrs.conf
+```
+
+4. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "Injection". Injection flaws occur when unvalidated or unfiltered data is used to control the behavior of a web application. This can lead to unauthorized access, data loss, or other security vulnerabilities.
+
+Here are some additional tips to help you secure your Apache web server:
+
+* Keep your software up to date. Software vendors often release security patches to fix vulnerabilities. It is important to install these patches as soon as possible to protect your server from attack.
+* Use a web application firewall (WAF). A WAF can help to block common attack vectors, such as cross-site scripting (XSS) and SQL injection.
+* Configure your server securely. There are a number of configuration options that can help to improve the security of your Apache web server. For example, you can disable directory browsing and restrict access to certain directories.
+* Educate your users. Users can also play a role in securing your Apache web server. Make sure that they are aware of the risks of clicking on malicious links or opening attachments from unknown senders.
+
+By following these tips, you can help to secure your Apache web server and protect it from attack.

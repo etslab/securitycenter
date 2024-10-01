@@ -1,0 +1,41 @@
+###How to fix the Certificates issue of Initial redirection from HTTP to HTTPS is to a different host preventing HSTS
+The issue of initial redirection from HTTP to HTTPS is to a different host preventing HSTS in Apache web server can be fixed by following these steps:
+
+1. Create a manual backup of your site.
+2. Set up an HTTP to HTTPS redirect.
+3. Add the HSTS header.
+4. Submit your site to the HSTS preload list.
+5. Verify your strict-transport-security header.
+
+The following are the steps in detail:
+
+1. Create a manual backup of your site. This is important in case something goes wrong during the fix process.
+2. Set up an HTTP to HTTPS redirect. This can be done by adding the following code to your Apache configuration file:
+
+```
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+```
+
+3. Add the HSTS header. This can be done by adding the following code to your Apache configuration file:
+
+```
+Header always set Strict-Transport-Security "max-age=31536000; includeSubdomains;"
+```
+
+4. Submit your site to the HSTS preload list. This will add your site to a list of sites that browsers will always try to access over HTTPS. You can submit your site to the HSTS preload list here: https://hstspreload.org/
+
+5. Verify your strict-transport-security header. You can verify that your site is correctly configured for HSTS by using the following command:
+
+```
+curl -I https://example.com | grep Strict-Transport-Security
+```
+
+If you see the following output, then your site is correctly configured for HSTS:
+
+```
+Strict-Transport-Security: max-age=31536000; includeSubdomains
+```
+
+The issue of initial redirection from HTTP to HTTPS is to a different host preventing HSTS in Apache web server belongs to the OWASP Top 10 Web Security 2021 category of **Injection**. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. In this case, the attacker could inject malicious code into the HTTP to HTTPS redirect, which could then be used to steal user credentials or other sensitive information.

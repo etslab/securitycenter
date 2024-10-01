@@ -1,0 +1,34 @@
+####patch script to remediate CVE-2013-0169, CWE-310 X-Content-Type-Options Header Missing in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 X-Content-Type-Options Header Missing in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -f /etc/init.d/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check if the X-Content-Type-Options header is already set
+if grep -q "X-Content-Type-Options" /etc/apache2/apache2.conf; then
+  echo "The X-Content-Type-Options header is already set."
+  exit 0
+fi
+
+# Add the X-Content-Type-Options header to Apache's configuration file
+echo "Header always set X-Content-Type-Options \"nosniff\"" >> /etc/apache2/apache2.conf
+
+# Restart Apache
+service apache2 restart
+
+# Check if the X-Content-Type-Options header is now set
+if grep -q "X-Content-Type-Options" /etc/apache2/apache2.conf; then
+  echo "The X-Content-Type-Options header has been set."
+else
+  echo "The X-Content-Type-Options header has not been set."
+  exit 1
+fi
+```
+
+This patch script will check if Apache is installed and running. If it is, the script will check if the X-Content-Type-Options header is already set in Apache's configuration file. If it is not, the script will add the header to the configuration file and restart Apache. Finally, the script will check to make sure that the header has been set.

@@ -1,0 +1,39 @@
+###How to fix the App Dependencies issue of gnu-not-utf8.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+There are a few ways to fix the App Dependencies issue of gnu-not-utf8.tar in the nginx web server:
+
+1. Update the `gnu-not-utf8.tar` package to the latest version. This can be done using the following command:
+
+```
+sudo apt update && sudo apt upgrade gnu-not-utf8.tar
+```
+
+2. Remove the `gnu-not-utf8.tar` package and reinstall it. This can be done using the following commands:
+
+```
+sudo apt remove gnu-not-utf8.tar
+sudo apt install gnu-not-utf8.tar
+```
+
+3. Install the `libapparmor-dev` package. This can be done using the following command:
+
+```
+sudo apt install libapparmor-dev
+```
+
+4. Compile the `gnu-not-utf8.tar` package with the `--disable-apparmor` flag. This can be done using the following command:
+
+```
+sudo tar -xvf gnu-not-utf8.tar
+cd gnu-not-utf8
+./configure --disable-apparmor
+make
+sudo make install
+```
+
+5. If you are using a cloud-based nginx web server, you may be able to contact your provider to fix the issue for you.
+
+This issue belongs to the **A1:Injection** category of the OWASP Top 10 Web 2021 list. This category refers to vulnerabilities that allow an attacker to inject malicious code into a web application. The attacker can then use this code to take control of the web application or to steal data from it.
+
+In the case of the `gnu-not-utf8.tar` issue, an attacker could inject malicious code into the web application by uploading a specially crafted `gnu-not-utf8.tar` package. The web application would then install this package, and the attacker's code would be executed.
+
+To protect against this vulnerability, you should follow the best practices for managing dependencies. This includes keeping your dependencies up to date, using a dependency management tool, and only installing dependencies from trusted sources. You should also configure your web application to properly validate and sanitize all user input.

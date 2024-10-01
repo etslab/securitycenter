@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of ws:6.2.1 of pkg:npm/ws@6.2.1 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of ws:6.2.1 of pkg:npm/ws@6.2.1 in Apache web server can be fixed by updating the ws dependency to a newer version. The issue is caused by a security vulnerability in the ws package, which was fixed in version 6.3.0. To update the ws dependency, you can use the following steps:
+
+1. Open the package.json file for your application.
+2. Find the ws dependency line.
+3. Update the version number to 6.3.0 or higher.
+4. Save the package.json file.
+5. Run the npm install command to install the updated dependencies.
+
+Once you have updated the ws dependency, the App Dependencies issue will be fixed.
+
+The App Dependencies issue belongs to the OWASP Top 10 Web Security Risks 2021 category of Using Components with Known Vulnerabilities. This category includes risks that are caused by using components, such as libraries, frameworks, and plugins, that have known security vulnerabilities. Using components with known vulnerabilities can allow attackers to exploit those vulnerabilities to gain access to your application or system.
+
+To mitigate the risks associated with using components with known vulnerabilities, you should:
+
+* Regularly scan your application for known vulnerabilities.
+* Update your components to the latest version as soon as possible when a new version is released.
+* Use a component dependency management tool to help you track and manage the dependencies in your application.
+
+By following these steps, you can help to reduce the risk of your application being exploited by attackers.

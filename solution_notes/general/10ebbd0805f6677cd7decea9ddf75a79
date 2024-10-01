@@ -1,0 +1,22 @@
+###How to fix the Web Threats issue of Re-examine Cache-control Directives
+The Web Threats issue of Re-examine Cache-control Directives in apache web server can be fixed by configuring the Cache-Control header to prevent caching of sensitive information. This can be done by adding the following directives to the Apache configuration file:
+
+```
+Header set Cache-Control "no-cache, no-store, must-revalidate"
+Header set Pragma "no-cache"
+Header set Expires "0"
+```
+
+These directives will prevent the browser from caching any content that is marked as sensitive, such as login credentials or credit card numbers.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of Broken Authentication and Session Management. This category includes vulnerabilities that allow attackers to gain unauthorized access to user accounts or sessions. By configuring the Cache-Control header to prevent caching of sensitive information, you can help to mitigate the risk of these vulnerabilities.
+
+Here are some additional tips for securing your Apache web server:
+
+* Use strong passwords and enable password hashing.
+* Enable SSL/TLS and configure it properly.
+* Keep your software up to date.
+* Use a web application firewall (WAF).
+* Monitor your server for suspicious activity.
+
+By following these tips, you can help to protect your Apache web server from a variety of attacks.

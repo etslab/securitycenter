@@ -1,0 +1,39 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Detailed Solution:**
+
+**1. Enable Caching:**
+
+* Modify the web.config file and add the following lines:
+
+```xml
+<system.webServer>
+  <staticContent>
+    <clientCache cacheControlMode="UseMaxAge" cacheControlMaxAge="60:00:00" />
+  </staticContent>
+</system.webServer>
+```
+
+**2. Set Custom Cache Headers:**
+
+* In IIS, open the website's properties and navigate to the "HTTP Response Headers" tab.
+* Add a new header with the following settings:
+    * **Name:** Cache-Control
+    * **Value:** public, max-age=3600 (or a custom value as needed)
+
+**3. Verify the Headers:**
+
+* Use a browser extension like "Web Developer" or "Firebug" to check the response headers of static content.
+* Ensure that the Cache-Control header is set and has the appropriate value.
+
+**Additional Mitigation Steps:**
+
+* Enable GZIP compression to reduce file sizes.
+* Use a CDN (Content Delivery Network) to cache content closer to users.
+* Set Expires headers to specify when content should expire.
+
+**Reason for High Severity:**
+
+The absence of cache-control headers can significantly increase bandwidth usage and server load, leading to performance issues and potential denial-of-service attacks. It also prevents browsers from effectively caching static content, which can slow down website loading times for users.

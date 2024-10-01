@@ -1,0 +1,17 @@
+###How to fix the App Dependencies issue of gnu-sparse-big.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gnu-sparse-big.tar in apache web server, you can follow these steps:
+
+1. Stop the apache web server.
+2. Delete the gnu-sparse-big.tar file from the apache web server directory.
+3. Restart the apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "A3 - Broken Access Control". This category covers vulnerabilities that allow attackers to gain unauthorized access to resources. In this case, the attacker could exploit the App Dependencies issue to gain access to the gnu-sparse-big.tar file, which could contain sensitive information.
+
+Here are some additional tips to help you prevent this type of vulnerability:
+
+* Keep your software up to date. Software vendors often release security patches to fix vulnerabilities. By keeping your software up to date, you can help to protect your system from known vulnerabilities.
+* Use a web application firewall (WAF). A WAF can help to block common attack vectors, such as cross-site scripting (XSS) and SQL injection.
+* Implement least privilege. This means giving users only the permissions they need to do their jobs. This can help to prevent attackers from exploiting vulnerabilities to gain unauthorized access to resources.
+* Educate your users about security risks. Users should be aware of the risks of clicking on links in emails, opening attachments, and downloading files from untrusted sources.
+
+By following these tips, you can help to protect your apache web server from vulnerabilities.

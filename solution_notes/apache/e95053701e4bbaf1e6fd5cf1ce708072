@@ -1,0 +1,18 @@
+###How to fix the App Dependencies issue of pax-global-records.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pax-global-records.tar in Apache Web Server, you can follow these steps:
+
+1. **Identify the vulnerable dependencies.** You can use a tool like OWASP Dependency-Track to scan your application for known vulnerabilities.
+2. **Update the vulnerable dependencies to the latest versions.** If possible, you should update to a version that has the vulnerability patched. If not, you may need to use a workaround.
+3. **Remove unnecessary dependencies.** If you are not using a dependency, remove it from your application.
+4. **Keep your dependencies up to date.** Make sure to regularly scan your application for new vulnerabilities and update your dependencies accordingly.
+
+This issue belongs to the **Vulnerable and Outdated Components** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that are caused by using outdated or vulnerable components in web applications.
+
+Here are some additional tips for fixing App Dependencies issues:
+
+* Use a dependency management tool to keep track of your application's dependencies and automate dependency updates.
+* Use a vulnerability scanner to regularly scan your application for known vulnerabilities.
+* Use a secure coding framework to help you write secure code and avoid common vulnerabilities.
+* Keep your development environment up to date with the latest security patches.
+
+If you are not sure how to fix an App Dependencies issue, you should consult with a security expert.

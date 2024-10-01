@@ -1,0 +1,29 @@
+###How to fix the Common Vulnerabilities issue of CVE-2016-0703 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**How to fix the Common Vulnerabilities issue of CVE-2016-0703 in nginx web server**
+
+To fix the Common Vulnerabilities issue of CVE-2016-0703 in nginx web server, you need to upgrade to a version of nginx that is not affected by the vulnerability. This can be done by downloading the latest version of nginx from the official website and following the installation instructions.
+
+If you are unable to upgrade to a newer version of nginx, you can mitigate the vulnerability by applying the following workaround:
+
+1. Open the nginx configuration file (`/etc/nginx/nginx.conf`).
+2. Add the following line to the `http` section of the configuration file:
+
+```
+    client_body_buffer_size 10m;
+```
+
+This will increase the maximum size of the client request body that nginx will accept.
+
+3. Save the configuration file and restart nginx.
+
+**Which OWASP Top 10 web 2021 category does this issue belong to?**
+
+The CVE-2016-0703 vulnerability in nginx web server belongs to the **Insecure Design** category of the OWASP Top 10 web 2021. The Insecure Design category focuses on fundamental design flaws and ineffective controls as opposed to weak or flawed implementations.
+
+The CVE-2016-0703 vulnerability is a design flaw in nginx that allows an attacker to send a large request body to the server, which can cause the server to crash. This vulnerability can be exploited to launch a denial-of-service attack against the server.
+
+**Additional notes**
+
+The CVE-2016-0703 vulnerability was fixed in nginx version 1.11.0. If you are using an older version of nginx, you should upgrade to a newer version as soon as possible.
+
+You should also consider implementing additional security measures to protect your nginx web server, such as using a firewall and mod_security.

@@ -1,0 +1,18 @@
+**Fixing the Certificate Issue for Cipherlist 3DES IDEA**
+
+1. **Disable 3DES IDEA Cipherlist:**
+   - Open the Apache configuration file (e.g., httpd.conf)
+   - Locate the following line:
+     `SSLCipherSuite "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH"`
+   - Remove "3DES IDEA" from the cipherlist. The final line should look like:
+     `SSLCipherSuite "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH"`
+2. **Update Certificate Files:** If using a self-signed certificate or a certificate from a non-trusted authority, install a certificate signed by a trusted certificate authority.
+3. **Restart Apache:** Restart the Apache web server for the changes to take effect.
+
+**OWASP Top 10 Web 2021 Category**
+
+The issue falls under the following OWASP Top 10 Web 2021 category:
+
+* **A1: Broken Access Control**
+
+Specifically, it relates to the use of weak encryption algorithms, which can allow attackers to intercept and decrypt sensitive data transmitted over the web.

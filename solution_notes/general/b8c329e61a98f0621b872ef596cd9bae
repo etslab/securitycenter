@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of invalid-go17.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of invalid-go17.tar in apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Delete the invalid-go17.tar file from the Apache web server's directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "Injection". Injection flaws occur when unvalidated or unfiltered data is inserted into an input field or command that is then executed by a backend system. This can lead to a variety of security vulnerabilities, including code execution, privilege escalation, and data exfiltration.
+
+Here are some additional tips for preventing injection flaws:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Use input validation to prevent cross-site scripting (XSS) attacks.
+* Sanitize all user input before it is used in a command or query.
+* Use a web application firewall (WAF) to help protect against injection attacks.
+
+For more information on injection flaws, please see the following resources:
+
+* OWASP Injection Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html
+* OWASP XSS Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+* OWASP SQL Injection Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html

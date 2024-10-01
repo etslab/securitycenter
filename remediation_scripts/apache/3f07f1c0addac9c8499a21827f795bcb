@@ -1,0 +1,37 @@
+####patch script to remediate CVE-2013-3587, CWE-310 OCSP stapling, stapled OCSP response contained an error response from OCSP responder in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-3587, CWE-310 OCSP stapling, stapled OCSP response contained an error response from OCSP responder in Apache HTTP Server:
+
+
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Get the current Apache configuration file
+  conffile=/etc/apache2/apache2.conf
+
+  # Check if OCSP stapling is enabled
+  if grep -q "SSLOptions +OCSP stapling" $conffile; then
+
+    # Check if the OCSP responder is configured correctly
+    if grep -q "SSLCertificateStatus On" $conffile; then
+
+      # Update the OCSP responder configuration
+      sed -i "s/SSLCertificateStatus On/SSLCertificateStatus Off/g" $conffile
+
+      # Restart Apache
+      systemctl restart apache2
+
+      echo "OCSP stapling has been disabled."
+    else
+      echo "The OCSP responder is not configured correctly. Please configure the OCSP responder before disabling OCSP stapling."
+    fi
+  else
+    echo "OCSP stapling is not enabled."
+  fi
+else
+  echo "Apache is not running."
+fi
+
+
+This patch script will disable OCSP stapling in Apache if it is enabled. OCSP stapling is a feature that allows web servers to obtain Certificate Status Information (OCSP) responses from an OCSP responder and attach them to HTTPS responses. This helps to improve performance by reducing the number of round trips required to obtain the OCSP response. However, if the OCSP responder is not configured correctly or is unavailable, OCSP stapling can introduce a security vulnerability. By disabling OCSP stapling, this patch script mitigates the risk of this vulnerability.

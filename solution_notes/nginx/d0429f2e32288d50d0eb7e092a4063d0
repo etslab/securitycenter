@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of url-parse:1.4.7 of pkg:npm/url-parse@1.4.7 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of url-parse:1.4.7 of pkg:npm/url-parse@1.4.7 in the nginx web server can be fixed by upgrading to a newer version of the url-parse package. The latest version of url-parse is 7.0.3, which fixes the security vulnerability.
+
+To upgrade the url-parse package, you can run the following command:
+
+"
+npm update url-parse
+"
+
+This will upgrade the url-parse package to the latest version.
+
+Once the package has been upgraded, you need to restart the nginx web server for the changes to take effect.
+
+This issue belongs to the **OWASP Top 10 Web 2021 Category A4: Broken or Outsdated Components**. This category refers to vulnerabilities in software components that are not properly patched or updated.
+
+Broken or outdated components can be exploited by attackers to gain access to sensitive data or take control of systems. It is important to keep all software components up to date to mitigate this risk.
+
+In addition to upgrading the url-parse package, you can also mitigate the risk of this vulnerability by taking the following steps:
+
+* **Use a web application firewall (WAF)**: A WAF can help to protect your web application from attacks by filtering malicious traffic.
+* **Implement input validation**: Input validation can help to prevent attackers from injecting malicious code into your web application.
+* **Keep your web application up to date**: Make sure to install all security updates for your web application and its components.
+
+By following these steps, you can help to protect your web application from the App Dependencies issue of url-parse:1.4.7 of pkg:npm/url-parse@1.4.7.

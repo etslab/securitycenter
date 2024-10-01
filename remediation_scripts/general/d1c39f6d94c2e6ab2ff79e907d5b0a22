@@ -1,0 +1,36 @@
+####patch script to remediate  CVE-2019-10082 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2019-10082 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Stop Apache
+  sudo service httpd stop
+
+  # Apply the patch
+  sudo patch -p1 < CVE-2019-10082.patch
+
+  # Restart Apache
+  sudo service httpd start
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will stop Apache, apply the patch, and then restart Apache. If Apache is not running, the script will simply print a message stating that Apache is not running.
+
+The patch file, CVE-2019-10082.patch, can be downloaded from the Apache HTTP Server security website:
+
+```
+https://httpd.apache.org/security/vulnerabilities_24.html
+```
+
+This patch file contains the necessary changes to remediate CVE-2019-10082.
+
+Please note that this is just a sample patch script. You may need to modify it to fit your specific environment.

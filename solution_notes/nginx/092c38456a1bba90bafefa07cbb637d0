@@ -1,0 +1,42 @@
+###How to fix the App Dependencies issue of gnu-sparse-big.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gnu-sparse-big.tar in nginx web server, you can try the following steps:
+
+1. Check if the gnu-sparse-big.tar file is installed on your system. If it is not installed, you can install it using the following command:
+```
+sudo apt-get install gnu-sparse-big
+```
+
+2. Check if the nginx web server is configured to use the gnu-sparse-big.tar file. If it is not configured, you can configure it using the following command:
+```
+sudo nano /etc/nginx/sites-available/default
+```
+
+In the file, find the line that starts with "location /" and add the following line to it:
+```
+include /etc/nginx/modules-enabled/gnu-sparse-big.conf;
+```
+
+3. Save the file and restart the nginx web server using the following command:
+```
+sudo service nginx restart
+```
+
+If the issue is still not resolved, you can try the following steps:
+
+1. Check if the gnu-sparse-big.tar file is corrupted. If it is corrupted, you can download a new copy of the file from the following website:
+```
+https://www.gnu.org/software/sparse/
+```
+
+2. Check if there is a problem with your nginx web server configuration. If there is a problem, you can try to fix it by referring to the nginx documentation.
+
+The App Dependencies issue of gnu-sparse-big.tar in nginx web server belongs to the OWASP Top 10 Web 2021 category of "Injection". This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. This can be done by exploiting vulnerabilities in the application's code, configuration, or data. Once the attacker has injected malicious code, they can execute it on the application's server, which can allow them to steal data, take control of the server, or disrupt the application's operations.
+
+Here are some tips to help you prevent App Dependencies issues:
+
+* Use a web application firewall (WAF) to scan your web traffic for malicious code.
+* Keep your web application software up to date.
+* Use a secure coding methodology to develop your web applications.
+* Implement input validation to prevent users from injecting malicious code into your web applications.
+* Use a content management system (CMS) that has been designed with security in mind.
+* Educate your users about the dangers of clicking on links in emails or on websites that they do not trust.

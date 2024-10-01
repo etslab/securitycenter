@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of elliptic:6.5.3 of pkg:npm/elliptic@6.5.3 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of elliptic:6.5.3 of pkg:npm/elliptic@6.5.3 in nginx web server, you can follow these steps:
+
+1. Update the elliptic package to a version that is not affected by the vulnerability. You can do this by running the following command:
+
+"
+npm update elliptic
+"
+
+2. Restart the nginx web server.
+
+This issue belongs to the **Injection** category of the **OWASP Top 10 Web 2021** list. Injection vulnerabilities allow attackers to inject malicious code into a web application, which can then be executed by the application.
+
+In the case of the elliptic:6.5.3 vulnerability, an attacker could inject malicious code into the elliptic package, which would then be executed when the package is used by the nginx web server. This could allow the attacker to take control of the web server or to steal data from it.
+
+To mitigate the risk of this vulnerability, it is important to keep all of your software up to date and to use a web application firewall (WAF) to protect your web applications from attack.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use input validation to sanitize all user input before it is used in the application.
+* Use prepared statements when executing SQL queries.
+* Escape all output before it is displayed to the user.
+* Use a web application firewall (WAF) to protect your web applications from attack.

@@ -1,0 +1,47 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Subresource Integrity (SRI) not implemented and external scripts are loaded over HTTP or use protocol-relative URLs via src in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Subresource Integrity (SRI) not implemented and external scripts are loaded over HTTP or use protocol-relative URLs via src in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /etc/init.d/apache2 ]; then
+  service apache2 status >/dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    echo "Apache is running"
+  else
+    echo "Apache is not running"
+    exit 1
+  fi
+else
+  echo "Apache is not installed"
+  exit 1
+fi
+
+# Check if SRI is enabled
+if grep -q "SRI" /etc/apache2/apache2.conf; then
+  echo "SRI is enabled"
+else
+  echo "SRI is not enabled"
+  echo "Enabling SRI..."
+  sed -i -e '/LoadModule mod_headers.c/a\
+    SRIEngine On' /etc/apache2/apache2.conf
+  echo "SRI enabled"
+fi
+
+# Check if all external scripts are loaded over HTTPS
+for script in /var/www/*/index.html; do
+  if grep -q "http://" $script; then
+    echo "Found external script loaded over HTTP in $script"
+    echo "Replacing with HTTPS..."
+    sed -i -e 's|http://|https://|' $script
+  fi
+done
+
+# Restart Apache
+service apache2 restart
+
+echo "Done"
+```
+
+This script will check if Apache is running, if SRI is enabled, and if all external scripts are loaded over HTTPS. If any of these conditions are not met, the script will take the necessary steps to remediate the vulnerability.

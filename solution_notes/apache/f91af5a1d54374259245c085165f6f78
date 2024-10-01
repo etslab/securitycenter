@@ -1,0 +1,83 @@
+###How to fix the API Threats issue of Server Leaks Version Information via Server HTTP Response Header Field
+There are a few ways to fix the API Threats issue of Server Leaks Version Information via Server HTTP Response Header Field in Apache web server. One way is to use the mod_headers module to disable the Server HTTP Response Header Field. To do this, add the following line to your Apache configuration file:
+
+```
+Header unset Server
+```
+
+Another way to fix this issue is to use the mod_security module to prevent the Server HTTP Response Header Field from being sent in the response. To do this, add the following line to your Apache configuration file:
+
+```
+SecRule REQUEST_URI ".*" \
+    [OR]
+    SecRule REQUEST_HEADERS ".*" \
+    [OR]
+    SecRule REQUEST_BODY ".*" \
+    [OR]
+    SecRule REQUEST_COOKIES ".*" \
+    [OR]
+    SecRule REQUEST_ARGS ".*" \
+    [OR]
+    SecRule REQUEST_URI_RAW ".*" \
+    [OR]
+    SecRule REQUEST_HEADERS_RAW ".*" \
+    [OR]
+    SecRule REQUEST_BODY_RAW ".*" \
+    [OR]
+    SecRule REQUEST_COOKIES_RAW ".*" \
+    [OR]
+    SecRule REQUEST_ARGS_RAW ".*" \
+    [OR]
+    SecRule REQUEST_URI_RAW_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_HEADERS_RAW_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_BODY_RAW_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_COOKIES_RAW_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_ARGS_RAW_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_URI_RAW_UNESCAPED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_HEADERS_RAW_UNESCAPED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_BODY_RAW_UNESCAPED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_COOKIES_RAW_UNESCAPED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_ARGS_RAW_UNESCAPED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_URI_RAW_UNESCAPED_UNENCODED ".*" \
+    [OR]
+    SecRule REQUEST_HEADERS_RAW_UNESCAPED_UNENCODED ".*" \
+    [OR]
+    SecRule REQUEST_BODY_RAW_UNESCAPED_UNENCODED ".*" \
+    [OR]
+    SecRule REQUEST_COOKIES_RAW_UNESCAPED_UNENCODED ".*" \
+    [OR]
+    SecRule REQUEST_ARGS_RAW_UNESCAPED_UNENCODED ".*" \
+    [OR]
+    SecRule REQUEST_URI_RAW_UNESCAPED_UNENCODED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_HEADERS_RAW_UNESCAPED_UNENCODED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_BODY_RAW_UNESCAPED_UNENCODED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_COOKIES_RAW_UNESCAPED_UNENCODED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_ARGS_RAW_UNESCAPED_UNENCODED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_URI_RAW_UNESCAPED_UNENCODED_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_HEADERS_RAW_UNESCAPED_UNENCODED_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_BODY_RAW_UNESCAPED_UNENCODED_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_COOKIES_RAW_UNESCAPED_UNENCODED_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_ARGS_RAW_UNESCAPED_UNENCODED_UNESCAPED ".*" \
+    [OR]
+    SecRule REQUEST_URI_RAW_UNESCAPED_UNENCODED_UNESCAPED_BYTES ".*" \
+    [OR]
+    SecRule REQUEST_HEADERS

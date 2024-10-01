@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of merge-deep:3.0.2 of pkg:npm/merge-deep@3.0.2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The merge-deep:3.0.2 of pkg:npm/merge-deep@3.0.2 issue in Apache web server can be fixed by updating the merge-deep dependency to a newer version. The newer versions of merge-deep have fixed the security vulnerability that was present in the 3.0.2 version.
+
+To update the merge-deep dependency, you can use the following steps:
+
+1. Open the package.json file in a text editor.
+2. Find the merge-deep dependency in the list of dependencies.
+3. Change the version of the merge-deep dependency to a newer version.
+4. Save the package.json file.
+5. Run the npm install command to install the updated dependencies.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Injection. The merge-deep dependency was vulnerable to a Prototype Pollution attack, which is a type of injection attack. Prototype Pollution attacks can be used to modify the prototype of an object, which can allow an attacker to gain control of the object and execute arbitrary code.
+
+Here are some additional tips for preventing Prototype Pollution attacks:
+
+* Use a library that has been vetted for security vulnerabilities.
+* Avoid using third-party libraries that are not necessary.
+* Keep your dependencies up to date.
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Implement input validation to prevent malicious code from being injected into your application.
+
+By following these tips, you can help to protect your web application from Prototype Pollution attacks.

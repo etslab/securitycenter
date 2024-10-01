@@ -1,0 +1,34 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-0217 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**How to fix the Common Vulnerabilities issue of CVE-2019-0217 in nginx web server**
+
+To fix the CVE-2019-0217 vulnerability in nginx, you need to upgrade to a version of nginx that is at least 1.14.0. If you are unable to upgrade, you can mitigate the vulnerability by disabling the mod_auth_digest module.
+
+To disable the mod_auth_digest module, open the nginx configuration file and locate the following line:
+
+```
+mod_auth_digest
+```
+
+Comment out this line by adding a hash mark (#) to the beginning of it.
+
+```
+#mod_auth_digest
+```
+
+Save the configuration file and restart nginx.
+
+**Which OWASP Top 10 Web 2021 category this issue belong to?**
+
+The CVE-2019-0217 vulnerability belongs to the OWASP Top 10 Web 2021 category of Broken Authentication. This category includes vulnerabilities that allow attackers to bypass authentication mechanisms, such as passwords and tokens.
+
+The CVE-2019-0217 vulnerability allows attackers to bypass authentication by exploiting a race condition in the mod_auth_digest module. This module is used to implement digest authentication, which is a more secure form of authentication than basic authentication.
+
+The CVE-2019-0217 vulnerability was patched in nginx 1.14.0. If you are using an older version of nginx, you should upgrade to a newer version to mitigate this vulnerability.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use strong passwords and enforce password complexity requirements.
+* Enable two-factor authentication.
+* Keep your nginx software up to date.
+* Use a web application firewall (WAF) to block common attack vectors.
+* Monitor your nginx server for signs of attack.

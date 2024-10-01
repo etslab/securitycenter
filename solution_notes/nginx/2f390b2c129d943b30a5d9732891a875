@@ -1,0 +1,33 @@
+###How to fix the Certificates issue of cert revocation, Neither CRL nor OCSP URI provided in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the certificate revocation issue in nginx, you need to either provide a CRL or an OCSP URI in your nginx configuration. A CRL is a list of revoked certificates, and an OCSP URI is a URL where you can get information about the revocation status of a certificate.
+
+To provide a CRL, you need to add the following line to your nginx configuration:
+
+```
+ssl_crl <path to CRL>;
+```
+
+The path to the CRL can be a local file or a URL.
+
+To provide an OCSP URI, you need to add the following line to your nginx configuration:
+
+```
+ssl_ocsp_uri <URL to OCSP server>;
+```
+
+The URL to the OCSP server can be a local URL or a public URL.
+
+Once you have added either a CRL or an OCSP URI to your nginx configuration, you need to restart nginx for the changes to take effect.
+
+The issue of not providing a CRL or an OCSP URI in nginx belongs to the OWASP Top 10 Web Application Security Risks 2021 category of **Insecure Transport Layer Security**. This category includes risks that can be exploited by attackers to intercept and modify traffic between a client and a server. By not providing a CRL or an OCSP URI, you are making it easier for attackers to revoke certificates and impersonate legitimate websites.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use strong encryption algorithms.
+* Enable HSTS.
+* Enable HTTP Strict Transport Security (HSTS).
+* Enable client certificate authentication.
+* Keep your certificates up to date.
+* Monitor your web server for suspicious activity.
+
+By following these tips, you can help to protect your nginx web server from attack.

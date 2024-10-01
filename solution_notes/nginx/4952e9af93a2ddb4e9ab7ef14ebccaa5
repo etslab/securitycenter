@@ -1,0 +1,54 @@
+###How to fix the Web Threats issue of Absence of Anti-CSRF Tokens in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**How to fix the Web Threats issue of Absence of Anti-CSRF Tokens in nginx web server:**
+
+There are two main ways to fix the absence of anti-CSRF tokens in nginx web server:
+
+1. **Use the nginx Lua module.** The nginx Lua module allows you to write Lua code to extend the functionality of nginx. You can use this module to generate and validate CSRF tokens.
+2. **Use a third-party module.** There are a number of third-party modules available that can help you to protect your nginx web server from CSRF attacks. One popular option is the nginx-auth-pam module.
+
+**Whichever method you choose, the basic steps involved are as follows:**
+
+1. Generate a unique CSRF token for each user and store it in a session cookie.
+2. Include the CSRF token in all POST, PUT, and DELETE requests.
+3. Validate the CSRF token on the server side before processing the request.
+
+**If the CSRF token is missing or invalid, the request should be rejected.**
+
+**Which OWASP Top 10 Web 2021 category does this issue belong to?**
+
+The absence of anti-CSRF tokens belongs to the **A5: Broken Access Control** category of the OWASP Top 10 Web 2021.
+
+**OWASP defines Broken Access Control as follows:**
+
+> **A5: Broken Access Control**
+
+> **Description:** The application does not properly restrict access to functionality or data. This can allow attackers to perform actions as other users, or to access unauthorized data.
+
+> **Impact:** Attackers can exploit this vulnerability to:
+
+> * Access sensitive data, such as customer records or financial information.
+> * Perform actions as other users, such as transferring money or changing account settings.
+> * Take control of administrative functions, such as adding or deleting users.
+
+**Examples:**
+
+> * An attacker can exploit a broken access control vulnerability to gain access to a user's account without knowing their password.
+> * An attacker can exploit a broken access control vulnerability to upload malicious files to a web server.
+> * An attacker can exploit a broken access control vulnerability to delete critical data from a database.
+
+**Recommendations:**
+
+> * Implement strong access control mechanisms, such as role-based access control (RBAC) or least privilege.
+> * Validate all user input before processing it.
+> * Use security frameworks and libraries to help you develop secure applications.
+
+**How to protect your nginx web server from CSRF attacks:**
+
+In addition to using anti-CSRF tokens, there are a number of other things you can do to protect your nginx web server from CSRF attacks:
+
+* Keep your nginx web server and all installed modules up to date with the latest security patches.
+* Use a web application firewall (WAF) to protect your nginx web server from common attacks, including CSRF attacks.
+* Implement a content security policy (CSP) to restrict the types of resources that can be loaded by your web pages.
+* Educate your users about CSRF attacks and how to avoid them.
+
+By following these recommendations, you can help to protect your nginx web server from CSRF attacks and other security threats.

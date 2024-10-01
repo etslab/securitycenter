@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of ws:5.2.2 of pkg:npm/ws@5.2.2 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of ws:5.2.2 of pkg:npm/ws@5.2.2 in nginx web server, you can follow these steps:
+
+1. Update the ws package to the latest version:
+
+```
+npm update ws
+```
+
+2. Restart your nginx web server.
+
+This issue belongs to the **Broken Access Control** category of the OWASP Top 10 Web Application Security Risks 2021. This category refers to vulnerabilities that allow attackers to access unauthorized resources or perform unauthorized actions.
+
+In the case of the ws:5.2.2 package, an attacker could exploit a vulnerability in the package to gain access to sensitive data or systems. This could be done by sending specially crafted messages to the web server.
+
+To mitigate this risk, it is important to keep your packages up to date and to use the latest security patches. You should also implement other security measures, such as firewalls and intrusion detection systems, to protect your web server.
+
+Here are some additional tips for fixing App Dependencies issues:
+
+* Make sure you are using a package manager to keep your packages up to date.
+* Use a vulnerability scanner to scan your code for known vulnerabilities.
+* Implement a security policy that requires developers to review and approve all new dependencies before they are added to the codebase.
+* Use a third-party service to manage your dependencies.

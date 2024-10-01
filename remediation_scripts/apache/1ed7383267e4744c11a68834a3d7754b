@@ -1,0 +1,30 @@
+####patch script to remediate  CVE-2020-35452 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2020-35452 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+  # Stop Apache
+  systemctl stop httpd
+
+  # Download the latest Apache security patch
+  wget https://archive.apache.org/dist/httpd/binaries/latest/httpd-2.4.47.tar.gz
+
+  # Extract the tarball
+  tar -xf httpd-2.4.47.tar.gz
+
+  # Replace the old Apache binary with the new one
+  cp httpd-2.4.47/bin/httpd /usr/sbin/httpd
+
+  # Start Apache
+  systemctl start httpd
+else
+  echo "Apache is not running."
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will stop Apache, download the latest Apache security patch, extract the tarball, and replace the old Apache binary with the new one. Finally, the script will start Apache.
+
+It is important to note that this is just a sample script and may need to be modified to work on your specific system. For example, you may need to change the path to the Apache binary or the location where the security patch is downloaded. You should also consult the Apache documentation for more information on how to install security patches.

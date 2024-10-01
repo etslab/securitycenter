@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of neg-size.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The neg-size.tar file is a compressed archive file that contains a negative size file. This file is not supposed to exist, and its presence in the Apache web server can cause a variety of problems, including security vulnerabilities.
+
+To fix the App Dependencies issue of neg-size.tar in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Remove the neg-size.tar file from the Apache web server directory.
+3. Restart the Apache web server.
+
+The neg-size.tar file is a security vulnerability because it can be used to inject malicious code into the Apache web server. This malicious code could then be used to gain access to the Apache web server and its underlying systems.
+
+The neg-size.tar file is a violation of the OWASP Top 10 Web Application Security Risks, specifically A3: Broken Access Control. Broken access control is a security vulnerability that allows unauthorized users to access sensitive data or resources.
+
+Here are some additional steps you can take to prevent this issue from happening again:
+
+* Use a vulnerability scanner to scan your Apache web server for known security vulnerabilities.
+* Keep your Apache web server software up to date with the latest security patches.
+* Implement security best practices, such as using strong passwords and configuring your Apache web server securely.
+
+By following these steps, you can help to protect your Apache web server from security vulnerabilities.

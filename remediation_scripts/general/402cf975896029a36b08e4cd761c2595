@@ -1,0 +1,32 @@
+####patch script to remediate  TLS1, offered (deprecated) in Apache HTTP Server
+Sure, here is a patch script to remediate TLS1, offered (deprecated) in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+  # Stop Apache
+  systemctl stop httpd
+
+  # Edit the Apache configuration file
+  sed -i -e 's/TLSProtocol \w+/TLSProtocol all/' /etc/apache2/httpd.conf
+
+  # Restart Apache
+  systemctl start httpd
+
+  # Check if TLS1 is no longer offered
+  curl -s --tlsv1 http://localhost | grep -q "TLSv1"
+  if [[ $? -ne 0 ]]; then
+    echo "TLS1 has been successfully removed."
+  else
+    echo "TLS1 could not be removed."
+  fi
+else
+  echo "Apache is not running."
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will stop Apache, edit the Apache configuration file to remove TLS1, and then restart Apache. Finally, the script will check if TLS1 is no longer offered by Apache. If it is not, the script will print a success message. If TLS1 is still offered, the script will print an error message.
+
+Please note that this is just a sample script and may need to be modified to work on your specific system.

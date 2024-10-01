@@ -1,0 +1,20 @@
+###How to fix the Certificates issue of Subresource Integrity (SRI) is implemented and all scripts are loaded securely in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the certificates issue of Subresource Integrity (SRI) is implemented and all scripts are loaded securely in nginx web server, you can follow these steps:
+
+1. Check if your web server is configured to use SRI. You can do this by looking for the following line in your nginx configuration file:
+
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'sha256-<hash>'";
+
+If this line is not present, you will need to add it.
+2. Generate a hash for each script that you want to load securely. You can do this using a tool like shasum or openssl.
+3. Update your nginx configuration file to include the hash for each script. For example, if you want to load the script `/js/script.js` securely, you would add the following line to your nginx configuration file:
+```
+script_src 'self' 'unsafe-inline' 'sha256-<hash>';
+```
+4. Restart your web server.
+
+Once you have completed these steps, all scripts that are loaded on your website will be loaded securely.
+
+This issue belongs to the OWASP Top 10 Web Security Risks 2021 category of **A03: Injection**. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered user input is used to dynamically generate output. This can allow an attacker to execute arbitrary code on the server or client, steal sensitive data, or modify the application's behavior.
+
+SRI is a security feature that helps to protect against XSS attacks. It works by specifying a hash of the expected content for a resource, such as a script or style sheet. If the resource is loaded from a different source and the hash does not match, the browser will block the resource from loading. This helps to prevent attackers from injecting malicious code into the application.

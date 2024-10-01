@@ -1,0 +1,22 @@
+###How to fix the Certificates issue of Subresource Integrity (SRI) not implemented but all external scripts are loaded over HTTPS
+To fix the Certificates issue of Subresource Integrity (SRI) not implemented but all external scripts are loaded over HTTPS in apache web server, you can follow these steps:
+
+1. Enable SRI in Apache. This can be done by adding the following line to your Apache configuration file:
+
+```
+SSLEngine on
+```
+
+2. Add the SRI directives to your Apache configuration file. These directives tell Apache how to verify the integrity of external scripts. For example, to verify the integrity of a script called `script.js`, you would add the following directive to your Apache configuration file:
+
+```
+SRI script.js sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wq4JwY8wC
+```
+
+3. Restart Apache. Once you have made the changes to your Apache configuration file, you need to restart Apache for the changes to take effect.
+
+This issue belongs to the OWASP Top 10 Web Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is inserted into an application. This can allow attackers to execute arbitrary code on the server or steal sensitive data from the application.
+
+By implementing SRI, you can help to protect your website from these types of attacks. SRI allows you to specify a cryptographic hash of the expected content of a resource. When the resource is loaded, Apache will verify the hash of the resource against the expected hash. If the hashes do not match, Apache will block the resource from being loaded.
+
+This helps to protect your website from attacks that involve modifying the content of external resources. For example, if an attacker were to modify the content of a script file, SRI would prevent the modified script from being loaded. This would help to prevent the attacker from executing arbitrary code on your server or stealing sensitive data from your website.

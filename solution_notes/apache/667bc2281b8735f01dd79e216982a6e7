@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of test-trailing-junk.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of test-trailing-junk.zip in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Delete the test-trailing-junk.zip file from the Apache web server's document root directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "Injection". Injection vulnerabilities occur when unvalidated or unfiltered data is inserted into an application. This can lead to attackers being able to execute arbitrary code on the server or steal sensitive data.
+
+Here are some additional tips to help prevent injection vulnerabilities:
+
+* Use prepared statements or parameterized queries to avoid SQL injection attacks.
+* Sanitize all user input before inserting it into an application.
+* Use a web application firewall (WAF) to help protect against common injection attacks.
+
+For more information on injection vulnerabilities, please see the following resources:
+
+* OWASP Injection Prevention Cheat Sheet: https://cheatsheetseries.owasp.org/cheatsheets/Injection_Prevention_Cheat_Sheet.html
+* OWASP Injection Prevention Cheat Sheet - SQL Injection: https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
+* OWASP Injection Prevention Cheat Sheet - Cross-site Scripting (XSS): https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html

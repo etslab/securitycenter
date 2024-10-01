@@ -1,0 +1,18 @@
+###How to fix the App Dependencies issue of pass-sawtooth.bz2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pass-sawtooth.bz2 in Apache web server, you can follow these steps:
+
+1. Identify the specific application that is dependent on the pass-sawtooth.bz2 file.
+2. Update the application to a newer version that does not depend on the pass-sawtooth.bz2 file.
+3. Remove the pass-sawtooth.bz2 file from the Apache web server.
+
+If you are unable to update the application, you can try to mitigate the risk by:
+
+* Disabling the application or feature that depends on the pass-sawtooth.bz2 file.
+* Adding a WAF rule to block requests for the pass-sawtooth.bz2 file.
+* Moving the pass-sawtooth.bz2 file to a more secure location.
+
+This issue belongs to the **A01: Broken or Outdated Components** OWASP Top 10 2021 category.
+
+The OWASP Top 10 is a list of the most critical web application security risks. It is updated every three years to reflect the latest threats and trends. The A01 category includes vulnerabilities that arise from the use of outdated or broken components in web applications. These components can include software libraries, frameworks, and plugins.
+
+Outdated or broken components can be exploited by attackers to gain unauthorized access to web applications and their data. To mitigate this risk, organizations should regularly update their web applications and the components they use. They should also test their web applications for vulnerabilities and patch any that are found.

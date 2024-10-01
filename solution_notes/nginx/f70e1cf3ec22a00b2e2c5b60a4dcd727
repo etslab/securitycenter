@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of cli.exe in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of cli.exe in the nginx web server can be fixed by following these steps:
+
+1. Identify the vulnerable version of cli.exe. This can be done by checking the nginx configuration file or by using a vulnerability scanner.
+2. Update cli.exe to the latest version.
+3. Remove any unused versions of cli.exe from the system.
+4. Disable the cli.exe service if it is not needed.
+5. Configure the nginx web server to use a different interpreter for CGI scripts, such as php-cgi or python-cgi.
+
+This issue belongs to the **Injection** category of the OWASP Top 10 Web Application Security Risks 2021. Injection flaws occur when an attacker is able to control or influence the input to a web application. This can be done through parameters, headers, or cookies. Injection flaws can allow an attacker to execute arbitrary code on the web server, steal data, or bypass authentication.
+
+The cli.exe issue is a specific example of an injection flaw. If an attacker is able to control the input to the cli.exe parameter, they can execute arbitrary commands on the web server. This could allow the attacker to steal data, install malware, or even take control of the web server.
+
+To prevent the cli.exe issue, it is important to keep cli.exe up to date and to disable the cli.exe service if it is not needed. It is also important to configure the nginx web server to use a different interpreter for CGI scripts.
+
+Here are some additional tips for preventing injection flaws:
+
+* Validate all input to the web application.
+* Use parameterized queries to prevent SQL injection.
+* Escape special characters in input data.
+* Use a web application firewall (WAF) to protect the web application from known injection attacks.

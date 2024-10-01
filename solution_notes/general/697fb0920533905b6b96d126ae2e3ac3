@@ -1,0 +1,32 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-11984
+CVE-2020-11984 is a buffer overflow vulnerability in the mod_proxy_uwsgi module of the Apache HTTP Server. This vulnerability can be exploited by an attacker to execute arbitrary code on the server.
+
+To fix this vulnerability, you should upgrade your Apache HTTP Server to a version that is not vulnerable. The following versions are not vulnerable:
+
+* 2.4.45 and later
+* 2.4.44 with the mod_proxy_uwsgi 0.14.1 patch
+
+If you are unable to upgrade your Apache HTTP Server, you can mitigate this vulnerability by disabling the mod_proxy_uwsgi module. To do this, edit your Apache configuration file and remove the following line:
+
+```
+LoadModule proxy_uwsgi_module modules/mod_proxy_uwsgi.so
+```
+
+CVE-2020-11984 belongs to the following OWASP Top 10 Web 2021 categories:
+
+* **A1 - Injection**
+* **A3 - Broken Authentication**
+
+Injection vulnerabilities occur when unvalidated or malicious data is inserted into an application. This can lead to an attacker being able to execute arbitrary code on the server or gain access to sensitive data.
+
+Broken authentication vulnerabilities occur when an application does not properly authenticate users. This can allow attackers to gain unauthorized access to an application or its data.
+
+By fixing CVE-2020-11984, you can help to protect your Apache HTTP Server from these types of attacks.
+
+Here are some additional tips for securing your Apache HTTP Server:
+
+* Keep your Apache HTTP Server up to date with the latest security patches.
+* Use a strong password for your Apache HTTP Server account.
+* Enable mod_security to help protect your Apache HTTP Server from common attacks.
+* Use a firewall to restrict access to your Apache HTTP Server.
+* Monitor your Apache HTTP Server for signs of attack.

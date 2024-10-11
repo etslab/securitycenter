@@ -1,0 +1,34 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Enable CSP in IIS:**
+
+   - Open IIS Manager.
+   - Select the website you want to configure.
+   - In the "Features View" pane, double-click "HTTP Response Headers".
+   - In the "Add Header" dialog box, enter "Content-Security-Policy" in the "Name" field.
+
+2. **Set a Basic CSP Policy:**
+
+   - In the "Value" field, enter a basic CSP policy. For example:
+
+   ```
+   default-src 'self';
+   ```
+
+3. **Update the CSP Policy Gradually:**
+
+   - Gradually add additional directives to the CSP policy to increase protection.
+   - Use a CSP checker to validate your policy.
+
+**Additional Steps:**
+
+- Consider using a CDN that supports CSP.
+- Monitor CSP violations using a security tool.
+- Inform developers and content creators about CSP restrictions.
+- Consider using a CSP reporting endpoint to receive notifications of CSP violations.
+
+By implementing CSP, you can restrict the sources from which your website can load resources, reducing the risk of sensitive data exposure through script injection attacks.

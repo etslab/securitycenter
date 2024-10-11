@@ -1,0 +1,43 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+1. **Install Microsoft Security Update:**
+   - Download and install Microsoft security update MS11-079: https://support.microsoft.com/en-us/topic/ms11-079-vulnerability-in-iis-could-allow-remote-code-execution-22981302-a101-432f-b9e7-2c8994de7057.
+
+2. **Enable Request Filtering in IIS:**
+   - Open Internet Information Services (IIS) Manager.
+   - Select the server node.
+   - In the Features View, double-click Request Filtering.
+   - In the Request Filtering Properties dialog box, select "Enable Request Filtering".
+   - Click OK.
+
+3. **Verify File Extensions:**
+   - In the Request Filtering Properties dialog box, under Filtered File Extensions, ensure that the following file extensions are added:
+     - **.asa**
+     - **.asp**
+     - **.aspx**
+     - **.cer**
+     - **.cdx**
+     - **.css**
+     - **.inc**
+     - **.js**
+     - **.jse**
+     - **.php**
+     - **.php3**
+     - **.pl**
+     - **.py**
+     - **.vb**
+     - **.vbscript**
+     - **.wsf**
+     - **.xoml**
+
+4. **Restart IIS:**
+   - Click Apply and OK in the Request Filtering Properties dialog box.
+   - Restart the IIS service to apply the changes.
+
+5. **Additional Mitigation:**
+   - Use an intrusion detection system (IDS) to monitor for suspicious activity related to this vulnerability.
+   - Regularly review and update security controls to maintain a strong security posture.

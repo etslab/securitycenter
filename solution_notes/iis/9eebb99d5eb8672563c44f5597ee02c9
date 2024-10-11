@@ -1,0 +1,22 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+To fix CVE-2014-3566 in IIS web server, follow these steps:
+
+1. **Install the security update:** Microsoft has released security updates to address this vulnerability. Apply the latest updates to your IIS server as soon as possible.
+
+2. **Disable directory browsing:** Directory browsing allows attackers to view the contents of directories on your server without authorization. Disable directory browsing to prevent attackers from exploiting this vulnerability. To do this:
+   - Open IIS Manager.
+   - Select the website or directory that you want to protect.
+   - In the Features view, double-click **Directory Browsing.**
+   - Clear the **Enable directory browsing** checkbox.
+   - Click **OK** to save the changes.
+
+3. **Configure permissions:** Ensure that only authorized users have access to sensitive files and directories on your server. Restrict file and directory permissions to the minimum required for users to perform their tasks.
+
+4. **Use a web application firewall (WAF):** A WAF can help to protect your server from a variety of attacks, including those that exploit CVE-2014-3566. Consider using a WAF to enhance the security of your IIS server.
+
+5. **Monitor your server for suspicious activity:** Use security logs and tools to monitor your server for any suspicious activity that may indicate an attack. Regularly review logs and take appropriate action to mitigate any potential threats.

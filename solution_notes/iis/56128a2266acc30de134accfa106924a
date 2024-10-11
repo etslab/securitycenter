@@ -1,0 +1,27 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1 - Broken Access Control
+
+**Solution:**
+
+1. **Disable WebDAV:** Navigate to Windows Features and turn off the WebDAV feature.
+
+2. **Enable HTTP Strict Transport Security (HSTS):**
+   - Open IIS Manager.
+   - Select the website for which you want to enable HSTS.
+   - In the "Security" section of the website's properties dialog box, click on "Edit..." under HTTP Strict Transport Security (HSTS).
+   - Select "Enable HSTS" and specify the desired maximum age for the HSTS header (recommended: 31536000 seconds, or 1 year).
+
+3. **Use SSL/TLS for all communications:** Ensure that all communication to and from the web server is encrypted using SSL/TLS.
+
+4. **Limit access to sensitive data:** Restrict access to sensitive data to only authorized users and implement access control mechanisms to prevent unauthorized access.
+
+5. **Implement Web Application Firewall (WAF):** Use a WAF to monitor and block malicious requests that could exploit the vulnerability.
+
+6. **Install security updates:** Apply all security updates from Microsoft as soon as possible.
+
+**Additional Considerations:**
+
+* If disabling WebDAV is not feasible, consider implementing specific access controls to limit the use of WebDAV to authorized users only.
+* Regularly review and update access control configurations to ensure their effectiveness in preventing unauthorized access.
+* Consider using a vulnerability scanner to regularly scan the web server for vulnerabilities and take appropriate remediation actions.

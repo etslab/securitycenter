@@ -1,0 +1,33 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+**1. Disable Remote Management:**
+
+* Open IIS Manager (inetmgr.exe).
+* In the Connections pane, expand the tree for your server.
+* Click on "Management" in the Features View.
+* In the Management section, double-click on "Remote Management".
+* Uncheck the "Enable Remote Management" checkbox and click "OK".
+
+**2. Restrict Access to Management Features:**
+
+* In IIS Manager, click on "Authentication" in the Features View.
+* For each authentication method configured, click on "Edit".
+* In the "Authentication Methods" dialog, uncheck the "Enable Windows Authentication" checkbox.
+* Only grant access to trusted administrators through IP restrictions or other authentication mechanisms.
+
+**3. Apply Security Updates:**
+
+* Install the latest security updates from Microsoft.
+* For Windows Server 2012 and later, install update [KB4010319](https://support.microsoft.com/en-us/topic/security-update-for-remote-desktop-services-april-11-2017-4010319-bb73ede4-f796-133a-71bc-b93a54384ac4).
+* For Windows Server 2008 R2, install update [KB4012218](https://support.microsoft.com/en-us/topic/security-update-for-remote-desktop-services-r2-april-11-2017-4012218-d470eba5-1dba-cb1d-8377-9684d5bbf266).
+
+**4. Harden Web Server Configuration:**
+
+* Enable HTTPS for all connections to the web server.
+* Disable unnecessary services and features.
+* Configure server headers to hide version and platform information.
+* Implement a web application firewall (WAF) to block malicious traffic.

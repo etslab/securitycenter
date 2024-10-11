@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2: Broken Authentication
+
+**Description:**
+
+CVE-2017-17382 is a vulnerability in IIS web server that allows attackers to bypass authentication by modifying the HTTP request in a specific way. This could allow an attacker to gain unauthorized access to a website or application.
+
+**Solution:**
+
+To fix this issue, you can implement the following workaround:
+
+1. Open the IIS Manager.
+2. Select the website or application that you want to protect.
+3. Click on the "Authentication" icon in the right-hand pane.
+4. Select "Windows Authentication" and then click on the "Edit" button.
+5. In the "Windows Authentication" dialog box, select the "Enable Kernel-mode authentication" checkbox.
+6. Click on the "OK" button.
+
+This workaround will prevent attackers from bypassing authentication by modifying the HTTP request.
+
+**Additional Notes:**
+
+You should also consider implementing the following additional measures to further protect your website or application:
+
+* Use strong passwords and two-factor authentication.
+* Keep your software up to date with the latest security patches.
+* Use a web application firewall (WAF) to block malicious traffic.

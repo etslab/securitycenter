@@ -1,0 +1,17 @@
+**Severity: High**
+
+TLS CBC ciphers are known to be vulnerable to padding oracle attacks, which can lead to the decryption of encrypted data. This vulnerability is listed in the OWASP Top 10 2021 category A2: Cryptographic Failures.
+
+**Solution:**
+
+To fix this issue, you need to disable TLS CBC ciphers in your IIS web server. You can do this by following these steps:
+
+1. Open the IIS Manager.
+2. In the left pane, select the website or application for which you want to disable TLS CBC ciphers.
+3. In the middle pane, double-click on the "SSL Settings" icon.
+4. In the "SSL Settings" dialog box, click on the "Edit..." button.
+5. In the "Cipher Suites" dialog box, select the "High" or "Medium" security level.
+6. Click on the "Apply" button.
+7. Click on the "OK" button.
+
+**OWASP Top 10 2021 Category:** A2: Cryptographic Failures

@@ -1,0 +1,24 @@
+**Severity**: Medium
+
+**OWASP Top 10 2021 Category**: A1: Broken Access Control
+
+**Detailed Solution**:
+
+**1. Enable X-Content-Type-Options header in IIS:**
+
+* Open IIS Manager.
+* Select the website or application for which you want to enable the header.
+* Right-click and select "Edit Headers" from the context menu.
+* In the "Response Headers" section, add a new header with the following settings:
+    * Name: X-Content-Type-Options
+    * Value: nosniff
+
+**2. Check for Header Presence:**
+
+* Use a web browser or tool like curl to access the website or application.
+* Inspect the response headers for the "X-Content-Type-Options" header. It should be set to "nosniff".
+
+**Additional Notes**:
+
+* The "nosniff" value prevents browsers from guessing the content type of a response based on its file extension or other heuristics. This mitigates the risk of MIME type sniffing attacks, where an attacker tricks the browser into interpreting a malicious file as a different file type.
+* It is recommended to enable this header on all websites or applications to enhance security.

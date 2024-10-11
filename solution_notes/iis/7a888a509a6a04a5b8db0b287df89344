@@ -1,0 +1,35 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2 - Broken Authentication
+
+**Solution:**
+
+1. **Disable Server Signature in IIS:**
+   - Open IIS Manager.
+   - Select the website or server for which you want to disable server signature.
+   - Double-click on "HTTP Response Headers".
+   - Clear the "Values" field for the "Server" header.
+   - Click "OK" to save the changes.
+
+2. **Configure HTTP Strict Transport Security (HSTS):**
+   - Enable HSTS in your web server configuration.
+   - Set the header value to "max-age=31536000; includeSubDomains; preload".
+   - This will force browsers to use only HTTPS connections and prevent accidental exposure of the server version.
+
+3. **Consider Using a Web Application Firewall (WAF):**
+   - A WAF can filter out requests based on specific criteria, including server version leaks.
+   - Configure the WAF to block requests that contain harmful patterns, such as specific server version strings.
+
+4. **Update and Patch Server Software Regularly:**
+   - Keep your server software up-to-date with the latest security patches.
+   - Install any updates that address vulnerabilities related to server version leakage.
+
+5. **Use a Content Security Policy (CSP):**
+   - Implement a CSP in your web application.
+   - Include a directive that prevents the application from leaking server information, such as:
+   ```
+   default-src 'self';
+   script-src 'self';
+   object-src 'none';
+   report-uri /csp-report-endpoint
+   ```

@@ -1,0 +1,27 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+1. **Enable HTTP Header Filtering:**
+   - Open IIS Manager.
+   - Navigate to the site or application experiencing the issue.
+   - Double-click on "HTTP Request Headers" in the "Features View".
+   - Enable "Enable HTTP Header Filtering" and set the action to "Reject".
+2. **Disable WebDAV:**
+   - Navigate to the site or application experiencing the issue.
+   - Double-click on "WebDAV" in the "Features View".
+   - Disable "WebDAV".
+3. **Implement Input Validation:**
+   - Validate all user-provided input on the server side to prevent malicious characters from being processed.
+4. **Restrict File Uploads:**
+   - Only allow uploads from trusted sources and limit the types of files that can be uploaded.
+5. **Use an Application Firewall:**
+   - Implement an application firewall to block malicious requests that attempt to exploit this vulnerability.
+
+**Additional Notes:**
+
+* This vulnerability allows attackers to execute arbitrary code on the server by injecting malicious HTTP headers into a request.
+* The impact of this vulnerability can be severe, as it can lead to complete server compromise and data loss.
+* It is important to apply the above solutions promptly to mitigate the risk associated with this vulnerability.

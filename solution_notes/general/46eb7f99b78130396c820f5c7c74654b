@@ -1,20 +1,28 @@
-###How to fix the Common Vulnerabilities issue of CVE-2017-17382 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2017-17382 is a remote code execution (RCE) vulnerability in the Nginx web server. It is caused by improper input validation in the Nginx configuration file. An attacker could exploit this vulnerability by sending a specially crafted HTTP request to the Nginx server. If the request is successful, the attacker could execute arbitrary code on the server.
+**Severity:** High
 
-To fix this vulnerability, you can apply the following mitigations:
+**OWASP Top 10 2021 Category:** A2: Broken Authentication
 
-* **Upgrade to Nginx 1.13.10 or higher.** This version of Nginx includes a fix for CVE-2017-17382.
-* **Use a web application firewall (WAF).** A WAF can help to filter out malicious HTTP requests and protect your Nginx server from attack.
-* **Validate all user input before processing it.** This will help to prevent attackers from injecting malicious code into your Nginx configuration file.
-* **Use a content security policy (CSP).** A CSP can help to restrict the types of scripts that can be executed on your web server.
+**Description:**
 
-CVE-2017-17382 belongs to the **Injection** category of the OWASP Top 10 Web Application Security Risks 2021.
+CVE-2017-17382 is a vulnerability in IIS web server that allows attackers to bypass authentication by modifying the HTTP request in a specific way. This could allow an attacker to gain unauthorized access to a website or application.
 
-Here are some additional tips for preventing injection attacks:
+**Solution:**
 
-* Use a prepared statement when querying a database. This will help to prevent SQL injection attacks.
-* Escape all user input before displaying it on a web page. This will help to prevent XSS attacks.
-* Use a web application firewall (WAF) to filter out malicious HTTP requests.
-* Keep your software up to date. Software vendors regularly release patches to fix security vulnerabilities.
+To fix this issue, you can implement the following workaround:
 
-I hope this information is helpful. Please let me know if you have any other questions.
+1. Open the IIS Manager.
+2. Select the website or application that you want to protect.
+3. Click on the "Authentication" icon in the right-hand pane.
+4. Select "Windows Authentication" and then click on the "Edit" button.
+5. In the "Windows Authentication" dialog box, select the "Enable Kernel-mode authentication" checkbox.
+6. Click on the "OK" button.
+
+This workaround will prevent attackers from bypassing authentication by modifying the HTTP request.
+
+**Additional Notes:**
+
+You should also consider implementing the following additional measures to further protect your website or application:
+
+* Use strong passwords and two-factor authentication.
+* Keep your software up to date with the latest security patches.
+* Use a web application firewall (WAF) to block malicious traffic.

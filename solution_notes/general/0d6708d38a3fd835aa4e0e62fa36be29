@@ -1,29 +1,31 @@
-###How to fix the Common Vulnerabilities issue of CVE-2016-9244 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2016-9244 is a remote code execution vulnerability in the nginx web server that allows attackers to execute arbitrary code on the server. The vulnerability is caused by a buffer overflow in the nginx parser that can be exploited by sending a specially crafted HTTP request.
+**Severity:** Critical
 
-To fix CVE-2016-9244, you must upgrade to nginx version 1.12.0 or higher. If you cannot upgrade to nginx 1.12.0 or higher, you can mitigate the vulnerability by applying the following workaround:
+**OWASP Top 10 2021 Category:** Injection
 
-```
-location / {
-    limit_except GET POST HEAD {
-        deny all;
-    }
-}
-```
+**Solution:**
 
-This workaround will prevent nginx from parsing requests that are not GET, POST, or HEAD requests.
+To fix this issue, you need to apply the following changes:
 
-CVE-2016-9244 belongs to the following OWASP Top 10 Web 2021 category:
+1. **Disable the WebDAV publishing feature:**
+   - Open IIS Manager and navigate to the website that is affected.
+   - Double-click on "WebDAV Authoring Rules" and then click on "Disable WebDAV".
 
-* **A2: Broken Authentication**
+2. **Enable HTTP Strict Transport Security (HSTS):**
+   - Open IIS Manager and navigate to the website that is affected.
+   - Double-click on "HTTP Response Headers" and then click on "Add".
+   - In the "Name" field, enter "Strict-Transport-Security".
+   - In the "Value" field, enter "max-age=31536000".
 
-This category includes vulnerabilities that allow attackers to compromise authentication credentials or exploit authentication flaws. CVE-2016-9244 is a remote code execution vulnerability that can be exploited by unauthenticated attackers.
+3. **Disable the RC4 cipher suite:**
+   - Open IIS Manager and navigate to the website that is affected.
+   - Double-click on "SSL Settings" and then click on "Edit".
+   - In the "Cipher Suite" field, remove the "RC4" cipher suite.
 
-To protect your nginx server from CVE-2016-9244, you should:
+**Additional Mitigation:**
 
-* Upgrade to nginx version 1.12.0 or higher.
-* Apply the workaround provided above if you cannot upgrade to nginx 1.12.0 or higher.
-* Implement strong authentication and authorization controls for your nginx server.
-* Keep your nginx server up to date with the latest security patches.
+In addition to the above steps, you should also consider the following mitigation measures:
 
-You can also use a web application firewall (WAF) to protect your nginx server from CVE-2016-9244 and other vulnerabilities. A WAF can filter out malicious traffic before it reaches your nginx server.
+* Keep your IIS web server software up to date with the latest security patches.
+* Use a web application firewall (WAF) to block malicious traffic.
+* Implement input validation and sanitization to prevent malicious input from being processed by your web application.
+* Educate your users about the risks of clicking on links or opening attachments in emails from unknown senders.

@@ -1,21 +1,22 @@
-###How to fix the Common Vulnerabilities issue of CVE-2014-3566 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2014-3566 is a vulnerability in nginx that allows an attacker to execute arbitrary code on the target system. The vulnerability is caused by a flaw in the way that nginx handles certain types of requests.
+**Severity:** Critical
 
-To fix the Common Vulnerabilities issue of CVE-2014-3566 in nginx web server, you can do any of the following:
+**OWASP Top 10 2021 Category:** Broken Access Control
 
-1. **Upgrade to a version of nginx that is not affected by the vulnerability.** The vulnerability was fixed in nginx versions 1.4.6, 1.6.1, and 1.7.9.
-2. **Apply a patch to the affected version of nginx.** Patches are available for nginx versions 1.4.0 and later.
-3. **Configure nginx to disable the affected functionality.** This can be done by setting the `ngx_http_fastcgi_module` directive to `off` in the nginx configuration file.
-4. **Use a web application firewall (WAF) to protect the nginx server.** A WAF can be used to filter out requests that are known to exploit the vulnerability.
+**Detailed Solution:**
 
-CVE-2014-3566 belongs to the OWASP Top 10 Web Application Security Risks 2021 category of **A1: Injection**. Injection attacks occur when an attacker injects malicious code into a web application. The malicious code is then executed by the web application, which can give the attacker control over the application or the system on which it is running.
+To fix CVE-2014-3566 in IIS web server, follow these steps:
 
-Here are some additional tips for preventing CVE-2014-3566 attacks:
+1. **Install the security update:** Microsoft has released security updates to address this vulnerability. Apply the latest updates to your IIS server as soon as possible.
 
-* **Keep nginx up to date.** Apply security patches as soon as they are released.
-* **Use a strong password for the nginx administration interface.**
-* **Restrict access to the nginx administration interface to authorized users.**
-* **Use a WAF to protect the nginx server.**
-* **Implement input validation on all user input.** This will help to prevent attackers from injecting malicious code into the web application.
+2. **Disable directory browsing:** Directory browsing allows attackers to view the contents of directories on your server without authorization. Disable directory browsing to prevent attackers from exploiting this vulnerability. To do this:
+   - Open IIS Manager.
+   - Select the website or directory that you want to protect.
+   - In the Features view, double-click **Directory Browsing.**
+   - Clear the **Enable directory browsing** checkbox.
+   - Click **OK** to save the changes.
 
-I hope this information is helpful. Please let me know if you have any other questions.
+3. **Configure permissions:** Ensure that only authorized users have access to sensitive files and directories on your server. Restrict file and directory permissions to the minimum required for users to perform their tasks.
+
+4. **Use a web application firewall (WAF):** A WAF can help to protect your server from a variety of attacks, including those that exploit CVE-2014-3566. Consider using a WAF to enhance the security of your IIS server.
+
+5. **Monitor your server for suspicious activity:** Use security logs and tools to monitor your server for any suspicious activity that may indicate an attack. Regularly review logs and take appropriate action to mitigate any potential threats.

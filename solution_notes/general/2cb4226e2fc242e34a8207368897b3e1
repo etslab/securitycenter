@@ -1,18 +1,45 @@
-###How to fix the Common Vulnerabilities issue of CVE-2013-3587 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2013-3587 is a vulnerability in Nginx web servers that allows attackers to discover secrets wrapped in HTTP compression inside of SSL. This vulnerability can be exploited to steal sensitive information such as cookies, session tokens, and credit card numbers.
+**Severity:** Critical
 
-To fix the CVE-2013-3587 vulnerability in Nginx, you need to upgrade to a version of Nginx that has been patched for this vulnerability. The current stable version of Nginx is 1.23.2, which has been patched for CVE-2013-3587. You can upgrade to Nginx 1.23.2 or later by following the instructions in the Nginx documentation.
+**OWASP Top 10 2021 Category:** A01: Injection
 
-In addition to upgrading Nginx, you should also take the following steps to mitigate the CVE-2013-3587 vulnerability:
+**Solution:**
 
-* Enable HTTP Strict Transport Security (HSTS) on your Nginx server. This will help to prevent attackers from downgrading your connection to HTTP, which is required to exploit the CVE-2013-3587 vulnerability.
-* Disable HTTP compression on your Nginx server. This will remove the attack vector for the CVE-2013-3587 vulnerability.
-* Use a web application firewall (WAF) to protect your Nginx server from attacks. A WAF can be used to block malicious requests, including those that attempt to exploit the CVE-2013-3587 vulnerability.
+**1. Apply Microsoft Security Update:**
 
-CVE-2013-3587 belongs to the following OWASP Top 10 Web 2021 category:
+* Install the Microsoft security update for CVE-2013-3587. This update patches the vulnerability and prevents attackers from exploiting it.
 
-* **A1: Injection**
+**2. Update ASP.NET Framework:**
 
-This category includes vulnerabilities that allow attackers to inject malicious code into web applications. The CVE-2013-3587 vulnerability can be exploited to inject malicious code into web applications, which can then be used to steal sensitive information or take control of the web application.
+* Ensure that ASP.NET Framework is updated to the latest version. This includes installing the latest security patches and updates.
 
-To protect your Nginx web server from the CVE-2013-3587 vulnerability, it is important to upgrade to a patched version of Nginx and to take the other mitigation steps described above.
+**3. Use Safe Validation Methods:**
+
+* Validate user input carefully before using it in any ASP.NET code. Use strongly typed languages, such as C#, and use data validation controls to validate input.
+
+**4. Use Input Encoding:**
+
+* Encode user input using HTML encoding or URL encoding before displaying it on the web page. This prevents attackers from injecting malicious code into the page.
+
+**5. Use SQL Parameters:**
+
+* When executing SQL queries, use SQL parameters to prevent SQL injection attacks. SQL parameters ensure that user input is properly escaped and sanitized before it is used in the query.
+
+**6. Restrict Access to Sensitive Data:**
+
+* Limit access to sensitive data, such as user names and passwords, to authorized users only. Use authentication and authorization mechanisms to prevent unauthorized access.
+
+**7. Use Anti-CSRF Tokens:**
+
+* Implement Cross-Site Request Forgery (CSRF) protection by using anti-CSRF tokens. CSRF tokens prevent attackers from forging requests from the user's browser to the web application.
+
+**8. Disable Unnecessary Features:**
+
+* Disable any unnecessary features or services in IIS that could expose the server to attack. This includes disabling unused protocols and services.
+
+**9. Use a Web Application Firewall (WAF):**
+
+* Implement a web application firewall (WAF) to filter and block malicious traffic before it reaches the web server. A WAF can help detect and mitigate injection attacks.
+
+**10. Regularly Review and Test:**
+
+* Regularly review the web application for vulnerabilities and perform security testing to identify and fix any potential issues.

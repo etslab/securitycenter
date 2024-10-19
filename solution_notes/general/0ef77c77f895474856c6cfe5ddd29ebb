@@ -1,0 +1,33 @@
+**Severity: High**
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Edit the nginx configuration file:** Open the nginx configuration file, typically located at `/etc/nginx/nginx.conf`.
+
+2. **Add the following directive:**
+
+   ```
+   server {
+       ...
+       location / {
+           if ($query_string ~* "(username|password|email|phone|address|ssn)") {
+               return 403;
+           }
+       }
+       ...
+   }
+   ```
+
+   This directive checks the query string for any of the specified PII fields and returns a 403 Forbidden error if a match is found.
+
+3. **Test the configuration:** Restart nginx using the following command:
+
+   ```
+   sudo service nginx restart
+   ```
+
+   Test your web application to verify that PII is no longer exposed in the query string.
+
+4. **Optional: Use a Web Application Firewall (WAF):** Consider using a WAF, such as ModSecurity, to provide an additional layer of protection against PII disclosure attacks.

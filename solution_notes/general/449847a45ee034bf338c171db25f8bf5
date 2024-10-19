@@ -1,35 +1,43 @@
-###How to fix the Common Vulnerabilities issue of CVE-2011-1473 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2011-1473 is a vulnerability in nginx that allows an attacker to bypass authentication and gain access to the underlying operating system. To fix this vulnerability, you need to upgrade to nginx version 1.0.10 or higher.
+**Severity:** Critical
 
-**OWASP Top 10 Web 2021 category:** Broken Authentication
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
 
-**Steps to fix CVE-2011-1473 in nginx:**
+**Solution:**
 
-1. Upgrade to nginx version 1.0.10 or higher.
-2. Restart nginx.
+1. **Install Microsoft Security Update:**
+   - Download and install Microsoft security update MS11-079: https://support.microsoft.com/en-us/topic/ms11-079-vulnerability-in-iis-could-allow-remote-code-execution-22981302-a101-432f-b9e7-2c8994de7057.
 
-**Additional steps to mitigate the risk of Broken Authentication:**
+2. **Enable Request Filtering in IIS:**
+   - Open Internet Information Services (IIS) Manager.
+   - Select the server node.
+   - In the Features View, double-click Request Filtering.
+   - In the Request Filtering Properties dialog box, select "Enable Request Filtering".
+   - Click OK.
 
-* Use strong passwords and enable two-factor authentication for all administrative accounts.
-* Implement a CAPTCHA or other challenge-response mechanism to prevent brute-force attacks.
-* Monitor your nginx logs for suspicious activity.
+3. **Verify File Extensions:**
+   - In the Request Filtering Properties dialog box, under Filtered File Extensions, ensure that the following file extensions are added:
+     - **.asa**
+     - **.asp**
+     - **.aspx**
+     - **.cer**
+     - **.cdx**
+     - **.css**
+     - **.inc**
+     - **.js**
+     - **.jse**
+     - **.php**
+     - **.php3**
+     - **.pl**
+     - **.py**
+     - **.vb**
+     - **.vbscript**
+     - **.wsf**
+     - **.xoml**
 
-If you are unable to upgrade to nginx version 1.0.10 or higher, you can apply the following workaround:
+4. **Restart IIS:**
+   - Click Apply and OK in the Request Filtering Properties dialog box.
+   - Restart the IIS service to apply the changes.
 
-1. Open the nginx configuration file (`/etc/nginx/nginx.conf` or `/usr/local/etc/nginx/nginx.conf`).
-2. Add the following lines to the `http` block:
-
-```
-auth_basic "Restricted Area";
-auth_basic_user_file /etc/nginx/.htpasswd;
-```
-
-3. Create a password file for nginx using the following command:
-
-```
-htpasswd -b /etc/nginx/.htpasswd username password
-```
-
-4. Restart nginx.
-
-**Note:** This workaround is not a complete solution and should only be used until you are able to upgrade to nginx version 1.0.10 or higher.
+5. **Additional Mitigation:**
+   - Use an intrusion detection system (IDS) to monitor for suspicious activity related to this vulnerability.
+   - Regularly review and update security controls to maintain a strong security posture.

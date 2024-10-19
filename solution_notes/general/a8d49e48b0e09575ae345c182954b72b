@@ -1,50 +1,14 @@
-###How to fix the Common Vulnerabilities issue of CVE-2014-0224 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-To fix the Common Vulnerabilities issue of CVE-2014-0224 in nginx web server, you need to upgrade your version of OpenSSL. This vulnerability was fixed in OpenSSL 1.0.1g and later.
+**Severity:** Critical
 
-Here are the steps to upgrade OpenSSL on Debian/Ubuntu:
+**OWASP Top 10 2021 Category:** Broken Access Control
 
-1. Update your package list:
+**Solution:**
 
-```
-sudo apt update
-```
+To fix this issue, apply the following patches:
 
-2. Install the latest version of OpenSSL:
+* Microsoft Security Bulletin MS14-051 for Windows Vista, Windows Server 2008, Windows 7, Windows Server 2008 R2, Windows 8, Windows Server 2012, Windows 8.1, Windows Server 2012 R2, Windows RT, Windows RT 8.1, and Windows Server 2016: [https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-051](https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-051)
+* Microsoft Security Bulletin MS14-052 for Windows Server 2003: [https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-052](https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-052)
 
-```
-sudo apt install openssl
-```
+**Description:**
 
-3. Restart Nginx:
-
-```
-sudo systemctl restart nginx
-```
-
-Here are the steps to upgrade OpenSSL on CentOS/RHEL:
-
-1. Update your package list:
-
-```
-sudo yum update
-```
-
-2. Install the latest version of OpenSSL:
-
-```
-sudo yum install openssl
-```
-
-3. Restart Nginx:
-
-```
-sudo systemctl restart nginx
-```
-
-CVE-2014-0224 is a man-in-the-middle (MITM) vulnerability that allows an attacker to intercept and modify traffic between a client and a server. This vulnerability belongs to the **Broken Authentication** category of the OWASP Top 10 Web Application Security Risks.
-
-**Broken Authentication** is a security vulnerability that occurs when an application does not properly authenticate users. This can allow attackers to gain unauthorized access to accounts, data, or functionality.
-
-**OWASP Top 10 Web Application Security Risks** is a list of the most common and dangerous security vulnerabilities found in web applications. This list is updated every few years to reflect the latest threats.
-
-It is important to note that CVE-2014-0224 is a very old vulnerability. If you are still running a version of Nginx that is vulnerable to this exploit, you should upgrade immediately.
+CVE-2014-0224 is a vulnerability in IIS that allows an attacker to bypass authentication and gain access to sensitive information. The vulnerability is caused by an error in the way IIS handles HTTP requests. An attacker can exploit the vulnerability by sending a specially crafted HTTP request to the IIS server. If the server is not patched, the attacker can gain access to the server's files and folders without authenticating.

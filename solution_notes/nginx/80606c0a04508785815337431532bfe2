@@ -1,0 +1,14 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Cryptographic Failures (A05)
+
+**Issue:** Cipher order vulnerability occurs when the web server supports a weak or outdated cipher suite that could allow an attacker to downgrade the encryption strength of the connection. This could enable eavesdropping or modification of the data in transit.
+
+**Solution:**
+
+1. **Verify cipher order:** Review the configuration of the web server to ensure that strong and up-to-date ciphers are enabled and prioritized at the top of the list.
+2. **Disable weak ciphers:** Disable or remove any weak or outdated ciphers from the server configuration to prevent them from being negotiated.
+3. **Use a secure cipher suite:** Use a modern and secure cipher suite, such as TLS 1.3 with AES-256-GCM, which provides strong encryption protection.
+4. **Keep software up-to-date:** Regularly update the web server and related software to ensure that the latest security patches are applied, which may include updates to the TLS implementation.
+5. **Use HSTS:** Implement the HTTP Strict Transport Security (HSTS) header to enforce the use of HTTPS and prevent downgrading to HTTP.
+6. **Monitor the server:** Monitor the web server logs for any evidence of cipher downgrade or other cryptographic attacks and take appropriate action.

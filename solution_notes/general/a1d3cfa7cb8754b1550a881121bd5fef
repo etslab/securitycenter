@@ -1,24 +1,27 @@
-###How to fix the Common Vulnerabilities issue of CVE-2011-3389 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-**To fix the Common Vulnerabilities issue of CVE-2011-3389 in nginx web server:**
+**Severity:** Critical
 
-1. Upgrade to the latest version of nginx. The CVE-2011-3389 vulnerability was fixed in nginx version 1.2.3 and later.
-2. Disable the use of SSL/TLS cipher-block chaining (CBC) mode. CBC mode is vulnerable to this attack, so it is best to disable it altogether. To do this, edit your nginx configuration file and add the following line:
+**OWASP Top 10 2021 Category:** Injection
 
-```
-ssl_prefer_server_ciphers on;
-```
+**Solution:**
 
-This will cause nginx to prefer cipher suites that use other modes, such as GCM.
-3. Enable HTTP/2 support. HTTP/2 uses a newer version of the SSL/TLS protocol that is not vulnerable to this attack. To enable HTTP/2 support, edit your nginx configuration file and add the following line:
+1. **Enable HTTP Header Filtering:**
+   - Open IIS Manager.
+   - Navigate to the site or application experiencing the issue.
+   - Double-click on "HTTP Request Headers" in the "Features View".
+   - Enable "Enable HTTP Header Filtering" and set the action to "Reject".
+2. **Disable WebDAV:**
+   - Navigate to the site or application experiencing the issue.
+   - Double-click on "WebDAV" in the "Features View".
+   - Disable "WebDAV".
+3. **Implement Input Validation:**
+   - Validate all user-provided input on the server side to prevent malicious characters from being processed.
+4. **Restrict File Uploads:**
+   - Only allow uploads from trusted sources and limit the types of files that can be uploaded.
+5. **Use an Application Firewall:**
+   - Implement an application firewall to block malicious requests that attempt to exploit this vulnerability.
 
-```
-http2_protocol on;
-```
+**Additional Notes:**
 
-**Which OWASP Top 10 Web 2021 category does this issue belong to?**
-
-CVE-2011-3389 belongs to the **Sensitive Data Exposure** category of the OWASP Top 10 Web 2021. This category covers vulnerabilities that can allow attackers to steal sensitive data, such as credit card numbers, passwords, and personal information.
-
-In the case of CVE-2011-3389, an attacker could exploit this vulnerability to steal cookie data from a user's web browser. This data could then be used to impersonate the user and gain access to their account on the website.
-
-To mitigate this risk, it is important to keep your nginx web server up to date and to disable the use of SSL/TLS CBC mode. You should also enable HTTP/2 support to take advantage of the latest security features of the SSL/TLS protocol.
+* This vulnerability allows attackers to execute arbitrary code on the server by injecting malicious HTTP headers into a request.
+* The impact of this vulnerability can be severe, as it can lead to complete server compromise and data loss.
+* It is important to apply the above solutions promptly to mitigate the risk associated with this vulnerability.

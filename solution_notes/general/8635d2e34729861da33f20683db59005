@@ -1,0 +1,37 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A1 - Broken Access Control
+
+**Detailed Solution:**
+
+To fix the issue of User Controllable HTML Element Attribute (Potential XSS), follow these steps:
+
+1. **Identify the vulnerable HTML element:** Determine the specific HTML element where the attribute value is being controlled by user input.
+
+2. **Encode user inputs:** Use appropriate encoding techniques (e.g., HTML entities, URL encoding) to sanitize user inputs before they are rendered in the HTML element. This prevents malicious characters from being interpreted as executable code.
+
+3. **Use a Content Security Policy (CSP):** Implement a CSP to restrict the types and sources of external resources (e.g., scripts, images) that can be loaded by the webpage. This helps prevent attackers from including malicious content from untrusted sources.
+
+4. **Implement input validation:** Validate user inputs to ensure they meet expected format and length requirements. This can help prevent malicious inputs from being processed by the web server.
+
+5. **Configure nginx settings:** Configure nginx to enforce strict security headers, such as X-XSS-Protection and X-Content-Type-Options. These headers help prevent cross-site scripting (XSS) attacks.
+
+**Example Implementation in nginx:**
+
+```
+server {
+  listen 80;
+  server_name example.com;
+
+  # Set security headers
+  add_header X-XSS-Protection "1; mode=block";
+  add_header X-Content-Type-Options "nosniff";
+
+  # Restrict external resources
+  content_security_policy "default-src 'self'; script-src 'self' 'unsafe-inline'; object-src 'none'; style-src 'self' 'unsafe-inline';";
+
+  # ... Other configurations
+}
+```
+
+**Note:** Always test your changes thoroughly to ensure they do not break any existing functionality.

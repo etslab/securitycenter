@@ -1,0 +1,27 @@
+**Severity**: High
+
+**OWASP Top 10 2021 Category**: A3: Broken Access Control
+
+**Issue Description**:
+
+The absence of the "SameSite" attribute in cookies allows an attacker to bypass cross-site request forgery (CSRF) protection by setting the "SameSite" attribute to "None" in the browser. This can lead to a CSRF attack, where an attacker tricks a victim into submitting a form on a website that they are logged into, allowing the attacker to perform malicious actions on the victim's behalf.
+
+**Solution**:
+
+To fix this issue, you should set the "SameSite" attribute to "Strict" for all cookies that contain sensitive information. This will ensure that the cookie is only sent to the same origin, preventing it from being used in a CSRF attack.
+
+Here is an example of how to set the "SameSite" attribute in IIS:
+
+```
+<system.web>
+  <httpCookies sameSite="Strict" />
+</system.web>
+```
+
+You should also consider setting the "HttpOnly" flag to true to prevent the cookie from being accessed by JavaScript.
+
+**Additional Notes**:
+
+* The "SameSite" attribute is supported in all major browsers, including Chrome, Firefox, Safari, and Edge.
+* It is important to note that setting the "SameSite" attribute to "Strict" may break some legitimate functionality on your website. For example, if your website uses iframes to load content from other domains, you may need to set the "SameSite" attribute to "Lax" instead.
+* You should test your website thoroughly after making any changes to the "SameSite" attribute to ensure that it is still functioning as expected.

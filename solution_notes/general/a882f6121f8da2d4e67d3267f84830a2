@@ -1,35 +1,14 @@
-###How to fix the Common Vulnerabilities issue of CVE-2015-0204 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-**How to fix the Common Vulnerabilities issue of CVE-2015-0204 in nginx web server**
+**CVE-2015-0204: Medium Severity**
 
-The CVE-2015-0204 vulnerability in nginx is a remote code execution vulnerability that can be exploited by attackers to execute arbitrary code on the nginx server. The vulnerability is caused by a buffer overflow in the `ngx_http_read_client_request_body()` function.
+CVE-2015-0204 is a remote code execution vulnerability in Microsoft Internet Information Services (IIS) that allows an unauthenticated attacker to execute arbitrary code on a target system. This vulnerability is considered medium in severity because it requires specific conditions to be exploited and is not easily exploitable remotely.
 
-To fix the CVE-2015-0204 vulnerability, you need to upgrade to a version of nginx that is not affected by the vulnerability. The following versions of nginx are not affected by the vulnerability:
+**Solution:**
 
-* nginx 1.8.0 and later
-* nginx 1.7.2 and later
-* nginx 1.6.3 and later
+1. **Update IIS:** Apply the latest security updates from Microsoft, which patch the vulnerability.
+2. **Disable WebDAV:** Disable the Web Distributed Authoring and Versioning (WebDAV) feature in IIS, as it is the primary target of this exploit.
+3. **Enable Request Filtering:** Configure IIS Request Filtering to block requests with specific file extensions that are known to be vulnerable to this exploit.
+4. **Configure Firewall and IPS:** Implement a firewall and intrusion prevention system (IPS) to block traffic from suspicious sources and prevent exploitation attempts.
 
-If you are unable to upgrade to a version of nginx that is not affected by the vulnerability, you can mitigate the vulnerability by applying the following workarounds:
+**OWASP Top 10 2021 Category:**
 
-* Set the `client_max_body_size` directive to a lower value. This will limit the size of the request body that nginx will accept.
-* Set the `fastcgi_buffers` directive to a lower value. This will limit the size of the buffers that nginx will use to store the request body.
-
-**Which OWASP Top 10 web 2021 category does this issue belong to?**
-
-The CVE-2015-0204 vulnerability belongs to the following OWASP Top 10 web 2021 category:
-
-* **A1: Injection**
-
-Injection vulnerabilities occur when an attacker is able to inject malicious code into a web application's input. This can allow the attacker to execute arbitrary code on the web server or to access sensitive data.
-
-In the case of the CVE-2015-0204 vulnerability, an attacker could inject malicious code into the request body. This code would then be executed by the nginx server.
-
-**Recommendations**
-
-To protect your nginx web server from the CVE-2015-0204 vulnerability, you should:
-
-* Upgrade to a version of nginx that is not affected by the vulnerability.
-* Apply the workarounds listed above if you are unable to upgrade.
-* Implement a web application firewall (WAF) to protect your web application from injection attacks.
-
-You should also regularly review your web application security posture and keep your software up to date.
+* A02: Broken Authentication

@@ -1,35 +1,33 @@
-###How to fix the Common Vulnerabilities issue of CVE-2017-6168 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-**How to fix the Common Vulnerabilities issue of CVE-2017-6168 in nginx web server**
+**Severity:** Critical
 
-CVE-2017-6168 is a remote code execution (RCE) vulnerability in the Nginx web server that allows an attacker to execute arbitrary code on the server by sending a specially crafted HTTP request.
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
 
-To fix this vulnerability, you need to upgrade to a version of Nginx that is no longer affected by the vulnerability. The affected versions of Nginx are:
+**Solution:**
 
-* Nginx 1.10.2 and older
-* Nginx 1.11.9 and older
-* Nginx 1.12.4 and older
+**1. Disable Remote Management:**
 
-If you are unable to upgrade to a newer version of Nginx, you can mitigate the vulnerability by applying the following workaround:
+* Open IIS Manager (inetmgr.exe).
+* In the Connections pane, expand the tree for your server.
+* Click on "Management" in the Features View.
+* In the Management section, double-click on "Remote Management".
+* Uncheck the "Enable Remote Management" checkbox and click "OK".
 
-1. Open the Nginx configuration file (usually `/etc/nginx/nginx.conf`) in a text editor.
-2. Add the following line to the `http` block of the configuration file:
+**2. Restrict Access to Management Features:**
 
-```
-location / {
-    limit_req zone=$binary_remote_addr burst=10 nodelay;
-}
-```
+* In IIS Manager, click on "Authentication" in the Features View.
+* For each authentication method configured, click on "Edit".
+* In the "Authentication Methods" dialog, uncheck the "Enable Windows Authentication" checkbox.
+* Only grant access to trusted administrators through IP restrictions or other authentication mechanisms.
 
-3. Save the configuration file and restart Nginx.
+**3. Apply Security Updates:**
 
-This workaround will limit the number of requests that a single IP address can make to Nginx in a given period of time. This will help to mitigate the RCE vulnerability by making it more difficult for an attacker to send a specially crafted HTTP request that can exploit the vulnerability.
+* Install the latest security updates from Microsoft.
+* For Windows Server 2012 and later, install update [KB4010319](https://support.microsoft.com/en-us/topic/security-update-for-remote-desktop-services-april-11-2017-4010319-bb73ede4-f796-133a-71bc-b93a54384ac4).
+* For Windows Server 2008 R2, install update [KB4012218](https://support.microsoft.com/en-us/topic/security-update-for-remote-desktop-services-r2-april-11-2017-4012218-d470eba5-1dba-cb1d-8377-9684d5bbf266).
 
-**Which OWASP Top 10 Web 2021 category does CVE-2017-6168 belong to?**
+**4. Harden Web Server Configuration:**
 
-CVE-2017-6168 belongs to the following OWASP Top 10 Web 2021 category:
-
-**A2: Broken Authentication and Session Management**
-
-This category refers to vulnerabilities that allow attackers to exploit weaknesses in authentication and session management mechanisms to compromise user accounts or hijack sessions. CVE-2017-6168 allows an attacker to execute arbitrary code on the server without requiring authentication, which makes it a critical vulnerability that falls into this category.
-
-It is important to note that the OWASP Top 10 Web is a prioritized list of the most common and dangerous web application security risks. It is not an exhaustive list of all possible web application vulnerabilities. However, it is a good starting point for organizations that are looking to improve the security of their web applications.
+* Enable HTTPS for all connections to the web server.
+* Disable unnecessary services and features.
+* Configure server headers to hide version and platform information.
+* Implement a web application firewall (WAF) to block malicious traffic.

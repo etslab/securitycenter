@@ -1,100 +1,22 @@
-###How to fix the Common Vulnerabilities issue of CVE-2015-4000 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2015-4000 is a vulnerability in the Nginx web server that allows attackers to bypass authentication and gain unauthorized access to accounts. This vulnerability is classified as a **Broken Authentication** vulnerability in the OWASP Top 10 Web 2021.
+**Severity:** High
 
-To fix the CVE-2015-4000 vulnerability in Nginx, you need to upgrade to the latest version of Nginx. You can also mitigate the vulnerability by enabling the `auth_http_basic_user_file` directive and configuring a password file for your users.
+**OWASP Top 10 2021 Category:** Injection
 
-Here are the steps to upgrade Nginx to the latest version:
+**Detailed Solution:**
 
-1. Stop the Nginx service:
+CVE-2015-4000 is a vulnerability in Microsoft IIS web server that allows remote attackers to execute arbitrary code on the server. This vulnerability is caused by an improper input validation in the way IIS handles certain HTTP requests.
 
-```
-sudo systemctl stop nginx
-```
+To fix this issue, you can apply the following patch from Microsoft:
 
-2. Download the latest version of Nginx from the official website:
+* https://support.microsoft.com/en-us/topic/ms15-097-important-cumulative-security-update-for-internet-explorer-edge-and-internet-information-services-iis-in-windows-august-11-2015-8b908d38-a193-0828-16d3-85890206f091
 
-```
-wget https://nginx.org/download/nginx-latest.tar.gz
-```
+Alternatively, you can disable the affected request filtering module:
 
-3. Extract the Nginx archive:
+1. Open IIS Manager.
+2. Select the server node.
+3. In the Features view, double-click Request Filtering.
+4. In the Request Filtering pane, select the General tab.
+5. Clear the Enable Request Filtering check box.
+6. Click OK.
 
-```
-tar -xvzf nginx-latest.tar.gz
-```
-
-4. Change to the Nginx directory:
-
-```
-cd nginx-latest
-```
-
-5. Configure Nginx:
-
-```
-./configure
-```
-
-6. Compile Nginx:
-
-```
-make
-```
-
-7. Install Nginx:
-
-```
-sudo make install
-```
-
-8. Start the Nginx service:
-
-```
-sudo systemctl start nginx
-```
-
-Here are the steps to mitigate the CVE-2015-4000 vulnerability by enabling the `auth_http_basic_user_file` directive and configuring a password file for your users:
-
-1. Open the Nginx configuration file:
-
-```
-sudo nano /etc/nginx/nginx.conf
-```
-
-2. Find the following section:
-
-```
-http {
-  ...
-}
-```
-
-3. Add the following lines to the section:
-
-```
-auth_http_basic_user_file /etc/nginx/htpasswd;
-
-location / {
-  auth_http_basic "Restricted Area";
-}
-```
-
-4. Save and close the configuration file.
-
-5. Create a password file for your users:
-
-```
-sudo htpasswd -c /etc/nginx/htpasswd username
-```
-
-6. Replace `username` with the username of the user you want to create a password for.
-
-7. Enter the password for the user when prompted.
-
-8. Restart the Nginx service:
-
-```
-sudo systemctl restart nginx
-```
-
-Once you have completed these steps, the CVE-2015-4000 vulnerability in Nginx will be fixed.
+**Note:** Disabling Request Filtering may have implications for other applications and services that rely on it. You should carefully consider the potential impact before making this change.

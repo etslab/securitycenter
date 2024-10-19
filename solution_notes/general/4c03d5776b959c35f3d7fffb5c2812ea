@@ -1,25 +1,34 @@
-###How to fix the Common Vulnerabilities issue of CVE-2016-0800 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2016-0800 is a vulnerability in the Nginx web server that allows an attacker to execute arbitrary code on the server by sending a specially crafted HTTP request. This vulnerability is classified as a **remote code execution** vulnerability, which is one of the most severe types of vulnerabilities.
+**Severity:** Critical
 
-To fix the CVE-2016-0800 vulnerability, you should upgrade to the latest version of Nginx. The following versions of Nginx are known to be vulnerable to CVE-2016-0800:
+**OWASP Top 10 2021 Category:** Broken Access Control
 
-* Nginx 1.8.0 and earlier
-* Nginx 1.9.0 and earlier
-* Nginx 1.10.0 and earlier
+**Detailed Solution:**
 
-If you are using an older version of Nginx, you should upgrade to at least version 1.10.1.
+1. **Install the latest security updates from Microsoft:**
+   - Download and install the latest security updates for Microsoft Windows from the Microsoft Update Catalog.
+   - For Windows Server 2008 R2: https://www.catalog.update.microsoft.com/Search.aspx?q=KB4049090
+   - For Windows Server 2012: https://www.catalog.update.microsoft.com/Search.aspx?q=KB4049091
+   - For Windows Server 2016: https://www.catalog.update.microsoft.com/Search.aspx?q=KB4049093
+   - For Windows Server 2019: https://www.catalog.update.microsoft.com/Search.aspx?q=KB4049094
 
-CVE-2016-0800 belongs to the following OWASP Top 10 Web 2021 category:
+2. **Enable HTTP Strict Transport Security (HSTS) header:**
+   - Configure IIS to add the HSTS header to all HTTP responses. This forces browsers to use HTTPS for all subsequent requests, mitigating man-in-the-middle attacks.
+   - To enable HSTS, open the IIS Management Console, select the website, click on "SSL Settings", and check the "Require HTTPS" option.
 
-* **A04: Insecure Design**
+3. **Disable unnecessary HTTP header fields:**
+   - Remove or disable any HTTP header fields that are not necessary for your application to function correctly. This reduces the risk of information disclosure attacks.
+   - To disable unnecessary HTTP header fields, open the IIS Management Console, select the website, click on "HTTP Response Headers", and remove any unnecessary headers.
 
-Insecure design is a new category for 2021 that focuses on risks related to design flaws. CVE-2016-0800 is an example of an insecure design vulnerability, as it is caused by a flaw in the way that Nginx handles HTTP requests.
+4. **Implement role-based access control:**
+   - Configure IIS to implement role-based access control (RBAC), which restricts access to sensitive files and directories based on user roles. This prevents unauthorized users from accessing protected resources.
+   - To implement RBAC, open the IIS Management Console, select the website, click on "Authorization", and configure the necessary roles and permissions.
 
-Here are some additional steps you can take to protect your Nginx web server from CVE-2016-0800:
+5. **Configure request filtering:**
+   - Enable request filtering in IIS to protect against malicious requests and prevent data loss. This can be done by configuring URL authorization rules, file upload restrictions, and other security settings.
+   - To configure request filtering, open the IIS Management Console, select the website, click on "Request Filtering", and configure the desired settings.
 
-* Keep your Nginx software up to date.
-* Use a web application firewall (WAF) to protect your server from malicious traffic.
-* Implement input validation to prevent attackers from injecting malicious code into your server.
-* Use a secure coding framework to help you avoid common security mistakes.
+**Additional Recommendations:**
 
-By taking these steps, you can help to protect your Nginx web server from CVE-2016-0800 and other security vulnerabilities.
+* Keep your IIS server and operating system up-to-date with the latest security patches.
+* Regularly scan your website for vulnerabilities using security tools.
+* Implement a web application firewall (WAF) to protect against external attacks.

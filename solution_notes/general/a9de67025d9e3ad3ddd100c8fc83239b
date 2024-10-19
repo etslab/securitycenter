@@ -1,31 +1,23 @@
-###How to fix the Common Vulnerabilities issue of CVE-2017-13098 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2017-13098 is a vulnerability in the nginx web server that can allow remote attackers to execute arbitrary code on the target system. The vulnerability is caused by an integer overflow in the way nginx handles certain HTTP requests.
+**Severity:** Critical
 
-To fix CVE-2017-13098 in nginx, you can either patch the vulnerability or upgrade to a version of nginx that has been patched.
+**OWASP Top 10 2021 Category:** Insecure Deserialization
 
-**To patch the vulnerability:**
+**Solution:**
 
-1. Download the patch for your version of nginx from the nginx website.
-2. Apply the patch to your nginx installation.
-3. Restart nginx.
+To fix this issue, you can disable the Deserialization feature on the affected IIS web server. Here are the steps:
 
-**To upgrade to a patched version of nginx:**
+1. Open the **Internet Information Services (IIS) Manager**.
+2. Select the **Site** or **Application** to be modified.
+3. Click on the **Configuration Editor** icon.
+4. In the **Section** drop-down list, select **system.web**.
+5. In the **Property** drop-down list, select **deserializeRequest**.
+6. Change the value to **false**.
+7. Click **Apply** and **OK**.
 
-1. Download the latest version of nginx from the nginx website.
-2. Install the new version of nginx.
-3. Configure the new version of nginx to use the same configuration files as your old installation.
-4. Start the new version of nginx.
+**Additional Security Recommendations:**
 
-CVE-2017-13098 belongs to the OWASP Top 10 2021 category **A4: Broken Access Control**.
-
-Broken Access Control vulnerabilities occur when an attacker is able to access resources that they should not have access to. This can be caused by a variety of factors, such as insecure coding practices, misconfiguration, or inadequate authentication and authorization mechanisms.
-
-CVE-2017-13098 is a specific example of a Broken Access Control vulnerability. In this case, the vulnerability allows attackers to execute arbitrary code on the target system by exploiting an integer overflow in nginx.
-
-**To mitigate the risk of Broken Access Control vulnerabilities:**
-
-* Implement least privilege access controls. This means that users and applications should only be granted access to the resources that they need to perform their tasks.
-* Use strong authentication and authorization mechanisms. This includes using multi-factor authentication and implementing role-based access control.
-* Keep software up to date. This includes applying security patches promptly.
-
-You can also use a web application firewall (WAF) to help protect your web applications from Broken Access Control vulnerabilities. A WAF can be configured to block malicious requests that attempt to exploit these vulnerabilities.
+* Keep your IIS web server up-to-date with the latest security patches.
+* Use strong and complex passwords for administrative accounts.
+* Disable unnecessary services and features.
+* Limit the exposure of sensitive data.
+* Implement a web application firewall (WAF) to block malicious requests.

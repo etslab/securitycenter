@@ -1,29 +1,27 @@
-###How to fix the Common Vulnerabilities issue of CVE-2016-0703 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-**How to fix the Common Vulnerabilities issue of CVE-2016-0703 in nginx web server**
+**Severity:** Critical
 
-To fix the Common Vulnerabilities issue of CVE-2016-0703 in nginx web server, you need to upgrade to a version of nginx that is not affected by the vulnerability. This can be done by downloading the latest version of nginx from the official website and following the installation instructions.
+**OWASP Top 10 2021 Category:** A1 - Broken Access Control
 
-If you are unable to upgrade to a newer version of nginx, you can mitigate the vulnerability by applying the following workaround:
+**Solution:**
 
-1. Open the nginx configuration file (`/etc/nginx/nginx.conf`).
-2. Add the following line to the `http` section of the configuration file:
+1. **Disable WebDAV:** Navigate to Windows Features and turn off the WebDAV feature.
 
-```
-    client_body_buffer_size 10m;
-```
+2. **Enable HTTP Strict Transport Security (HSTS):**
+   - Open IIS Manager.
+   - Select the website for which you want to enable HSTS.
+   - In the "Security" section of the website's properties dialog box, click on "Edit..." under HTTP Strict Transport Security (HSTS).
+   - Select "Enable HSTS" and specify the desired maximum age for the HSTS header (recommended: 31536000 seconds, or 1 year).
 
-This will increase the maximum size of the client request body that nginx will accept.
+3. **Use SSL/TLS for all communications:** Ensure that all communication to and from the web server is encrypted using SSL/TLS.
 
-3. Save the configuration file and restart nginx.
+4. **Limit access to sensitive data:** Restrict access to sensitive data to only authorized users and implement access control mechanisms to prevent unauthorized access.
 
-**Which OWASP Top 10 web 2021 category does this issue belong to?**
+5. **Implement Web Application Firewall (WAF):** Use a WAF to monitor and block malicious requests that could exploit the vulnerability.
 
-The CVE-2016-0703 vulnerability in nginx web server belongs to the **Insecure Design** category of the OWASP Top 10 web 2021. The Insecure Design category focuses on fundamental design flaws and ineffective controls as opposed to weak or flawed implementations.
+6. **Install security updates:** Apply all security updates from Microsoft as soon as possible.
 
-The CVE-2016-0703 vulnerability is a design flaw in nginx that allows an attacker to send a large request body to the server, which can cause the server to crash. This vulnerability can be exploited to launch a denial-of-service attack against the server.
+**Additional Considerations:**
 
-**Additional notes**
-
-The CVE-2016-0703 vulnerability was fixed in nginx version 1.11.0. If you are using an older version of nginx, you should upgrade to a newer version as soon as possible.
-
-You should also consider implementing additional security measures to protect your nginx web server, such as using a firewall and mod_security.
+* If disabling WebDAV is not feasible, consider implementing specific access controls to limit the use of WebDAV to authorized users only.
+* Regularly review and update access control configurations to ensure their effectiveness in preventing unauthorized access.
+* Consider using a vulnerability scanner to regularly scan the web server for vulnerabilities and take appropriate remediation actions.

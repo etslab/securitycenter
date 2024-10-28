@@ -1,0 +1,24 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Issue Description:**
+
+android_ip_disclosure is a setting in the Apache HTTP Server that allows clients to determine the internal IP address of the web server. This information can be valuable to attackers for reconnaissance and subsequent attacks.
+
+**Solution:**
+
+To fix this issue, disable the android_ip_disclosure setting by adding the following line to the server's Apache configuration file:
+
+```
+ServerTokens Prod
+```
+
+This will prevent the server from sending the internal IP address in the response headers.
+
+**Additional Considerations:**
+
+* It is also recommended to disable the Server header to further obscure the server's identity.
+* Use a reputable WAF (Web Application Firewall) to block malicious requests and scan for vulnerabilities.
+* Keep the server and Apache software up to date to fix any security issues.
+* Regularly perform security audits to identify and rectify potential vulnerabilities.

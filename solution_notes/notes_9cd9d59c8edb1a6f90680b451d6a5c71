@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Cryptography
+
+**Solution:**
+
+1. **Install an SSL certificate:** Purchase and install a valid SSL certificate from a reputable certificate authority (CA). This certificate will provide strong encryption and authentication for your website.
+
+2. **Enable SSL certificate pinning:** Add the following code to your `.htaccess` file to enable SSL certificate pinning:
+
+```
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{SSL:SSL_TLS_SNI} !^mydomain.com$
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+```
+
+Replace `mydomain.com` with your actual domain name.
+
+3. **Disable weak SSL protocols and ciphers:** Remove support for obsolete or insecure SSL protocols and ciphers. You can do this by modifying your web server configuration file (e.g., `.conf`, `.htaccess`).
+
+4. **Use a Content Security Policy (CSP):** Configure a CSP to restrict the sources of external resources (e.g., scripts, images) that can be loaded by your website. This will prevent attackers from loading malicious content that could bypass SSL pinning.
+
+5. **Monitor and update regularly:** Regularly monitor your website for any signs of security vulnerabilities. Keep your SSL certificates and software up to date to ensure they are not vulnerable to exploits.
+
+**Explanation:**
+
+Android_ssl_pinning is a vulnerability that allows attackers to bypass SSL certificate verification by exploiting a flaw in the Android operating system. By intercepting and modifying SSL connections, attackers can impersonate the intended website and steal sensitive user information or deliver malware.
+
+By implementing the above solution, you can mitigate this vulnerability and secure your website against SSL pinning bypass attacks.

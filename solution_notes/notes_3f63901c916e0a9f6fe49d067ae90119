@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Solution:**
+
+To fix this issue, you need to add the appropriate Cache-Control headers to your Apache configuration. Here's how:
+
+1. Open the Apache configuration file (usually named `httpd.conf`).
+2. Locate the `<VirtualHost>` section for the website you want to configure.
+3. Add the following line inside the `<VirtualHost>` section:
+
+```apache
+Header set Cache-Control "max-age=3600, public"
+```
+
+This line will set the Cache-Control header to "max-age=3600, public", which means that the browser will cache the content for up to 3600 seconds (1 hour) and can share the cached content with other users.
+
+You can adjust the `max-age` value to your desired cache duration.
+
+**Additional Considerations:**
+
+* You should only set Cache-Control headers for static content, such as images, CSS, and JavaScript files.
+* For sensitive or dynamic content, you should set the Cache-Control header to "no-cache" or "private" to prevent caching.
+* You can use a tool like YSlow or GTmetrix to test the performance of your website and identify any caching issues.

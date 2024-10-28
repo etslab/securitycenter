@@ -1,15 +1,38 @@
-###How to fix the Web Threats issue of Information Disclosure - Suspicious Comments
-There are a few ways to fix the Web Threats issue of Information Disclosure - Suspicious Comments in Apache web server.
+**Severity:** High
 
-* **Remove all unnecessary comments from the code.** Comments that are not necessary for debugging or understanding the code should be removed. This will help to prevent attackers from gaining any information about the application or its infrastructure.
-* **Use a code review tool to scan the code for suspicious comments.** Code review tools can help to identify comments that may be suspicious or could potentially be used by an attacker.
-* **Use a web application firewall (WAF) to block requests that contain suspicious comments.** A WAF can be configured to block requests that contain certain keywords or phrases that are commonly used in suspicious comments.
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
 
-The Information Disclosure - Suspicious Comments issue belongs to the OWASP Top 10 Web 2021 category of **Information Exposure**. This category includes vulnerabilities that allow attackers to view or download sensitive information, such as passwords, credit card numbers, or source code.
+**Solution:**
 
-Here are some additional tips for preventing Information Disclosure - Suspicious Comments vulnerabilities:
+1. **Update WordPress Core and Plugins:** Ensure that WordPress, the Yoast SEO plugin, and all other plugins and themes are up to date. Updates often include security patches that address vulnerabilities.
 
-* **Use strong passwords and security measures to protect your web server.** This will make it more difficult for attackers to gain access to your server and view sensitive information.
-* **Keep your web server software up to date.** Software updates often include security fixes that can help to protect your server from known vulnerabilities.
-* **Use a web application firewall (WAF).** A WAF can help to block requests that contain suspicious comments or that attempt to access sensitive information.
-* **Have your web application security tested regularly.** A security assessment can help to identify and fix vulnerabilities in your web application.
+2. **Disable XML-RPC Interface:** The XML-RPC interface is designed for external applications to communicate with WordPress. However, it can be exploited by attackers to gain unauthorized access to the site. Disable it by adding the following code to the `.htaccess` file:
+
+```
+<Files xmlrpc.php>
+Order Deny,Allow
+Deny from all
+</Files>
+```
+
+3. **Disable the Yoast SEO API:** The Yoast SEO API can expose sensitive information about your website's content and configuration. Disable it by adding the following code to the `wp-config.php` file:
+
+```
+define('DISABLE_YOAST_SEO_API', true);
+```
+
+4. **Enable Two-Factor Authentication (2FA):** Implement 2FA for all administrator accounts to add an extra layer of security and prevent unauthorized access.
+
+5. **Use a Web Application Firewall (WAF):** A WAF can monitor and block malicious requests, including those targeting the WordPress-SEO plugin.
+
+6. **Implement Security Headers:** Configure the following security headers to protect the website from common attacks:
+
+   - Content-Security-Policy (CSP)
+   - HTTP Strict Transport Security (HSTS)
+   - X-Content-Type-Options (X-CTO)
+   - X-Frame-Options (X-FO)
+   - X-XSS-Protection (X-XSS)
+
+7. **Review and Harden File Permissions:** Ensure that WordPress files and directories have appropriate permissions to prevent unauthorized access.
+
+8. **Regularly Scan for Vulnerabilities:** Use a vulnerability scanner to periodically scan the website for known vulnerabilities and security misconfigurations.

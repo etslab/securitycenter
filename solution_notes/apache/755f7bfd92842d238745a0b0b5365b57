@@ -1,0 +1,42 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Solution:**
+
+**1. Update Apache:**
+
+* Upgrade to Apache Http Server versions 2.4.56, 2.5.48, or later. These versions contain patches for the vulnerability.
+
+**2. Configure limits (optional):**
+
+* Add the following lines to your Apache configuration file (httpd.conf):
+
+```
+RequestHeaderLimit 30000
+LimitXMLRequestBody 32000000
+```
+
+* These directives limit the size of headers and XML request bodies, respectively.
+
+**3. Implement rate limiting (optional):**
+
+* Consider implementing rate limiting mechanisms to prevent excessive traffic and potential attacks.
+
+**4. Restrict access to Trac:**
+
+* If you don't use Trac, disable it or restrict access to it by adding the following lines to your configuration file:
+
+```
+<Location /trac/>
+  Require all denied
+</Location>
+```
+
+**5. Patch Trac (for Trac users):**
+
+* If you use Trac, apply the patch provided by the Trac team: https://trac.edgewall.org/wiki/ExpatVulnerability
+
+**6. Disable or remove Trac (for Trac users):**
+
+* If you no longer need Trac, disable or remove it from your Apache configuration.

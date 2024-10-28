@@ -1,0 +1,18 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Update Apache HTTP Server to version 2.4.49 or later.** This version includes a patch that addresses the vulnerability.
+2. **Configure Apache HTTP Server to disable the mod_autoindex module.** This module is not necessary for most web applications and can be used to exploit the vulnerability.
+3. **Set directory permissions correctly.** Ensure that directories containing sensitive information are not world-readable or writable.
+4. **Enable Apache HTTP Server's security features.** These features include mod_authz_host and mod_authz_user, which can help prevent unauthorized access.
+
+**Additional Information:**
+
+CVE-2020-15778 is a path traversal vulnerability in Apache HTTP Server that allows an attacker to access files outside of the web root directory. This vulnerability can lead to the disclosure of sensitive information, such as system configuration files or user data.
+
+The vulnerability is caused by a flaw in the way Apache HTTP Server handles requests that contain "../" sequences in the URL. By carefully crafting a request, an attacker can bypass the access controls that are normally enforced by the server.
+
+The impact of this vulnerability is high because it can allow an attacker to access sensitive information or gain unauthorized access to the system. It is important to patch vulnerable systems as soon as possible to mitigate this risk.

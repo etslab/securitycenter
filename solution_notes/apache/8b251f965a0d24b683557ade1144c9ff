@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+1. **Disable TaskAffinity:** Remove the `android:taskAffinity` attribute from the `DisconnectVPNActivity` declaration in the AndroidManifest.xml file. This will prevent the activity from starting a new task when launched.
+
+2. **Use the `FLAG_ACTIVITY_NEW_TASK` Flag:** When launching the `DisconnectVPNActivity`, use the `FLAG_ACTIVITY_NEW_TASK` flag to create a new task for the activity. This will ensure that the activity is not started in the same task as the previous activity.
+
+**Code Snippet:**
+
+```java
+Intent intent = new Intent(this, DisconnectVPNActivity.class);
+intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+startActivity(intent);
+```
+
+**Explanation:**
+
+By setting the `taskAffinity` attribute, you are essentially grouping multiple activities together into a single task. This can lead to security vulnerabilities, such as the ability for an attacker to inject malicious activities into the task and gain access to sensitive data. By disabling this attribute and using the `FLAG_ACTIVITY_NEW_TASK` flag, you can isolate the `DisconnectVPNActivity` into a separate task, making it more difficult for an attacker to exploit the vulnerability.

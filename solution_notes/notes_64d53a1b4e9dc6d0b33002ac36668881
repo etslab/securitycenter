@@ -1,0 +1,29 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+To fix this issue, you need to remove the unnecessary permission from the Apache configuration file. Here are the steps:
+
+1. Open the Apache configuration file for the website (usually named httpd.conf or apache2.conf).
+
+2. Locate the `<Directory>` block for the directory where the audio files are stored.
+
+3. Remove the `AllowOverride None` directive, if present.
+
+4. Add the following directive to the `<Directory>` block:
+
+```
+Deny from all
+```
+
+5. Save the configuration file and restart Apache.
+
+This will prevent all users from accessing the audio files in the directory. If you need to allow access to a specific group of users, you can use the `Require` directive instead of `Deny`.
+
+**Justification:**
+
+The `android.permission.READ_MEDIA_AUDIO` permission allows an app to read audio files from the user's device. If this permission is granted to an untrusted app, the app could potentially access sensitive information such as music, recordings, and podcasts. This could lead to privacy concerns or even identity theft.
+
+By removing the unnecessary permission from the Apache configuration file, you can prevent unauthorized access to the audio files and reduce the risk of sensitive data exposure.

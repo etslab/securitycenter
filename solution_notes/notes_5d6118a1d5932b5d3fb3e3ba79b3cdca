@@ -1,0 +1,30 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control (A03)
+
+**Detailed Solution:**
+
+1. **Enable Cross-Origin Resource Sharing (CORS):**
+   - Configure the server to allow cross-site requests from authorized origins. This prevents unauthorized domains from making requests to the server and protects against tapjacking attacks.
+
+2. **Use Content Security Policy (CSP):**
+   - Implement a CSP header to restrict the sources from which the browser can load resources. This ensures that external resources cannot be loaded into the page and used for tapjacking.
+
+3. **Validate Referrer Header:**
+   - Check the HTTP Referrer header to verify that requests are coming from legitimate sources. This helps detect and block requests that originate from malicious domains.
+
+4. **Implement Anti-Clickjacking Measures:**
+   - Use the HTML `X-Frame-Options` and `Content-Security-Policy` (CSP) headers to prevent the page from being framed by external websites.
+   - Set the `Pointer-Events: none` CSS property on transparent overlays to prevent them from receiving click events.
+
+5. **Disable Pointer Events for Transparent Elements:**
+   - Identify any transparent elements or overlays on the page that can be used for tapjacking. Use CSS to disable pointer events for these elements, making them non-interactive.
+
+6. **Regularly Update Software:**
+   - Keep the web server and all relevant software up to date with the latest security patches. This includes the Apache web server and any third-party plugins or modules.
+
+**Additional Recommendations:**
+
+* Scan the website regularly for vulnerabilities using automated tools.
+* Educate users about tapjacking attacks and how to protect themselves.
+* Monitor logs and analyze traffic patterns to detect suspicious activity.

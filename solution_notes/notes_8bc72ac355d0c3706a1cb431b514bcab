@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A7: Cross-Site Scripting (XSS)
+
+**Description:**
+
+The android_hardcoded issue refers to hardcoded Android intents in web applications (e.g., JSP, HTML pages) served by an Apache HTTP server. An attacker could exploit this issue by crafting malicious links that, when clicked, execute arbitrary code on a vulnerable Android device.
+
+**Solution:**
+
+To fix this issue, it is recommended to use dynamic Android intents instead of hardcoded ones. Dynamic intents retrieve the target application's package name and activity at runtime, reducing the risk of code execution.
+
+Here's how to fix the issue in JSP:
+
+```jsp
+<% request.setAttribute("package", request.getParameter("targetPackage")); %>
+<a href="intent://#Intent;package=<%= request.getAttribute("package") %>;S.className=<%= request.getAttribute("targetActivity") %>;end">Click here</a>
+```
+
+Here's how to fix the issue in HTML:
+
+```html
+<a href="intent://#Intent;package=<%= request.getAttribute("targetPackage") %>;S.className=<%= request.getAttribute("targetActivity") %>;end">Click here</a>
+```
+
+**Additional Recommendations:**
+
+* Use an appropriate Apache HTTP header to prevent the browser from caching pages that contain Android intents.
+* Implement input validation to ensure that the intent data is valid and does not contain malicious code.
+* Use a web application firewall (WAF) to block malicious requests.

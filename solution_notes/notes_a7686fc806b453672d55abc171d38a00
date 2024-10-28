@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 Category:** A10 - Server-Side Request Forgery (SSRF)
+
+**Detailed Solution:**
+
+This issue is likely an indicator of a potential SSRF vulnerability. LibtobEmbedPagEncrypt.so is a library that is used by Apache servers to process encrypted HTTP requests. If an attacker can somehow trigger a request to this library, they may be able to read or modify arbitrary files on the server.
+
+To fix this issue, you should follow these steps:
+
+1. Update Apache to the latest version.
+2. Remove the libtobEmbedPagEncrypt.so library from the server.
+3. Configure Apache to restrict access to the Tomcat server.
+4. Implement input validation and filtering to prevent malicious requests from being processed.
+
+**Additional Recommendations:**
+
+* Review your server logs to identify any suspicious activity.
+* Perform regular vulnerability scans to identify and patch any other potential vulnerabilities.
+* Consider using a web application firewall to block malicious traffic.

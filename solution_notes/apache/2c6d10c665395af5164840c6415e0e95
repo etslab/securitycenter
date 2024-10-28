@@ -1,0 +1,56 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Fix:**
+
+1. **Update AndroidManifest.xml:**
+
+   - Add the following lines to the `<application>` tag:
+
+     ```xml
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+     ```
+
+   - Change the `android:sharedUserId` attribute of the `<application>` tag to a unique value:
+
+     ```xml
+     <application android:sharedUserId="my.unique.userid" ...>
+     ```
+
+2. **Declare File Permissions:**
+
+   - In the `<provider>` tag for the content provider, add the following line:
+
+     ```xml
+     <grant-uri-permission android:pathPrefix="/storage/emulated/0/" android:readPermission="android.permission.READ_EXTERNAL_STORAGE" android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE" />
+     ```
+
+3. **Enforce Permissions:**
+
+   - In the content provider's `query()` and `insert()` methods, check if the caller has the necessary permissions:
+
+     ```java
+     // Query method
+     @Override
+     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+         // Check if the caller has read permission
+         if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+             throw new SecurityException("Permission denied: android.permission.READ_EXTERNAL_STORAGE");
+         }
+
+         // Perform the query operation
+         // ...
+
+     // Insert method
+     @Override
+     public Uri insert(Uri uri, ContentValues values) {
+         // Check if the caller has write permission
+         if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+             throw new SecurityException("Permission denied: android.permission.WRITE_EXTERNAL_STORAGE");
+         }
+
+         // Perform the insert operation
+         // ...
+     }
+     ```

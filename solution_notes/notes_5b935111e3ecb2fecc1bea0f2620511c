@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue Description:**
+
+The `apktool_out/lib/arm64-v8a/libnms.so` library is present in the Apache server directory, which potentially allows an unauthenticated attacker to access sensitive information or execute arbitrary code on the server. This issue arises due to improper access control mechanisms in the Apache server configuration.
+
+**Solution:**
+
+To resolve this issue, follow these steps:
+
+1. **Update Apache Server:** Ensure that you are running the latest version of Apache Server, which includes security fixes.
+2. **Review Server Configuration:** Check the Apache server configuration files for any misconfigurations or vulnerabilities. In particular, examine the `httpd.conf` and `.htaccess` files. Remove any unnecessary modules or access permissions that could lead to security breaches.
+3. **Set Proper Permissions:** Verify that the `apktool_out` directory and its contents have the correct file permissions. The directory and subdirectories should be owned by the Apache user and the files should have read-only permissions (644).
+4. **Disable Unnecessary Features:** If possible, disable any unnecessary features in Apache Server, such as directory listing or CGI execution, which could provide potential attack vectors.
+5. **Implement Input and Output Filtering:** Use input and output filtering techniques to prevent malicious input from reaching the server and malicious output from being sent to clients. Consider using mod_security or similar modules for this purpose.
+
+**Additional Recommendations:**
+
+* Regularly monitor the server for suspicious activities and security breaches.
+* Implement a comprehensive security policy that includes regular security audits and vulnerability management practices.
+* Consider using a web application firewall (WAF) to filter malicious traffic and protect the server from attacks.

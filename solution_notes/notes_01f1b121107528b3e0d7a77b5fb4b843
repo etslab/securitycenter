@@ -1,0 +1,33 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Insecure Library or Framework
+
+**Vulnerability Description:**
+
+apktool_out/lib/x86/libapminsightb.so is a vulnerable shared library that may allow attackers to execute arbitrary code on the server. This library is part of the Android Performance Monitoring (APM) SDK, which is commonly used in mobile applications.
+
+**Impact:**
+
+An attacker could exploit this vulnerability to:
+
+* Execute arbitrary code on the server with root privileges
+* Access sensitive data or files on the server
+* Modify or delete data on the server
+* Create additional users or modify system settings
+
+**Solution:**
+
+The vendor of the APM SDK has released an updated version that addresses this vulnerability. To fix this issue, you should update the SDK to the latest version.
+
+**Steps to Resolve:**
+
+1. Contact the vendor of the APM SDK to obtain the latest version.
+2. Download and install the updated SDK.
+3. Restart the Apache server to ensure that the changes take effect.
+
+**Additional Recommendations:**
+
+* Keep your software up to date with the latest security patches.
+* Use a web application firewall (WAF) to block malicious traffic.
+* Implement input validation and encoding techniques to prevent attacks.
+* Regularly scan your server for vulnerabilities.

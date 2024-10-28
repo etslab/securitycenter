@@ -1,0 +1,14 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A03: Sensitive Data Exposure
+
+**Detailed Solution:**
+
+1. **Update the Apache Server:** Ensure that the Apache server is running the latest version, which may include security patches that address this issue.
+2. **Review Apache Settings:** Check the Apache configuration files (e.g., httpd.conf) to disable any unnecessary modules or configurations that may expose the sensitive file.
+3. **Set File Permissions:** Restrict access to the libEncryptorP.so file by setting appropriate file permissions. The file should only be accessible to authorized users.
+4. **Use HTTPS:** Implement HTTPS (TLS) to encrypt traffic between the web server and client browsers, preventing eavesdropping and data exposure.
+5. **Scan for Malware:** Regularly scan the server for malware or vulnerabilities that may have exploited the insecure configuration.
+6. **Disable Unnecessary Features:** Disable any unnecessary Apache features or modules that may expose sensitive files.
+7. **Use Strong Encryption:** Ensure that strong encryption algorithms are used to protect sensitive data stored or transmitted by the Apache server.
+8. **Implement HSTS:** Implement HTTP Strict Transport Security (HSTS) to force browsers to use HTTPS connections, preventing accidental exposure of sensitive data over HTTP.

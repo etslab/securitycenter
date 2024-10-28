@@ -1,0 +1,18 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. Update to Apache HTTP Server version 2.4.57 or later.
+2. Disable the insecure DefaultType directive by setting it to "none".
+3. Use mod_security to block requests exploiting this vulnerability.
+4. Implement a web application firewall (WAF) to block malicious requests.
+
+**Assessment:**
+
+CVE-2023-42116 is a vulnerability in Apache HTTP Server that allows an attacker to access restricted files. This is a high-severity issue because it could allow an attacker to gain access to sensitive information, such as website source code or user data.
+
+The vulnerability is caused by an insecure default configuration in Apache HTTP Server. By default, the DefaultType directive is set to "text/plain", which allows attackers to access files with arbitrary extensions by simply adding a ".txt" extension to the filename.
+
+To fix this issue, it is recommended to update to Apache HTTP Server version 2.4.57 or later, which includes a fix for this vulnerability. Additionally, you can disable the DefaultType directive by setting it to "none" or implement a WAF to block malicious requests.

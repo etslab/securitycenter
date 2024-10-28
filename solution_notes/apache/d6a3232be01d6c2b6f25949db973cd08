@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Description:**
+
+apktool_out/lib/x86/libfile_lock_pg.so is a native library that is not intended to be exposed to the web. When accessible through the web, it can potentially allow an attacker to read sensitive files on the server, such as configuration files or database credentials.
+
+**Solution:**
+
+To fix this issue, remove the unnecessary apktool folder and its contents from the web accessible directory. Here's a detailed solution:
+
+1. Identify the directory where apktool_out is located.
+2. Navigate to this directory and delete the entire "apktool_out" folder.
+3. Restart the Apache server to ensure the changes take effect.
+
+**Additional Considerations:**
+
+* Do not expose any non-web-facing directories or files through the web server.
+* Regularly review the file and directory permissions on your web server to ensure that only the necessary items are accessible.
+* Implement strong authentication mechanisms to protect access to sensitive areas of your web application.

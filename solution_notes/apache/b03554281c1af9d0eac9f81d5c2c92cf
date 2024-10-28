@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Solution:**
+
+To fix CVE-2023-51385 in Apache Server, follow these steps:
+
+1. **Update Apache Server:** Update your Apache Server to the latest version (2.4.56 or later) or 2.5.0 (minimum).
+   - For 2.4.x: `yum update httpd` or `apt-get update && apt-get install httpd`
+   - For 2.5.x: `yum install mod_http2` or `apt-get install libapache2-mod-http2`
+2. **Restart Apache Server:** After updating, restart the Apache Server.
+   - `service httpd restart` or 
+3. **Enable HTTP/2 Support:** If not already enabled, enable HTTP/2 support by configuring the `Protocols` directive in your Apache configuration file (usually `/etc/httpd/conf/httpd.conf` or `/etc/apache2/apache2.conf`):
+   - `Protocols h2 http/1.1`
+4. **Disable HTTP/1.0 Support:** Disable HTTP/1.0 support to prevent attackers from exploiting the vulnerability.
+   - `SSLProtocol all -SSLv2 -SSLv3 -TLSv1`
+5. **Enable CHttp2Filter:** Enable the `CHttp2Filter` module. 
+   - `LoadModule chttp2filter_module modules/mod_http2filter.so`
+
+**Note:** If you are using a custom Apache configuration, make sure to update the appropriate configuration files accordingly.
+
+**Additional Recommendations:**
+
+* Regularly check for and apply security updates to Apache Server and other software components.
+* Implement a Web Application Firewall (WAF) to filter out malicious requests.
+* Use secure coding practices to prevent injection vulnerabilities in your web applications.

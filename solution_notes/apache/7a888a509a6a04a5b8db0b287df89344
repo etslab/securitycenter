@@ -1,21 +1,38 @@
-###How to fix the Web Threats issue of Server Leaks Version Information via Server HTTP Response Header Field
-To fix the Web Threats issue of Server Leaks Version Information via Server HTTP Response Header Field in Apache web server, you can use the following steps:
+**Severity:** High
 
-1. Open the Apache configuration file, typically located at `/etc/apache2/apache2.conf`.
-2. Locate the `ServerTokens` directive.
-3. Change the value of the `ServerTokens` directive to `Prod`.
-4. Save the configuration file and restart Apache.
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
 
-This will prevent Apache from sending the version information in the `Server` HTTP response header.
+**Solution:**
 
-This issue belongs to the OWASP Top 10 Web Security Risks 2021 category of **Information Exposure**. By disclosing the version of your Apache web server, you are providing attackers with information that they can use to exploit known vulnerabilities in your server.
+1. **Update WordPress Core and Plugins:** Ensure that WordPress, the Yoast SEO plugin, and all other plugins and themes are up to date. Updates often include security patches that address vulnerabilities.
 
-Here are some additional tips for securing your Apache web server:
+2. **Disable XML-RPC Interface:** The XML-RPC interface is designed for external applications to communicate with WordPress. However, it can be exploited by attackers to gain unauthorized access to the site. Disable it by adding the following code to the `.htaccess` file:
 
-* Keep your Apache software up to date.
-* Use a strong password for your Apache account.
-* Configure Apache to only listen on the necessary ports.
-* Use a firewall to protect your Apache server from unauthorized access.
-* Implement security best practices, such as least privilege and input validation.
+```
+<Files xmlrpc.php>
+Order Deny,Allow
+Deny from all
+</Files>
+```
 
-By following these tips, you can help to protect your Apache web server from attack.
+3. **Disable the Yoast SEO API:** The Yoast SEO API can expose sensitive information about your website's content and configuration. Disable it by adding the following code to the `wp-config.php` file:
+
+```
+define('DISABLE_YOAST_SEO_API', true);
+```
+
+4. **Enable Two-Factor Authentication (2FA):** Implement 2FA for all administrator accounts to add an extra layer of security and prevent unauthorized access.
+
+5. **Use a Web Application Firewall (WAF):** A WAF can monitor and block malicious requests, including those targeting the WordPress-SEO plugin.
+
+6. **Implement Security Headers:** Configure the following security headers to protect the website from common attacks:
+
+   - Content-Security-Policy (CSP)
+   - HTTP Strict Transport Security (HSTS)
+   - X-Content-Type-Options (X-CTO)
+   - X-Frame-Options (X-FO)
+   - X-XSS-Protection (X-XSS)
+
+7. **Review and Harden File Permissions:** Ensure that WordPress files and directories have appropriate permissions to prevent unauthorized access.
+
+8. **Regularly Scan for Vulnerabilities:** Use a vulnerability scanner to periodically scan the website for known vulnerabilities and security misconfigurations.

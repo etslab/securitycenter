@@ -1,0 +1,18 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control (BAC)
+
+**Solution:**
+
+1. **Identify the Affected Files:** Determine the specific files within `apktool_out/lib/x86_64/libopenvpn.so` that contain the vulnerability.
+2. **Patch the Vulnerability:** Apply the necessary patches or updates to the affected files. Consult the Apache or OpenVPN documentation for specific instructions.
+3. **Restrictive Permissions:** Ensure that only authorized users have access to these files and directories. Set appropriate file and directory permissions using "chmod" or "chown" commands.
+4. **Limit File Exposure:** Consider moving the affected files to a less accessible location within the server directory structure.
+5. **Disable Unused Functionality:** If possible, disable or remove any unused features or dependencies that may introduce the vulnerability.
+6. **Regular Security Audits:** Regularly perform security audits to identify and address any potential vulnerabilities.
+
+**Additional Notes:**
+
+* The presence of `apktool_out` directories in the Apache server is a potential indicator of the use of repackaged or modified APKs.
+* Ensure that any APKs or libraries being used are from trusted sources and have been properly vetted for security.
+* Implement appropriate security measures to prevent unauthorized access to the server and its contents.

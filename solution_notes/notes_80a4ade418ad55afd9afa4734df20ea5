@@ -1,0 +1,20 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A02: Broken Authentication
+
+**Issue:**
+The sonarqube rule php:S6600 flags an issue with the `bWAPP/ba_forgotten.php` script in the bWAPP web application. This script allows users to reset their passwords, but it does not properly validate the user's identity before resetting the password. This can allow an attacker to reset the password of any user and gain access to their account.
+
+**Solution:**
+To fix this issue, you should implement proper validation of the user's identity before resetting the password. This can be done by using a combination of methods, such as:
+
+* Checking the user's email address against a database of known users.
+* Sending a confirmation email to the user's email address.
+* Requiring the user to answer a security question.
+
+**Additional Recommendations:**
+
+* Use a strong password hashing algorithm, such as bcrypt or argon2.
+* Implement rate limiting to prevent brute-force attacks.
+* Disable the ability to reset passwords for accounts that are not active.
+* Log all attempts to reset passwords, both successful and unsuccessful.

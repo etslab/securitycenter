@@ -1,0 +1,18 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Identify the affected server(s):** Determine which Apache servers are affected by the registry DS Access vulnerability.
+2. **Update the Apache configuration:** Apply the latest Apache security patches that address the vulnerability. These patches include fixes for Apache modules like mod_dav and mod_ldap.
+3. **Disable unnecessary modules:** Remove any Apache modules that are not required for the server's functionality. This reduces the attack surface and potential vulnerabilities.
+4. **Configure access controls:** Review the permissions granted to users and groups for DS Access. Implement least-privilege principles and restrict access to sensitive data only to authorized users.
+5. **Enable auditing:** Configure server logs to record all access attempts to the DS directory service. This allows for monitoring and detection of suspicious activity.
+
+**Additional Considerations:**
+
+* Keep the server software up to date with the latest security patches.
+* Regularly review server logs for any unusual activity or unauthorized access attempts.
+* Implement a firewall to block unauthorized access to the server.
+* Educate users about the importance of not sharing passwords or sensitive information.

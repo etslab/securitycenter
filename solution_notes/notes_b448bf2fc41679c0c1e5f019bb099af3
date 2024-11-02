@@ -1,0 +1,37 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Description:**
+
+The Parsedown.php library is vulnerable to a potential path traversal vulnerability, where an attacker could use specifically crafted markdown input to traverse and access files on the server. This could lead to sensitive information disclosure or arbitrary file execution.
+
+**Solution:**
+
+To fix this issue, use a more secure Markdown parser that does not allow path traversal. One recommended option is `ParsedownExtra` which provides similar functionality to `Parsedown` but with additional security measures.
+
+**Steps to Fix:**
+
+1. Remove the `Parsedown` library and install `ParsedownExtra` instead.
+2. Update the code to use `ParsedownExtra` for Markdown parsing.
+
+**Example Code:**
+
+```php
+// Remove Parsedown
+composer remove symfony/symfony
+
+// Install ParsedownExtra
+composer require symfony/parsedown-extra
+
+// Update code to use ParsedownExtra
+use ParsedownExtra;
+
+$parser = new ParsedownExtra();
+$html = $parser->text($markdown);
+```
+
+**Additional Notes:**
+
+* It is important to thoroughly test the application after making these changes to ensure that no unintended side effects occur.
+* Consider implementing additional security measures such as input validation and rate-limiting to prevent malicious exploitation.

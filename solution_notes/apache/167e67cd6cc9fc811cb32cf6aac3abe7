@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Authentication Broken Access Control
+
+**Solution:**
+
+To fix this issue, set the `'allow_users'` option in the `'settings.php'` file to `false`. This will disable user registration and prevent unauthorized access to the admin panel.
+
+**Modified code:**
+
+```php
+<?php
+// Allow user registration?
+$allow_users = false;
+?>
+```
+
+**Additional Recommendations:**
+
+* Regularly review and update your code to address security vulnerabilities.
+* Implement access controls to restrict access to sensitive information and functionality based on user roles and permissions.
+* Use a web application firewall (WAF) to protect your web applications from malicious traffic and attacks.

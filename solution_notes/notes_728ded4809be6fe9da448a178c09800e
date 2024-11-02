@@ -1,0 +1,43 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Server-Side Request Forgery (SSRF)
+
+**Detailed Solution:**
+
+The issue arises because the filepath package does not properly handle paths with a ?? prefix. This can lead to directory traversal vulnerabilities, allowing attackers to access files or directories that should be restricted.
+
+To fix this issue, follow these steps:
+
+1. Upgrade to the latest version of the filepath package (v1.16.0 or later).
+2. Use the `filepath.Abs()` function to normalize paths before using them in your code. `filepath.Abs()` converts relative paths to absolute paths and resolves symbolic links.
+
+**Example:**
+
+```go
+import (
+    "fmt"
+    "os"
+    "path/filepath"
+)
+
+func main() {
+    path := "??/tmp/secret.txt"
+
+    // Normalize the path using filepath.Abs()
+    absPath, err := filepath.Abs(path)
+    if err != nil {
+        fmt.Println("Error normalizing path:", err)
+        os.Exit(1)
+    }
+
+    // Use the normalized path
+    fmt.Println("Normalized path:", absPath)
+}
+```
+
+By normalizing paths using `filepath.Abs()`, you can prevent attackers from exploiting directory traversal vulnerabilities.
+
+**Additional Notes:**
+
+* The filepath package is used for manipulating file and directory paths in Go.
+* Directory traversal vulnerabilities occur when an attacker can access files or directories outside the expected or restricted scope of an application.

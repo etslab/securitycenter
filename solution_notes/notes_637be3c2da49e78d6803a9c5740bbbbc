@@ -1,0 +1,44 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Description:**
+
+The php:S2003 rule in SonarQube flags the use of `$_GET['password']` to retrieve the password without proper authentication. This is a vulnerability because an attacker could exploit this to access sensitive information by sending a crafted request to the `ba_forgotten.php` script.
+
+**Solution:**
+
+To fix this issue, implement proper authentication before allowing access to sensitive information. For example, you could:
+
+* Use a session or cookie to store the user's logged-in status.
+* Require the user to enter their password to retrieve the forgotten password.
+* Use a CAPTCHA to prevent automated attacks.
+
+**Detailed Steps:**
+
+1. Open the `ba_forgotten.php` script in your editor.
+2. Replace the following code:
+
+```php
+if (isset($_GET['password'])) {
+    echo $_GET['password'];
+}
+```
+
+3. With the following code:
+
+```php
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    echo $_GET['password'];
+} else {
+    header("Location: login.php");
+}
+```
+
+4. Save the changes and upload the updated script to your server.
+
+**Additional Recommendations:**
+
+* Consider implementing additional security measures, such as input validation and encryption of sensitive data.
+* Perform regular security audits to identify and fix vulnerabilities.
+* Keep your software up to date with the latest security patches.

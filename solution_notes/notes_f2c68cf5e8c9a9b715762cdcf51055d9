@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Solution:**
+
+The issue is related to the use of the Parsedown PHP library, which can be vulnerable to directory traversal attacks. An attacker could use specially crafted Markdown content to access sensitive files or directories on the server.
+
+To fix this issue, you can implement the following steps:
+
+1. Update the Parsedown library to the latest version (currently 1.8.3).
+2. Configure the Parsedown instance to disallow unsafe links:
+
+```php
+$parsedown = new Parsedown();
+$parsedown->setSafeMode(true);
+```
+
+3. Validate user-provided Markdown content before parsing it. This can involve checking for malicious characters or patterns.
+
+**Impact and Mitigation:**
+
+Directory traversal attacks can allow attackers to access sensitive data or execute arbitrary code on the server. By implementing the recommended mitigations, you can significantly reduce the risk of this type of attack.
+
+**Additional Notes:**
+
+* Consider using a more secure Markdown parser that does not allow unsafe links by default.
+* Regularly review and update your code and dependencies to address known vulnerabilities.
+* Monitor your application for any suspicious activity or unauthorized access attempts.

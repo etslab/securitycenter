@@ -1,0 +1,46 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Solution:**
+
+The bWAPP-Test:bWAPP/aim.php sonarqube rule php:S2003 highlights a potential vulnerability related to SQL injection. This occurs when user input is directly incorporated into a SQL statement without proper validation and sanitization. To fix this issue, implement the following measures:
+
+1. **Use Prepared Statements:**
+   - Prepared statements are a secure way to execute SQL queries by separating user input from the query itself.
+   - In PHP, use `mysqli_prepare()` and `mysqli_bind_param()` to create and parameterize queries.
+
+2. **Sanitize User Input:**
+   - Validate and sanitize user input to remove malicious characters and prevent their inclusion in SQL statements.
+   - Use built-in PHP functions like `htmlspecialchars()` and `filter_var()` to escape and validate input.
+
+3. **Escape Special Characters:**
+   - Escape special characters like single quotes (`'`) and double quotes (`"`) to prevent them from being interpreted as SQL syntax.
+   - Use `mysqli_real_escape_string()` to escape input before inserting it into SQL statements.
+
+4. **Limit User Privileges:**
+   - Grant only the minimum necessary database permissions to users to minimize the potential impact of an SQL injection attack.
+
+5. **Use a Web Application Firewall (WAF):**
+   - A WAF can detect and block malicious input, including SQL injection attempts.
+
+**Example Code (Using Prepared Statements):**
+
+```php
+<?php
+
+// Prepare the SQL statement
+$stmt = $mysqli->prepare("SELECT * FROM users WHERE username = ?");
+
+// Bind the parameter to the input
+$stmt->bind_param("s", $username);
+
+// Execute the query
+$stmt->execute();
+```
+
+**Additional Notes:**
+
+* Update your server software and PHP version to receive security patches.
+* Regularly scan your application for vulnerabilities using security tools.
+* Consider using a security framework such as OWASP Zed Attack Proxy (ZAP) to identify and address potential vulnerabilities.

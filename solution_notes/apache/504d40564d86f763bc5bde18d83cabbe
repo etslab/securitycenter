@@ -1,0 +1,19 @@
+**Severity**: High
+
+**OWASP Top 10 2021 Category**: Server-Side Request Forgery (SSRF)
+
+**Solution**:
+
+1. **Identify the vulnerable application**: Determine which application or service is affected by the null Policy in the Registry.
+
+2. **Update the policy**: Configure a valid policy for the affected registry to enforce access control and prevent SSRF attacks. This typically involves setting the "auth" field to "basic" or "jwt" to require authentication for accessing the registry.
+
+3. **Redeploy the application**: Once the policy is updated, redeploy the application to ensure that the changes take effect.
+
+4. **Verify the fix**: Test the application to confirm that the SSRF vulnerability has been mitigated by checking if requests to external endpoints are blocked as expected.
+
+**Additional Notes**:
+
+* The specific solution may vary depending on the technology stack and configuration of the affected system.
+* It's recommended to update any outdated dependencies or software to ensure that the latest security patches are applied.
+* Regular security audits and penetration testing should be conducted to identify and address potential vulnerabilities.

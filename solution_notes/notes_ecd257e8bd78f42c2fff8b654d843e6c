@@ -1,0 +1,35 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection (A1)
+
+**Description:**
+
+The `Transfer-Encoding` header is used to specify the encoding used to transfer the response body. If the header is not properly sanitized, it can allow attackers to inject arbitrary data into the response. This can lead to a variety of attacks, including:
+
+* **Cross-site scripting (XSS):** Attackers can inject malicious JavaScript into the response, which can be executed by the victim's browser.
+* **SQL injection:** Attackers can inject malicious SQL queries into the response, which can be executed by the victim's database server.
+* **Header injection:** Attackers can inject malicious headers into the response, which can be used to manipulate the victim's browser or server.
+
+**Solution:**
+
+The following steps should be taken to fix this issue:
+
+1. **Validate the `Transfer-Encoding` header:** Ensure that the header is properly formatted and does not contain any malicious characters.
+2. **Sanitize the `Transfer-Encoding` header:** Use a regular expression to validate the header and remove any malicious characters.
+3. **Use a web application firewall (WAF):** A WAF can be used to block malicious requests that attempt to inject data into the `Transfer-Encoding` header.
+
+**Example:**
+
+The following code shows how to sanitize the `Transfer-Encoding` header using a regular expression:
+
+```go
+import (
+	"net/http"
+	"regexp"
+)
+
+func sanitizeTransferEncoding(r *http.Request) {
+	re := regexp.MustCompile("[^a-zA-Z0-9,-]")
+	r.Header.Set("Transfer-Encoding", re.ReplaceAllString(r.Header.Get("Transfer-Encoding"), ""))
+}
+```

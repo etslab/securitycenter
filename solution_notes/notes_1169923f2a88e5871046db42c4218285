@@ -1,0 +1,38 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Cryptography
+
+**Detailed Solution:**
+
+To fix the issue of Apache HTTP server rejecting certificate chains with distributed trust using GnuTLS, follow these steps:
+
+1. **Enable the "remote-peer" TLS authentication method:**
+   - Edit the Apache configuration file (e.g., `/etc/httpd/conf/httpd.conf`).
+   - Add the following line:
+     ```
+     TLSOption RemotePeer
+     ```
+
+2. **Configure GnuTLS to trust the root certificate of the chain:**
+   - Replace the default GnuTLS configuration file with one that includes the trusted root certificate.
+   - Create a new GnuTLS configuration file (e.g., `/etc/gnutls/remote-peer.conf`).
+   - Add the following lines to the file:
+     ```
+     priority = NORMAL
+     remote-peer-type = TRUSTED_CA
+     **certificate-file-ca1 = /path/to/root-certificate.crt**
+     ```
+
+   - Replace `/path/to/root-certificate.crt` with the path to the root certificate of the trusted certificate chain.
+
+3. **Restart Apache HTTP Server:**
+   - Stop Apache HTTP Server (e.g., `systemctl stop httpd`).
+   - Start Apache HTTP Server with the updated configuration (e.g., `systemctl start httpd`).
+
+4. **Verify the Configuration:**
+   - Use a tool like `openssl s_client` to test the certificate chain validation:
+     ```
+     openssl s_client -connect example.com:443 -showcerts -CAfile /path/to/root-certificate.crt
+     ```
+
+   - The output should show the trusted root certificate in the certificate chain.

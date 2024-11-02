@@ -1,0 +1,26 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+The rule php:S1135 in SonarQube detects the use of "dynamic" SQL queries, which are vulnerable to SQL injection attacks.
+
+To fix this issue, you should use prepared statements or parameterized queries to execute SQL queries dynamically. These methods prevent SQL injection attacks by separating the query structure from the user-provided data.
+
+**Example:**
+
+```php
+// Vulnerable code
+$query = 'SELECT * FROM users WHERE username = "' . $_GET['username'] . '"';
+
+// Fixed code
+$stmt = $conn->prepare('SELECT * FROM users WHERE username = ?');
+$stmt->bind_param('s', $_GET['username']);
+```
+
+**Additional Recommendations:**
+
+* Use a web application firewall (WAF) to filter and block malicious traffic.
+* Implement input validation to ensure that user-provided data is valid and conforms to expected formats.
+* Regularly update your software and security patches.

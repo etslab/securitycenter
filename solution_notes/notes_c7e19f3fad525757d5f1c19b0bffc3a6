@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+The issue arises due to the use of unsanitized input in `add_event_listeners.js`. Specifically, the `message` parameter in the `add_event_listener()` function is not properly sanitized, allowing for potential Cross-Site Scripting (XSS) attacks.
+
+To fix the issue, implement input sanitization to validate and escape untrusted input before using it in the event listener function. This can be achieved by using a suitable sanitization library or by manually validating the input according to a set of predefined rules.
+
+Here's an example of how you could address the issue using a sanitization library like `owasp-esapi`:
+
+```javascript
+const { Validator } = require('owasp-esapi');
+
+// Sanitize the message parameter
+const sanitizedMessage = Validator.getValidInput('message', inputMessage);
+
+// Add event listener using the sanitized message
+add_event_listener(sanitizedMessage);
+```
+
+By implementing proper input sanitization, you can prevent malicious input from being executed in the event listener function, mitigating the risk of XSS attacks.

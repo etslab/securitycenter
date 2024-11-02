@@ -1,0 +1,31 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Not applicable
+
+**Detailed Solution:**
+
+The issue occurs when the build tag line contains deeply nested logical expressions, such as:
+
+```
+// +build !((!a && !b) || (!c && !d))
+```
+
+The recursive parsing of these expressions can lead to a deep call stack, causing a panic in Go versions prior to 1.16.
+
+To fix the issue, refactor the build tag line to remove any deep nesting. For example, the above line could be rewritten as:
+
+```
+// +build !a || !b || !c || !d
+```
+
+**Mitigation Steps:**
+
+1. Identify all build tag lines with deeply nested logical expressions.
+2. Refactor the build tag lines to remove the deep nesting.
+3. Run `go version` to ensure that you are using Go version 1.16 or later. If you are using an older version, upgrade to 1.16 or later.
+
+**Additional Notes:**
+
+* The issue is present in Go versions prior to 1.16.
+* The panic can occur when the build tag line is parsed by the `go/build` package.
+* It is recommended to use the latest version of Go to avoid potential bugs and security vulnerabilities.

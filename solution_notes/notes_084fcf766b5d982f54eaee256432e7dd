@@ -1,0 +1,24 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Input Validation
+
+**Cause:**
+The golang parser package does not have a limit on the depth of recursive calls, which can lead to stack exhaustion when parsing large or malformed input.
+
+**Solution:**
+To fix this issue, add a limit on the depth of recursive calls in the parser package. This can be done by passing a `context.Context` with a timeout to the `Parse*` functions. For example:
+
+```go
+ctx, cancel := context.WithTimeout(context.Background(), 1000*time.Millisecond)
+defer cancel()
+
+_, err := parser.ParseFile(ctx, "example.go")
+if err != nil {
+    // Handle error
+}
+```
+
+This will ensure that the parser will not run indefinitely and will return an error if the parsing takes too long.
+
+**Additional Notes:**
+This issue can be exploited by attackers to cause a denial of service attack by submitting large or malformed input to the application. It is important to validate input before parsing it to prevent this type of attack.

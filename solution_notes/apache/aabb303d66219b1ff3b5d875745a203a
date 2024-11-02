@@ -1,0 +1,33 @@
+**Severity**: High
+
+**OWASP Top 10 2021 Category**: Security Misconfiguration
+
+**Solution**:
+
+This issue occurs due to recursive globbing, which can lead to excessive memory usage and stack exhaustion. To fix this issue, configure the server to limit the maximum depth of recursive globbing. This can be achieved by setting the `GLOBIGNORE` environment variable to a wildcard pattern that excludes nested directories. For example:
+
+```
+export GLOBIGNORE='**/\*'
+```
+
+**Detailed solution:**
+
+1. Edit the Apache configuration file, typically located at `/etc/apache2/apache2.conf` or `/etc/httpd/conf/httpd.conf`, depending on your operating system.
+2. Add the following line to the configuration file:
+
+```
+SetEnv GLOBIGNORE '**/\*'
+```
+
+3. Save the configuration file and restart the Apache server.
+
+**Additional notes:**
+
+* This solution does not affect normal file globbing, only recursive globbing.
+* If you need to allow recursive globbing for specific directories, you can use the `GLOBIGNORE` environment variable to create exceptions. For example:
+
+```
+export GLOBIGNORE='**/\* -globdir=**/my-allowed-directory'
+```
+
+* It is important to note that setting the `GLOBIGNORE` environment variable may impact other applications that use recursive globbing.

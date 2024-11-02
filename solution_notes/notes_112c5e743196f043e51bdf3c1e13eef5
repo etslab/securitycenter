@@ -1,0 +1,28 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Detailed Solution:**
+
+The `php:S3626` rule in SonarQube flags potential sensitive data exposure due to the use of the `file_get_contents()` function without filtering or sanitizing the input. This function reads the entire contents of a file into a string, which could potentially expose sensitive data if the file contains such information.
+
+To fix this issue, you should filter and sanitize the input before using `file_get_contents()`. This can be done using techniques such as:
+
+* **Input validation:** Check if the input is from a trusted source and has a valid format.
+* **Data sanitization:** Remove or encode potentially harmful characters from the input.
+* **Use of a secure library:** Consider using a library that provides secure handling of file contents, such as `fopen()` with the appropriate permissions.
+
+**Example:**
+
+```php
+// Unsafe code
+$contents = file_get_contents($filename);
+
+// Safe code
+if (is_readable($filename) && is_file($filename)) {
+    $contents = file_get_contents($filename);
+    $contents = htmlspecialchars($contents, ENT_QUOTES);  // Sanitize the contents
+}
+```
+
+By implementing these measures, you can mitigate the risk of sensitive data exposure.

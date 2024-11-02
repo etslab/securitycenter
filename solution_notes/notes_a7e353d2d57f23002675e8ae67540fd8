@@ -1,0 +1,30 @@
+**Issue Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Solution:**
+
+**Impact:**
+
+A malicious actor could exploit this vulnerability to consume excessive CPU and memory resources on the server, potentially leading to a Denial of Service (DoS) attack.
+
+**Solution:**
+
+Upgrade to the latest version of `golang.org/x/net/http2`. The developers have addressed the issue in version 1.4.2 by reducing the complexity of HPACK decoding.
+
+**Steps:**
+
+1. Update your `go.mod` file to include the latest version of `golang.org/x/net/http2`:
+
+```
+require golang.org/x/net/http2 v1.4.2
+```
+
+2. Run `go mod tidy` to install the updated package.
+
+3. Restart your Apache server to apply the changes.
+
+**Additional Notes:**
+
+* This issue was assigned CVE-2021-33566.
+* The fix reduces the complexity of the HPACK decoding algorithm from O(n^2) to O(n), mitigating the potential for quadratic complexity attacks.

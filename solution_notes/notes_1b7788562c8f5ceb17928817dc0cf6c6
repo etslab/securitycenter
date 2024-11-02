@@ -1,0 +1,24 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Description:**
+
+The `Parsedown.php` library allows arbitrary PHP code evaluation and can be used to execute malicious commands on the server. Apache servers using the library are vulnerable to this issue. The specific rule, `php:S2010`, is triggered when untrusted data is used as a parameter to a function or method that can execute PHP code.
+
+**Solution:**
+
+Update the `Parsedown.php` library to the latest version, which mitigates this vulnerability. Ensure that user-supplied input is properly sanitized before passing it to the `Parsedown` class.
+
+**Detailed Steps:**
+
+1. Update the `Parsedown.php` library to version 1.8.8 or later.
+2. Identify any areas where user-supplied input is being passed to the `Parsedown` class without proper sanitization.
+3. Implement input validation and sanitization to prevent malicious input from being processed by the `Parsedown` class.
+4. Test the application to verify that the vulnerability has been fixed.
+
+**Additional Considerations:**
+
+* The fix should be applied to all instances of the `Parsedown.php` library that are used in the application.
+* It is recommended to use a secure coding framework to prevent similar vulnerabilities from being introduced in the future.
+* Regular security audits should be conducted to identify and address any potential vulnerabilities.

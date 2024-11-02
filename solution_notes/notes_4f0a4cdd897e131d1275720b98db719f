@@ -1,0 +1,35 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. Update nginx to the latest stable version (v1.23.1 at the time of writing).
+2. If you are unable to update nginx immediately, apply the following patch:
+
+```
+diff --git a/src/http/ngx_http_v2_stream.c b/src/http/ngx_http_v2_stream.c
+index 55dbdba73..c5cb38052 100644
+--- a/src/http/ngx_http_v2_stream.c
++++ b/src/http/ngx_http_v2_stream.c
+@@ -2652,8 +2652,13 @@ ngx_int_t ngx_http_v2_stream_handler(ngx_connection_t *c)
+                 ngx_http_v2_stream_finalize(c, /* stream */ NULL);
+         }
+ 
+-        if (!c->error) {
++        if (!c->error && ngx_http_v2_valid_stream_id(c->id, &c->connection->streams)) {
+             ngx_http_v2_streams_read_blocked(c);
++        } else {
++            ngx_log_error(NGX_LOG_ERR, c->log, 0,
++                           "invalid HTTP/2 stream ID to close: %d", c->id);
++            ngx_http_v2_stream_finalize(c, /* stream */ NULL);
+         }
+ 
+         return NGX_DONE;
+```
+
+3. Restart nginx after applying the patch or updating to the latest stable version.
+
+**Additional Information:**
+
+CVE-2023-44487 is a vulnerability in nginx that allows an attacker to close an arbitrary HTTP/2 stream, even if they do not have access to it. This can be used to disrupt communication between legitimate clients and servers, or to perform other malicious actions.

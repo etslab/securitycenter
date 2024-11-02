@@ -1,0 +1,30 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Details:**
+
+The Sonarqube rule `javascript:S1321` detects the use of insecure string concatenation operations (`+`) for dynamic content rendering. This can lead to Cross-Site Scripting (XSS) vulnerabilities if user-controlled input is concatenated with untrusted data.
+
+**Solution:**
+
+To fix this issue, replace the string concatenation operations with secure template literals (`template strings`) or a string interpolation library. Template literals allow you to embed expressions into strings using the syntax `${expression}`.
+
+Here's an example of rewriting the code using template literals:
+
+```javascript
+// Original code
+var userEmail = request.getParameter("userEmail");
+var msg = "Welcome, " + userEmail + "!";
+
+// Fixed code
+var userEmail = request.getParameter("userEmail");
+var msg = `Welcome, ${userEmail}!`;
+```
+
+**Steps to Fix:**
+
+1. Identify all instances of insecure string concatenation operations.
+2. Rewrite the code using template literals or a string interpolation library.
+3. Test the application to ensure it works as expected.
+4. Re-run the SonarQube analysis to verify that the issue has been resolved.

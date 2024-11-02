@@ -1,0 +1,40 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+The issue arises when you use `html/template` to generate HTML content that is typically rendered in a script context (e.g., within `<script>` tags). If the template data contains unsanitized user input, it can lead to cross-site scripting (XSS) vulnerabilities.
+
+To fix this issue, you should properly sanitize the template data before rendering it in a script context. Additionally, you can follow these best practices:
+
+* Use a context-aware template engine, such as `html/template`'s `escape` function, to ensure that the output is safe for the intended context.
+* Encode special characters in user-supplied data to prevent them from being interpreted as HTML tags.
+* Avoid using dynamic HTML generation in script contexts. Instead, use static HTML templates or server-side rendering when possible.
+
+**Steps to fix the issue:**
+
+1. Use the `escape` function in your template to encode special characters:
+
+```go
+func main() {
+    tmpl := template.Must(template.Parse("Hello, {{.Name}}!"))
+    err := tmpl.ExecuteTemplate(os.Stdout, "t1", map[string]interface{}{"Name": template.HTMLEscapeString("<script>alert('XSS')</script>")})
+    if err != nil {
+        panic(err)
+    }
+}
+```
+
+2. Encode special characters in user-supplied data using the `html.Encode` function:
+
+```go
+func main() {
+    tmpl := template.Must(template.Parse("Hello, {{.Name}}!"))
+    name := html.EscapeString("<script>alert('XSS')</script>")
+    err := tmpl.ExecuteTemplate(os.Stdout, "t1", map[string]interface{}{"Name": name})
+    if err != nil {
+        panic(err)
+    }
+}
+```

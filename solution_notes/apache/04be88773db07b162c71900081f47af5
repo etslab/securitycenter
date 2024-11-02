@@ -1,0 +1,30 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue:**
+The `php:S1125` rule in SonarQube identifies that the `bWAPP/ba_forgotten.php` file is vulnerable to Broken Access Control (BAC) due to the lack of proper authorization checks before performing sensitive actions.
+
+**Solution:**
+To fix this issue, follow these steps:
+
+1. **Implement Access Control:** Add proper authorization checks to ensure that only authorized users can access and perform sensitive actions on the page. This can be done using session variables, access control lists (ACLs), or other appropriate mechanisms.
+2. **Validate Input:** Implement validation on all user input to prevent malicious attempts to bypass authorization checks. Validate the input for expected data types, ranges, and patterns.
+3. **Restrict Unauthorized Access:** Use proper HTTP response codes (e.g., 401 Unauthorized) to restrict unauthorized access to sensitive pages or actions.
+
+**Example Code:**
+
+```php
+// Check if the user is logged in
+if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+    // Redirect to login page
+    header("Location: login.php");
+    exit();
+}
+```
+
+**Additional Recommendations:**
+
+* **Use Secure Development Practices:** Follow secure coding practices to prevent BAC vulnerabilities, such as using prepared statements to prevent SQL injection and validating user input to avoid malicious attempts.
+* **Regularly Review Code:** Conduct regular code reviews to identify and address potential BAC vulnerabilities.
+* **Use Security Testing Tools:** Employ security testing tools to scan for and identify BAC vulnerabilities.

@@ -1,0 +1,32 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. Update Apache HTTP Server to version 2.4.60 or later.
+2. Verify that the updated version is installed. Navigate to the Apache HTTP Server installation directory and execute the following command:
+
+```
+./httpd -v
+```
+
+The output should show the updated version number (e.g., Apache/2.4.60).
+
+**Additional Information:**
+
+**Description:**
+
+GNUTLS in Apache HTTP Server (httpd) allows a remote attacker to cause a denial-of-service by sending specially crafted requests that trigger an infinite loop.
+
+**Impact:**
+
+This vulnerability could allow an attacker to disrupt the operation of the web server, causing applications or services that rely on it to become unavailable.
+
+**Mitigation:**
+
+In addition to updating Apache HTTP Server, the following mitigation measures can be implemented to reduce the risk:
+
+* Enable mod_evasive or another intrusion detection and prevention system to detect and block malicious requests.
+* Configure Apache HTTP Server to restrict access to the server based on IP address or other criteria.
+* Use a reverse proxy or firewall to handle external requests and provide an additional layer of protection.

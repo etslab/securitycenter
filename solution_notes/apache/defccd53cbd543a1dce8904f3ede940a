@@ -1,0 +1,50 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Denial of Service (DoS)
+
+**Issue Description:**
+
+The issue arises from the improper handling of HTTP requests by the net/http package in Go. Attackers can craft malicious requests with excessive body content or headers, causing the Apache server to consume excessive resources and potentially lead to a denial of service (DoS) condition.
+
+**Solution:**
+
+To mitigate this issue, follow these steps:
+
+1. **Use a Content-Length Header:** Determine the expected content length of requests and configure Apache to enforce these limits.
+```apache
+<LimitRequestBody>
+MaxRequestSize 1048576
+</LimitRequestBody>
+```
+
+2. **Limit the Size of Header Fields:** Set a limit on the maximum size of header fields to prevent attackers from sending excessively long headers.
+```go
+r.Header.Set("Max-Header-Size", "512")
+```
+
+3. **Use a Body Read Size Limit:** Set a limit on the maximum size of the request body to prevent excessive resource consumption.
+```go
+r.Body = http.MaxBytesReader(w, r.Body, 1048576)
+```
+
+4. **Use a Timeout:** Configure a timeout for HTTP requests to prevent attackers from keeping connections open indefinitely.
+```go
+client := &http.Client{
+  Timeout: 10 * time.Second,
+}
+```
+
+5. **Enable Compression:** Enable compression to reduce the size of HTTP requests and responses.
+```apache
+<IfModule mod_deflate.c>
+  SetOutputFilter DEFLATE
+</IfModule>
+```
+
+6. **Avoid Parsing Large XML or JSON Requests:** If an application requires handling large XML or JSON requests, consider using specialized parsing libraries that can handle large files efficiently.
+
+**Additional Recommendations:**
+
+* Implement rate limiting to prevent attackers from sending excessive requests.
+* Use a web application firewall (WAF) to filter malicious requests.
+* Monitor server resources, such as CPU and memory, and respond promptly to spikes in usage.

@@ -1,0 +1,26 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Detailed Solution:**
+
+1. **Enable Policy Process Termination:**
+
+   - Open the apache configuration file (`/etc/apache2/conf-available/modsecurity.conf`) with elevated privileges (e.g., `sudo nano /etc/apache2/conf-available/modsecurity.conf`).
+   - Find the following line and change its value to 'On':
+     ```
+     SecRuleRemoveById 999508
+     ```
+
+2. **Restart Apache:**
+
+   - Restart the Apache web server to apply the changes:
+     ```
+     sudo apache2ctl restart
+     ```
+
+**Explanation:**
+
+Policy Process Termination allows ModSecurity to terminate the request processing process if a critical rule is triggered. This prevents sensitive data (e.g., passwords, credit card numbers) from being exposed in error messages or logs. By disabling this feature, an attacker could potentially exploit a vulnerability in the application and gain access to private data.
+
+**Note:** This solution assumes you are using ModSecurity with Apache. If you are using a different web server or security module, the configuration steps may vary.

@@ -1,0 +1,33 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A01: Broken Access Control
+
+**Detailed Solution:**
+
+The issue stems from the `validate_session()` function in `dvwa/includes/DBMS/MySQL.php`. This function checks if the user is logged in by comparing the session ID stored in the database with the one provided in the request. However, the comparison is vulnerable to session fixation attacks, where an attacker can hijack an existing user session by predicting or controlling the session ID.
+
+To fix the issue, implement a more secure session management strategy, such as:
+
+* Using server-side session management (e.g., via PHP's `session_start()`) to store the session ID on the server instead of in the client's browser.
+* Regenerating the session ID after successful login to prevent session fixation.
+* Implementing a session timeout to expire inactive sessions after a predetermined period of time.
+* Using a secure random number generator to generate session IDs to prevent attackers from guessing them.
+
+**Code Example:**
+
+```php
+<?php
+// Start the session
+session_start();
+
+// Regenerate the session ID
+session_regenerate_id();
+
+// Check if the user is logged in
+if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+    // ...
+} else {
+    // ...
+}
+?>
+```

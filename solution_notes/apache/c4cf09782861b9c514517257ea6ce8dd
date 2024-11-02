@@ -1,0 +1,28 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue Description:**
+
+SonarQube rule php:S2003 detects potential issues where a user can inject code into output. Specifically, it identifies that the index.php page in the bWAPP application does not properly sanitize input when generating an error message.
+
+**Detailed Solution:**
+
+To fix this issue, input should be sanitized before being used in the error message. This can be achieved by using PHP's htmlspecialchars() function:
+
+```php
+// Before:
+if (isset($_GET['error'])) {
+  echo "Error: " . $_GET['error'];
+}
+
+// After:
+if (isset($_GET['error'])) {
+  echo "Error: " . htmlspecialchars($_GET['error']);
+}
+```
+
+**Additional Notes:**
+
+* This issue is considered medium severity because it can allow an attacker to inject arbitrary HTML or JavaScript into the output, which could potentially lead to XSS attacks or other malicious activity.
+* It is important to note that input validation and sanitization should be implemented consistently throughout the application to prevent similar vulnerabilities from being introduced in the future.

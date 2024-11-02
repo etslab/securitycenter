@@ -1,0 +1,35 @@
+**Severity:** High
+
+**SonarQube Rule:** php:S1784
+
+**Definition:** A new instance of a built-in class is created and immediately assigned to a property.
+
+**Impact:**
+* Unnecessary object creation
+* Potential performance issues
+
+**OWASP Top 10 2021 Category:** Not directly related to any specific OWASP category.
+
+**Solution:**
+Replace the problematic code with a single statement:
+
+```php
+$this->property = new SomeClass();
+```
+
+**Example:**
+
+```php
+// Problematic code
+$myClass = new SomeClass();
+$this->property = $myClass;
+
+// Improved code
+$this->property = new SomeClass();
+```
+
+**Additional Recommendations:**
+
+* Use a dependency injection container to manage object creation and dependency resolution.
+* Consider using immutable objects where possible to avoid unnecessary object creation.
+* Implement a caching mechanism to reuse frequently created objects.

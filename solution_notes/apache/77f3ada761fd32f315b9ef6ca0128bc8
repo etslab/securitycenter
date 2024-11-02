@@ -1,0 +1,30 @@
+**Severity Assessment:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Authentication
+
+**Solution:**
+
+**1. Use Group Policy Editor:**
+
+* Open Group Policy Editor (gpedit.msc).
+* Navigate to `Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options`.
+* Locate the policy "`Network security: LAN Manager authentication level`" and double-click it.
+* Select "Send NTLMv2 response only" and click OK.
+
+**2. Use Registry Editor:**
+
+* Open Registry Editor (regedit.exe).
+* Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print`.
+* Create or modify the DWORD value `RpcAuthnLevelPrivacyEnabled` and set its value to 0.
+
+**Verification:**
+
+* Open a command prompt as administrator.
+* Run the command: `gpresult /h gpresult.html` to view the applied GPO settings.
+* Check that the `RpcAuthnLevelPrivacyEnabled` policy is set to 0 in the registry.
+
+**Additional Notes:**
+
+* This setting only affects the print spooler service.
+* By default, the value is 1 (Allow NTLM authentication without privacy), which allows for potential downgrade attacks.
+* Setting the value to 0 ensures that the print spooler only accepts NTLMv2 authentication, which provides better protection against eavesdropping.

@@ -1,0 +1,14 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control (BAC)
+
+**Solution:**
+
+1. **Use a more robust CAPTCHA implementation:** bWAPP's default CAPTCHA is vulnerable to bypass using simple techniques. Consider using a third-party CAPTCHA service or a more complex CAPTCHA implementation.
+2. **Implement server-side CAPTCHA validation:** The current implementation relies on client-side validation, which can be easily bypassed. Validate the CAPTCHA input on the server side to ensure it matches the expected response.
+3. **Limit the number of CAPTCHA attempts:** Limit the number of times a user can attempt the CAPTCHA to prevent brute force attacks.
+4. **Use a session token to protect against repeated submissions:** Use a session token to track user submissions and prevent multiple attempts from the same user.
+
+**Detailed Explanation:**
+
+The bWAPP-Test:bWAPP/ba_captcha_bypass.php contains a CAPTCHA bypass vulnerability. By manipulating the browser's local storage, an attacker can bypass the CAPTCHA challenge and gain access to the protected content. This vulnerability can lead to unauthorized access and data compromise. It falls under the OWASP Top 10 2021 category of Broken Access Control, as it allows unauthorized access to protected resources.

@@ -1,0 +1,39 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A7 - Broken Access Control
+
+**Solution:**
+
+To fix this issue, add the following `<network-security-config>` tag to your `AndroidManifest.xml` file:
+
+```xml
+<manifest ...>
+    ...
+    <application ...>
+        <network-security-config>
+            <domain-config>
+                <domain includeSubdomains="true">your_domain.example.com</domain>
+                <tls>
+                    <certificate-authority-override>
+                        <certificates>
+                            <certificate url="path/to/certificate.pem"/>
+                        </certificates>
+                    </certificate-authority-override>
+                </tls>
+            </domain-config>
+            ... (Add additional domain configs as needed)
+        </network-security-config>
+    </application>
+    ...
+</manifest>
+```
+
+Replace `your_domain.example.com` with the domain(s) that your app needs to communicate with over HTTPS. Additionally, replace `path/to/certificate.pem` with the location of the certificate authority certificate in your project's assets or res/raw folder.
+
+This configuration will ensure that your app only trusts the specified certificate authorities for HTTPS connections, preventing man-in-the-middle attacks.
+
+**Additional Notes:**
+
+* You can use the `cleartextTrafficPermitted="true"` attribute in the `<application>` tag to allow unencrypted HTTP traffic. However, this is not recommended unless absolutely necessary.
+* You can create a custom `<network-security-config>` file and specify it using the `android:networkSecurityConfig` attribute in the `<application>` tag.
+* If you have multiple domains that your app needs to communicate with, you can add additional `<domain-config>` tags within the `<network-security-config>` tag.

@@ -1,0 +1,33 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Authentication
+
+**Impact:**
+
+* Weak password policies allow attackers to easily guess or brute-force passwords, gaining unauthorized access to the system.
+
+**Solution:**
+
+**1. Set a Strong Minimum Password Length:**
+
+* Edit the Windows Registry:
+    * Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdmPwd`
+    * Create or edit the DWORD value **MinimumPasswordLength**
+    * Set the value to at least 12, ensuring that passwords are complex and difficult to guess.
+
+**2. Enforce Password Complexity Requirements:**
+
+* Ensure that passwords must contain a mix of upper and lowercase letters, numbers, and symbols.
+* Use password complexity checkers like zxcvbn.
+
+**3. Additional Considerations:**
+
+* Disable password reuse: Windows can be configured to prevent users from setting new passwords that are the same as their previous passwords.
+* Limit login attempts: Implement lockout policies to restrict the number of failed login attempts before locking out the account.
+* Use multi-factor authentication (MFA): Add an extra layer of security by requiring users to provide an additional form of authentication, such as a one-time password (OTP).
+
+**Verification:**
+
+* Check the Windows Registry to ensure that **MinimumPasswordLength** is set to an appropriate value.
+* Test password complexity requirements by attempting to set weak passwords.
+* Verify that login attempts are limited and locked out after a certain number of failures.

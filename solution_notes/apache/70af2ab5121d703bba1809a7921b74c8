@@ -1,0 +1,35 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A02 - Broken Authentication
+
+**Solution:**
+
+To resolve this audit issue, you need to set the `Policy DefaultOutboundAction` value in the `Software-Policies-Microsoft-WindowsFirewall-PrivateProfile` key to `Block`. Here's how you can do it:
+
+**Using the Registry Editor:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile
+   ```
+3. Right-click on the `PrivateProfile` key and select **New** > **DWORD (32-bit) Value**.
+4. Name the new value `DefaultOutboundAction`.
+5. Double-click on the `DefaultOutboundAction` value and set its data to `1` (Block).
+6. Click **OK** to save the changes.
+
+**Using PowerShell:**
+
+```powershell
+Set-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile -Name DefaultOutboundAction -Value 1 -Type DWORD
+```
+
+**Verification:**
+
+To verify that the issue has been resolved, you can run the following command in PowerShell:
+
+```powershell
+Get-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile -Name DefaultOutboundAction
+```
+
+The output should show that the `DefaultOutboundAction` value is set to `1`.

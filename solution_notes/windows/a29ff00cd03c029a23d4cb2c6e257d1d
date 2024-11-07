@@ -1,0 +1,24 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Solution:**
+
+To fix this issue, set the DisableIPSourceRouting value to 1 in the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+```
+
+1. Open the Registry Editor by typing "regedit" (without quotes) into the Windows search bar and clicking on the Registry Editor icon.
+2. Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+```
+3. In the right-hand pane, locate the "DisableIPSourceRouting" DWORD value. If it does not exist, you can create it by right-clicking in the right-hand pane, selecting "New" > "DWORD (32-bit) Value," and naming it "DisableIPSourceRouting."
+4. Double-click on the "DisableIPSourceRouting" DWORD value and set its "Value data" to "1."
+5. Click "OK" to save the changes.
+
+**Detailed Explanation:**
+
+The "DisableIPSourceRouting" registry setting prevents a remote attacker from spoofing source IP addresses in IP packets, thereby mitigating attacks that rely on IP address spoofing, such as man-in-the-middle attacks. By setting this value to 1, IP source routing is disabled, preventing attackers from exploiting vulnerabilities related to IP address spoofing.

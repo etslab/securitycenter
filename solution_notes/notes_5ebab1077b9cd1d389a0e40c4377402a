@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Impact:**
+
+This issue weakens the Hypervisor-enforced Code Integrity (HVCI) feature in Windows, which is designed to protect the system from unauthorized code execution. By disabling HVCI, attackers can potentially bypass security checks and execute malicious code on the server.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. Navigate to the following registry key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
+   ```
+
+2. Create a new 32-bit DWORD value named `HypervisorEnforcedCodeIntegrity` (if it doesn't already exist).
+
+3. Set the value data to `1` to enable HVCI.
+
+4. Restart the server for the changes to take effect.
+
+**Additional Recommendations:**
+
+* **Use a Security Policy:** Consider implementing a security policy that requires HVCI to be enabled on all servers.
+* **Monitor System Logs:** Regularly review system logs for any suspicious activity that may indicate a breach of HVCI.
+* **Update Software Regularly:** Ensure that all software, including the operating system, is updated with the latest security patches to address potential vulnerabilities that could be exploited by attackers.

@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Assessment:**
+
+The Policy AllowProtectedCreds setting in the Registry Software-Policies-Microsoft-Windows-CredentialsDelegation controls whether applications can access protected credentials, such as passwords, from the Credential Manager. By default, this setting is disabled, which means that applications cannot access protected credentials. However, if this setting is enabled, applications can access protected credentials, which could lead to sensitive data being exposed.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key: `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\CredentialsDelegation`
+3. Double-click the AllowProtectedCreds value.
+4. Change the Value data to 0 (zero).
+5. Click OK.
+
+**Additional Information:**
+
+It is important to note that disabling the AllowProtectedCreds setting may have unintended consequences. For example, if an application relies on accessing protected credentials to function, it may no longer work properly. Therefore, it is important to carefully consider the impact of disabling this setting before doing so.

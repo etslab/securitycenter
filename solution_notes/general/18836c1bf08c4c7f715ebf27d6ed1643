@@ -1,0 +1,48 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A9: Injection Attacks
+
+**Issue Description:**
+
+The `html/template` package in Go does not properly handle empty HTML attributes. This can lead to vulnerabilities where attackers can inject malicious code into web pages by setting empty attributes on HTML elements. For example, an attacker could set an empty `src` attribute on an `<img>` element to inject a malicious script.
+
+**Solution:**
+
+To fix this issue, use a templating engine that properly handles empty HTML attributes. Some recommended options include:
+
+* [Hugo](https://gohugo.io/)
+* [GitLab Pages](https://pages.gitlab.io/)
+* [Jekyll](https://jekyllrb.com/)
+
+These templating engines will automatically escape empty HTML attributes to prevent them from being used for malicious purposes.
+
+**Mitigation:**
+
+If you are unable to switch to a different templating engine, you can mitigate this issue by manually escaping empty HTML attributes. This can be done by using the `html` package's `EscapeString` function. For example:
+
+```go
+import "html"
+
+func main() {
+  template := `
+  <img src="{{ .src }}">
+  `
+  data := map[string]string{
+    "src": "",
+  }
+
+  // Escape the empty src attribute.
+  data["src"] = html.EscapeString(data["src"])
+
+  // Execute the template.
+  t, err := template.Parse(template)
+  if err != nil {
+    // Handle error.
+  }
+  if err := t.Execute(os.Stdout, data); err != nil {
+    // Handle error.
+  }
+}
+```
+
+This will escape the empty `src` attribute to prevent it from being used for malicious purposes.

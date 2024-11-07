@@ -1,0 +1,24 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+
+The Policy DefaultInboundAction value in the Registry Software->Policies->Microsoft->WindowsFirewall->PrivateProfile should be set to "Deny" to prevent unauthorized inbound traffic from accessing the server. If it is set to "Allow" or "Not Defined," the server is vulnerable to attacks from external sources.
+
+**Solution:**
+
+1. Open the Registry Editor by running "regedit.exe" as an administrator.
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile
+   ```
+3. Locate the "DefaultInboundAction" value on the right pane.
+4. Double-click on the "DefaultInboundAction" value and set its data to "2" (Deny).
+5. Click "OK" to save the changes and close the Registry Editor.
+
+**Additional Recommendations:**
+
+* Ensure that the Windows Firewall is enabled and configured to block all inbound traffic except for essential services.
+* Implement additional security measures such as IDS/IPS systems to detect and block unauthorized access attempts.
+* Regularly review and update your server's security configuration to address any vulnerabilities.

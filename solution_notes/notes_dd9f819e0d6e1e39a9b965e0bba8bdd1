@@ -1,0 +1,31 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A6: Security Misconfiguration
+
+**Solution:**
+
+1. **LockoutDuration:** This registry setting controls the number of minutes an account is locked out after a specified number of failed login attempts. It is recommended to set this value to a non-zero value to prevent brute-force attacks.
+
+2. **Navigate to the Registry Editor:**
+
+   - Press `Windows Key + R` to open the Run dialog box.
+   - Type `regedit` and click "OK".
+
+3. **Locate the Registry Key:**
+
+   - Navigate to the following registry key:
+     ```
+     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\AccountLockoutDuration
+     ```
+
+4. **Set the LockoutDuration Value:**
+
+   - Right-click on the `LockoutDuration` value and select "Modify".
+   - Set the "Value data" to a non-zero value (e.g., 5 minutes = 5).
+   - Click "OK" to save the changes.
+
+5. **Restart the Server:**
+
+   - Restart the Apache server to apply the changes.
+
+By implementing these steps, you can significantly reduce the risk of brute-force attacks against the Apache server by locking out accounts after a specified number of failed login attempts.

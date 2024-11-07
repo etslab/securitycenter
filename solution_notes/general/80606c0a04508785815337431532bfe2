@@ -1,23 +1,20 @@
-###How to fix the  issue of 
-The "Forbidden" error in Apache web server can be caused by a number of things, including:
+**Severity:** Medium
 
-* A misconfigured Apache configuration file
-* A missing or incorrect file permission
-* A problem with the web server software itself
+**OWASP Top 10 2021 Category:** Cryptographic Failures
 
-To fix the "Forbidden" error, you can try the following steps:
+**Solution:**
 
-1. Check your Apache configuration file for any errors. You can use the `apachectl configtest` command to do this.
-2. Make sure that all files and directories that need to be accessible to the web server have the correct permissions. You can use the `ls -l` command to view the permissions for a file or directory.
-3. If you are still getting the "Forbidden" error, you may need to upgrade your Apache web server software.
+The issue of cipher order is related to the order in which ciphers are listed in a configuration file, such as the TLS configuration file. The order of the ciphers determines which cipher will be used when establishing a secure connection.
 
-The "Forbidden" error is a security vulnerability that can be exploited by attackers to gain access to your web server. It is important to fix this error as soon as possible.
+To fix this issue, the cipher order should be configured to prioritize strong ciphers that provide adequate security. Weak or insecure ciphers should be removed from the list. The following steps outline how to address this issue:
 
-The "Forbidden" error belongs to the OWASP Top 10 Web Application Security Risks category of "Information Exposure". This category includes vulnerabilities that allow attackers to access sensitive information that should not be publicly accessible.
+1. **Review the Cipher Order:** Check the cipher order in the relevant configuration file. It may be in a TLS configuration file or within the server software configuration.
+2. **Identify Weak Ciphers:** Research and identify any weak or insecure ciphers that are present in the list.
+3. **Reorder or Remove Weak Ciphers:** Place strong ciphers at the top of the list and remove any weak or insecure ciphers.
+4. **Test and Validate:** Save the configuration changes and test the new cipher order. Use SSL/TLS scanning tools to verify that the server is using strong ciphers and that weak ciphers are no longer included.
 
-Here are some additional tips for preventing the "Forbidden" error:
+**Additional Considerations:**
 
-* Use a strong password for your Apache web server account.
-* Keep your Apache web server software up to date.
-* Use a firewall to protect your Apache web server from attack.
-* Monitor your Apache web server for signs of attack.
+* Keep the cipher list up-to-date with the latest recommendations from industry best practices and security advisories.
+* Regularly review and audit the cipher order to ensure that it remains secure.
+* Consider using a library or framework that automatically manages cipher order based on security best practices.

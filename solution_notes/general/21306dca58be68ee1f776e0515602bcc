@@ -1,0 +1,40 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Solution:**
+
+**1. Enable Hypervisor-Enforced Code Integrity (HVCI)**
+
+* Open Group Policy Editor (gpedit.msc).
+* Navigate to Computer Configuration > Windows Settings > Security Settings > System Policies > Device Guard.
+* Double-click "Turn on Virtualization Based Security".
+* Select "Enabled", then check "Enable Hypervisor-Enforced Code Integrity".
+* Click "OK".
+
+**2. Configure HVCI Settings**
+
+* Navigate to Computer Configuration > Windows Settings > Security Settings > System Policies > Device Guard.
+* Double-click "System Guard Policy Editor".
+* In the "General" tab, ensure that "Enable System Guard" is checked.
+* In the "Virtualization Based Security" tab:
+    * Set "Virtualization Based Security Level" to "Secure".
+    * Set "Enable Virtual Machine Platform Security" to "Yes".
+* Click "OK".
+
+**3. Enable Security Features**
+
+* Navigate to Control Panel > System and Security > Windows Defender.
+* Click "Open Windows Defender Security Center".
+* Navigate to "Device Security".
+* Under "Core isolation", ensure that both "Memory isolation" and "Virtualization-based security" are turned on.
+
+**4. Restart the Server**
+
+* Restart the server to apply the changes.
+
+**Additional Notes:**
+
+* HVCI is a critical security feature that helps prevent malicious code from executing on the system.
+* Enabling HVCI may impact performance, so it's important to test it in a non-production environment before deploying it in production.
+* If HVCI is incompatible with certain applications or drivers, you may need to configure exceptions.

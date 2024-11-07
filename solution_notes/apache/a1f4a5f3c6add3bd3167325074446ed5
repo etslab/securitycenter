@@ -1,0 +1,37 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A07 - Broken Access Control
+
+**Description:**
+The Policy DisableIPSourceRouting registry value is not set to "1" in the TCP/IPv6 registry key. This allows an attacker to spoof the source IP address of a packet, which could lead to denial of service or other attacks.
+
+**Solution:**
+To fix this issue, set the Policy DisableIPSourceRouting registry value to "1" in the following location:
+
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters
+```
+
+**Steps:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters
+```
+3. Right-click in the right pane and select **New** > **DWORD (32-bit) Value**.
+4. Name the new value **Policy DisableIPSourceRouting**.
+5. Double-click the new value and set the **Value data** to **1**.
+6. Click **OK** to save the changes.
+7. Close the Registry Editor.
+8. Restart the server.
+
+**Verification:**
+
+To verify that the issue has been fixed, check the Policy DisableIPSourceRouting registry value in the following location:
+
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters
+```
+
+The value should be set to "1".

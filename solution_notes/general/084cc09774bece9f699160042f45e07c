@@ -1,0 +1,32 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Insecure Configuration
+
+**Solution:**
+
+1. **On the Active Directory server:**
+   - Navigate to `Group Policy Management` (gpmc.msc).
+   - Right-click on the desired Group Policy Object (GPO) and select `Edit`.
+   - Navigate to `Computer Configuration -> Policies -> Software Settings -> Software Policies -> Registry`.
+   - Right-click on `Printers` and select `New -> Key`.
+   - In the `Create Key` dialog, enter the following values:
+     - **Key path:** Microsoft\Windows NT\Printers
+     - **Value name:** RedirectionGuardPolicy
+     - **Value type:** DWORD
+     - **Value data:** 1 (Enabled)
+   - Click `OK` to save the changes.
+
+2. **On the apache server:**
+   - In the Apache configuration file (e.g., `httpd.conf`), add the following directive:
+     ```
+     PrintEnv mod_access_compat
+     ```
+
+**Impact:**
+
+The `RedirectionGuardPolicy` registry setting prevents a remote attacker from redirecting printer output to a different printer by exploiting vulnerabilities in applications that use the Windows printing system. By disabling this setting, an attacker could potentially redirect sensitive documents to unauthorized recipients.
+
+**Additional Notes:**
+
+- Apache releases prior to 2.4.53 are vulnerable to a print spooling redirection attack that can allow an attacker to redirect printer output to an arbitrary remote host. This issue is mitigated by the `mod_access_compat` directive.
+- It's recommended to set the `RedirectionGuardPolicy` registry key to `0` (Disabled) on standalone computers that do not require this protection.

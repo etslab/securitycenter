@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A6: Sensitive Data Exposure
+
+**Solution:**
+
+1. Edit the Windows Registry by navigating to `SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest`.
+
+2. Locate the `UseLogonCredential` DWORD value.
+
+3. Set the value of `UseLogonCredential` to `0` (Disable).
+
+4. Restart the server to apply the changes.
+
+**Explanation:**
+
+The `UseLogonCredential` registry setting controls whether the web server uses the user's logon credentials to authenticate with the Windows Digest authentication protocol. When this setting is enabled (`1`), the server will use the user's logon credentials, which can be stolen by attackers to gain access to the server and its resources.
+
+Disabling this setting (`0`) forces the server to use NTLM or Kerberos authentication instead, which are more secure. This prevents attackers from stealing logon credentials and using them to compromise the server.

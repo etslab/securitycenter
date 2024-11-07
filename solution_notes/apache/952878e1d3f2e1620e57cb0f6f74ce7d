@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2: Broken Authentication
+
+**Solution:**
+
+1. Open the Registry Editor.
+2. Navigate to the following registry key:
+   `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters`
+3. In the right pane, double-click the `RequireSignOrSeal` value.
+4. Set the value to `1`.
+5. Click `OK`.
+6. Close the Registry Editor.
+
+**Explanation:**
+
+The `RequireSignOrSeal` registry value specifies whether the Netlogon service requires all incoming or outgoing Netlogon RPCs to be signed and sealed. Setting this value to `1` ensures that all Netlogon traffic is authenticated and encrypted, which helps to protect against man-in-the-middle attacks.
+
+**Note:** Setting this value to `1` may have a performance impact, especially on large networks. It is recommended to test this setting in a non-production environment before implementing it in a production environment.

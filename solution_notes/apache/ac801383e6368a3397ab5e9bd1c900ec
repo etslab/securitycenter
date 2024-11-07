@@ -1,0 +1,17 @@
+**Severity**: Medium
+
+**OWASP Top 10 2021 Category**: M-5 Sensitive Data Exposure
+
+**Solution**:
+
+1. Open the Registry Editor (regedit).
+2. Navigate to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Print**.
+3. Right-click on the **RpcAuthnLevelPrivacyEnabled** DWORD value and select **Modify**.
+4. Set the **Value data** to **1**.
+5. Click **OK** to save your changes.
+
+**Explanation**:
+
+The RpcAuthnLevelPrivacyEnabled policy setting determines the authentication level required for remote procedure call (RPC) connections to the print spooler. By default, this setting is disabled, which means that RPC connections to the print spooler can be made without authentication. This can allow attackers to gain unauthorized access to the print spooler and potentially compromise the system.
+
+Enabling the RpcAuthnLevelPrivacyEnabled setting requires RPC connections to the print spooler to be authenticated using a privacy-enhanced protocol. This makes it more difficult for attackers to gain unauthorized access to the print spooler.

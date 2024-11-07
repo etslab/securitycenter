@@ -1,0 +1,18 @@
+**Severity**: High
+
+**OWASP Top 10 2021 Category**: A5: Broken Access Control
+
+**Detailed Solution**:
+
+1. Open the Group Policy Editor (gpedit.msc).
+2. Navigate to Computer Configuration > Administrative Templates > System > Printers.
+3. Double-click on the "Restrict RPC Authentication for Printers" policy.
+4. Select the "Enabled" option.
+5. Under "Options", select the "Only allow authenticated RPC clients to connect to the print spooler" option.
+6. Click OK.
+
+**Additional Notes**:
+
+* This policy setting helps prevent unauthorized access to the printer spooler service. By restricting RPC authentication to only authenticated clients, attackers cannot connect to the spooler service and potentially exploit vulnerabilities in the printing subsystem.
+* This policy setting should be enabled in environments where printing is considered sensitive or confidential.
+* Enabling this policy setting may have a negative impact on the performance of print servers.

@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**Category:** A7: Cross-Site Scripting (XSS)
+
+**Description:**
+The Policy RestrictRemoteClients registry key controls whether remote clients can access the RPC Service Control Manager (SCM). By default, remote clients are allowed to access the RPC SCM. However, if this registry key is set to 1, it will prevent remote clients from accessing the RPC SCM.
+
+**Impact:**
+Setting this registry key to 1 can prevent attackers from exploiting vulnerabilities in the RPC SCM to gain remote access to the system. However, it can also prevent legitimate remote clients from accessing the RPC SCM, which could disrupt normal operation of the system.
+
+**Solution:**
+To fix this issue, you should set the Policy RestrictRemoteClients registry key to 2. This will allow remote clients to access the RPC SCM, but will prevent them from making changes to the RPC SCM.
+
+**Steps to fix the issue:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\Rpc
+```
+3. Create a new DWORD (32-bit) value named RestrictRemoteClients.
+4. Set the value of the RestrictRemoteClients registry key to 2.
+5. Close the Registry Editor.
+
+**Note:** You may need to restart the server for the changes to take effect.

@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+**Configure Policy LogSuccessfulConnections to "Enable"**
+
+1. Open Registry Editor (regedit.exe).
+2. Navigate to: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging`
+3. Right-click on the "LogSuccessfulConnections" DWORD and select "Modify".
+4. Change the Value data to "1" (Enable).
+5. Click "OK" to save the changes.
+
+**Additional Details:**
+
+* Enabling Policy LogSuccessfulConnections ensures that successful connections to the Windows Firewall are logged, helping to detect unauthorized access attempts.
+* This setting is particularly important for servers, as it provides a record of successful connections that may indicate a breach or compromise.
+* It is recommended to regularly review the firewall logs for suspicious activity and take appropriate actions as needed.

@@ -1,0 +1,27 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Insufficient Logging & Monitoring
+
+**Solution:**
+
+**1. Disable the Policy DCSettingIndex value:**
+
+Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings
+```
+
+Locate the "DCSettingIndex" DWORD and set its value to 0.
+
+**2. Restart the Apache server:**
+
+```
+sudo systemctl restart apache2
+```
+
+**Additional Information:**
+
+The Policy DCSettingIndex value specifies the default power plan to be used by the system. By disabling this value, you prevent the system from automatically switching to a low-power plan, which can potentially lead to performance issues.
+
+**Note:** Before making any changes to the registry, it is recommended to create a backup in case of any errors.

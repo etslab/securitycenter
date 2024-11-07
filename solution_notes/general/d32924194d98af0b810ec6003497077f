@@ -1,0 +1,19 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+The issue arises when using `os/exec.Cmd.Start()` without properly sanitizing user-supplied input. This can lead to code injection attacks, where malicious code can be executed on the server.
+
+To fix this issue, follow these steps:
+
+1. **Sanitize user input:** Use input validation techniques such as whitelisting or blacklisting to ensure that only allowed characters and values are passed to `os/exec.Cmd.Start()`.
+2. **Use `exec.Command()` instead of `os/exec.Cmd.Start()`: `exec.Command()` provides a more secure way to execute commands by escaping special characters and preventing shell expansion.
+3. **Consider using a dedicated function or library for command execution:** Utilize a function or library designed specifically for secure command execution, such as the "go-cmd" library.
+
+**Additional Mitigation Measures:**
+
+* Implement input validation at the network edge (e.g., web application firewall) to prevent malicious input from reaching the application code.
+* Enable command logging to identify and investigate potential attacks.
+* Regularly update the server software and operating system to patch any vulnerabilities related to command execution.

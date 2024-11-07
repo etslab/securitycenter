@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Solution:**
+
+The Web:FrameWithoutTitleCheck rule flags pages that contain frames without a title attribute. This allows attackers to create phishing pages that look like legitimate pages but have different content. To fix this issue, add a title attribute to all frames.
+
+Example:
+
+```html
+<iframe src="https://example.com" title="Example Page"></iframe>
+```
+
+**Detailed Steps:**
+
+1. Identify all pages that contain frames without a title attribute.
+2. Add a title attribute to each frame.
+3. Test the pages to ensure that the title attribute is displayed correctly.
+
+**Additional Notes:**
+
+* The title attribute should be unique and descriptive.
+* The title attribute should not contain any sensitive information.
+* The title attribute should be set on the outermost frame.

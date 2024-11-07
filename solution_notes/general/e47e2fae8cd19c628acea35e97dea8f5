@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Impact:**
+This vulnerability allows remote attackers to access sensitive data on the server by exploiting the ForceKerberosForRpc policy setting. An attacker can use this setting to force the server to use Kerberos authentication for RPC communication, even if Kerberos is not supported by the client. This can result in the exposure of sensitive data, such as passwords, to the attacker.
+
+**Solution:**
+To fix this issue, set the ForceKerberosForRpc policy setting to 0:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+```
+HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC
+```
+3. In the right pane, locate the ForceKerberosForRpc DWORD value.
+4. Double-click on the ForceKerberosForRpc value and change its data to 0.
+5. Click OK to save the change.
+
+**Note:** You must restart the server for the change to take effect.

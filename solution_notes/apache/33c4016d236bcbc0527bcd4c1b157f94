@@ -1,0 +1,21 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile`.
+3. Right-click on the `DisableNotifications` value and select "Modify".
+4. Change the value data to `0` (zero).
+5. Click "OK" to save the changes.
+
+**Explanation:**
+
+The `DisableNotifications` policy setting determines whether notifications are displayed when the Windows Firewall blocks a program or connection. By disabling these notifications, an attacker could potentially compromise the system without the user's knowledge. Enabling notifications provides an additional layer of defense by alerting users to potential security breaches.
+
+**Additional Considerations:**
+
+* It is recommended to also enable the `NotifyRemoteUsers` policy setting to ensure that remote users are also notified of blocked programs or connections.
+* Regularly review the Windows Firewall logs to identify any suspicious blocked connections.
+* Implement additional security measures such as intrusion detection and prevention systems to further protect the system from unauthorized access.

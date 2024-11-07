@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Navigate to Registry:** Open the Registry Editor (regedit.exe) and navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+```
+
+2. **Enable Strong Key:** Locate the DWORD value named "RequireStrongKey" and double-click on it. Set the Value data to 1 and click OK.
+
+3. **Restart Netlogon:** Open Command Prompt as Administrator and run the following command to restart the Netlogon service:
+
+```
+net stop netlogon && net start netlogon
+```
+
+**Additional Considerations:**
+
+* Ensure that all Domain Controllers in the domain have the RequireStrongKey registry setting enabled.
+* If the RequireStrongKey setting is not enabled, the Netlogon service will use weak key encryption for authentication, which can compromise the security of the domain.
+* This setting is critical for securing the communication between Domain Controllers and member computers.
+
+**Verification:**
+
+* Check the RequireStrongKey registry value to ensure it is set to 1.
+* Use a network sniffer to analyze Netlogon traffic and verify that strong encryption is being used.

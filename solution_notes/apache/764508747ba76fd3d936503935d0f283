@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+1. **Identify the affected registry key:** Use the following command to identify the affected registry key containing the Policy OptionAuditBaseObjects value:
+
+```
+reg query HKLM\SYSTEM\CurrentControlSet\Control\Lsa /v OptionAuditBaseObjects
+```
+
+2. **Disable the insecure setting:** Change the value of the OptionAuditBaseObjects registry key to 0 using the following command:
+
+```
+reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa /v OptionAuditBaseObjects /t REG_DWORD /d 0 /f
+```
+
+3. **Restart the server:** Restart the server to apply the changes.
+
+**Explanation:**
+
+The Policy OptionAuditBaseObjects registry key in the apache server allows an attacker to bypass security protections by modifying the base objects that are audited. By disabling this setting, you prevent attackers from exploiting this vulnerability and gaining unauthorized access to sensitive data.

@@ -1,0 +1,24 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue Description:**
+
+The android.permission.ACCESS_ADSERVICES_ATTRIBUTION permission is required by apps that want to access advertising identifiers. If an unauthorized party gains access to this permission, they could potentially track user activity and behavior.
+
+**Solution:**
+
+To fix this issue, you can remove the android.permission.ACCESS_ADSERVICES_ATTRIBUTION permission from the AndroidManifest.xml file. You should also ensure that your app does not use any libraries or SDKs that require this permission.
+
+**Detailed Steps:**
+
+1. Open the AndroidManifest.xml file in your project.
+2. Locate the <uses-permission> tag that grants the android.permission.ACCESS_ADSERVICES_ATTRIBUTION permission.
+3. Delete the <uses-permission> tag.
+4. Save the AndroidManifest.xml file.
+5. Rebuild and deploy your app.
+
+**Additional Notes:**
+
+* If you are using a third-party library or SDK that requires the android.permission.ACCESS_ADSERVICES_ATTRIBUTION permission, you may need to contact the vendor for a solution.
+* You should also consider implementing other measures to protect user privacy, such as using encryption and anonymizing data.

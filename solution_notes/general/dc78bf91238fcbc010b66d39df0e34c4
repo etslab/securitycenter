@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Description:**
+
+The presence of the file `apktool_out/lib/arm64-v8a/libtacrashclone.so` in the Apache server's directory indicates that the application may have been decompiled and modified.
+
+**Solution:**
+
+* Remove the `apktool_out` directory and any other files that appear to be decompiled or modified versions of the original application.
+* Rebuild the application from the original source code and ensure that the resulting package does not include any decompiled files.
+* Implement code obfuscation techniques to make it more difficult to decompile the application.
+* Use a secure build process that prevents unauthorized access to the source code and build artifacts.
+* Consider using a mobile application protection solution (MAPS) to protect the application from reverse engineering and other attacks.
+
+**Explanation:**
+
+Decompiled applications can potentially expose sensitive data or functionality that should not be publicly accessible. By removing the decompiled files, you can mitigate the risk of data exposure and improve the security of your application.

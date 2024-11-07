@@ -1,0 +1,34 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+**1. Restrict Access to Registry Keys and Values:**
+
+* Use access control lists (ACLs) to restrict access to specific keys and values in the registry.
+* Grant only the minimum necessary permissions to users and groups.
+
+**2. Enable Registry Auditing:**
+
+* Enable auditing for registry access events.
+* This will allow you to monitor and detect unauthorized access attempts.
+
+**3. Harden Registry Permissions:**
+
+* Set strong passwords for registry keys.
+* Disable inheritance for registry keys to prevent unauthorized access from inherited permissions.
+
+**4. Use Windows Defender Application Control:**
+
+* Implement Windows Defender Application Control to block unauthorized access to the registry by untrusted applications.
+
+**5. Apply Security Best Practices:**
+
+* Keep your operating system and third-party software up to date with security patches.
+* Use antivirus and malware protection software.
+* Train your employees on security awareness and best practices.
+
+**6. Implement a Web Application Firewall (WAF):**
+
+* A WAF can help detect and block malicious requests that attempt to access the registry.

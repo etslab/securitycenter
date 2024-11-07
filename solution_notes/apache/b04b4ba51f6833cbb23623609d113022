@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+**1. Identify the Affected Registry Key:**
+- Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Policy
+```
+
+**2. Modify the IPsec Driver Key:**
+- Right-click on the "IPsecDriver" registry key and select "Permissions".
+- Add the "Authenticated Users" group and grant them "Full Control" permissions.
+
+**3. Additional Recommendations:**
+- Ensure that the web application is running on a secure web server and that SSL/TLS is enabled.
+- Implement input validation and data sanitization techniques to prevent malicious requests from exploiting the IPsec driver.
+- Regularly audit the registry settings to ensure that they remain secure.

@@ -1,0 +1,12 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Validate the captcha token:** Before processing the form submission, verify that the captcha token received from the client matches the value expected by the server. This can be done by checking the token against a stored value or by using a captcha service.
+2. **Implement a rate-limiting mechanism:** Limit the number of captcha attempts allowed within a specific time frame to prevent automated attacks.
+3. **Use strong captcha mechanisms:** Consider using stronger captcha mechanisms, such as reCAPTCHA, which are more difficult to bypass.
+4. **Disable the captcha feature:** If the captcha feature is not essential, consider disabling it to reduce the risk of bypass attempts.
+
+**Note:** The specific implementation details may vary depending on the technology stack used.

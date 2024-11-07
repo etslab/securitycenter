@@ -1,0 +1,15 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Identify the vulnerable files:** Determine which specific APK files contain the vulnerable library (`libtacrashclone_dumper.so`).
+2. **Remove or patch the vulnerable files:** Replace the vulnerable files with updated versions that do not contain the security flaw.
+3. **Verify the fix:** Test the application with the updated APK files to ensure the issue is resolved.
+
+**Detailed Explanation:**
+
+The presence of `apktool_out/lib/x86_64/libtacrashclone_dumper.so` in the Apache server indicates that the application bundle contains a vulnerable library. This library has a flaw that allows attackers to bypass access controls and execute arbitrary code on the server. An attacker could exploit this vulnerability to gain access to sensitive data, modify or delete files, or disrupt the operation of the server.
+
+By removing or patching the vulnerable files, you can mitigate the security risk posed by this issue. It is important to verify that the fix is effective by testing the application with the updated APK files.

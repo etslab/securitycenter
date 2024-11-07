@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2 - Broken Authentication
+
+**Solution:**
+
+To fix this issue, set the "DisableExceptionChainValidation" registry value to 0 (zero). This can be done using the following steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+    ```
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel
+    ```
+3. In the right pane, double-click on the "DisableExceptionChainValidation" registry value.
+4. In the "Value data" field, type 0 (zero).
+5. Click OK to save changes.
+6. Reboot the server.
+
+**Explanation:**
+
+The "DisableExceptionChainValidation" registry value controls whether the system validates the exception chain of callers when enforcing Code Integrity policies. If this value is set to 1, the system will not validate the exception chain, which could allow attackers to bypass Code Integrity policies and execute arbitrary code.
+
+By setting this value to 0, the system will enforce Code Integrity policies and prevent attackers from exploiting this vulnerability.

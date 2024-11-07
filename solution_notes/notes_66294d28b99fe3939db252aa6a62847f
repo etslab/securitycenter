@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Not applicable
+
+**Solution:**
+
+1. **Edit the Registry:**
+   - Open the Registry Editor (regedit.exe).
+   - Navigate to: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services`
+   - Create or modify the following DWORD value:
+     - Name: `fAllowToGetHelp`
+     - Value: `0` (0 = disable, 1 = enable)
+
+2. **Via Group Policy (Windows Server only):**
+   - Open Group Policy Management Editor (gpedit.msc).
+   - Navigate to: `Computer Configuration\Policies\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Connection Client`
+   - Enable the policy: "Disable Help menu items"
+
+This solution disables the Help menu items in the Remote Desktop Connection client, preventing users from accessing external resources that could potentially lead to security risks.

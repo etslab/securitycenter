@@ -1,0 +1,16 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. Navigate to the following registry key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System
+   ```
+2. Locate the `AllowDomainPINLogon` value and set it to `0`.
+3. Restart the server.
+
+**Explanation:**
+
+The `AllowDomainPINLogon` registry setting controls whether users can log on to the domain using a PIN. By default, this setting is enabled, which allows for password spraying attacks. By disabling this setting, you can mitigate the risk of unauthorized access.

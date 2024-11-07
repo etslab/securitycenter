@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2: Broken Authentication
+
+**Solution:**
+
+1. **Disable Registry LogonLogoff in apache server:**
+
+   - Edit the Apache configuration file (e.g., `httpd.conf` or `conf/httpd.conf`).
+   - Add the following line:
+
+   ```
+   LoadModule logonlogoff_module modules/mod_logonlogoff.so
+   ```
+   
+   - Restart Apache.
+
+2. **Configure Apache to Use a More Secure Authentication Method:**
+
+   - Disable basic authentication and enable a more secure method such as OAuth 2.0 or SAML.
+   - Follow the specific configuration guidelines for the chosen method.
+
+3. **Limit Access to Registry LogonLogoff:**
+
+   - Restrict access to the Registry LogonLogoff module only to necessary administrators.
+   - Implement role-based access controls to manage user permissions.
+
+**Additional Mitigation Measures:**
+
+- **Use Strong Passwords:** Enforce strong password policies to prevent unauthorized access.
+- **Implement Two-Factor Authentication (2FA):** Require users to provide an additional verification factor during login.
+- **Monitor for Suspicious Activity:** Regularly review logs for any unauthorized login attempts or anomalous behavior.

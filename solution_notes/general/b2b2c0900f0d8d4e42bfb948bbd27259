@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Configuration
+
+**Solution:**
+
+1. **Review Apache Configuration:**
+   - Check for any directives that grant excessive privileges or allow remote users to modify the registry.
+
+2. **Restrict Privileged Access:**
+   - Limit the number of users or services that can access the registry.
+   - Use access control lists (ACLs) or other mechanisms to restrict specific registry keys.
+
+3. **Disable Unnecessary Privileges:**
+   - Remove any privileges that are not required for the proper operation of Apache.
+   - This may include the "SeRegistryKey" privilege, which allows users to modify the registry.
+
+4. **Use Trusted Repositories:**
+   - When possible, use trusted sources for Apache packages and modules to minimize the risk of malicious code.
+   - Ensure that the packages are signed by a trusted certificate authority.
+
+5. **Monitor Registry Changes:**
+   - Implement a mechanism to monitor registry changes and identify any suspicious activity.
+   - Consider using tools like "AuditPol" or "RegMon" for this purpose.
+
+6. **Update Apache Regularly:**
+   - Keep Apache and its modules up to date with the latest security patches.
+   - This will address any vulnerabilities that may allow attackers to exploit registry privileges.

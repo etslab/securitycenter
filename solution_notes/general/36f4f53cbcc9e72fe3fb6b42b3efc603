@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Insecure Direct Object Reference
+
+**Detailed Solution:**
+
+To fix the issue, secure the apache server by:
+
+1. **Disable Directory Listing:** Configure the server to prevent listing of files and directories in the affected directory.
+2. **Restrict File Access:** Implement access control mechanisms (e.g., .htaccess, authorization directives) to limit access to the affected file only to authorized users.
+3. **Update Apache:** Ensure the server is running the latest version of Apache to benefit from security fixes and patches.
+4. **Implement Input Validation:** Validate user input to prevent unauthorized access to restricted files and directories.
+5. **Remove Sensitive Files:** If the libopvpnutil.so file is no longer required, remove it from the server to mitigate the risk.
+
+**Additional Recommendations:**
+
+* Use a web application firewall (WAF) to detect and block malicious requests attempting to access the affected file.
+* Regularly scan the server for vulnerabilities using security tools or services.
+* Implement a comprehensive security policy and train users on secure practices.

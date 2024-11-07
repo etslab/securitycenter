@@ -1,0 +1,30 @@
+**Severity: High**
+
+The presence of `apktool_out/lib/arm64-v8a/libjbcrypto.so` in the Apache server's directory structure is a serious security concern.
+
+**OWASP Top 10 2021 Category:**
+
+* **A1: Broken Access Control**
+
+**Solution:**
+
+1. **Identify the Source of the Issue:** Determine how `libjbcrypto.so` was introduced into the Apache server's directory. Check for any unauthorized modifications or installations.
+
+2. **Remove the Malicious File:** Delete the `libjbcrypto.so` file from the server immediately.
+
+3. **Scan for Other Malicious Files:** Use antivirus or malware scanning tools to scan the server for any other potential malicious files or hidden backdoors.
+
+4. **Restore from a Clean Backup:** If possible, restore the server from a clean backup made before the malicious file was introduced. This will ensure a clean and secure system.
+
+5. **Update and Harden Server:** Ensure that the Apache server and all other software on the server are up-to-date with the latest security patches. Implement security best practices such as:
+    * Configuring firewalls
+    * Restricting file permissions
+    * Using intrusion detection systems
+
+6. **Monitor and Log Server Activity:** Implement logging and monitoring mechanisms to detect any suspicious activity or unauthorized access to the server.
+
+**Additional Notes:**
+
+* `libjbcrypto.so` is known to be used in malicious Android applications and can potentially compromise the server if accessed or executed.
+* The presence of this file indicates that the server may have been compromised, so a thorough security audit is recommended.
+* It's important to keep software up to date and implement strong security measures to prevent unauthorized access and malicious file uploads.

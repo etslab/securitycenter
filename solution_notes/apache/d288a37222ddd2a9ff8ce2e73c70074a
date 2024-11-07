@@ -1,0 +1,30 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Issue:**
+
+Enabled the Policy LogSuccessfulConnections may log successful connections to the server, which could potentially disclose sensitive information to unauthorized users.
+
+**Solution:**
+
+To disable logging of successful connections, set the following registry key to 0:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging\LogSuccessfulConnections
+```
+
+**Steps:**
+
+1. Press Windows key + R to open the Run dialog box.
+2. Type "regedit" and press Enter.
+3. Navigate to the registry key mentioned above.
+4. Right-click on "LogSuccessfulConnections" and select "Modify".
+5. Change the Value data to 0.
+6. Click OK to save the changes.
+
+**Additional Information:**
+
+* This registry setting is only applicable to the Public Profile firewall profile.
+* Disabling this setting may reduce the visibility of potential security breaches, but it also reduces the amount of information available for troubleshooting and analysis.
+* Consider using other security measures, such as implementing a Web Application Firewall (WAF), to protect the server from unauthorized access.

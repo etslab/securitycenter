@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Description:**
+
+The Policy CachedLogonsCount value controls the number of cached logon operations that are performed per interactive logon session. A high value for this registry setting can allow an attacker to brute force user credentials by attempting multiple logon attempts without being locked out.
+
+**Solution:**
+
+Set the Policy CachedLogonsCount value to a low number, such as 5 or 10. This will limit the number of logon attempts that can be made per session and reduce the risk of brute force attacks.
+
+To set the registry value:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+```
+3. Double-click on the "Policy CachedLogonsCount" value.
+4. Enter a low number in the "Value data" field, such as 5 or 10.
+5. Click "OK" to save the changes.
+
+**Additional Notes:**
+
+* It is important to note that a low value for Policy CachedLogonsCount can impact the performance of interactive logons.
+* If you experience any performance issues, you may need to increase the value of this registry setting.
+* You should also consider implementing additional security measures, such as account lockouts and two-factor authentication, to further protect against brute force attacks.

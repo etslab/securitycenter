@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue Description:**
+
+The presence of the "apktool_out/lib/x86_64/libovpnexec.so" file in the Apache server's environment indicates a potential vulnerability due to:
+
+* **Broken Access Control:** External actors may be able to access or modify sensitive data and resources within the Apache server. This could lead to unauthorized access to sensitive data, system compromise, or data exfiltration.
+
+**Solution:**
+
+To fix this issue, remove the "apktool_out/lib/x86_64/libovpnexec.so" file from the Apache server's environment. This can be done by:
+
+1. Identifying the directory where the file is located.
+2. Using the "rm" command to delete the file.
+3. Restarting the Apache server to apply the changes.
+
+**Additional Recommendations:**
+
+* Review the Apache server configuration to ensure that only authorized users have access to sensitive resources.
+* Implement robust access control mechanisms to prevent unauthorized access to sensitive data and resources.
+* Regularly audit and monitor the server environment for potential vulnerabilities.

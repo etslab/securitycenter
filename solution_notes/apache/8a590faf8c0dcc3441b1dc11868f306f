@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Issue Description:**
+The Policy AuditLogonEvents registry key is not enabled, which means that logon events are not being audited. This can make it difficult to detect and investigate unauthorized access attempts.
+
+**Solution:**
+To fix this issue, you can enable the Policy AuditLogonEvents registry key by following these steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\EventLog\Security
+3. In the right pane, double-click the "AuditLogonEvents" value.
+4. Set the "Value data" field to "1".
+5. Click "OK" to save your changes.
+
+**Impact:**
+If this issue is not fixed, it can make it difficult to detect and investigate unauthorized access attempts. This can lead to a security breach, which could result in the loss of sensitive data or the compromise of the entire system.
+
+**Recommendation:**
+It is highly recommended that you fix this issue as soon as possible.

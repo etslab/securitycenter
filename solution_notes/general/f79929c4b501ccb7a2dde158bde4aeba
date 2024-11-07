@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue Details:**
+
+The `math/big` package in Go provides types for representing and manipulating arbitrary-precision floating-point numbers (`big.Float`) and rational numbers (`big.Rat`). Decoding these types from encoded messages can panic if the encoded message is too short, allowing an attacker to cause a denial of service (DoS) by sending malformed requests.
+
+**Solution:**
+
+To fix this issue, the following check should be added before decoding a `big.Float` or `big.Rat` type:
+
+```go
+if len(encodedMessage) < 1 {
+    return nil, errors.New("encoded message too short")
+}
+```
+
+This check ensures that the encoded message is not empty, preventing panics during decoding.
+
+**Impact:**
+
+This issue could allow an attacker to cause a DoS by sending malformed requests to an Apache server that is using the `math/big` package for decoding `big.Float` or `big.Rat` types. This could disrupt the operation of the Apache server and its services.
+
+**Recommendation:**
+
+All Go applications that use the `math/big` package should be updated to include the above check before decoding `big.Float` or `big.Rat` types.

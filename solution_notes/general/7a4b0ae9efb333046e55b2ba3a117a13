@@ -1,0 +1,11 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Improper Transport Layer Protection
+
+**Solution:**
+
+1. Update the version of `libopenvpn.so` in `apktool_out/lib/x86/libopenvpn.so`.
+2. Ensure that `libopenvpn.so` is using a secure protocol (e.g., TLS/SSL) and that the cipher suites used are strong.
+3. Configure the web server to use only secure protocols (e.g., HTTPS).
+4. Use a web application firewall (WAF) to block malicious traffic.
+5. Monitor the server logs for any suspicious activity.

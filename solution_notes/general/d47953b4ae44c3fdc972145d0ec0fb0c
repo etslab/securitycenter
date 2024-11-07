@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue:**
+The DefaultOutboundAction policy setting in the Windows Firewall is not configured, allowing unauthorized outbound connections.
+
+**Solution:**
+To fix this issue, you need to configure the DefaultOutboundAction policy setting to "Block". This can be done using the following steps:
+
+1. Open the Group Policy Management Console (gpmc.msc).
+2. Navigate to Computer Configuration -> Policies -> Administrative Templates -> Network -> Network Connections -> Windows Firewall -> Private Profile.
+3. Double-click on the DefaultOutboundAction policy setting.
+4. Select the "Enabled" radio button.
+5. In the "Options" drop-down list, select "Block".
+6. Click OK to save the changes.
+
+**Additional Information:**
+The Policy DefaultOutboundAction setting controls the default action taken by the Windows Firewall when a program tries to make an outbound connection. If this setting is not configured, the firewall will allow all outbound connections by default. This can be a security risk, as it can allow unauthorized programs to connect to the internet and send sensitive information.
+
+Configuring the DefaultOutboundAction setting to "Block" will ensure that all outbound connections are blocked by default. This will help to protect your computer from unauthorized access and data exfiltration.

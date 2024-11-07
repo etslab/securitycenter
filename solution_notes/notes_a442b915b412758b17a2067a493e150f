@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Weak Authentication and Credentials Management
+
+**Solution:**
+
+1. **Enable Policy RedirectionGuardPolicy:**
+   - Navigate to the Registry Editor (`regedit`)
+   - Go to `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\Printers`
+   - Create a new DWORD value named `RedirectionGuardPolicy` and set its value to 1.
+
+2. **Restart the Server:**
+   - Restart the apache server to apply the changes.
+
+**Additional Considerations:**
+
+* This policy protects against malicious websites that attempt to redirect print jobs to a different printer.
+* Ensure that the `RedirectionGuardPolicy` registry key is set to 1 on all server instances.
+* Monitor printer logs for any suspicious activity or unauthorized print jobs.
+* Consider implementing additional security measures, such as IP filtering and firewall rules, to prevent unauthorized access to the printer.

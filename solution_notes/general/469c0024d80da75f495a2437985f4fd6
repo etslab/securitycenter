@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue Description:**
+
+The presence of the apktool_out/lib/x86/libapminsighta.so in the Apache server directory indicates that the server may be compromised due to insufficient access controls. This shared object library (`.so`) is typically associated with the monitoring tool "AppDynamics APM" and its presence outside of the expected installation directory suggests a potential unauthorized modification or installation.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. **Identify the source of the vulnerability:** Determine how the `libapminsighta.so` library was installed on the server. This may involve reviewing server logs, access logs, or system configuration files.
+2. **Remove the vulnerable library:** Delete the `apktool_out/lib/x86/libapminsighta.so` library from the server.
+3. **Review access controls:** Evaluate the server's access control configuration to identify any weaknesses or misconfigurations. Ensure that only authorized users have access to critical directories and files.
+4. **Update software and security patches:** Install the latest security patches and updates for the server and its components. This includes the Apache server, operating system, and any installed monitoring tools.
+5. **Monitor for suspicious activity:** Implement intrusion detection and prevention mechanisms to monitor for any suspicious activity or unauthorized access attempts.
+
+**Additional Considerations:**
+
+* It is essential to investigate the root cause of the vulnerability to prevent similar incidents from happening in the future.
+* Consider using a secure server configuration tool to help identify and address potential security vulnerabilities.
+* Regularly review and update access controls to ensure they remain effective.

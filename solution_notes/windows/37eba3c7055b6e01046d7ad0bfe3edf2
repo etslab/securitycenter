@@ -1,0 +1,29 @@
+**Severity:** Low
+
+**OWASP Top 10 2021 Category:** Authentication Failures
+
+**Detailed Solution:**
+
+**1. Check Current PasswordHistorySize:**
+
+* Open Registry Editor (regedit).
+* Navigate to `Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Policies\Microsoft\Windows\Lsa`.
+* Check the value of the `PasswordHistorySize` DWORD.
+
+**2. Set PasswordHistorySize to 24:**
+
+* If `PasswordHistorySize` is less than 24, double-click it and set the value to 24.
+* Click OK to save the change.
+
+**3. Restart Server:**
+
+* Restart the Apache server for the changes to take effect.
+
+**Explanation:**
+
+PasswordHistorySize specifies the maximum number of previous passwords that are stored and checked when a user attempts to change their password. Setting this value to 24 forces users to create a new password that is different from their last 24 passwords. This mitigates the risk of password reuse, which can lead to account compromise.
+
+**Additional Notes:**
+
+* This issue is considered low severity because password reuse is a known risk, and setting `PasswordHistorySize` to a higher value is an effective and commonly implemented mitigation.
+* While a higher `PasswordHistorySize` value can increase user inconvenience, 24 is a reasonable compromise between security and usability.

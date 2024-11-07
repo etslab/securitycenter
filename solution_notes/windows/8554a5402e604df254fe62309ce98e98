@@ -1,0 +1,27 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Detailed Solution:**
+
+1. **Locate the Registry Key:**
+   - Open Registry Editor (regedit.exe).
+   - Navigate to the following key:
+     `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer`
+
+2. **Create or Modify the Policy Value:**
+   - If the "NoWebServices" policy value does not exist, right-click in the right pane and select "New" > "DWORD (32-bit) Value."
+   - Name the new value "NoWebServices."
+   - Double-click on the "NoWebServices" value and set the "Value data" to 1.
+
+3. **Restart the Windows Explorer Service:**
+   - Press Windows key + R to open the Run dialog box.
+   - Type "services.msc" and press Enter.
+   - In the Services window, find "Windows Explorer" service.
+   - Right-click on the service and select "Restart."
+
+**Explanation:**
+
+The Policy NoWebServices in Registry Software-Microsoft-Windows-CurrentVersion-Policies-Explorer prevents users from accessing web services from the Windows Explorer context menu. This can help protect against unauthorized access to sensitive data, such as files and folders.
+
+By default, this policy is not enabled in Apache servers. Enabling it will prevent attackers from using web services to access files and folders on the server, reducing the risk of sensitive data exposure.

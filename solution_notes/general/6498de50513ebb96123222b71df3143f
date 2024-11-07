@@ -1,0 +1,34 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control (BAC)
+
+**Solution:**
+
+**1. Identify the Vulnerability:**
+
+* Inspect the libtacrashclone_dumper.so library to determine the specific vulnerability that allows unauthorized access.
+
+**2. Patch the Code:**
+
+* If possible, patch the vulnerability in the libtacrashclone_dumper.so library by updating the code to enforce appropriate access controls.
+* Consider using a trusted source for the updated library to ensure its security.
+
+**3. Disable or Remove the Library:**
+
+* If patching is not feasible, disable or remove the vulnerable libtacrashclone_dumper.so library from the Apache server.
+* Ensure that any dependent applications can continue to function without the library.
+
+**4. Update Apache Server:**
+
+* Check for any available security updates for the Apache server software.
+* Install the updates to mitigate any potential vulnerabilities or configuration weaknesses.
+
+**Additional Recommendations:**
+
+* Implement a web application firewall (WAF) to block malicious requests and protect against known exploits.
+* Regularly scan the server for vulnerabilities using security tools such as Nessus or OpenVAS.
+* Monitor Apache server logs for suspicious activity and respond promptly to any security incidents.
+
+**Rationale:**
+
+This issue falls under the Broken Access Control category because it allows unauthorized access to sensitive resources. The vulnerable library could be exploited to compromise the Apache server and access confidential data or perform malicious actions. The high severity rating is due to the potential impact on the server's security and the sensitive nature of the data it may process.

@@ -1,0 +1,13 @@
+**Issue Severity:** Low
+
+**Solution:**
+
+To fix this issue, restrict access to the phpinfo.php file by adding the following code to your .htaccess file:
+
+```htaccess
+<FilesMatch "(phpinfo\.php|info\.php)">
+  Deny from all
+</FilesMatch>
+```
+
+**OWASP Top 10 2021 Category:** Information Disclosure

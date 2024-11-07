@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Enable Policy Network Policy Server (NPPS) in Registry Logon/Logoff:**
+
+   - Open the Group Policy Management Editor (gpedit.msc).
+   - Navigate to Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options.
+   - Double-click on "Network security: Restrict NTLM: Audit RPC clients" and set it to "Enabled".
+   - Click "Apply" and "OK" to save the changes.
+
+2. **Enforce Strong Passwords:**
+
+   - Ensure that all users have strong passwords that meet the following complexity requirements:
+     - Minimum length of 12 characters
+     - Contains at least one uppercase letter, one lowercase letter, one number, and one special character
+
+3. **Implement Multi-Factor Authentication (MFA):**
+
+   - Enable MFA for user access to sensitive resources. This adds an extra layer of protection by requiring users to provide a second form of authentication, such as a one-time password (OTP).
+
+4. **Disable Legacy Authentication Protocols:**
+
+   - Disable legacy authentication protocols, such as NTLM and LM, which are vulnerable to attacks.
+
+5. **Monitor and Audit Logs:**
+
+   - Regularly monitor and audit security logs for suspicious activities. This will help you detect any unauthorized access attempts or policy violations.

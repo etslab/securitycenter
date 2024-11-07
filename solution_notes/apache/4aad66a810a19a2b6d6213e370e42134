@@ -1,0 +1,38 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+To fix this issue, set the Policy MaximumPasswordAge registry key to a value within the recommended range of 60-90 days.
+
+**Registry Path:**
+
+```
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters
+```
+
+**Key:**
+
+```
+Policy MaximumPasswordAge
+```
+
+**Recommended Value:**
+
+```
+60-90 days (in decimal format)
+```
+
+**Steps:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the registry path specified above.
+3. Right-click on "Policy MaximumPasswordAge" and select "Modify".
+4. In the "Value data" field, enter the desired number of days within the recommended range.
+5. Click "OK" to save the changes.
+6. Restart the server.
+
+**Rationale:**
+
+Setting a MaximumPasswordAge value within the recommended range helps prevent users from using weak or re-used passwords indefinitely. It enforces password rotation and reduces the risk of unauthorized access in the event of a password compromise.

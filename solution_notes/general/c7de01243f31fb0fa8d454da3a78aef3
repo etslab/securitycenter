@@ -1,0 +1,32 @@
+**Severity: High**
+
+**OWASP Top 10 2021 Category: A1: Injection**
+
+**Reasoning:**
+
+The X-Content-Type-Options header helps protect against MIME sniffing attacks, which can allow an attacker to execute arbitrary code on a vulnerable server. By disabling MIME sniffing, the browser is forced to use the content type specified in the HTTP response, making it more difficult for attackers to exploit vulnerabilities.
+
+**Solution:**
+
+To fix this issue, add the following header to your Apache server configuration:
+
+```apache
+Header always set X-Content-Type-Options "nosniff"
+```
+
+This header will instruct the browser to not perform MIME sniffing and to always use the content type specified in the HTTP response.
+
+**Steps to Implement the Solution:**
+
+1. Open the Apache configuration file (usually located at `/etc/apache2/apache2.conf` or `/etc/httpd/conf/httpd.conf`) using a text editor.
+2. Add the following line to the configuration file:
+```
+Header always set X-Content-Type-Options "nosniff"
+```
+3. Save the changes to the configuration file.
+4. Restart the Apache server.
+
+**Additional Notes:**
+
+* The `nosniff` value prevents the browser from performing MIME sniffing, which is the most secure option.
+* You may also use the `deny` value, which instructs the browser to treat all responses as text/plain, but this is less secure than `nosniff`.

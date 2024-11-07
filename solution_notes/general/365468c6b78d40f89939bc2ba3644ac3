@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Description:**
+
+The apktool_out/lib/x86_64/libopvpnutil.so file contains the OpenVPN library, which is used for establishing secure network connections. This file is not intended to be publicly accessible and should be prevented from being executed directly.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. **Remove the file:** Delete the apktool_out/lib/x86_64/libopvpnutil.so file from the server.
+2. **Restrict access:** If possible, restrict access to the directory containing the file using web server configuration or file system permissions.
+3. **Update the software:** Ensure that the latest version of OpenVPN is installed and configured correctly.
+
+**Additional Recommendations:**
+
+* Scan the server regularly for vulnerabilities and security issues.
+* Implement a web application firewall to block malicious requests.
+* Regularly review and update security policies and procedures.

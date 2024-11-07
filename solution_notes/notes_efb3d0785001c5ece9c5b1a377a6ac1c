@@ -1,0 +1,35 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+### Solution
+
+To fix this issue, set the `fBlockNonDomain` registry value to 1. This will block non-domain requests from being forwarded to the proxy server.
+
+**Registry Key:**
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy
+```
+
+**Registry Value:**
+
+```
+fBlockNonDomain
+```
+
+**Data Type:**
+
+`REG_DWORD`
+
+**Value:**
+
+```
+1
+```
+
+### Explanation
+
+The `fBlockNonDomain` registry value controls whether non-domain requests are forwarded to the proxy server. By default, this value is set to 0, which allows non-domain requests to be forwarded. However, this can be a security risk, as it allows attackers to bypass the firewall and access internal resources.
+
+Setting the `fBlockNonDomain` registry value to 1 will block non-domain requests from being forwarded to the proxy server. This will help to protect internal resources from unauthorized access.

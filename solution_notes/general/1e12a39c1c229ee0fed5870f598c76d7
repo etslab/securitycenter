@@ -1,0 +1,20 @@
+## Severity Assessment
+
+**Critical**
+
+Information disclosure vulnerabilities that expose debug error messages can lead to sensitive information being leaked, such as database connection strings, passwords, and stack traces. This information can be used by attackers to gain access to the system or to launch further attacks.
+
+## Solution
+
+To fix this issue, you should disable debug error messages in Apache by modifying the `error_log` directive in the Apache configuration file (usually located at `/etc/apache2/apache2.conf` or `/etc/httpd/conf/httpd.conf`):
+
+```
+LogLevel warn
+ErrorLog "|/usr/sbin/rotatelogs /var/log/apache2/error.log 86400"
+```
+
+This configuration sets the log level to `warn`, which will prevent debug messages from being logged. You should also rotate the error log regularly to prevent it from filling up and becoming a security risk.
+
+## OWASP Top 10 2021 Category
+
+This issue falls under the **A3: Sensitive Data Exposure** category of the **OWASP Top 10 2021**.

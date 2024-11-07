@@ -1,0 +1,26 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Improper Firewall Configuration
+
+**Solution:**
+
+1. **Review the Policy DefaultInboundAction setting:**
+
+   - In the Apache server configuration file (e.g., "httpd.conf"), locate the "FirewallContext" directive.
+   - Verify that the "DefaultInboundAction" parameter is set to "Deny".
+
+2. **Set the correct value:**
+
+   - If the "DefaultInboundAction" parameter is not set to "Deny", add or modify it as follows:
+     ```
+     FirewallContext DefaultInboundAction="Deny"
+     ```
+
+3. **Restart the Apache server:**
+
+   - Restart the Apache server to apply the changes.
+
+**Additional Notes:**
+
+* This setting prevents unauthorized incoming network connections to the Apache server.
+* Consider using a web application firewall (WAF) for additional protection against malicious traffic.

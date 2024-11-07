@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A7: Broken Access Control
+
+**Solution:**
+
+1. **Enable Registry Auditing:**
+
+```
+AuditPol.exe /set /subcategory:"Registry" /success:enable /failure:enable
+```
+
+2. **Configure Audit Privilege Use Policy:**
+
+Use the Local Security Policy Editor (gpedit.msc):
+
+* Go to Security Settings > Local Policies > Audit Policy.
+* Double-click "Audit Use of Privileged Rights on Local System".
+* Check "Audit attempts to perform privileged operations".
+* Select "Success" and "Failure".
+
+3. **Apply Audit Policy:**
+
+```
+gpupdate /force
+```
+
+**Additional Considerations:**
+
+* Ensure that important registry keys are protected and only accessible to authorized users.
+* Monitor registry audit logs for suspicious activity.
+* Implement least privilege access controls to prevent escalation of privileges.

@@ -1,29 +1,31 @@
-###How to fix the Certificates issue of LUCKY13, potentially vulnerable uses TLS CBC ciphers
-The LUCKY13 attack is a cryptographic attack that can be used to recover plaintext data from encrypted communications that use TLS CBC ciphers. The attack works by exploiting the predictable nature of the IV values used in TLS CBC ciphers.
+**Severity:** High
 
-To fix the LUCKY13 attack in Apache, you can use the following steps:
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
 
-1. Update your Apache installation to the latest version.
-2. Disable SSLv2 and SSLv3.
-3. Enable TLS 1.1 and TLS 1.2.
-4. Configure Apache to use ciphers that are not vulnerable to the LUCKY13 attack. For example, you can use the following cipher suite:
+**Solution:**
 
+To fix this issue, update your Apache configuration to disable TLS CBC ciphers. Here's a sample configuration:
 
-ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:kEDH+AESGCM:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA
+```
+SSLProtocol all -SSLv2 -SSLv3
+SSLCipherSuite !aNULL:!eNULL:!EXPORT:!DES:!MD5:!RC4:!3DES:!TLS_SRP:!TLS_PSK:!PSK
+```
 
+You can also use the following steps:
 
-5. Restart Apache.
+1. Open the Apache configuration file (usually located at /etc/httpd/conf/httpd.conf).
+2. Add the following line to the file:
 
-The LUCKY13 attack is a serious vulnerability that can be used to recover plaintext data from encrypted communications. By following the steps above, you can help to protect your Apache web server from this attack.
+```
+SSLProtocol all -SSLv2 -SSLv3
+```
 
-The LUCKY13 attack is classified as an Information Exposure vulnerability in the OWASP Top 10 Web Application Security Risks. This vulnerability can be exploited to steal sensitive information, such as passwords, credit card numbers, and other personal information, from users who are accessing a vulnerable web application.
+3. Add the following line to the file:
 
-To mitigate the risk of the LUCKY13 attack, web application developers should use strong cryptography and implement security best practices, such as:
+```
+SSLCipherSuite !aNULL:!eNULL:!EXPORT:!DES:!MD5:!RC4:!3DES:!TLS_SRP:!TLS_PSK:!PSK
+```
 
-* Using strong encryption algorithms and ciphers
-* Enabling Transport Layer Security (TLS)
-* Configuring TLS to use strong ciphers
-* Avoiding the use of weak cryptographic algorithms and ciphers
-* Implementing security best practices, such as input validation and output encoding
+4. Save the file and restart Apache.
 
-By following these security best practices, web application developers can help to protect their applications from the LUCKY13 attack and other information exposure vulnerabilities.
+This fix addresses the issue by disabling TLS CBC ciphers, which are considered insecure and can be exploited by attackers.

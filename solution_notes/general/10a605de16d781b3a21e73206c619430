@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Information Leakage
+
+**Solution:**
+
+1. Open the `php.ini` file located in `/etc/php5/apache2/php.ini`.
+2. Find the following line:
+   ```
+   display_errors = On
+   ```
+3. Change the value to `Off`:
+   ```
+   display_errors = Off
+   ```
+4. Restart the Apache server:
+   ```
+   sudo service apache2 restart
+   ```
+
+**Reasoning:**
+
+The `phpinfo.php` page displays various information about the PHP environment, including the PHP version, server information, and loaded PHP extensions. This information can be useful to attackers in crafting targeted attacks. By disabling the display of this page, you can reduce the risk of information disclosure.
+
+**Note:**
+
+This solution may not be suitable for development environments where it is necessary to display PHP errors and information. In such cases, alternative measures should be taken to secure the `phpinfo.php` page, such as password protection or restricting access to trusted users only.

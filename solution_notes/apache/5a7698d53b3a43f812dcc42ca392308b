@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+
+2. Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters
+```
+
+3. In the right pane, double-click the "SealSecureChannel" registry value.
+
+4. Set the value data to "1".
+
+5. Click "OK" to save the changes.
+
+**Explanation:**
+
+The Policy SealSecureChannel registry value specifies whether the Netlogon service should seal secure channels between domain controllers. When this value is set to "0", secure channels are not sealed, which could allow an attacker to intercept network traffic between domain controllers and gain access to sensitive information. Setting this value to "1" ensures that secure channels are sealed, protecting the confidentiality and integrity of network traffic.
+
+This issue falls under the Sensitive Data Exposure category of the OWASP Top 10 2021 because it involves the potential exposure of sensitive information (passwords, credentials, etc.) over an insecure channel.

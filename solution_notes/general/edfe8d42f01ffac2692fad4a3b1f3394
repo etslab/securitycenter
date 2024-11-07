@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Details:**
+
+The Test:DVWA-master/compose.yml file in the Apache server contains hard-coded secrets (passwords, API keys, etc.) that are visible to malicious actors and could be used to compromise the system.
+
+**Solution:**
+
+To fix this issue, the hard-coded secrets should be removed from the Test:DVWA-master/compose.yml file and stored securely in a secret management system, such as Vault or HashiCorp Consul.
+
+**Steps to Implement the Solution:**
+
+1. Create a secret management system.
+2. Move the hard-coded secrets from the Test:DVWA-master/compose.yml file to the secret management system.
+3. Update the Test:DVWA-master/compose.yml file to reference the secrets from the secret management system.
+4. Test the changes to ensure that the application still functions properly.
+
+**Additional Recommendations:**
+
+* Use strong, unique passwords for all secrets.
+* Rotate secrets regularly to reduce the risk of compromise.
+* Monitor access to secrets to detect any suspicious activity.
+* Train developers on the importance of secret management and how to securely store and use secrets.

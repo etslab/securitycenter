@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** **A05: Broken Access Control**
+
+**Description:**
+
+The sonarqube rule php:S6600 flags a potential broken access control vulnerability in the bWAPP application. Unauthorized users could potentially gain access to the "/admin/index.php" page, which may contain sensitive information or functionality.
+
+**Solution:**
+
+To fix this issue, ensure that proper access control mechanisms are implemented to restrict access to "/admin/index.php" only to authorized users. This can be achieved using session management, role-based access control, or other appropriate measures.
+
+**Implementation:**
+
+1. **Session Management:**
+   - Implement session management to maintain a user's session and identify authorized users.
+   - Create session variables and set them for authorized users upon successful login.
+   - Use session variables to check if a user is authorized to access "/admin/index.php".
+
+2. **Role-Based Access Control:**
+   - Define user roles and assign appropriate access permissions.
+   - Grant access to "/admin/index.php" only to users with the "Administrator" role or similar elevated privileges.
+   - Check the user's role before granting access to the page.
+
+3. **Other Methods:**
+   - Use a firewall to restrict access to "/admin/index.php" from unauthorized IP addresses.
+   - Implement rate limiting to prevent brute-force attacks aimed at accessing the page.
+   - Use a captcha or other security measures to prevent automated script attacks.

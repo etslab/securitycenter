@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Description:**
+
+The file `apktool_out/lib/x86_64/libnms.so` is a shared library that may contain sensitive information, such as passwords or encryption keys. Leaving this file accessible on the Apache server can allow unauthorized users to download and extract this information, potentially compromising the security of the application or system.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. **Remove the file:** Locate and delete the file `apktool_out/lib/x86_64/libnms.so` from the Apache server's file system.
+2. **Review permissions:** Ensure that the containing directory (`apktool_out/lib/x86_64`) has appropriate file permissions, such as read-only for the application user and no permissions for other users.
+3. **Consider using a secure storage mechanism:** If the file contains sensitive data that must be stored on the server, consider encrypting or otherwise protecting it using secure storage mechanisms.
+
+**Additional Recommendations:**
+
+* Regularly review the contents of the server's file system for files like this that should not be publicly accessible.
+* Implement a vulnerability scanning tool to detect potential security issues.
+* Use a web application firewall (WAF) to block unauthorized access to sensitive resources.

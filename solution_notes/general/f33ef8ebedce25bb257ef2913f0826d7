@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Insufficient Logging & Monitoring
+
+**Detailed Solution:**
+
+**1. Remove Unnecessary Permissions:**
+
+* Review the AndroidManifest.xml file to ensure that the ACCESS_COARSE_LOCATION permission is only requested when it is absolutely necessary. If it is not essential for the application's functionality, remove the permission declaration.
+
+**2. Use Background Permission Prompts:**
+
+* If possible, implement background permission prompts in the application. This allows users to grant or deny location access on an as-needed basis, reducing the risk of unauthorized access.
+
+**3. Secure Location Data:**
+
+* Encrypt any sensitive location data stored on the Apache server. Use strong encryption algorithms and ensure that the encryption keys are kept secret.
+* Implement rate-limiting mechanisms to prevent excessive location requests.
+* Consider using anonymization techniques to protect user privacy.
+
+**4. Harden Apache Server:**
+
+* Install security patches and updates regularly to address any vulnerabilities in the server.
+* Use a web application firewall (WAF) to block malicious requests and protect against attacks.
+* Configure Apache server settings to limit access to sensitive resources and prevent unauthorized access.
+
+**5. Implement Logging and Monitoring:**
+
+* Enable detailed logging in Apache server to track all location-related requests.
+* Monitor log files regularly for any suspicious activity or unauthorized access attempts.
+* Set up alerts to notify administrators of any unusual events or security breaches.

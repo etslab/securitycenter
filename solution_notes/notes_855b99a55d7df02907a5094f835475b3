@@ -1,0 +1,19 @@
+**Severity Assessment:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Set the Registry OptionAuditBaseDirectories option to a directory or directories that contain the sensitive information you wish to protect.** For example:
+
+```
+Registry OptionAuditBaseDirectories "/var/www/html/confidential_data"
+```
+
+2. **Restart the Apache server.**
+
+**Explanation:**
+
+The Policy OptionAuditBaseDirectories option prevents Apache from accessing directories other than those specified in the OptionAuditBaseDirectories directive. This helps protect against directory traversal attacks, where an attacker attempts to access sensitive files by manipulating the URL.
+
+By default, the OptionAuditBaseDirectories option is unset, which allows Apache to access any directory on the system. Setting this option to a specific directory or directories restricts Apache's access and reduces the risk of directory traversal attacks.

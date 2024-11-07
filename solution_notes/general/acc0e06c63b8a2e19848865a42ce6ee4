@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+**1. Disable Policy Application Group:**
+
+* Navigate to the Google Cloud Console.
+* Go to the Registry page.
+* Select your project.
+* Click on the "Settings" tab.
+* Under "Policy Application Groups", disable the "Policy Application Group Management" feature.
+
+**2. Remove Sensitive Data from Registry Policies:**
+
+* If you have sensitive data stored in registry policies, remove it and replace it with secure values, such as secrets stored in Secret Manager.
+
+**3. Enable Audit Logging:**
+
+* Turn on audit logging for the Registry API to detect any suspicious activity related to policy application group management.
+* Go to the Cloud Audit Logs page.
+* Create a sink to store the logs and configure it to send alerts on high-risk events.
+
+**4. Use IAM Roles to Control Access:**
+
+* Ensure that only authorized users have access to manage policy application groups.
+* Create custom IAM roles with the appropriate permissions and assign them to users.
+
+**5. Monitor Registry Activity:**
+
+* Use tools such as Stackdriver Logging or Cloud Monitoring to monitor Registry activity and detect any unauthorized changes or attempts to manipulate policy application groups.

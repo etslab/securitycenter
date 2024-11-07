@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+To fix the issue, follow these steps:
+
+1. **Disable unnecessary rules:** Review the Registry object access rules and disable any that are no longer needed.
+2. **Restrict access to sensitive files:** Use the `AccessCheckByType` directive in the `.htaccess` file to restrict access to sensitive files, such as those containing passwords or credit card numbers.
+3. **Enable mod_evasive:** This module detects and blocks attacks that attempt to exploit vulnerabilities in Apache.
+4. **Install and configure a Web Application Firewall (WAF):** A WAF can help protect against malicious requests by filtering out suspicious traffic.
+5. **Update Apache to the latest version:** Regular updates patch known vulnerabilities and improve security.
+
+**Additional Recommendations:**
+
+* Regularly review and update security settings.
+* Implement a comprehensive auditing process to identify potential vulnerabilities.
+* Train employees on security best practices and phishing awareness.
+* Establish incident response procedures to mitigate any breaches or attacks promptly.

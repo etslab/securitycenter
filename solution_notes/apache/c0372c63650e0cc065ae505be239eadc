@@ -1,0 +1,27 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Server-Side Request Forgery (SSRF)
+
+**Detailed Solution:**
+
+1. Navigate to the Apache server configuration file (typically /etc/httpd/conf/httpd.conf).
+
+2. Locate the following line:
+   ```
+   AllowOverride None
+   ```
+
+3. Change the value to:
+   ```
+   AllowOverride All
+   ```
+
+4. Save and close the configuration file.
+
+5. Restart the Apache web server.
+
+**Explanation:**
+
+The Policy UndockWithoutLogon registry key controls whether users can undock their desktops without first logging off. By default, this key is set to 0, which prohibits users from undocking without logging off. However, if this key is set to 1, users can undock their desktops without logging off, which could allow an attacker to access sensitive information or perform unauthorized actions on the system.
+
+By setting AllowOverride to All, you are allowing the .htaccess file to override the Policy UndockWithoutLogon registry key in Apache. This will allow you to specify a custom configuration for the .htaccess file that will set the Policy UndockWithoutLogon registry key to 0, effectively preventing users from undocking their desktops without logging off.

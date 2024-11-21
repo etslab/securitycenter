@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Verify the Zone Map:**
+   Navigate to **Registry Editor (regedit)** and locate the following path:
+   ```
+   HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3
+   ```
+   Check if the **1** and **3** values are set to **4** (Internet Zone & Restricted Site Zone) under **URL Zone**.
+
+2. **Adjust Registry Settings:**
+   - Ensure that the following registry values are set correctly:
+     - `Low` (REG_DWORD): 0
+     - `High` (REG_DWORD): 2
+     - `Flags` (REG_DWORD): 3 (0x00000003)
+
+3. **Restart the Server:**
+   Restart the Apache server to apply the changes.
+
+**Explanation:**
+
+Policy 1802 in the Internet Settings zone determines the level of access granted to websites from different security zones. By default, the Restricted Site Zone (zone 3) has limited access. By setting the 1 and 3 values to 4, websites from the Internet Zone and Restricted Site Zone are allowed unrestricted access, leading to potential security vulnerabilities. Adjusting the registry settings ensures that websites from the Restricted Site Zone are properly restricted.

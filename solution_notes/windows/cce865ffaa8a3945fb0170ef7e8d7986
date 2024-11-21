@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+* **Configure Account Management Policies:**
+    * Navigate to the Registry Editor (regedit).
+    * Navigate to HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon.
+    * Create a new DWORD value named "ForceGuest" and set its value to 0.
+    * Create a new DWORD value named "ScAllowGuests" and set its value to 0.
+    * Create a new REG_SZ value named "GuestOnly" (case-sensitive) and set its value to "1".
+
+* **Disable Guest Account:**
+    * Open Control Panel > User Accounts.
+    * Select "Manage another account".
+    * Right-click on the "Guest" account and select "Turn off".
+
+* **Optionally, Remove Guest Account:**
+    * Warning: This action is irreversible and may affect other services that use the Guest account.
+    * Open Command Prompt as Administrator.
+    * Run the following command: `net user guest /delete`

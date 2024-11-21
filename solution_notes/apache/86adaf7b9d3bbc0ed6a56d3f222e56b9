@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue Details:**
+
+Policy 2103 in the Registry Software->Policies->Microsoft->Windows->CurrentVersion->Internet Settings->Zones->3 setting controls the security settings for the "Other" zone in Internet Explorer. By default, this zone is configured to have low security settings, allowing scripts, ActiveX controls, and other potentially dangerous content to run without restrictions. This setting can be exploited by attackers to gain unauthorized access to the server or sensitive data.
+
+**Solution:**
+
+To fix this issue, modify the Registry key as follows:
+
+1. Open Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3
+```
+3. Create or modify the following DWORD value:
+```
+2103 - Value data: 3
+```
+This setting will change the security level for the "Other" zone to "Medium", which will block scripts, ActiveX controls, and other potentially dangerous content from running.
+
+**Additional Recommendations:**
+
+* It is also recommended to disable the "Other" zone by setting its "Enable" value to 0.
+* Regularly review and update security settings for all Internet Explorer zones.
+* Consider using a web application firewall (WAF) to filter out malicious traffic before it reaches the server.

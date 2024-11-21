@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A05: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Review and Tighten Registry Permissions:**
+   - Identify all users and groups that have access to the Policy Registry.
+   - Remove any unnecessary permissions or grant only the minimum privileges required.
+2. **Implement Role-Based Access Control (RBAC):**
+   - Create roles with specific permissions and assign them to users and groups.
+   - This allows for finer-grained access control and reduces the risk of unauthorized modification.
+3. **Enable Auditing:**
+   - Configure Windows Event Logs to audit access attempts to the Policy Registry.
+   - This will provide visibility into any suspicious activity and aid in incident response.
+4. **Use Secure Communication:**
+   - Ensure that registry access is protected using secure communication channels such as HTTPS.
+   - This prevents eavesdropping and data manipulation.
+5. **Implement Network Segmentation:**
+   - Place the servers that host the Policy Registry on a separate network segment.
+   - This limits the exposure of the registry to potential attackers.
+6. **Keep Software Updated:**
+   - Regularly update Windows and any registry-related software to patch potential vulnerabilities.
+   - This reduces the risk of exploits that could grant unauthorized access to the registry.
+7. **Use a Web Application Firewall (WAF):**
+   - Deploy a WAF to filter out malicious requests targeting the Policy Registry.
+   - This can help to block attacks such as SQL injection or cross-site scripting.

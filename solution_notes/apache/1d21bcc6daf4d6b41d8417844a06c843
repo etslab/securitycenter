@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 Category:** A6 - Security Misconfiguration
+
+**Solution:**
+
+1. **Update Apache Server:** Update to Apache httpd version 2.4.54 or later.
+2. **Disable ServerTokens Directive:** Open the Apache configuration file (typically `/etc/httpd/conf/httpd.conf` or `/etc/apache2/apache2.conf`) and set the `ServerTokens` directive to `Prod` or `Minimal`.
+3. **Disable ServerSignature Directive:** Set the `ServerSignature` directive to `Off`.
+4. **Disable TraceHTTP Header:** Set the `TraceEnable` directive to `Off`.
+
+**Additional Mitigation Steps:**
+
+* Restrict access to the server from untrusted sources using a firewall.
+* Use a web application firewall (WAF) to inspect incoming HTTP requests and filter out malicious requests.
+* Regularly review server logs for any suspicious activity.
+* Implement a server-side intrusion detection system (IDS) to detect and respond to attacks.
+
+**Explanation:**
+
+CVE-2024-5458 is a vulnerability in Apache httpd that allows an attacker to obtain sensitive information about the server by exploiting the TraceHTTP header. The server returns various details, including the server version, operating system, and build options, which can aid attackers in crafting targeted attacks. Disabling the TraceHTTP header and other sensitive information disclosure directives helps mitigate this vulnerability and protects against information leakage.

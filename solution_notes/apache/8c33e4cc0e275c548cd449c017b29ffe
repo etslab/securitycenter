@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Description:**
+
+Policy RDVDenyCrossOrg is a registry key that controls whether domain members can recover the local BitLocker encryption key using credentials from another domain. If this key is set to 1, users cannot recover the encryption key from another domain, which could prevent unauthorized access to sensitive data in the event of a device loss or theft.
+
+**Issue:**
+
+The Policy RDVDenyCrossOrg registry key is not set to 1, allowing users to recover the local BitLocker encryption key using credentials from another domain. This increases the risk of unauthorized access to sensitive data.
+
+**Solution:**
+
+To fix this issue, set the Policy RDVDenyCrossOrg registry key to 1.
+
+**Procedure:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FVE
+   ```
+3. Create a new DWORD (32-bit) value named "Policy RDVDenyCrossOrg" if it does not already exist.
+4. Set the value of "Policy RDVDenyCrossOrg" to 1.
+5. Close the Registry Editor.
+6. Restart the computer.
+
+**Additional Notes:**
+
+* The Policy RDVDenyCrossOrg registry key is only supported on Windows 10 and later versions of Windows.
+* If you are using a third-party BitLocker encryption tool, such as Symantec Encryption Desktop, the registry key location may be different. Consult the documentation for your encryption tool for specific instructions.

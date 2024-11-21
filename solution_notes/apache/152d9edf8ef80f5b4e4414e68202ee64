@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Details:**
+The Policy Security_zones_map_edit registry key controls whether users can change the security zone settings in Internet Explorer. If this setting is set to 0, users can change the security zone settings, which could allow them to bypass security restrictions and access malicious content.
+
+**Solution:**
+To fix this issue, set the Policy Security_zones_map_edit registry key to 1. This will prevent users from changing the security zone settings.
+
+**Steps to set the registry key:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings
+```
+3. Right-click on the Internet Settings key and select New > DWORD (32-bit) Value.
+4. Name the new value "Security_zones_map_edit".
+5. Double-click on the Security_zones_map_edit value and set the Value data to 1.
+6. Click OK to save the changes.
+
+**Note:** You may need to restart your computer for the changes to take effect.

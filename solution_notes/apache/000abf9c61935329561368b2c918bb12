@@ -1,0 +1,25 @@
+## CVE-2016-6329
+
+**Severity:** High
+
+**Category:** Server-Side Request Forgery (SSRF)
+
+**Description:**
+
+CVE-2016-6329 is a vulnerability in Apache HTTP Server 2.4.x that allows remote attackers to bypass authorization and access internal resources on the server. This vulnerability is caused by an improper handling of HTTP requests with an absolute URI in the `Location` header.
+
+**Impact:**
+
+An attacker could exploit this vulnerability to gain access to sensitive information or perform unauthorized actions on the server, such as:
+
+* Read or modify files on the server
+* Execute commands on the server
+* Perform denial-of-service attacks
+
+## Solution
+
+To fix this issue, update Apache HTTP Server to version 2.4.27 or later. This update includes a patch that prevents attackers from exploiting the vulnerability.
+
+### OWASP Top 10 2021 Category
+
+This vulnerability falls under the **A5: Broken Access Control** category of the OWASP Top 10 2021. Broken access control vulnerabilities occur when improper controls are in place to restrict access to resources and functions, allowing unauthorized users to access sensitive information or perform unauthorized actions.

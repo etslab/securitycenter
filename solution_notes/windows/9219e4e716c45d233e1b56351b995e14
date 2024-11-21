@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A7 - Insufficient Logging & Monitoring
+
+**Solution:**
+
+1. Open Group Policy Editor (gpedit.msc).
+2. Navigate to: **Computer Configuration -> Administrative Templates -> Network -> Windows Firewall -> Public Profile -> Logging**
+3. Double-click on "Policy LogSuccessfulConnections".
+4. Select "Enabled".
+5. Click "OK".
+
+**Rationale:**
+
+The Policy LogSuccessfulConnections setting logs all successful inbound and outbound firewall connections in the Windows event log. This can be useful for auditing and troubleshooting firewall activity. Disabling this setting reduces the amount of logging and may make it difficult to detect suspicious or malicious connections.
+
+**Impact:**
+
+Disabling Policy LogSuccessfulConnections reduces the ability to monitor and audit firewall activity, making it harder to detect suspicious or malicious connections. This can increase the risk of network security breaches.

@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. Harden the Windows Registry permissions:
+
+   - Restrict access to the Registry keys that control audit policy changes.
+   - Only grant necessary permissions to trusted users or groups.
+
+2. Enable Windows audit logging for Registry changes:
+
+   - Configure the Security Event Log to log any changes to the Registry, including audit policy changes.
+   - Review audit logs regularly for suspicious activity.
+
+3. Use group policy to restrict registry access:
+
+   - Create a group policy that restricts access to the Registry keys that control audit policy changes.
+   - Link the group policy to the appropriate organizational units.
+
+4. Implement antivirus and intrusion detection/prevention systems:
+
+   - Install and maintain antivirus software to detect and block malicious activity that could manipulate the Registry.
+   - Use intrusion detection/prevention systems to monitor for suspicious activity that could indicate a Registry policy change.
+
+5. Regularly review and update security configurations:
+
+   - Periodically review Registry permissions and audit logging settings to ensure they are up-to-date and effective.
+   - Update security configurations as needed to address new vulnerabilities.

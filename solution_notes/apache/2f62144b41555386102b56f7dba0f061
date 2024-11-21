@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A2: Broken Authentication
+
+**Solution:**
+
+1. Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+```
+
+2. Create or modify the **MaxTicketExpiry** DWORD value.
+3. Set the value to `3600000` (1 hour).
+
+**Explanation:**
+
+The Policy MaxTicketExpiry registry key controls the maximum time that a Terminal Services session ticket can remain valid. By default, the value is set to 12 hours. This can be exploited by attackers to maintain access to Terminal Services sessions even after the user has logged off. Setting the value to 1 hour reduces the risk of this type of attack.
+
+**Note:** If Terminal Services is used in a highly secure environment or with long-lived sessions, the value may need to be increased to a higher value. However, a value higher than 24 hours is not recommended.

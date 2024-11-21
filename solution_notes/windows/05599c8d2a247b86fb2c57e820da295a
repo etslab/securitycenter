@@ -1,0 +1,25 @@
+**Severity**: Medium
+
+**OWASP Top 10 2021 Category**: Sensitive Data Exposure
+
+**Problem**: The Policy AutoConnectAllowedOEM registry key specifies a list of OEMs that are allowed to automatically connect to Wi-Fi networks. If this key is set to an empty string or contains an asterisk (*), any OEM can automatically connect to Wi-Fi networks. This could allow an attacker to connect to a Wi-Fi network without the user's knowledge or consent.
+
+**Solution**: To fix this issue, set the Policy AutoConnectAllowedOEM registry key to a list of the OEMs that are allowed to automatically connect to Wi-Fi networks. The key should be set to a DWORD value that is a bitwise OR of the following values:
+
+* 0x00000001: Microsoft
+* 0x00000002: Intel
+* 0x00000004: Qualcomm
+* 0x00000008: Broadcom
+* 0x00000010: Marvell
+* 0x00000020: Realtek
+* 0x00000040: Atheros
+* 0x00000080: MediaTek
+* 0x00000100: Other
+
+For example, to allow Microsoft, Intel, and Qualcomm to automatically connect to Wi-Fi networks, set the key to the following value:
+
+```
+0x00000007
+```
+
+**Additional Information**: This issue is documented in Microsoft Security Advisory ADV200011.

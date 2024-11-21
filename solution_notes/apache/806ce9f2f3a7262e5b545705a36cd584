@@ -1,0 +1,24 @@
+**Severity**: Medium
+
+**OWASP Top 10 Category**: A06: Security Misconfiguration
+
+**Description**: The Policy NoDriveTypeAutoRun is a registry key that can be used to disable autorun on USB drives and other removable media. When this key is not set, autorun is enabled, which can allow malicious actors to automatically execute malware when a USB drive is inserted into a computer.
+
+**Solution**:
+
+1. Open the Registry Editor.
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer`
+3. Create a new DWORD value named `NoDriveTypeAutoRun` and set its value to `1`.
+4. Close the Registry Editor.
+
+**Additional Information**:
+
+The NoDriveTypeAutoRun key can be used to disable autorun for specific types of drives. The following table shows the possible values for this key:
+
+| Value | Description |
+|---|---|
+| 0 | Autorun is enabled for all drives. |
+| 1 | Autorun is disabled for all drives. |
+| 2 | Autorun is enabled for all drives except CD-ROM drives. |
+| 3 | Autorun is enabled for all drives except CD-ROM and DVD-ROM drives. |
+| 4 | Autorun is enabled for all drives except CD-ROM, DVD-ROM, and USB drives. |

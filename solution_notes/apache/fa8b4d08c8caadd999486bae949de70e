@@ -1,0 +1,21 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to: `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings`
+3. Create a new DWORD value named `WarnOnBadCertRecving` if it does not exist.
+4. Set the value of `WarnOnBadCertRecving` to `1`.
+5. Close the Registry Editor and restart the Apache server.
+
+**Explanation:**
+
+The `Policy WarnOnBadCertRecving` setting in the registry controls whether warnings are displayed when an Apache server receives a poorly formatted SSL or TLS certificate. By default, this setting is disabled in Apache servers, which means that the server will not warn users about potentially malicious certificates.
+
+Disabling certificate warnings allows attackers to impersonate legitimate websites and steal user data or compromise the server. Setting `WarnOnBadCertRecving` to `1` enables these warnings, providing a layer of protection against insecure certificate-based connections.
+
+**Impact of the Issue:**
+
+If `WarnOnBadCertRecving` is set to `0`, the Apache server will not warn users about potentially malicious certificates. This can allow attackers to impersonate legitimate websites and steal user data or compromise the server.

@@ -1,0 +1,27 @@
+**Severity:** Medium
+
+**Category:** Server Misconfiguration
+
+**OWASP Top 10 2021 Category:** A03:2021 - Software and Data Integrity Failures
+
+**Solution:**
+
+The Policy MaxTicketExpiryUnits registry key determines the maximum lifetime of session tickets issued by the Remote Desktop Protocol (RDP) server. A low value for this key can reduce the risk of attackers exploiting the "ticket relay" vulnerability.
+
+**Steps to Fix:**
+
+1. On the RDP server, open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+   ```
+3. Create or modify the MaxTicketExpiryUnits DWORD value:
+   - Data type: REG_DWORD
+   - Value: 3600000 (1 hour, default)
+4. Restart the RDP service or reboot the server.
+
+**Additional Notes:**
+
+* The optimal value for MaxTicketExpiryUnits depends on the security requirements of the organization. A lower value increases security but may impact user experience.
+* Disabling RDP completely is the most secure option, but it may not be practical in all cases.
+* Use additional security measures, such as strong passwords, multi-factor authentication, and network monitoring, to mitigate the risk of successful RDP attacks.

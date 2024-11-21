@@ -1,0 +1,21 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Server-Side Request Forgery (SSRF)
+
+**Solution:**
+
+1. **Disable the Policy EnumerateLocalUsers registry key:**
+   - Navigate to the following registry key:
+     - `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\System`
+   - Right-click on "EnumerateLocalUsers" and select "Modify"
+   - Set the "Value data" to 0
+   - Click "OK"
+
+2. **Apply the changes:**
+   - Reboot the server to apply the changes.
+
+**Explanation:**
+
+The Policy EnumerateLocalUsers registry key controls whether local users can be enumerated remotely. Leaving this key enabled allows an attacker to perform SSRF attacks by manipulating requests to enumerate local users on the server. This could lead to the disclosure of sensitive information or unauthorized access to the system.
+
+By disabling the registry key, you prevent remote enumeration of local users, mitigating the risk of SSRF attacks.

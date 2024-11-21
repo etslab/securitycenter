@@ -1,0 +1,15 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+To fix this issue, you can apply the following patch:
+
+```
+https://httpd.apache.org/security/vulnerabilities_24.html
+```
+
+or upgrade to Apache HTTP Server 2.4.35 or later.
+
+This vulnerability allows remote attackers to bypass access control restrictions and gain unauthorized access to the server. It is critical to patch this vulnerability as soon as possible.

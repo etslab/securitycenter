@@ -1,0 +1,17 @@
+**Severity:** Medium
+
+**Policy:** 120b in Registry Software->Policies->Microsoft->Windows->CurrentVersion->Internet Settings->Zones->3
+
+**Description:** This policy controls the maximum security zone for the Internet Explorer browser. A lower number indicates a higher security level. Zone 3 corresponds to the "Restricted Sites" zone, which has the most restrictive security settings.
+
+**Issue:** The policy is not set to Zone 3, which means that Internet Explorer may be allowing access to websites with lower security settings. This could potentially allow attackers to compromise the system.
+
+**Solution:** Set the policy to Zone 3 to ensure that Internet Explorer uses the most restrictive security settings. This can be done by navigating to the following registry key:
+
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3
+```
+
+and setting the value of the "MaxSecurityZone" DWORD to 3.
+
+**OWASP Top 10 2021 Category:** Broken Access Control (A03)

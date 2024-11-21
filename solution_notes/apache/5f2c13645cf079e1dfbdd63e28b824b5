@@ -1,0 +1,33 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A06: Sensitive Data Exposure
+
+**Issue:**
+
+The NoGPOListChanges registry key allows administrators to prevent changes to Group Policy settings through the Local Group Policy Editor (gpedit.msc). However, if this key is not set, an attacker with access to the registry could modify Group Policy settings, potentially compromising the security of the system.
+
+**Solution:**
+
+To fix this issue, create or modify the following registry key:
+
+```
+Registry key:
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy
+
+Value name:
+NoGPOListChanges
+
+Value type:
+REG_DWORD
+
+Value data:
+1
+```
+
+Set the value data to 1 to enable the NoGPOListChanges setting.
+
+**Additional Recommendations:**
+
+* Regularly review and update Group Policy settings to ensure they are secure.
+* Implement strong access controls to prevent unauthorized access to the registry.
+* Monitor the registry for suspicious changes.

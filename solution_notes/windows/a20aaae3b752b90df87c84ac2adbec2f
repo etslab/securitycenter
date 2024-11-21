@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control (A03)
+
+**Solution:**
+
+**Configure Policy Group Membership for Registry Logon/Logoff:**
+
+1. Open Registry Editor (regedit.exe).
+2. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`.
+3. Find the value named "RegistryPolicyGroupMembership" (DWORD).
+4. Set the value to 1 to enable policy group membership for registry logon/logoff.
+5. Exit Registry Editor.
+6. Restart the server.
+
+**Additional Notes:**
+
+* By default, Policy Group Membership is disabled for registry logon/logoff.
+* Enabling this setting allows users who are members of specific policy groups to have access to sections of the registry during logon/logoff events.
+* This setting is important for controlling access to sensitive registry keys during these events.

@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Description:**
+The Policy LetAppsActivateWithVoiceAboveLock registry key controls whether apps can be activated by voice commands when the device is locked. If this key is set to 1, apps will be able to activate by voice above the device's lock screen. This can pose a security risk if an attacker gains access to the device and can issue voice commands to activate apps that may contain sensitive information.
+
+**Solution:**
+To fix the audit issue, set the Policy LetAppsActivateWithVoiceAboveLock registry key to 0. This will prevent apps from activating by voice when the device is locked.
+
+**Steps to Set the Registry Key:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy`
+3. Create a new DWORD value named `LetAppsActivateWithVoiceAboveLock`.
+4. Set the value of the new DWORD to 0.
+5. Click OK to save the changes.
+
+**Note:**
+You may need to restart your device for the changes to take effect.

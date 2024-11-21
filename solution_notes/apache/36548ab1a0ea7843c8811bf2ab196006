@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Description of the Issue:**
+
+The PreventOverrideAppRepUnknown policy setting in the Internet Explorer Phishing Filter registry key allows users to override the phishing detection settings. This means that attackers could use malicious websites to bypass the phishing filter and steal sensitive information from users.
+
+**Solution:**
+
+To fix this issue, disable the PreventOverrideAppRepUnknown policy setting by setting its value to 0 in the following registry key:
+
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\PhishingFilter
+```
+
+This will prevent users from overriding the phishing detection settings and protect them from phishing attacks.
+
+**Additional Notes:**
+
+* This issue is considered high severity because it could allow attackers to steal sensitive information from users.
+* It is important to note that disabling the PreventOverrideAppRepUnknown policy setting may make it more difficult for users to access legitimate websites that have been incorrectly flagged as phishing sites.
+* Organizations should carefully consider the risks and benefits of disabling this policy setting before making a decision.

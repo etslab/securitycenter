@@ -1,0 +1,28 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A01: Broken Access Control
+
+**Solution:**
+
+1. **Disable Registry Detailed Tracking:** Open the Windows Registry Editor (regedit). Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System. Create a new DWORD value named "DisableDetailedTracking" and set its value to 1.
+
+2. **Enable Audit Policy Tracking:** Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit. Create a new DWORD value named "EnableAuditPolicy" and set its value to 1.
+
+3. **Enable Policy RPC Events:** Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit\PolicyRPCEvents. Create a new DWORD value named "EnablePolicyRPCEvents" and set its value to 1.
+
+4. **Configure Group Policy Settings:**
+   - Open the Local Group Policy Editor (gpedit.msc).
+   - Navigate to Computer Configuration > Administrative Templates > System > Advanced Audit Policy Configuration > Audit Policies > Object Access.
+   - Enable the following audit policies:
+     - "Audit File System"
+     - "Audit Registry"
+     - "Audit Handle Manipulation"
+
+5. **Restart the System:** Restart the Windows server to apply the changes.
+
+**Additional Notes:**
+
+- By disabling Registry Detailed Tracking, you turn off the excessive logging of Registry access events.
+- By enabling Audit Policy Tracking, you enable the logging of changes to the Registry Auditing settings.
+- By enabling Policy RPC Events, you turn on the logging of events related to changes in Group Policy Objects.
+- These settings will help you detect and respond to unauthorized changes to the Registry and Group Policy settings.

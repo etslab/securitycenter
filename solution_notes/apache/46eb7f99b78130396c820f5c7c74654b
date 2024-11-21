@@ -1,0 +1,52 @@
+**CVE-2017-17382 Assessment:**
+
+* **Severity:** High
+
+**OWASP Top 10 2021 Category:**
+
+* Injection
+
+**Solution:**
+
+**1. Update Apache HTTP Server to a Patched Version:**
+
+* Upgrade to Apache HTTP Server version 2.4.34 or later
+* Upgrade to Apache HTTP Server version 2.2.31 or later
+
+**2. Disable HTTP TRACE Method:**
+
+If patching is not feasible immediately, disable the HTTP TRACE method:
+
+* Open the Apache httpd.conf configuration file.
+* Add the following line to the file:
+
+```
+TraceEnable off
+```
+
+* Restart the Apache HTTP Server.
+
+**3. Configure Server-Side Request Forgery (SSRF) Protections:**
+
+* Update the mod_rewrite module to version 2.5.5 or later.
+* Add the following rule to the .htaccess file or httpd.conf file:
+
+```
+RewriteCond %{REQUEST_METHOD} TRACE
+RewriteRule . - [F]
+```
+
+**4. Validate User Input:**
+
+* Implement input validation to prevent malicious code from being executed.
+
+**5. Use a Web Application Firewall (WAF):**
+
+* Deploy a WAF that can detect and block attacks that exploit this vulnerability.
+
+**Additional Recommendations:**
+
+* Regularly check for security updates and apply them promptly.
+* Configure Apache HTTP Server to use TLS for encrypted communication.
+* Restrict access to sensitive data and resources.
+* Monitor your systems for suspicious activity and implement intrusion detection systems.

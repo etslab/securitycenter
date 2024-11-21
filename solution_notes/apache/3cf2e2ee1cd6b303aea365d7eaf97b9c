@@ -1,0 +1,44 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Update Apache Server:** Download and install the latest version of Apache HTTP Server from the official Apache website. This will patch the vulnerability.
+
+2. **Verify Patch:** After updating Apache, verify that the vulnerable versions are no longer present by running the following command:
+
+```bash
+httpd -v | grep Server
+```
+
+The output should not contain "2.4.56" or any earlier versions.
+
+3. **Disable Directory Listings:** To prevent directory listings and brute-force attacks, disable directory listings by adding the following directive to the server configuration file (usually httpd.conf):
+
+```bash
+Options -Indexes
+```
+
+4. **Restrict Access to Sensitive Directories:** Protect sensitive directories by using .htaccess files to grant access only to authorized users or roles. For example:
+
+```bash
+AuthUserFile /path/to/authfile
+AuthGroupFile /dev/null
+AuthName "Restricted Area"
+AuthType Basic
+require valid-user
+```
+
+5. **Enable HTTP Strict Transport Security (HSTS):** To prevent downgrade attacks, enable HSTS by adding the following header to the server configuration:
+
+```bash
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+```
+
+**Additional Recommendations:**
+
+* Use a web application firewall (WAF) to detect and block malicious traffic.
+* Implement security headers such as X-XSS-Protection and X-Content-Type-Options.
+* Regularly scan your server for vulnerabilities.
+* Train your team on security best practices.

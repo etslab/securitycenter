@@ -1,0 +1,15 @@
+**Severity:** Critical
+
+**Impact:**
+This vulnerability allows remote attackers to execute arbitrary code on affected servers.
+
+**Solution:**
+To fix this issue, apply the security patches provided by the Apache Software Foundation. Specifically, upgrade to Apache HTTP Server version 2.4.39 or later.
+
+**OWASP Top 10 2021 Category:**
+Injection
+
+**Additional Information:**
+CVE-2016-9244 is a remote code execution vulnerability that affects Apache HTTP Server versions 2.4.10 to 2.4.38. It is caused by an integer overflow in the request processing code, which can allow attackers to submit specially crafted requests that trigger the overflow and execute arbitrary code on the server.
+
+Applying the security patches provided by the Apache Software Foundation is the most effective way to mitigate this vulnerability.

@@ -1,0 +1,26 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Upgrade Apache HTTP Server:** Upgrade to Apache HTTP Server version 2.4.34 or later, which addresses this vulnerability.
+
+2. **Disable HTTP Trace Method:** Disable the HTTP Trace method by adding the following directive to the Apache configuration file (httpd.conf):
+
+```
+TraceEnable off
+```
+
+3. **Restrict Access to TRACE Header:** Implement restrictions to prevent clients from sending HTTP TRACE requests:
+
+- Use a web application firewall (WAF) to block TRACE requests.
+- Configure web applications to reject requests with the TRACE header.
+
+4. **Enable mod_security with IDS rules:** Install and enable the mod_security module with appropriate rules to detect and block malicious TRACE requests.
+
+**Additional Recommendations:**
+
+* Periodically review Apache documentation for security updates.
+* Implement a security patching process to promptly apply security updates.
+* Regularly audit Apache configurations to ensure they are secure.

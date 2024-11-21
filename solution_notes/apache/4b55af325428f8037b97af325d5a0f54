@@ -1,0 +1,14 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A9: Security Misconfiguration
+
+**Solution:**
+
+1. Edit the Registry by navigating to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security`.
+2. Create a new DWORD (32-bit) value named `MaxSize` if it does not exist.
+3. Set the `MaxSize` value to an appropriate size in bytes (e.g., 10000000 for 10 MB).
+4. Restart the server to apply the changes.
+
+**Explanation:**
+
+Policy `MaxSize` controls the maximum size of the Windows Event Log for Security events. If the `MaxSize` value is too small, the Event Log can become full and start overwriting older events. This can make it difficult to investigate security incidents and meet compliance requirements. Setting an appropriate `MaxSize` value ensures that the Event Log can store a sufficient number of events for analysis.

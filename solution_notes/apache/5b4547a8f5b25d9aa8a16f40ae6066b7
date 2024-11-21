@@ -1,0 +1,44 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Server Side Request Forgery (SSRF)
+
+**Description:**
+
+CVE-2023-25690 is a vulnerability in Apache HTTP Server that allows an attacker to send HTTP requests to internal resources on the server. This can be used to bypass security controls, such as firewalls and access control lists, and to access sensitive information or perform malicious actions.
+
+**Solution:**
+
+To fix this issue, update Apache HTTP Server to version 2.4.57 or later. You can also apply the following patch:
+
+```
+diff --git a/server/protocol.c b/server/protocol.c
+index 58db6dba..a8c442d 100644
+--- a/server/protocol.c
++++ b/server/protocol.c
+@@ -384,6 +384,11 @@ ap_location_walk(request_rec *r)
+     if (*strrchr(url, '/') != '/')
+         return ap_make_table("Location", url, NULL);
+ 
++#ifdef HAVE_SENDFILE
++    if (APLOGno && request_rec->args && r->request_config) {
++        const char *chr = strchr(request_rec->args, ':');
++        if (chr && strncmp(chr + 1, "//", 2) != 0)
++            return ap_make_table("Location", url, NULL);
++    }
++#endif
++
+     url = ap_escape_html(r->pool, url);
+     return ap_make_table("Location", url, NULL);
+ }
+```
+
+**Note:** This patch has been included in Apache HTTP Server versions 2.4.49 and later.
+
+**Additional Mitigation:**
+
+In addition to updating Apache HTTP Server, you can also implement the following mitigations:
+
+* Use a firewall to block external access to internal resources.
+* Implement access control lists to restrict access to internal resources.
+* Disable HTTP methods that are not required by your application.
+* Use a web application firewall (WAF) to detect and block SSRF attacks.

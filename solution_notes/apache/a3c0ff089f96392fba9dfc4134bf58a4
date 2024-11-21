@@ -1,0 +1,37 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+To fix the Policy Isolation issue in Registry Software->Policies->Microsoft->Internet Explorer->Main, follow these steps:
+
+**Step 1: Disable Policy Isolation**
+
+* Open the Registry Editor (regedit).
+* Navigate to the following key:
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Main
+```
+* Create or modify the following DWORD value:
+```
+"PolicyIsolationEnabled" = 0
+```
+
+**Step 2: Restart the Registry**
+
+* Close the Registry Editor.
+* Restart the registry service:
+```
+net stop winreg
+net start winreg
+```
+
+**Additional Notes:**
+
+* **Note:** Disabling Policy Isolation may reduce the effectiveness of certain security measures.
+* **Alternate Solution:** You can also set the PolicyIsolationEnabled value to "1" and apply additional hardening measures to mitigate the risk.
+
+**Explanation:**
+
+Policy Isolation in Internet Explorer restricts access to certain registry keys and settings. By disabling this feature, an attacker could potentially bypass security mechanisms and gain access to sensitive information or modify system settings.

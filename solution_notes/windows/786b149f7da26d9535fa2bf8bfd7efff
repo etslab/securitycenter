@@ -1,0 +1,33 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A04: Broken Access Control
+
+**Description of the Issue:**
+
+The Policy DeviceEnumerationPolicy is not properly configured, allowing local users to enumerate and potentially access DMA-capable devices on the system. This could allow an attacker to gain unauthorized access to sensitive information or launch DMA attacks.
+
+**Solution:**
+
+1. Open the Registry Editor by running "regedit" as an administrator.
+2. Navigate to the following key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Kernel
+```
+
+3. Create a new DWORD value named "DeviceEnumerationPolicy" (if it doesn't exist).
+4. Set the value of "DeviceEnumerationPolicy" to:
+
+```
+1
+```
+
+5. Close the Registry Editor and restart the server.
+
+**Additional Information:**
+
+The DeviceEnumerationPolicy registry value controls the ability of local users to enumerate DMA-capable devices on the system.
+Setting the value to 1 restricts enumeration to only authorized administrators.
+Leaving the value at 0 or not configured allows all local users to enumerate DMA-capable devices.
+
+This issue is critical because it can allow an attacker to gain unauthorized access to sensitive information or launch DMA attacks. It is recommended to address this issue as soon as possible.

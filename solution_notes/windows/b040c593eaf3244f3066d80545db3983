@@ -1,0 +1,21 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Solution:**
+
+To fix this issue:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\IPsec
+```
+3. Create a new DWORD value named "EnableMainMode" and set its value to 0.
+4. Close the Registry Editor and restart the computer.
+
+**Additional Information:**
+
+* Enabling Main Mode in Registry Logon/Logoff allows for more flexibility in IPsec negotiation, but it can also increase the complexity and security risks associated with IPsec.
+* By default, Main Mode is disabled in Registry Logon/Logoff to reduce these risks.
+* Disabling Main Mode can help to protect against certain types of attacks, such as man-in-the-middle attacks.

@@ -1,0 +1,17 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+To fix this issue, navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer
+```
+
+Right-click on the "Explorer" key and create a new DWORD (32-bit) value named "NoAutoplayfornonVolume". Set its value to 1.
+
+**Explanation:**
+
+The NoAutoplayfornonVolume registry value controls whether autorun is disabled for removable drives. By default, autorun is enabled for non-volume devices, such as USB drives. This can allow malicious code to be executed automatically when a USB drive is inserted into a computer. Disabling autorun for non-volume devices mitigates this risk.

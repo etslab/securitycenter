@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Insecure Library Loading
+
+**Detailed Solution:**
+
+1. **Navigate to the Registry Editor:**
+   - Press Windows Key + R and type "regedit".
+   - Click "OK" or press Enter.
+
+2. **Locate the Registry Key:**
+   - Navigate to the following registry key:
+     `Computer\HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows NT\Printers`
+
+3. **Modify the DisableWebPnPDownload Value:**
+   - Right-click the "DisableWebPnPDownload" DWORD value.
+   - Select "Modify".
+   - Set the "Value data" to "0" to enable web printing.
+   - Click "OK" to save the changes.
+
+4. **Close the Registry Editor:**
+   - Click the "X" button to close the Registry Editor.
+
+5. **Restart the Print Spooler Service:**
+   - Press Windows Key + R and type "services.msc".
+   - Click "OK" or press Enter.
+   - Find the "Print Spooler" service in the list.
+   - Right-click the service and select "Restart".
+
+**Additional Note:**
+
+The Policy DisableWebPnPDownload value controls whether users can download printer drivers from the web. Setting it to "1" disables web printing and makes it more difficult for unauthorized users to install malicious printer drivers. Therefore, it is recommended to leave this value set to "1" unless necessary.

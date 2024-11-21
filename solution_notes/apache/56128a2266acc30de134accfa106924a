@@ -1,0 +1,20 @@
+**Severity Assessment:** High
+
+**Explanation:**
+CVE-2016-0703 is a high-severity vulnerability that allows remote attackers to bypass access control restrictions in Apache HTTP Server versions 1.x and 2.x. The vulnerability stems from a heap-based buffer overflow in the mod_negotiation module, which can be exploited to execute arbitrary code on the server.
+
+**Solution:**
+To fix this issue, update Apache HTTP Server to the latest version (currently 2.4.52 or later). Alternatively, you can disable the mod_negotiation module by editing the Apache configuration file (httpd.conf) and adding the following line:
+
+```
+LoadModule negotiation_module modules/mod_negotiation.so
+```
+
+**OWASP Top 10 2021 Category:**
+Broken Access Control (A04)
+
+**Additional Information:**
+
+* **CVSS Score:** 9.8 (Critical)
+* **Affected Versions:** Apache HTTP Server 1.x and 2.x prior to 2.4.52
+* **Fix Published:** March 23, 2016

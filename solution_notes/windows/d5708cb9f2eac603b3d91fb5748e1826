@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Insufficient Logging & Monitoring
+
+**Description:**
+
+The Policy DenyDeviceClassesRetroactive registry setting in Windows can be used to block the installation of specific device classes, such as USB storage devices or printers. If this setting is not configured properly, it can prevent users from installing necessary devices or connecting to peripherals, which could impact the functionality and security of the system.
+
+**Solution:**
+
+To fix this issue, you need to ensure that the Policy DenyDeviceClassesRetroactive registry setting is configured appropriately. Here are the steps to do that:
+
+1. Press **Windows Key + R** to open the Run dialog box.
+2. Type **regedit** and press Enter to open the Registry Editor.
+3. Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions
+```
+
+4. In the right-hand pane, double-click on the **Policy DenyDeviceClassesRetroactive** value.
+5. In the Edit DWORD Value window, set the Value data to **0**.
+6. Click OK to save the changes.
+7. Close the Registry Editor and restart your computer.
+
+After making this change, users will be able to install previously blocked device classes.
+
+**Additional Notes:**
+
+* This setting can be used to enhance security by preventing the installation of unauthorized devices. However, it is important to balance security with functionality and allow users to install necessary devices.
+* It is recommended to review and update this setting regularly to ensure that it does not inadvertently block legitimate devices.
+* This issue falls under the Insufficient Logging & Monitoring category of the OWASP Top 10 2021 because it involves the absence of proper configuration to detect and prevent unauthorized device installations.

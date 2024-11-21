@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control (A06)
+
+**Description:**
+
+The Policy RestrictRemoteClients registry setting is used to restrict remote procedure call (RPC) connections from specific clients. By default, this setting is not configured, which means that any client can connect to the RPC server. This issue allows unauthenticated remote attackers to establish RPC connections to the server, potentially leading to remote code execution.
+
+**Solution:**
+
+1. Open Registry Editor (regedit.exe).
+2. Navigate to: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Rpc`
+3. Right-click on the RPC key and select "New" -> "DWORD (32-bit) Value."
+4. Name the new value "RestrictRemoteClients" and set its value to "1."
+5. Restart the server.
+
+**Additional Considerations:**
+
+* Verify that the RPC server is only accessible from authorized clients by reviewing firewall and network access control configurations.
+* Consider implementing additional security measures, such as RPC over SSL (RpcSs), to protect RPC connections.

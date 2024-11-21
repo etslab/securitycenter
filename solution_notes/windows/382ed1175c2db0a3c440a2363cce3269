@@ -1,0 +1,38 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Solution:**
+
+1. **Enable Audit Policies:**
+
+* Navigate to "Local Security Policy" (secpol.msc).
+* Go to "Advanced Audit Policy Configuration" in the left pane.
+* Select "System Audit Policies" and enable "Audit Policy Change" and "Audit Other Policy Change Events" in the right pane.
+
+2. **Configure Audit Policy Change Settings:**
+
+* In "System Audit Policies," double-click "Audit Policy Change."
+* Check "Audit these attempts:"
+    * Success
+    * Failure
+* Click "User" under "Who" and select "Administrators" (or the specific user accounts that need auditing).
+
+3. **Configure Other Policy Change Event Settings:**
+
+* Double-click "Audit Other Policy Change Events."
+* Check "Audit these attempts:"
+    * Success
+    * Failure
+* In the "Audit these objects" section, add "Registry" as an object type.
+
+4. **Review Audit Logs:**
+
+* Monitor the Windows Event Viewer (eventvwr.msc) for events with Event ID 4658 (Audit Policy Change) and Event ID 4663 (Other Policy Change Events).
+* Review the event details to identify any suspicious policy changes or unauthorized access attempts.
+
+5. **Implement Additional Security Measures:**
+
+* Use strong passwords and implement multi-factor authentication.
+* Restrict user privileges and implement role-based access control.
+* Monitor systems for anomalous behavior and install anti-malware software.

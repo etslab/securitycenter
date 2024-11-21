@@ -1,0 +1,18 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Impact:**
+
+This issue can allow unauthorized users to gain access to sensitive resources on the web server. An attacker could exploit this vulnerability to access confidential data, modify or delete content, or execute malicious code.
+
+**Solution:**
+
+To fix this issue, you can implement the following steps:
+
+1. **Enable Policy Network Policy Server (NPS) logging:** In the NPS server, navigate to "Policies" > "Policy Actions" and enable the "RADIUS Accounting Requests" option.
+2. **Configure NPS to log RADIUS events:** Open the NPS Manager console, right-click on the NPS server, and select "Properties". Under the "Accounting" tab, enable the "RADIUS Accounting Settings" and select the "Log RADIUS Accounting Requests" option.
+3. **Enable auditing of Registry Logon/Logoff events:** In the Windows Security Event Viewer, navigate to "Applications and Services Logs" > "Microsoft" > "Windows" and enable auditing for the "Registry" event log.
+4. **Review NPS and Registry logs:** Regularly review the NPS and Registry logs to identify any suspicious activity or unauthorized access attempts.
+
+By implementing these steps, you can enhance the security of your web server and prevent unauthorized access to sensitive resources.

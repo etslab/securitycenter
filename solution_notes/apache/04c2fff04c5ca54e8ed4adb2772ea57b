@@ -1,0 +1,43 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Update Apache HTTP Server:**
+   - Upgrade to the latest version of Apache HTTP Server (2.4.52 or later).
+
+2. **Configure Access Control:**
+   - Edit the Apache configuration file (e.g., httpd.conf).
+   - Add the following directive to restrict access to sensitive files and directories:
+
+```
+<Directory "/path/to/sensitive/directory">
+    Order deny,allow
+    Deny from all
+</Directory>
+```
+
+3. **Disable Directory Listing:**
+   - Add the following directive to prevent directory listings:
+
+```
+Options -Indexes
+```
+
+4. **Use HTTP Strict Transport Security (HSTS):**
+   - Implement HSTS to prevent downgrade attacks.
+   - Add the following directive to the Apache configuration:
+
+```
+Header always set Strict-Transport-Security "max-age=31536000"
+```
+
+5. **Enable ModSecurity:**
+   - Install and enable ModSecurity to provide additional security.
+   - Configure ModSecurity rules to block suspicious requests.
+
+6. **Patch CVE-2013-2566:**
+   - If you cannot upgrade to the latest Apache version, apply the patch for CVE-2013-2566:
+   - For Debian/Ubuntu: `apt-get install apache2-security`
+   - For CentOS/Red Hat: `yum install mod_authz_core`

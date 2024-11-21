@@ -1,0 +1,25 @@
+**Severity:** Critical
+
+**Category:** A05: Broken Access Control
+
+**Issue:**
+
+The issue arises when the web server uses Registry Logon/Logoff to authenticate users without properly enforcing policy user/device claims. This can lead to unauthorized access to sensitive data or system resources by attackers who can exploit the vulnerability.
+
+**Solution:**
+
+To mitigate this issue, follow these steps:
+
+1. **Enable Policy User/Device Claims:** Ensure that the web server is configured to enforce policy user/device claims. This typically involves modifying the registry settings for the web server. Refer to the vendor documentation for specific instructions.
+2. **Validate Claims:** Implement a mechanism to validate the user/device claims presented by the client during authentication. This can be done through the use of certificates, tokens, or other means.
+3. **Enforce Authorization:** After validating the claims, enforce appropriate authorization controls to restrict access to resources based on the user's role and device characteristics.
+4. **Use Secure Communication:** Ensure that all communication between the client and the web server is encrypted, such as using HTTPS or TLS.
+
+**Impact:**
+
+This vulnerability can have severe consequences, including:
+
+* Unauthorized access to sensitive data
+* Escalation of privileges
+* Denial of service attacks
+* Data breaches

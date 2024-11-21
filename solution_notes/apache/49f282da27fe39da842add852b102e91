@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Unvalidated Redirects and Forwards
+
+**Detailed Solution:**
+
+1. **Edit the Registry**: Navigate to the following registry key:
+
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\PhishingFilter
+```
+
+2. **Modify EnabledV9 DWORD Value**: Locate the "EnabledV9" DWORD value and double-click on it.
+
+3. **Set Value to 0**: In the "Value data" field, enter "0" (zero) to disable the phishing filter.
+
+4. **Restart Browser**: Close and restart your browser for the changes to take effect.
+
+**Explanation:**
+
+The EnabledV9 registry setting enables or disables the phishing filter in Internet Explorer. When enabled, the filter scans URLs and blocks access to known phishing websites. However, disabling the filter reduces the security protection provided by the browser. While this may be necessary in certain circumstances (e.g., internal testing), it should generally be avoided to maintain a secure browsing experience.
+
+Disabling the phishing filter increases the risk of users being directed to malicious websites through phishing attacks, which fall under the "Unvalidated Redirects and Forwards" category of the OWASP Top 10 2021.

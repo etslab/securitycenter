@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Solution:**
+
+1. **Configure Restricted Registry Access:**
+   - Open Registry Editor (regedit.exe).
+   - Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\StorageDevicePolicies.
+   - Create a new DWORD value named "WriteProtect" and set it to 1.
+   - Create another DWORD value named "PreventRemovableStorage" and set it to 1.
+   - Close Registry Editor.
+
+2. **Disable Removable Storage in Group Policy:**
+   - Open Group Policy Management (gpedit.msc).
+   - Navigate to Computer Configuration -> Administrative Templates -> System -> Removable Storage Access.
+   - Enable the policy "Deny write access to removable drives" and "Deny read access to removable drives".
+
+3. **Enable BitLocker:**
+   - BitLocker Encrypt all removable storage devices.
+   - This will prevent unauthorized access to data even if the device is removed from the computer.
+
+**Note:**
+
+These restrictions may affect legitimate use of removable storage devices. It is recommended to carefully consider the impact before implementing these measures. Additionally, it is important to implement other security measures, such as strong passwords and anti-malware software, to protect against unauthorized access to the system.

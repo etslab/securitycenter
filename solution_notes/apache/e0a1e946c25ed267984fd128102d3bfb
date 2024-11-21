@@ -1,0 +1,28 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1 Broken Access Control
+
+**Solution:**
+
+1. **Update Apache Server:** Update Apache HTTP Server to version 2.4.43 or later.
+2. **Set Directive RestrictOnlyAfterOptions:** Add the following directive to your Apache configuration file (httpd.conf):
+```
+LimitRequestBody 0
+LimitXMLRequestBody 0
+RestrictOnlyAfterOptions
+```
+3. **Disable Directory Listing:** Disable directory listing to prevent attackers from browsing directory contents. Add the following directive to your Apache configuration file for each directory you want to protect:
+```
+Options -Indexes
+```
+4. **Review HTTP Request Headers:** Inspect HTTP request headers (e.g., Host, Referer) to detect and block malicious requests. Use regular expressions to validate header values and deny access if necessary.
+
+**Explanation:**
+
+CVE-2018-14040 is a remote code execution vulnerability in Apache HTTP Server. It allows an unauthenticated attacker to send a specially crafted HTTP request that triggers a stack-based buffer overflow in the mod_cgi module. This could lead to arbitrary code execution on the affected server.
+
+The RestrictOnlyAfterOptions directive prevents the server from applying certain directives (LimitRequestBody and LimitXMLRequestBody) unless they are specified after the Options directive. This helps mitigate the vulnerability by ensuring that these directives are always applied, even if they are specified in an incorrect order.
+
+Disabling directory listing removes a potential attack vector and makes it harder for attackers to gather information about the server.
+
+Header inspection can help detect and block malicious requests. For example, you can check the Host header to ensure it matches the expected domain and validate the Referer header to prevent cross-site request forgery (CSRF) attacks.

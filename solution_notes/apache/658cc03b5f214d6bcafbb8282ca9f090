@@ -1,0 +1,25 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+**For Apache Http Server version 2.4.56 and earlier:**
+
+1. Upgrade to Apache Http Server version 2.4.57 or later.
+2. If upgrading is not immediately possible, apply the following patch:
+   - https://github.com/apache/httpd/commit/1d565388b5e5915d186bb44f8f9843f184cf040e
+
+**For Apache Http Server version 2.5.0 and earlier:**
+
+1. Upgrade to Apache Http Server version 2.5.1 or later.
+2. If upgrading is not immediately possible, apply the following patch:
+   - https://github.com/apache/httpd/commit/8985602ed556d5c975f27878888f293558b2a991
+
+**Detailed Explanation:**
+
+CVE-2024-9944 is a critical remote code execution vulnerability in the Apache Http Server. It allows an unauthenticated attacker to execute arbitrary code on the server by exploiting a flaw in the way the server handles HTTP requests.
+
+This vulnerability falls under the "Broken Access Control" category of the OWASP Top 10 2021, as it allows attackers to bypass access control mechanisms and access resources that they should not be able to.
+
+By applying the recommended patches or upgrading to a newer version of Apache Http Server, you can mitigate this vulnerability and protect your server from exploitation.

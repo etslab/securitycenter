@@ -1,0 +1,25 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Issue Description:**
+
+The Policy File System (PFS) in Registry Object Access (ROA) is vulnerable to injection attacks. PFS allows a user to create files with system-wide permissions by writing to specific registry keys. An attacker can exploit this vulnerability to gain unauthorized access to the registry and modify system settings.
+
+**Solution:**
+
+1. **Restrict Registry Access:** Limit the permissions for accessing the ROA registry keys to only authorized users or processes.
+
+2. **Implement Input Validation:** Validate all user-provided input before it is written to the registry. Sanitize and encode input strings to prevent the injection of malicious characters.
+
+3. **Disable Inheritance:** Prevent child objects from inheriting permissions from parent objects. This ensures that any modifications to permissions only affect the specific object being modified.
+
+4. **Implement a File Integrity Monitor (FIM):** Monitor the PFS for unauthorized modifications and alert administrators of any suspicious activity.
+
+5. **Use a Web Application Firewall (WAF):** Configure a WAF to block requests that contain malicious payloads or patterns associated with injection attacks.
+
+**Additional Tips:**
+
+* Keep the server and software up-to-date with the latest security patches.
+* Regularly review registry permissions and make any necessary adjustments.
+* Educate users about the risks of injection attacks and train them to avoid suspicious links or attachments.

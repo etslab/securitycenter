@@ -1,0 +1,34 @@
+**Severity: High**
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Detailed Solution:**
+
+**1. Disable Policy Certification Services (PCS) Remote Registry Service:**
+
+* Open Registry Editor (regedit).
+* Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`.
+* Create a new DWORD value named `DisableRPC` and set it to 1.
+
+**OR**
+
+* Open Command Prompt as Administrator.
+* Run the following command:
+```
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DisableRPC /t REG_DWORD /d 1 /f
+```
+
+**2. Remove PCS permissions from "Everyone" group:**
+
+* Open Registry Editor.
+* Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\Parameters`.
+* Find the "PolicyAgent" value and double-click it.
+* Remove "Everyone" from the list of groups with permissions.
+* Save the changes.
+
+**3. Restart the server.**
+
+**Additional Notes:**
+
+* Policy Certification Services (PCS) is a remote registry service that allows users to manage the registry remotely. However, it can be used by attackers to gain unauthorized access to sensitive data.
+* Disabling PCS and removing permissions from the "Everyone" group mitigates this risk by preventing unauthorized access to the registry.

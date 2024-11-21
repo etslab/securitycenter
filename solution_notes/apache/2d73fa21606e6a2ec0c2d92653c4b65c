@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 Category:** Insufficient Logging and Monitoring
+
+**Issue Description:**
+
+The fAllowFullControl policy in the registry grants users full control permissions over Terminal Services. This allows users to modify or disable security settings, which can lead to unauthorized access or elevation of privileges.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. Open the registry editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+```
+3. Right-click on the fAllowFullControl value and select "Modify".
+4. Change the value data from "1" (enabled) to "0" (disabled).
+5. Click "OK" to save the changes.
+
+**Note:**
+
+* This solution assumes that you have the necessary permissions to modify the registry.
+* If you are not sure how to make these changes, please consult with a qualified IT professional.

@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Insufficient Logging & Monitoring
+
+**Detailed Solution:**
+
+**1. Enable Logging:**
+
+* Open the Registry Editor (regedit.exe).
+* Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\System`.
+* Double-click on the "Enabled" value and set it to 1.
+
+**2. Configure Event ID Filtering:**
+
+* In the Registry Editor, navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\System\Policies`.
+* Right-click and create a new DWORD value named "EventID".
+* Set the value of "EventID" to 4690 (corresponding to Policy Other System Events).
+
+**3. Verify Event Logging:**
+
+* Open the Event Viewer (eventvwr.msc).
+* Expand "Windows Logs" and select "System".
+* Check if Event ID 4690 is being logged.
+
+**Additional Recommendations:**
+
+* **Enable auditing for Policy Other System Events:** This will allow you to track attempts to perform registry modifications.
+* **Review logged events regularly:** Identify suspicious activity and investigate accordingly.
+* **Use a security information and event management (SIEM) system:** This can help you correlate events from multiple sources and detect threats.

@@ -1,0 +1,24 @@
+**Severity:** High
+
+**Detailed Solution:**
+
+1. **Enable Credential Validation:**
+   - Open Group Policy Management (GPMC) on the web server.
+   - Navigate to Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options.
+   - Double-click "Network access: Restrict clients allowed to make remote calls to SAM" and select "Enabled."
+   - Click "Apply" and "OK" to save changes.
+
+2. **Configure Registry Key:**
+   - Press Windows Key + R to open the Run dialog box.
+   - Type "regedit" and press Enter.
+   - Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon.
+   - Right-click in the right pane and create a new DWORD (32-bit) value named "ValidateCredentials."
+   - Set the value to 1 and click "OK."
+
+**OWASP Top 10 2021 Category:**
+
+Insecure System Configuration (A03)
+
+**Additional Information:**
+
+Credential Validation in Registry Account Logon is a local security policy setting that restricts access to the Security Accounts Manager (SAM) on the web server. If not enabled, remote attackers could potentially exploit vulnerabilities to access the SAM and steal user credentials. By enabling credential validation, you can mitigate this vulnerability.

@@ -1,0 +1,33 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+1. **Enable Audit Policy Tracking:**
+   - Open "Local Security Policy" (secpol.msc)
+   - Expand "Local Policies" > "Audit Policy"
+   - Enable "Audit Process Termination"
+
+2. **Set Detailed Tracking:**
+   - Expand "Audit Policies" > "Detailed Tracking"
+   - Select "Registry"
+   - Check "Success" and "Failure" for the following values:
+     - "SetValue"
+     - "DeleteValue"
+     - "CreateKey"
+     - "DeleteKey"
+
+3. **Review Registry Changes:**
+   - Install a security monitoring solution that tracks registry changes.
+   - Regularly review these logs for any suspicious activity, such as unauthorized changes or attempts to delete keys or values.
+
+4. **Implement Access Controls:**
+   - Grant access to the registry only to authorized users and applications.
+   - Use Group Policy or native Windows permissions to restrict access to registry keys.
+
+5. **Use Signed or Trusted Executables:**
+   - Ensure that only trusted and signed executables are allowed to make registry changes.
+   - Implement software integrity solutions to prevent unauthorized code from running on the server.
+
+By implementing these measures, you can mitigate the risk associated with Policy Process Termination in Registry Detailed Tracking and prevent attackers from abusing registry permissions to gain unauthorized access or compromise the system.

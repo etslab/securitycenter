@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+The issue can be fixed by applying a patch or updating to the latest version of Apache HTTP Server. The patch can be obtained from the Apache HTTP Server website:
+
+https://httpd.apache.org/security/vulnerabilities_24.html
+
+The following steps outline how to apply the patch:
+
+1. Download the patch for your version of Apache HTTP Server.
+2. Stop the Apache HTTP Server service.
+3. Unzip the patch and copy the files to the appropriate directory.
+4. Restart the Apache HTTP Server service.
+
+**Additional Notes:**
+
+* The patch addresses the issue by preventing attackers from exploiting the vulnerability to inject arbitrary code into the server.
+* It is important to apply the patch as soon as possible to prevent any potential attacks.
+* Users who are unable to apply the patch should disable the affected modules or use a web application firewall (WAF) to mitigate the risk.

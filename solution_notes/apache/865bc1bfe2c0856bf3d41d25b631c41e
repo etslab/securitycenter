@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A5: Broken Access Control
+
+**Detailed Solution:**
+
+**1. Enable the Policy:**
+* Navigate to `Registry Editor` (regedit.exe).
+* Go to: `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings`
+* Create a new DWORD (32-bit) value named `PreventIgnoreCertErrors`.
+* Set the value data to `1`.
+
+**2. Harden the Policy (Optional):**
+* Create a new DWORD value named `WarnOnBadCertRecving`.
+* Set the value data to `2`.
+* Create a new DWORD value named `WarnOnUntrustedCert`.
+* Set the value data to `2`.
+
+**3. Disable TLS 1.0 and 1.1:**
+* Open an elevated Command Prompt.
+* Run the following command:
+```
+netsh http add sslcert ipfilter filterlist=<Filter name> sslv3=disable tls10=disable tls11=disable
+```
+
+**4. Test and Verify:**
+* Try accessing a website with an untrusted certificate.
+* The browser should display a warning and prevent you from proceeding.
+
+This solution addresses the issue by enforcing certificate validation and warning about potential security risks. It also disables weak TLS protocols, further enhancing security.

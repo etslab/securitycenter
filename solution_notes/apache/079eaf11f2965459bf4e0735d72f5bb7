@@ -1,0 +1,23 @@
+**Severity:** Medium to High
+
+**OWASP Top 10 2021 Category:** A9: Insufficient Logging & Monitoring
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings`.
+3. Right-click on the "Policy Security_HKLM_only" key and select "Modify".
+4. Change the "Value data" field to 1.
+5. Click OK to save the changes.
+
+**Explanation:**
+
+The "Policy Security_HKLM_only" key controls whether security settings for Internet Explorer are stored in the local hive (HKLM) or in the user hive (HKCU). By setting this key to 1, you force all security settings to be stored in the local hive.
+
+This can improve security by preventing users from modifying security settings in the user hive. However, it can also make it more difficult to troubleshoot security issues, as you will need to check the local hive for any changes.
+
+It is important to note that this setting only affects Internet Explorer. It does not affect other browsers, such as Chrome or Firefox.
+
+**Recommendation:**
+
+It is recommended that you set the "Policy Security_HKLM_only" key to 1 if you want to improve the security of your Internet Explorer settings. However, you should be aware that this may make it more difficult to troubleshoot security issues.

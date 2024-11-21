@@ -1,0 +1,35 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Not applicable (does not fall under any of the OWASP Top 10 categories)
+
+**Description:**
+
+The Policy DenyDeviceClasses registry key is used to specify a list of device classes that are denied installation by the Windows operating system. This key is located in the following registry path:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions
+```
+
+By default, this key is empty, allowing all device classes to be installed. However, if the key is populated with a list of device classes, then any device belonging to one of those classes will be prevented from being installed.
+
+**Impact:**
+
+If the Policy DenyDeviceClasses key is misconfigured, it could prevent users from installing necessary hardware devices on the system. This could have a significant impact on the functionality of the system, especially if the devices are required for critical operations.
+
+**Solution:**
+
+To fix this issue, you should verify the contents of the Policy DenyDeviceClasses key and ensure that no necessary device classes are being denied. If you find any unnecessary entries in the key, you can remove them using the following steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions
+```
+
+3. In the right pane, locate the Policy DenyDeviceClasses value.
+4. Double-click on the Policy DenyDeviceClasses value to open the Edit String dialog box.
+5. In the Value data field, remove any unnecessary device class entries.
+6. Click OK to save the changes.
+
+**Note:** You should be careful when modifying the Policy DenyDeviceClasses key, as it can have a significant impact on the functionality of the system. If you are not sure which device classes should be denied, you should consult with a system administrator or IT professional.

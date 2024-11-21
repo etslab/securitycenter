@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Update Apache Server:** Install Apache Server version 2.4.18 or later, which includes a fix for the vulnerability.
+
+2. **Disable or Remove the mod_asis Module:** The mod_asis module is the component that introduces the vulnerability. If it is not required, disable or remove it using the following steps:
+
+   - Edit the Apache configuration file (usually /etc/httpd/httpd.conf).
+   - Locate the line that loads the mod_asis module (usually "LoadModule asis_module modules/mod_asis.so").
+   - Comment out the line using "#" (e.g., "#LoadModule asis_module modules/mod_asis.so").
+   - Restart Apache Server.
+
+3. **Restrict Access to Sensitive Directories:** Configure Apache Server to restrict access to sensitive directories or files that could be exploited by the vulnerability. This can be done using the `Location` directive in the Apache configuration file, for example:
+
+   ```apache
+   <Location "/secure_directory">
+       Require all denied
+   </Location>
+   ```
+
+4. **Use mod_security:** Consider using the mod_security module to implement additional security measures. Mod_security can be configured to detect and block malicious requests that attempt to exploit the vulnerability.
+
+5. **Enable Security Headers:** Configure Apache Server to send security headers that can mitigate the impact of the vulnerability, such as:
+
+   - **Content-Security-Policy:** Restricts the types of content that can be loaded from external sources.
+   - **X-Frame-Options:** Prevents the page from being loaded in a frame, which can help prevent clickjacking attacks.
+   - **X-XSS-Protection:** Enables the browser's built-in XSS filter.
+
+6. **Regularly Patch and Update:** Keep Apache Server and its modules updated with the latest security patches to address potential vulnerabilities.

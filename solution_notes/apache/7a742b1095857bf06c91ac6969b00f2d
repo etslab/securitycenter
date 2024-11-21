@@ -1,0 +1,21 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue:**
+Policy 140C in the Windows Registry controls whether the browser can download unsigned ActiveX controls without prompting the user. Leaving this setting to its default value of 3 allows unsigned ActiveX controls to be downloaded and executed without any user interaction, which can lead to malicious code execution.
+
+**Solution:**
+To fix this issue, you need to set the Policy 140C value to 0. This will prevent the browser from downloading unsigned ActiveX controls without prompting the user.
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+    ```
+    HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3
+    ```
+3. In the right-hand pane, locate the DWORD value named "140C".
+4. Double-click on "140C" and set its value to 0.
+5. Click OK to save the changes.
+6. Close the Registry Editor.
+
+**Note:** This solution applies to Internet Explorer and other browsers that use the same registry settings.

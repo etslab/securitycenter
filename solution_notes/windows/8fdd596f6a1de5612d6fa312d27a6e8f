@@ -1,0 +1,35 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control (A01)
+
+**Solution:**
+
+1. **Configure Group Policy Objects (GPOs) to apply directory replication settings:**
+   - Open the Group Policy Management Editor (gpmc.msc).
+   - Create a new GPO or edit an existing one.
+   - Navigate to Computer Configuration > Policies > Administrative Templates > System > Directory Services > Directory Replication.
+   - Enable the following GPO settings:
+     - "Allow changes to the directory replication schedule"
+     - "Configure replication policy for the directory"
+
+2. **Set specific replication intervals:**
+   - In the "Configure replication policy for the directory" GPO setting, configure the "Replication interval (minutes)" and "Replication every (hours)" settings.
+
+3. **Configure additional replication policy settings:**
+   - Enable the "Force the replication of any writable directory partition that is present" and "Force replication of this directory partition on schedule" settings.
+   - Set the "Maximum allowed latency of replication data (minutes)" to an appropriate value.
+
+4. **Generate a Replication Topology Report:**
+   - Open the Active Directory Sites and Services console (dsa.msc).
+   - Right-click the domain name and select "Replication Topology Report".
+   - Review the report to ensure that replication is functioning properly between all domain controllers.
+
+5. **Monitor and verify replication:**
+   - Use the "repadmin" command to monitor and verify replication status.
+   - Regularly check the Event Viewer for any errors or warnings related to directory replication.
+
+**Additional Notes:**
+
+* Ensure that the DNS records and firewall settings are configured correctly to allow replication traffic.
+* If you encounter any issues with replication, try restarting the Netlogon service on the affected domain controllers.
+* Consider using a third-party tool to automate and facilitate directory replication management.

@@ -1,0 +1,40 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Authentication
+
+**Detailed Solution:**
+
+**1. Disable Registry Detailed Tracking:**
+
+* Open the Registry Editor (regedit) as an administrator.
+* Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa
+```
+* In the right pane, double-click on the "LMCompatibilityLevel" value and set it to 1. This will disable registry detailed tracking.
+
+**2. Update Audit Policies:**
+
+* Open the Local Security Policy tool (secpol.msc).
+* Navigate to "Local Policies" > "Audit Policy".
+* Enable the following audit policies:
+    * Audit DPAPI Activity
+    * Audit Security Group Management
+    * Audit User Account Management
+
+**3. Block or Filter Network Traffic:**
+
+* Consider blocking or filtering network traffic to and from known malicious IP addresses or websites associated with Dridex or Emotet malware.
+
+**4. Implement EDR (Endpoint Detection and Response):**
+
+* Deploy an EDR solution that can detect and respond to suspicious activity related to Dridex or Emotet.
+
+**5. Review Logs and Monitor for Suspicious Activity:**
+
+* Regularly review security logs and monitor for any suspicious activity, such as creation or modification of registry keys related to DPAPI.
+
+**Additional Notes:**
+
+* Policy DPAPI Activity in Registry Detailed Tracking is a technique used by malware like Dridex and Emotet to persist on infected systems. By disabling registry detailed tracking and implementing additional measures, you can mitigate this risk.
+* This issue falls under the OWASP Top 10 2021 category of Broken Authentication because it allows threat actors to bypass authentication mechanisms by exploiting the DPAPI feature.

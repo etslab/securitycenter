@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Logging & Monitoring Flaws
+
+**Description:**
+
+Policy Other Logon/Logoff Events in Registry Logon/Logoff is a security setting that controls the auditing of successful and failed attempts to log on to or log off from the system using registry keys. If this setting is disabled, no auditing entries will be generated for these events, making it more difficult to detect and respond to suspicious activity.
+
+**Impact:**
+
+* Inability to detect and investigate unauthorized logon or logoff attempts
+* Increased risk of undetected breaches and compromise
+* Potential compliance violations (e.g., PCI DSS, ISO 27001)
+
+**Solution:**
+
+1. Open the Local Security Policy Editor (secpol.msc).
+2. Navigate to "Local Policies > Audit Policy."
+3. Expand the "Audit Policies" section and select "Other Logon/Logoff Events."
+4. Right-click and select "Properties."
+5. In the "Audit" tab, ensure that the "Success" and "Failure" options are both checked.
+6. Click "OK" to save the changes.
+
+**Additional Notes:**
+
+* Ensure that you have sufficient disk space to store the audit logs.
+* Review the audit logs regularly to identify suspicious activity.
+* Consider using a Security Information and Event Management (SIEM) solution to collect and analyze audit logs.

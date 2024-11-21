@@ -1,0 +1,19 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Description:**
+
+CVE-2017-6168 is a remote code execution (RCE) vulnerability in Apache HTTP Server due to a buffer overflow in the mod_lua module. An attacker can exploit this vulnerability to execute arbitrary code on the server.
+
+**Solution:**
+
+To fix this issue, apply the following patch:
+
+* Apache HTTP Server 2.4.35 and 2.4.36: https://httpd.apache.org/docs/2.4/mod/mod_lua.html
+* Apache HTTP Server 2.2.34 and 2.2.35: https://httpd.apache.org/docs/2.2/mod/mod_lua.html
+
+**Additional Notes:**
+
+* If applying the patch is not possible, disabling the mod_lua module can mitigate the vulnerability.
+* It is recommended to keep Apache HTTP Server and its modules up-to-date to prevent future vulnerabilities.

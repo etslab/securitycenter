@@ -1,0 +1,18 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Detailed Solution:**
+
+1. Open Registry Editor (regedit.exe).
+2. Navigate to: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EventLog\System`
+3. Find the "MaxSize" DWORD value.
+4. Set the Value data to the desired maximum size in kilobytes. For example, to set the maximum size to 10MB, enter 10240.
+5. Click OK to save the changes.
+
+**Additional Information:**
+
+* The EventLog service is responsible for managing system logs.
+* Policy MaxSize limits the maximum size of the System log file.
+* If the System log file grows too large, it can affect the performance of the EventLog service and potentially lead to log truncation.
+* Setting an appropriate value for Policy MaxSize ensures that the System log file is not excessively large and that important log events are not lost.

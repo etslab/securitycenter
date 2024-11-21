@@ -1,0 +1,27 @@
+## Severity: High
+
+## OWASP Top 10 2021 Category: Server Misconfiguration
+
+## Description:
+
+The `Policy DCSettingIndex` registry key is a setting that can be used to control the power settings for the server. If this setting is not properly configured, it can lead to the server consuming more power than necessary, which can increase energy costs and environmental impact. Additionally, it can potentially affect the performance and reliability of the server.
+
+## Solution:
+
+1. Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51
+```
+
+2. Set the `Policy DCSettingIndex` DWORD value to `0`.
+
+3. Restart the server.
+
+## Impact:
+
+Improper configuration of the `Policy DCSettingIndex` registry key can have the following impacts:
+
+* Increased energy consumption
+* Reduced server performance
+* Increased server downtime

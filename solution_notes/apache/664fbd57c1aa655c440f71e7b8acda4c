@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+To fix the CVE-2017-17428 vulnerability in Apache server, follow these steps:
+
+1. **Update Apache to the latest version:** The vulnerability has been fixed in Apache versions 2.4.29 and 2.2.32. Upgrade your server to one of these versions or later.
+
+2. **Disable mod_status if not needed:** mod_status is the module that provides information about the state of the server. If you don't need this information, it's best to disable it to reduce the attack surface.
+
+3. **Configure mod_status to hide sensitive information:** If you need to use mod_status, make sure to configure it to hide sensitive information such as memory usage and process status. This can be done by editing the mod_status.conf file and setting the following directives:
+
+```
+ExtendedStatus Off
+AllowXMHReload Off
+```
+
+4. **Enable mod_security:** mod_security is a web application firewall that can help protect your server from various attacks, including this vulnerability. Enable mod_security and configure it to provide protection against this specific vulnerability by adding the following rule to the modsecurity.conf file:
+
+```
+SecRule REQUEST_FILENAME "@contains:///|" "phase:1,log,auditlog,deny,status:403"
+```
+
+5. **Verify the fix:** After making the necessary changes, restart Apache and verify that the issue is resolved by running a vulnerability scanner or manually testing the server for the presence of the vulnerability.
+
+**Note:** It's important to note that this vulnerability is exploitable remotely, so it's recommended to patch and verify the fix as soon as possible.

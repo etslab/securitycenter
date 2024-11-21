@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A6: Security Misconfiguration
+
+**Issue:**
+Policy 2102 in Registry Software->Policies->Microsoft->Windows->CurrentVersion->Internet Settings->Zones->3 controls the security settings for the "Trusted Sites" zone in Internet Explorer. If this policy is not set correctly, it can allow malicious websites to access sensitive data or execute malicious code on the server.
+
+**Solution:**
+To fix this issue, set the value of Policy 2102 to "3" to enable security features in the Trusted Sites zone. This will prevent malicious websites from exploiting vulnerabilities in the browser or the server.
+
+**Steps to Set Policy 2102:**
+
+1. Open the Registry Editor (regedit.exe)
+2. Navigate to the following key:
+    ```
+    HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3
+    ```
+3. Double-click on the "2102" value name
+4. In the Value data field, enter "3"
+5. Click OK to save the changes
+6. Restart the server for the changes to take effect
+
+**Note:** This solution applies to Windows servers that use Internet Explorer as the default browser. If you are using a different browser, consult the browser's documentation for instructions on how to configure security settings.

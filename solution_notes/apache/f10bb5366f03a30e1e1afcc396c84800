@@ -1,0 +1,9 @@
+**Severity:** High
+
+**Solution:**
+
+Update util-linux to version 2.38 or later.
+
+**OWASP Top 10 2021 Category:**
+
+Sensitive Data Exposure

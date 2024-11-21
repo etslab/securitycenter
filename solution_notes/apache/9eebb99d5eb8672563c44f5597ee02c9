@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+To fix this issue, you need to disable the "mod_negotiation" module in your Apache configuration. This module is responsible for handling content negotiation, which can allow an attacker to inject arbitrary data into an HTTP request.
+
+Here are the steps to disable the "mod_negotiation" module:
+
+1. Edit your Apache configuration file (typically /etc/apache2/httpd.conf).
+2. Find the following line:
+
+```
+LoadModule negotiation_module modules/mod_negotiation.so
+```
+
+3. Comment out this line by adding a "#" at the beginning of the line:
+
+```
+# LoadModule negotiation_module modules/mod_negotiation.so
+```
+
+4. Save the Apache configuration file.
+5. Restart the Apache server.
+
+Once you have completed these steps, the "mod_negotiation" module will be disabled and your Apache server will be protected from CVE-2014-3566.

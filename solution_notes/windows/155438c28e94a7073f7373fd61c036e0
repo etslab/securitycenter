@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Issue Details:**
+
+The Registry key Policy Start in SYSTEM->CurrentControlSet->Services->MrxSmb10 determines the startup type for the SMBv1 server service. If this key is set to 3 (Automatic), it means that the SMBv1 server service will start automatically when the system boots. This could allow an attacker to exploit vulnerabilities in the SMBv1 protocol to gain unauthorized access to the system.
+
+**Solution:**
+
+To fix this issue, set the Policy Start Registry key to 4 (Disabled) to disable the SMBv1 server service. Here are the detailed steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MrxSmb10`
+3. Double-click the **Policy Start** value.
+4. Change the value data to **4 (Disabled)**.
+5. Click **OK** to save the changes.
+
+**Additional Recommendations:**
+
+* Enable Server Message Block (SMB) hardening to mitigate SMBv1 vulnerabilities.
+* Disable SMBv1 on any legacy systems that may still require it.
+* Implement patched updates for SMBv1 vulnerabilities.
+* Consider using a firewall or intrusion detection system (IDS) to block SMBv1 traffic.
+* Implement strong password policies and two-factor authentication to prevent unauthorized access.

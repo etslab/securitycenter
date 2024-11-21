@@ -1,25 +1,19 @@
-###How to fix the Web Threats issue of Server Leaks Information via X-Powered-By HTTP Response Header Field(s)
-The X-Powered-By header is an HTTP response header that reveals information about the technology used to build a web application. This information can be used by attackers to target specific vulnerabilities in the technology.
+**Severity:** Medium
 
-To fix the Server Leaks Information via X-Powered-By HTTP Response Header Field(s) issue in Apache, you can do the following:
+**OWASP Top 10 2021 Category:** A03: Injection
 
-* **Disable the X-Powered-By header in Apache configuration:** Open the Apache configuration file and look for the following line:
+**Solution:**
+
+To fix this issue, remove the `X-Powered-By` header from the HTTP responses. This can be done by adding the following directive to the Apache configuration file:
 
 ```
-# ServerTokens Prod
+Header unset X-Powered-By
 ```
 
-Change the value of `ServerTokens` to `Off`. This will disable the X-Powered-By header.
+This directive will instruct Apache to remove the `X-Powered-By` header from all HTTP responses.
 
-* **Use a WAF to filter out the X-Powered-By header:** A web application firewall (WAF) can be used to filter out the X-Powered-By header before it is sent to the client. This will prevent attackers from seeing the header.
+**Additional Notes:**
 
-The Server Leaks Information via X-Powered-By HTTP Response Header Field(s) issue belongs to the **Information Exposure** category of the OWASP Top 10 Web Application Security Risks. This category covers risks that can lead to the disclosure of sensitive information, such as passwords, credit card numbers, or intellectual property.
-
-Here are some additional tips for preventing information exposure:
-
-* **Use strong passwords and security measures to protect sensitive information.**
-* **Keep your software up to date with the latest security patches.**
-* **Be careful about what information you share online.**
-* **Use a WAF to protect your web application from attacks.**
-
-By following these tips, you can help to protect your web application from information exposure attacks.
+* The `X-Powered-By` header is a common header that is added to HTTP responses by web servers. It provides information about the web server software that was used to generate the response.
+* While the `X-Powered-By` header is not a security vulnerability in and of itself, it can be used by attackers to identify the software that is running on a web server. This information can then be used to launch targeted attacks against the web server.
+* Removing the `X-Powered-By` header can help to reduce the risk of these types of attacks.

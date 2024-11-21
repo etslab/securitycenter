@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Solution:**
+
+1. **Locate the Registry Key:** Navigate to the following registry key on the Apache server:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51
+```
+
+2. **Create the ACSettingIndex Value:** Right-click in the right pane and select "New" > "DWORD (32-bit) Value." Name the new value "ACSettingIndex."
+
+3. **Set the Value:** Set the "ACSettingIndex" value to "0."
+
+4. **Restart the Server:** Restart the Apache server for the changes to take effect.
+
+**Explanation:**
+
+The Policy ACSettingIndex setting controls the behavior of the Windows power management features. An incorrect configuration can lead to the exposure of sensitive data, such as user credentials, through hibernation or sleep mode. Setting the ACSettingIndex value to "0" ensures that the server does not enter hibernation or sleep mode, reducing the risk of sensitive data exposure.

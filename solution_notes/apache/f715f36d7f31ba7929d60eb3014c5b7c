@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A8:2021 - Security Configuration Errors
+
+**Detailed Solution:**
+
+1. **Check the Expiration Date of the Certificate:**
+   - Verify that the notAfter field in the certificate is indeed 2024-12-22 08:00:00 in UTC. If the expiration date is incorrect, you may need to obtain a new certificate.
+
+2. **Update the Server Configuration:**
+   - In your Apache configuration file (usually named httpd.conf), locate the SSLCertificateFile directive. Change the path to the new certificate file that has a valid notAfter date.
+   - For example:
+   ```
+   SSLCertificateFile /path/to/new-certificate.crt
+   ```
+
+3. **Restart Apache:**
+   - After updating the configuration, restart the Apache service to apply the changes. For example, on Ubuntu/Debian:
+   ```
+   systemctl restart apache2
+   ```
+
+4. **Verify the Fix:**
+   - Use an SSL/TLS scanner to verify that the notAfter field is updated in the new certificate and that the server is properly configured.
+
+**Additional Considerations:**
+
+- Monitor certificate expiration dates regularly to avoid interruptions in service.
+- Consider using automated certificate management tools to ensure that certificates are automatically renewed before they expire.
+- Implement security headers, such as Strict-Transport-Security (HSTS) and Content-Security-Policy (CSP), to prevent browser downgrade attacks that could exploit expired certificates.

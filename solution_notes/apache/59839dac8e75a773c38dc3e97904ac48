@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Path Traversal
+
+**Solution:**
+
+The issue arises due to a path traversal vulnerability in the OneSignalExtension.framework component. An attacker could exploit this vulnerability to gain unauthorized access to files or directories on the server.
+
+To fix the issue, you need to update the OneSignalExtension framework to the latest version. The latest version includes a fix for the path traversal vulnerability.
+
+Here are the steps to update the framework:
+
+1. Download the latest version of the OneSignalExtension framework from the OneSignal website.
+2. Replace the existing OneSignalExtension.framework file with the downloaded file.
+3. Restart the Apache server.
+
+After updating the framework, the path traversal vulnerability will be fixed.
+
+**Additional Notes:**
+
+You should also review your code to make sure that there are no other path traversal vulnerabilities. You can use a static code analyzer to help you find potential vulnerabilities.
+
+It is important to keep all software up-to-date to avoid security vulnerabilities. You should have a regular update schedule in place to ensure that all software is updated regularly.

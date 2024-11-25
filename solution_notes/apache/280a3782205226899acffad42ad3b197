@@ -1,0 +1,15 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A02 - Broken Authentication
+
+**Impact:**
+
+* The issue allows an attacker to bypass authentication and access sensitive data or functionality without proper authorization.
+
+**Solution:**
+
+1. **Update the affected software:** Update the application to the latest version, which includes security patches for the vulnerability.
+2. **Configure properly:** Ensure that the application is configured to use strong authentication measures, such as two-factor authentication or web server authentication.
+3. **Implement input validation:** Validate all user inputs to prevent attackers from injecting malicious code or exploiting vulnerabilities.
+4. **Use secure coding practices:** Follow secure coding practices, such as using input validation and escaping user input, to prevent vulnerabilities from being introduced in the first place.
+5. **Limit user privileges:** Assign users the minimum privileges necessary to perform their tasks, reducing the potential impact of a successful attack.

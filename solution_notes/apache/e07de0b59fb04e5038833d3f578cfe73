@@ -1,0 +1,26 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+1. **Disable Remote Object Invocation (ROI):** ROI allows third-party apps to remotely invoke methods on your app. This feature can be exploited by malicious actors to execute arbitrary code. Disable ROI by adding the following line to your Info.plist file:
+
+```
+<key>UIRequiresFullScreen</key>
+<true/>
+```
+
+2. **Secure Your Certificate:** Ensure that the certificate you use for HTTPS is valid and not vulnerable to man-in-the-middle attacks.
+
+3. **Filter User Input:** Implement input validation and sanitization techniques to prevent malicious actors from injecting payloads into your app. Use regular expressions or whitelists to ensure that user input meets the expected format and type.
+
+4. **Update the OneSignal Framework:** Check for updates to the OneSignal framework and apply them promptly. OneSignal regularly releases updates to address security vulnerabilities.
+
+5. **Monitor Your App:** Monitor your app for suspicious activity and investigate any unusual behavior. Consider using security monitoring tools to detect malicious attempts in real time.
+
+**Additional Mitigation:**
+
+* Restrict access to sensitive data and functionality based on user roles and permissions.
+* Implement rate limiting to prevent brute-force attacks.
+* Use a web application firewall (WAF) to block malicious requests at the network level.

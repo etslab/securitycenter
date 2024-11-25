@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Server-Side Request Forgery (SSRF)
+
+**Assessment:**
+
+The presence of OneSignal.framework in the apache server indicates that the server is using the OneSignal SDK for push notifications. OneSignal allows applications to send push notifications to their users' mobile devices. If the server is not properly configured, it is possible for an attacker to send push notifications on behalf of the application, which could lead to information disclosure or other malicious activities.
+
+**Solution:**
+
+To mitigate this issue, you should follow these steps:
+
+1. Ensure that the server is using the latest version of the OneSignal SDK.
+2. Configure the server to only accept requests from trusted sources.
+3. Implement rate limiting to prevent attackers from sending a large number of push notifications.
+4. Monitor the server logs for any suspicious activity.
+
+**Additional Information:**
+
+SSRF attacks occur when an attacker can trick a server into making a request to a different server. This can be used to access internal resources or to perform other malicious activities. OneSignal notifications are sent using HTTP requests, so it is important to ensure that the server is properly configured to prevent SSRF attacks.

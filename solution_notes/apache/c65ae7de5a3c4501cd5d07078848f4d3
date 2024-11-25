@@ -1,0 +1,14 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Update the OneSignal SDK:** Update the OneSignal SDK to the latest version, which addresses vulnerabilities in OneSignalCore.framework.
+2. **Remove Unnecessary Code:** Remove any unnecessary code or frameworks from the app, including OneSignalCore.framework if it is not being used.
+3. **Hardening Server Configuration:** Review and harden your Apache server configuration to prevent unauthorized access to sensitive data. This includes disabling unnecessary modules, setting up proper access controls, and implementing strong security headers.
+4. **Monitor for Unauthorized Access:** Regularly monitor server logs for any suspicious activity or attempts to access sensitive data.
+
+**Rationale:**
+
+The presence of OneSignalCore.framework in an Apache server could indicate that an outdated version of the SDK is being used or that the framework is not being properly secured. This can potentially lead to unauthorized access to sensitive user data, such as device IDs, push tokens, and location information. Updating the SDK, removing unnecessary code, and hardening server configuration will mitigate these risks.

@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Identify the servers that are communicating with crl.apple.com:** Use a network monitoring tool to identify which Apache servers are making requests to crl.apple.com.
+2. **Block access to crl.apple.com:** Configure the Apache servers to block all requests to crl.apple.com by adding the following directive to the Apache configuration file:
+
+```
+<LocationMatch "/crl.apple.com">
+    Deny from all
+</LocationMatch>
+```
+
+3. **Implement a proxy server in an allowed region:** Set up a proxy server in a region that is not sanctioned by OFAC, such as the United States or Europe. Configure the Apache servers to use the proxy server for all requests to external servers.
+4. **Test and verify:** After implementing these changes, test the Apache servers to ensure that they are no longer communicating with crl.apple.com.
+
+**Additional Recommendations:**
+
+* Regularly review Apache server configurations to ensure that access to sanctioned servers is blocked.
+* Implement security monitoring tools to detect and alert on any attempts to access sanctioned servers.
+* Train system administrators on OFAC regulations and the importance of blocking access to sanctioned servers.

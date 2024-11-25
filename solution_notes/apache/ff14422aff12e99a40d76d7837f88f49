@@ -1,0 +1,17 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Missing Function Level Access Control
+
+**Detailed Solution:**
+
+1. **Add the NSLocationWhenInUseUsageDescription key to the project's Info.plist file.** This key should have a string value that describes the purpose for which the app needs to access the user's location.
+
+2. **Confirm that the app is only using the user's location when it is necessary.** For example, if the app only needs to access the user's location when they are using a specific feature, then the app should only request permission to access the user's location when that feature is being used.
+
+3. **Consider using location-based authorization instead of location updates.** Location-based authorization allows the user to grant the app permission to access their location only when the app is in use. This can help to reduce the risk of the app collecting and storing the user's location data without their consent.
+
+**Additional Notes:**
+
+* The NSLocationWhenInUseUsageDescription key is required by iOS 11 and later.
+* If the app is using location updates, then it should also implement the Core Location framework's CLLocationManagerDelegate methods. These methods allow the app to handle events such as when the user changes their location or when the app's authorization status changes.
+* For more information on location privacy, see Apple's documentation on Location Privacy.

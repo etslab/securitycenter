@@ -1,0 +1,32 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Server Side Request Forgery (SSRF)
+
+**Description:**
+
+Spectre is a security vulnerability that can allow an attacker to access sensitive information in the memory of a server. In the context of Apache, this could include passwords, session tokens, or other sensitive data.
+
+**Solution:**
+
+To fix this issue, you can implement site isolation using the mod_rewrite module in Apache. Site isolation helps to prevent attackers from accessing sensitive information from other websites on the same server.
+
+**Steps:**
+
+1. Create a new .htaccess file in the root directory of your website.
+2. Add the following code to the .htaccess file:
+
+```
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^https?://example.com [NC]
+RewriteRule ^.* - [F]
+```
+
+3. Replace "example.com" with the domain name of your website.
+
+4. Save and close the .htaccess file.
+
+**Additional Notes:**
+
+* You may need to modify the RewriteCond rule to exclude specific domains or URLs.
+* Site isolation can impact performance, so you may need to test and adjust the rules to optimize performance for your website.
+* This solution only addresses the Spectre vulnerability as it relates to SSRF. Other mitigations may be necessary to address all aspects of the Spectre vulnerability.

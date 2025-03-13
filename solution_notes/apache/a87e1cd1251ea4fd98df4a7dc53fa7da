@@ -1,0 +1,42 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A05: Broken Access Control
+
+**Issue:**
+Apache servers may disclose source code, such as SQL scripts, through error messages or directory listings. This can potentially expose sensitive information to attackers.
+
+**Solution:**
+
+1. **Disable Error Display in Production:**
+   - Disable error display in production environments by modifying the `ServerTokens` and `ServerSignature` directives in the Apache configuration file.
+   - Add the following lines:
+     ```
+     ServerTokens Prod
+     ServerSignature Off
+     ```
+
+2. **Restrict Directory Listings:**
+   - Disable directory listings for sensitive directories, such as those containing source code.
+   - Add the following line to the `.htaccess` file in the applicable directories:
+     ```
+     Options -Indexes
+     ```
+
+3. **Use Virtual Hosts with Correct Privileges:**
+   - Configure virtual hosts with the appropriate privileges.
+   - Ensure that each virtual host has access only to its own files and directories.
+
+4. **Implement Access Control Lists:**
+   - Implement access control lists (ACLs) to restrict access to sensitive files and directories.
+   - Use the `htaccess` file to set ACLs, for example:
+     ```
+     <FilesMatch "^\.sql$">
+      Order deny,allow
+      Deny from all
+     </FilesMatch>
+     ```
+
+5. **Use Secure Coding Practices:**
+   - Avoid using error messages that disclose sensitive information.
+   - Handle errors gracefully without revealing details.
+   - Use input validation and sanitization to prevent malicious code from being executed.

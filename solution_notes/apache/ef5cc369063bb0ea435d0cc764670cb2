@@ -1,0 +1,46 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Solution:**
+
+**1. Identify Vulnerable Functions:**
+
+Determine which Apache server modules are enabled and check if they use any of the following dangerous JS functions:
+
+* `eval()`
+* `Function()`
+* `setTimeout()`
+* `setInterval()`
+
+**2. Disable or Remove Vulnerable Modules:**
+
+If possible, disable or remove Apache modules that utilize these dangerous functions. For example, you can disable the "mod_js" module.
+
+**3. Configure Security Headers:**
+
+Configure security headers to mitigate the risk of JS injection attacks:
+
+* `X-Content-Type-Options: nosniff`
+* `X-XSS-Protection: 1; mode=block`
+* `Content-Security-Policy: default-src 'self'; script-src 'self'`
+
+**4. Use Input Validation and Sanitization:**
+
+Implement input validation and sanitization techniques to prevent malicious input from reaching vulnerable JS functions.
+
+* Validate input types and formats using regular expressions or type checking.
+* Sanitize input data using libraries like OWASP AntiSamy or HTML Purifier to remove malicious content.
+
+**5. Implement Cross-Site Scripting (XSS) Protection Mechanism:**
+
+* Use Content Security Policy (CSP) to restrict the execution of inline scripts.
+* Implement Same-Origin Policy to prevent unauthorized scripts from accessing sensitive information.
+
+**6. Keep Apache Server Up-to-Date:**
+
+Apply security patches and updates to Apache server regularly to address any vulnerabilities related to dangerous JS functions.
+
+**7. Train and Educate Developers:**
+
+Educate developers about the risks associated with using dangerous JS functions and best practices for secure coding.

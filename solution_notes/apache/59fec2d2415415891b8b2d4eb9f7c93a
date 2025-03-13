@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Solution:**
+
+To fix this issue, you need to configure your Apache server to prevent the storage of non-storable content. Follow these steps:
+
+1. Edit your Apache configuration file (e.g., `/etc/apache2/httpd.conf` or `/usr/local/etc/apache2/httpd.conf`):
+
+2. Add the following directive to the`<Directory>` section for the affected directory:
+
+```
+Options -Indexes
+```
+
+3. Restart your Apache server.
+
+**Explanation:**
+
+The `Options -Indexes` directive prevents Apache from generating directory listings for the specified directory. This will help prevent sensitive information from being disclosed to unauthorized users.

@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Solution:**
+
+In order to set or update the Cache-Control header, you need to modify the Apache configuration file.
+
+1. Open the Apache configuration file, usually located at `/etc/apache2/apache2.conf`.
+2. Add or update the following line in the configuration file:
+
+```
+Header set Cache-Control "max-age=31536000, public"
+```
+
+This line sets the Cache-Control header with the values "max-age=31536000" (which specifies 1 year in seconds) and "public" (which indicates that the response can be cached by any cache). You can change the values according to your specific requirements.
+
+3. Save and close the configuration file.
+
+4. Restart the Apache service to apply the changes:
+
+```
+sudo systemctl restart apache2
+```
+
+**Explanation:**
+
+The Cache-Control header is used to specify how long a response should be cached by a browser or proxy server. Setting an appropriate Cache-Control header can improve website performance by reducing the number of requests to the server. It can also help prevent sensitive data from being cached and exposed to unauthorized users.
+
+In this case, the absence of a Cache-Control header or an incomplete header can result in the browser or proxy server caching sensitive data for an extended period, which can increase the risk of data exposure.
+
+By setting the Cache-Control header as described above, you can ensure that sensitive data is not cached and that the browser or proxy server will request fresh content from the server each time. This helps mitigate the risk of data exposure and improves the security of your website.

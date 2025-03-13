@@ -1,0 +1,41 @@
+**Severity:** Critical
+
+**Description:** This vulnerability allows unprivileged users to escape from a chroot environment in Apache server, potentially gaining access to the rest of the system.
+
+**Impact:**
+
+* Unauthorized access to sensitive data
+* Execution of arbitrary commands
+* Compromise of the entire system
+
+**OWASP Top 10 2021 Category:** A5 - Broken Access Control
+
+**Solution:**
+
+Update coreutils to version 8.32 or later. This update includes a patch that fixes the vulnerability by changing the way chroot handles environment variables.
+
+**Steps to apply the fix:**
+
+1. Check if your system is affected by running the following command:
+
+```
+rpm -qa | grep coreutils
+```
+
+2. If coreutils version is less than 8.32, update it using your package manager:
+
+```
+yum update coreutils
+```
+
+3. Restart Apache server to apply the changes:
+
+```
+systemctl restart httpd
+```
+
+**Additional Notes:**
+
+* This vulnerability is also known as "chroot escape" or "coreutils chroot escape".
+* It is important to apply the fix promptly to prevent attackers from exploiting this vulnerability.
+* For systems that cannot be immediately updated, it is recommended to disable chroot in Apache server until the update can be applied.

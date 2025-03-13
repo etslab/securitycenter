@@ -1,0 +1,50 @@
+**Severity Assessment:**
+
+CVE-2023-52222 is considered a **critical** severity vulnerability.
+
+**OWASP Top 10 2021 Category:**
+
+CWE-306: Missing CSRF Protection
+
+**Detailed Solution:**
+
+To fix this issue, you need to enable Cross-Site Request Forgery (CSRF) protection in Apache HTTP Server. Here are the steps:
+
+1. **Edit Apache Configuration File:**
+   - Navigate to the Apache configuration file, typically located at `/etc/apache2/apache2.conf`.
+   - Add the following directive to the configuration file:
+
+     ```
+     RequestHeader unset X-Forwarded-For
+     ```
+
+2. **Enable Mod_csrf Module:**
+   - Ensure that the `mod_csrf` module is enabled by adding the following line:
+
+     ```
+     LoadModule csrf_module modules/mod_csrf.so
+     ```
+
+3. **Add CSRF Configuration:**
+   - After the `LoadModule` directive, add the following configuration:
+
+     ```
+     <IfModule mod_csrf.c>
+         # Enable CSRF protection
+         CSRFEnable on
+
+         # Set the names of form fields to check for CSRF tokens
+         CSRFHTTPOnlyFormFields token
+     </IfModule>
+     ```
+
+4. **Restart Apache:**
+   - Restart Apache to apply the changes:
+     - On Ubuntu/Debian: `sudo systemctl restart apache2`
+     - On CentOS/Red Hat: `sudo systemctl restart httpd`
+
+**Additional Notes:**
+
+* This solution sets the `X-Forwarded-For` header to unset, which is necessary to prevent CSRF attacks.
+* The `CSRFHTTPOnlyFormFields` directive specifies the form field name (`token` in this case) that should be checked for CSRF tokens.
+* Remember to customize the `CSRFHTTPOnlyFormFields` directive to match the actual form field name used for CSRF tokens in your application.

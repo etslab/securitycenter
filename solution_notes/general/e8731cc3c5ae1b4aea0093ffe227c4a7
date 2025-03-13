@@ -1,40 +1,31 @@
-###How to fix the Common Vulnerabilities issue of CVE-2017-17427 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2017-17427 is a vulnerability in nginx that allows attackers to execute arbitrary code on the server. This vulnerability is caused by improper input validation in the `nginx_http_xslt_module` module.
+**Severity:** Critical
 
-To fix this vulnerability, you can either:
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
 
-* Upgrade to nginx version 1.14.0 or higher.
-* Apply the following patch to your existing nginx installation:
+**Solution:**
 
-```
-diff --git a/src/http/modules/ngx_http_xslt_filter.c b/src/http/modules/ngx_http_xslt_filter.c
-index 4021465..3331e75 100644
---- a/src/http/modules/ngx_http_xslt_filter.c
-+++ b/src/http/modules/ngx_http_xslt_filter.c
-@@ -711,7 +711,7 @@ ngx_http_xslt_eval_param(ngx_http_request_t *r, ngx_str_t *value,
-     else {
-         ngx_log_error(NGX_LOG_ERR, r->connection->log, 0,
-                       "ngx_http_xslt_eval_param(): invalid param \""
--                       "\"%V\"", value);
-+                       "\"%V\", \"%s\"", value, param->name);
-         return NULL;
-     }
- }
-```
+To fix CVE-2017-17427, update Apache HTTP Server to version 2.4.33 or later. The update includes a patch that fixes the vulnerability.
 
-This patch will prevent nginx from executing XSLT code that contains malicious input.
+**Detailed Steps:**
 
-**OWASP Top 10 Web 2021 Category**
+1. Stop the Apache HTTP Server.
+2. Download the latest version of Apache HTTP Server from the official website: https://httpd.apache.org/download.cgi
+3. Unpack the downloaded archive.
+4. Configure the new Apache HTTP Server installation.
+5. Start the new Apache HTTP Server.
 
-CVE-2017-17427 belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021. This category covers vulnerabilities that occur when untrusted data is allowed to influence a command or query in a way that the attacker can control.
+**Additional Mitigation Steps:**
 
-**Recommendations**
+* Enable mod_security and configure it to block malicious requests.
+* Disable unnecessary modules and features to reduce the attack surface.
+* Implement a web application firewall (WAF) to block malicious traffic.
+* Regularly scan your web applications for vulnerabilities.
 
-In addition to the above fixes, you can also help to protect your nginx server from CVE-2017-17427 by following these recommendations:
+**Impact of the Vulnerability:**
 
-* Use a web application firewall (WAF) to filter out malicious requests.
-* Keep your nginx software up to date.
-* Validate all user input before processing it.
-* Use a content security policy (CSP) to restrict the types of scripts that can be executed on your website.
+CVE-2017-17427 allows attackers to execute arbitrary code on the affected server. This could lead to the following impacts:
 
-By following these recommendations, you can help to mitigate the risk of attack from CVE-2017-17427.
+* Compromise of sensitive data, such as user credentials and financial information
+* Denial of service attacks
+* Defacement of websites
+* Malware installation

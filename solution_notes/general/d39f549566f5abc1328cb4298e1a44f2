@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+To fix this issue, add the following registry key:
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Main]
+"Policy Isolation64Bit"=dword:00000001
+```
+
+**Explanation:**
+
+The Policy Isolation64Bit registry key determines whether Internet Explorer (IE) uses a separate 64-bit process to isolate the browser from other processes. By default, this key is set to 0, which means that IE uses the same process as the operating system. This can create a security risk, as it allows malicious websites to access other processes on the system.
+
+Setting the Policy Isolation64Bit registry key to 1 forces IE to use a separate 64-bit process, which isolates the browser from other processes and reduces the risk of malicious websites accessing other parts of the system.
+
+**Note:** This solution may not be applicable for all versions of Internet Explorer.

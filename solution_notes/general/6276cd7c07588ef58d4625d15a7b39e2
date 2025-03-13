@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+To fix the issue, add the following entry to your Info.plist file:
+
+```xml
+<key>NSCameraUsageDescription</key>
+<string>Your App Name needs access to your camera to take photos.</string>
+```
+
+This entry will provide a clear and concise explanation to the user about why your app needs access to the camera.
+
+**Additional Notes:**
+
+* This issue is considered high severity because it potentially allows an attacker to gain access to sensitive information (e.g., photos or videos) without the user's consent.
+* The OWASP Top 10 2021 category of Broken Access Control refers to vulnerabilities that allow attackers to gain unauthorized access to sensitive data or functionality.
+* It is important to note that simply adding the NSCameraUsageDescription entry does not guarantee that the user will grant access to the camera. However, it does provide transparency and allows the user to make an informed decision.

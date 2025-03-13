@@ -1,0 +1,28 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Not applicable
+
+**Solution:**
+
+**1. Determine the current setting:**
+
+* Use the Registry Editor (regedit.exe) to navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application`.
+* Check the value for the `MaxSize` key.
+
+**2. Update the MaxSize value:**
+
+* If the `MaxSize` value is set to 0, it means there is no maximum size limit for the Application log.
+* Set the `MaxSize` value to a reasonable size, such as 2000000 (2MB). This will limit the growth of the Application log and ensure it does not consume excessive disk space.
+
+**Steps to Update MaxSize Value:**
+
+* Right-click on the `Application` key and select "New" -> "DWORD (32-bit) Value".
+* Name the new value as `MaxSize`.
+* Double-click on the `MaxSize` value and set the "Decimal" field to the desired maximum size in bytes (e.g., 2000000 for 2MB).
+* Click "OK" to save the changes.
+
+**Additional Notes:**
+
+* The maximum size of the Application log can also be configured through Group Policy.
+* Regularly monitoring the size of the Application log is recommended to ensure it does not exceed the maximum size limit.
+* If the Application log becomes too large, it can lead to performance issues and data loss.

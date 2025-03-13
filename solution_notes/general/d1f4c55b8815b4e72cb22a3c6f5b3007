@@ -1,31 +1,32 @@
-###How to fix the Common Vulnerabilities issue of CVE-2012-4929 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2012-4929 is a vulnerability in the nginx web server that allows attackers to bypass authentication and gain access to protected resources. It is classified as a Broken Authentication vulnerability in the OWASP Top 10 Web 2021.
+**Severity:** Critical
 
-To fix CVE-2012-4929, you need to upgrade to a version of nginx that is no longer affected by the vulnerability. The latest version of nginx is 1.23.0, and it is recommended that you upgrade to this version or a newer version as soon as possible.
+**OWASP Top 10 2021 Category:** Broken Access Control
 
-If you are unable to upgrade to a version of nginx that is no longer affected by CVE-2012-4929, you can mitigate the vulnerability by implementing the following workarounds:
+**Solution:**
 
-* Disable the `http_auth_digest` module.
-* Enable the `http_ssl_module` and use HTTPS to encrypt all traffic to and from your nginx server.
-* Configure nginx to use a strong password hashing algorithm, such as Argon2 or bcrypt.
-* Implement two-factor authentication for all users of your nginx server.
-
-Here are the steps to upgrade nginx to the latest version:
-
-1. Stop the nginx service.
-2. Download the latest version of nginx from the nginx website.
-3. Extract the nginx archive to a temporary directory.
-4. Configure nginx using the `./configure` script.
-5. Make nginx using the `make` command.
-6. Install nginx using the `sudo make install` command.
-7. Start the nginx service.
-
-Once you have upgraded nginx, you should verify that the vulnerability has been fixed by running the following command:
+To fix CVE-2012-4929, apply the following patch to your Apache server:
 
 ```
-nginx -T
+https://www.apache.org/dist/httpd/httpd-2.2.26.patch
 ```
 
-If the output of the command does not contain any errors, then the vulnerability has been fixed.
+**Detailed Explanation of the Issue:**
 
-It is important to note that workarounds are not a long-term solution to security vulnerabilities. It is always best to upgrade to a version of the software that is no longer affected by the vulnerability as soon as possible.
+CVE-2012-4929 is a buffer overflow vulnerability in Apache HTTP Server that allows an attacker to execute arbitrary code or gain unauthorized access to the server. This vulnerability is caused by an improper boundary check in the `mod_proxy_http` module, which can be exploited by sending a specially crafted HTTP request to the server.
+
+**Impact:**
+
+Successful exploitation of this vulnerability can lead to:
+
+* Remote code execution
+* Unauthorized access to sensitive data
+* Denial of service
+
+**Mitigation:**
+
+In addition to applying the patch mentioned above, you should also take the following steps to mitigate this vulnerability:
+
+* Upgrade to the latest version of Apache HTTP Server
+* Disable the `mod_proxy_http` module if it is not required
+* Use a web application firewall (WAF) to protect against this vulnerability
+* Regularly scan your systems for vulnerabilities

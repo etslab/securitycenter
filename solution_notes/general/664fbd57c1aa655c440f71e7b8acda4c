@@ -1,29 +1,28 @@
-**Severity:** Critical
+**Severity:** High
 
-**OWASP Top 10 2021 Category:** Injection
+**OWASP Top 10 2021 Category:** Broken Access Control
 
-**Solution:**
+**Detailed Solution:**
 
-To fix the issue related to CVE-2017-17428, follow these steps:
+To fix the CVE-2017-17428 vulnerability in Apache server, follow these steps:
 
-1. **Update IIS to the latest version.** This can be done by:
-    - Downloading and installing the latest version of IIS from the Microsoft website (https://www.microsoft.com/en-us/download/details.aspx?id=8278)
-    - Using Windows Update to automatically install the latest updates
-2. **Configure IIS to use a strong cipher suite.** This can be done by:
-    - Opening the IIS Manager
-    - Selecting the server in the left-hand pane
-    - Double-clicking on "SSL Settings" in the center pane
-    - Selecting the "SSL Cipher Suites" tab
-    - Removing any weak cipher suites (e.g., those with "RC4" or "3DES" in their name)
-    - Moving strong cipher suites (e.g., those with "AES" or "ECDHE" in their name) to the top of the list
-3. **Disable IIS's HTTP/2 support.** This can be done by:
-    - Opening the IIS Manager
-    - Selecting the server in the left-hand pane
-    - Double-clicking on "HTTP/2 Settings" in the center pane
-    - Unchecking the "Enable HTTP/2" checkbox
+1. **Update Apache to the latest version:** The vulnerability has been fixed in Apache versions 2.4.29 and 2.2.32. Upgrade your server to one of these versions or later.
 
-**Additional Notes:**
+2. **Disable mod_status if not needed:** mod_status is the module that provides information about the state of the server. If you don't need this information, it's best to disable it to reduce the attack surface.
 
-* CVE-2017-17428 is a critical vulnerability that could allow an attacker to remotely execute code on a vulnerable server.
-* It is important to apply the above patch as soon as possible.
-* Disabling IIS's HTTP/2 support may have a negative impact on performance. However, it is recommended to disable HTTP/2 until the vulnerability has been patched.
+3. **Configure mod_status to hide sensitive information:** If you need to use mod_status, make sure to configure it to hide sensitive information such as memory usage and process status. This can be done by editing the mod_status.conf file and setting the following directives:
+
+```
+ExtendedStatus Off
+AllowXMHReload Off
+```
+
+4. **Enable mod_security:** mod_security is a web application firewall that can help protect your server from various attacks, including this vulnerability. Enable mod_security and configure it to provide protection against this specific vulnerability by adding the following rule to the modsecurity.conf file:
+
+```
+SecRule REQUEST_FILENAME "@contains:///|" "phase:1,log,auditlog,deny,status:403"
+```
+
+5. **Verify the fix:** After making the necessary changes, restart Apache and verify that the issue is resolved by running a vulnerability scanner or manually testing the server for the presence of the vulnerability.
+
+**Note:** It's important to note that this vulnerability is exploitable remotely, so it's recommended to patch and verify the fix as soon as possible.

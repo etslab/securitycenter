@@ -1,0 +1,27 @@
+## Severity Assessment
+
+The severity of this issue is considered **Medium**.
+
+## Solution
+
+To fix this issue, update the affected Apache version to the latest stable version. The issue has been patched in recent versions.
+
+## OWASP Top 10 2021 Category
+
+This issue falls under the following OWASP Top 10 2021 category:
+
+* **A04: Broken Components** - Using components with known vulnerabilities
+
+## Detailed Solution Steps
+
+1. **Identify the affected Apache version:** Determine the version of Apache that you are currently using.
+2. **Verify the latest version:** Visit the official Apache website to check for the latest stable version.
+3. **Update Apache:** Update your Apache installation to the latest stable version. Refer to the Apache documentation for specific instructions on how to update.
+4. **Restart Apache:** Once the update is complete, restart the Apache service to apply the changes.
+5. **Verify the fix:** Check if the Payload/App.app/Frameworks/OneSignalExtension.framework/OneSignalExtension has been removed from the Apache installation.
+
+## Additional Recommendations
+
+* Regularly update third-party components and frameworks to ensure they are using the latest security patches.
+* Use a security scanner to identify potential vulnerabilities in your Apache configuration.
+* Monitor logs and alerts for any suspicious activity that may indicate an exploit attempt.

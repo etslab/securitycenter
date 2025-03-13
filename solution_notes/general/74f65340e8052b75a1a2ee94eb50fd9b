@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Authentication
+
+**Problem Description:**
+
+Policy MaximumPasswordAge in Registry System Access in the Apache server is not set to an appropriate value, allowing attackers to use expired passwords indefinitely.
+
+**Solution:**
+
+To fix this issue, set the Policy MaximumPasswordAge registry key to an appropriate value. This can be done by following these steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+    ```
+    HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters
+    ```
+3. Find the `MaximumPasswordAge` value and double-click it.
+4. Set the value to the desired maximum password age in days. For example, to set the maximum password age to 90 days, enter `90` in the Value data field.
+5. Click **OK** to save the changes.
+
+**Additional Considerations:**
+
+* The recommended maximum password age is 90 days.
+* Consider implementing additional password security measures, such as requiring strong passwords and two-factor authentication.

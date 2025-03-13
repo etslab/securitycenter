@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. **Disable non-storable content in Apache:**
+   - Open the Apache configuration file (usually named httpd.conf) using a text editor.
+   - Locate the "AddType" directive and remove any entries for non-storable content types, such as:
+     - AddType application/x-executable .exe .cgi
+     - AddType application/x-httpd-php .php
+   - Save and close the configuration file.
+
+2. **Restart Apache:**
+   - On Linux/Unix:
+     - sudo systemctl restart httpd
+   - On Windows:
+     - Open the Services window (search for "Services" in the Start menu)
+     - Locate the "Apache HTTP Server" service
+     - Right-click and select "Restart"
+
+**Additional Recommendations:**
+
+* **Use HTTPS:** Encrypting communication between the browser and server prevents attackers from intercepting and modifying content.
+* **Enable HSTS (HTTP Strict Transport Security):** This prevents browsers from connecting to the site over HTTP, even if the user types it in manually.
+* **Implement rate limiting:** Restrict the number of requests from a single source to prevent brute-force attacks.
+* **Patch Apache:** Keep Apache up to date with the latest security patches to fix vulnerabilities that could allow non-storable content to be uploaded.

@@ -1,0 +1,16 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Detailed Solution:**
+
+1. Review the server configuration to identify any unnecessary connections to third-party services in OFAC-sanctioned countries.
+2. Implement certificate pinning to ensure that the server only trusts certificates from a specific set of known authorities.
+3. Use a web application firewall (WAF) to block traffic from OFAC-sanctioned countries.
+4. Regularly review and update the list of OFAC-sanctioned countries to ensure that the controls are up-to-date.
+
+**Additional Measures:**
+
+* Enable SSL/TLS encryption for all connections to and from the server.
+* Implement content security policy (CSP) headers to restrict the sources from which the browser can load content.
+* Perform regular security audits and penetration testing to identify any vulnerabilities that could allow attackers to bypass security controls.

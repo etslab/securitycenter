@@ -1,0 +1,40 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A8 - Insecure Deserialization
+
+**Solution:**
+
+**1. Set the Registry Value:**
+
+* Navigate to the following registry key:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC`
+* Create or modify the `RpcUseNamedPipeProtocol` DWORD registry value.
+* Set the value to `1` (enabled) or `0` (disabled).
+
+**2. Disable Named Pipe Protocol in GPO:**
+
+* Open the Group Policy Editor (gpedit.msc).
+* Navigate to `Computer Configuration > Administrative Templates > System > Remote Procedure Call > Security > Enable named pipe RPC server`.
+* Disable this policy setting to block named pipe RPC communication.
+
+**3. Restrict Trusted Hosts:**
+
+* On the target server, edit the `RemoteRegistry` registry key:
+    * `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\RemoteRegistry`
+* Add trusted hosts to the "TrustedHosts" string value. Hosts should be in the format: `host1:port,host2:port`.
+
+**4. Use SSH Instead of RPC:**
+
+Consider using SSH instead of RPC for remote administration tasks. SSH provides a more secure channel for communication.
+
+**5. Patch and Update:**
+
+Ensure that the target server is running the latest security updates and patches to address potential vulnerabilities.
+
+**6. Network Segmentation:**
+
+Segment the network to restrict access to the target server from untrusted networks.
+
+**7. Disable Unused Services:**
+
+If RPC is not required, consider disabling it to reduce the attack surface.

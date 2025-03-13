@@ -1,45 +1,21 @@
 **Severity:** Critical
 
-**OWASP Top 10 2021 Category:** A01: Injection
+**OWASP Top 10 2021 Category:** Authentication
 
 **Solution:**
 
-**1. Apply Microsoft Security Update:**
+To fix this issue, upgrade Apache HTTP Server to a version that is not affected by CVE-2013-3587. The latest version of Apache HTTP Server is 2.4.55.
 
-* Install the Microsoft security update for CVE-2013-3587. This update patches the vulnerability and prevents attackers from exploiting it.
+You can download the latest version of Apache HTTP Server from the following link:
 
-**2. Update ASP.NET Framework:**
+https://httpd.apache.org/download.cgi
 
-* Ensure that ASP.NET Framework is updated to the latest version. This includes installing the latest security patches and updates.
+Once you have downloaded the latest version of Apache HTTP Server, you can install it by following the instructions in the Apache HTTP Server documentation.
 
-**3. Use Safe Validation Methods:**
+**Additional Recommendations:**
 
-* Validate user input carefully before using it in any ASP.NET code. Use strongly typed languages, such as C#, and use data validation controls to validate input.
+In addition to upgrading Apache HTTP Server, you should also:
 
-**4. Use Input Encoding:**
-
-* Encode user input using HTML encoding or URL encoding before displaying it on the web page. This prevents attackers from injecting malicious code into the page.
-
-**5. Use SQL Parameters:**
-
-* When executing SQL queries, use SQL parameters to prevent SQL injection attacks. SQL parameters ensure that user input is properly escaped and sanitized before it is used in the query.
-
-**6. Restrict Access to Sensitive Data:**
-
-* Limit access to sensitive data, such as user names and passwords, to authorized users only. Use authentication and authorization mechanisms to prevent unauthorized access.
-
-**7. Use Anti-CSRF Tokens:**
-
-* Implement Cross-Site Request Forgery (CSRF) protection by using anti-CSRF tokens. CSRF tokens prevent attackers from forging requests from the user's browser to the web application.
-
-**8. Disable Unnecessary Features:**
-
-* Disable any unnecessary features or services in IIS that could expose the server to attack. This includes disabling unused protocols and services.
-
-**9. Use a Web Application Firewall (WAF):**
-
-* Implement a web application firewall (WAF) to filter and block malicious traffic before it reaches the web server. A WAF can help detect and mitigate injection attacks.
-
-**10. Regularly Review and Test:**
-
-* Regularly review the web application for vulnerabilities and perform security testing to identify and fix any potential issues.
+* Review your server configuration files to ensure that they are not allowing unauthorized access to your system.
+* Implement a web application firewall (WAF) to protect your website from malicious attacks.
+* Regularly scan your website for vulnerabilities and fix any that are found.

@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Detailed Solution:**
+
+1. Open the Windows Registry Editor (regedit).
+2. Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
+```
+
+3. Create a new DWORD value named `ConfigureSystemGuardLaunch`.
+4. Set the value data to `1` to enable System Guard Launch.
+5. Restart the server.
+
+**Reasoning:**
+
+System Guard Launch is a security feature that helps protect devices from malicious code by requiring that all applications be signed by a trusted authority. By enabling System Guard Launch, you can help prevent attackers from installing and running malicious software on your server.

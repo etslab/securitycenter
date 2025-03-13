@@ -1,0 +1,17 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A5: Broken Access Control
+
+**Solution:**
+
+1. Open Registry Editor (Regedit.exe).
+2. Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NetBT\Parameters`.
+3. Locate the `NodeType` DWORD value.
+4. Set the value to `8` (Standalone Workstation or Server).
+5. Restart the server.
+
+**Impact:**
+
+This setting controls the behavior of NetBT, a networking protocol used by Windows to resolve NetBIOS names to IP addresses. By default, the `NodeType` value is set to `4` (Broadcast), which broadcasts all NetBIOS traffic to the subnet. This can be a security risk as it allows unauthorized hosts to eavesdrop on NetBIOS communications.
+
+Setting the `NodeType` value to `8` restricts NetBIOS broadcasts to the local host only, reducing the risk of eavesdropping.

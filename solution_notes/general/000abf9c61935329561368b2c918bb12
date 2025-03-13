@@ -1,21 +1,25 @@
-**Severity of CVE-2016-6329:** High
+## CVE-2016-6329
 
-**OWASP Top 10 2021 Category:** A4: Broken Authentication
+**Severity:** High
 
-**Solution to Fix the Issue:**
+**Category:** Server-Side Request Forgery (SSRF)
 
-1. **Apply Microsoft Security Updates:** Install the latest security updates from Microsoft that address CVE-2016-6329. These updates patch the vulnerability in the affected versions of IIS.
+**Description:**
 
-2. **Disable NTLM Authentication:** If possible, disable NTLM authentication on your web server. NTLM is the vulnerable authentication protocol that can be exploited by CVE-2016-6329.
+CVE-2016-6329 is a vulnerability in Apache HTTP Server 2.4.x that allows remote attackers to bypass authorization and access internal resources on the server. This vulnerability is caused by an improper handling of HTTP requests with an absolute URI in the `Location` header.
 
-3. **Implement Mitigation Techniques:** If you cannot disable NTLM, implement mitigation techniques such as:
-   - **Disable RPC over HTTP:** Disable the RPC over HTTP protocol, which attackers can abuse to exploit CVE-2016-6329.
-   - **Enable Extended Protection for Authentication (EPA):** EPA is a security feature that can help protect against downgrade attacks, including those that exploit NTLM vulnerabilities.
-   - **Enable Windows Firewall:** Configure Windows Firewall to block incoming traffic on ports 135 and 139, which are used for NTLM authentication.
+**Impact:**
 
-**Additional Recommendations:**
+An attacker could exploit this vulnerability to gain access to sensitive information or perform unauthorized actions on the server, such as:
 
-- Regularly review and update your IIS server configuration to ensure that all security measures are in place.
-- Implement a Web Application Firewall (WAF) to filter out malicious traffic targeting NTLM authentication.
-- Use strong passwords and enforce multi-factor authentication for administrative access to your IIS server.
-- Monitor your web server for suspicious activity, and promptly investigate any potential security breaches.
+* Read or modify files on the server
+* Execute commands on the server
+* Perform denial-of-service attacks
+
+## Solution
+
+To fix this issue, update Apache HTTP Server to version 2.4.27 or later. This update includes a patch that prevents attackers from exploiting the vulnerability.
+
+### OWASP Top 10 2021 Category
+
+This vulnerability falls under the **A5: Broken Access Control** category of the OWASP Top 10 2021. Broken access control vulnerabilities occur when improper controls are in place to restrict access to resources and functions, allowing unauthorized users to access sensitive information or perform unauthorized actions.

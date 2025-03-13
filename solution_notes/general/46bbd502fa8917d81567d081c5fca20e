@@ -1,0 +1,28 @@
+**Severity:** High
+
+**Solution:**
+
+1. Connect to the Apache server using SSH or a remote management tool.
+2. Navigate to the server's configuration files, typically located at `/etc/apache2/`.
+3. Edit the main configuration file, usually named `apache2.conf`.
+4. Search for the following line:
+
+```
+IncludeOptional conf-enabled/*.conf
+```
+
+5. Add the following line below it:
+
+```
+IncludeOptional sites-enabled/*.conf
+```
+
+6. Save the configuration file and restart the Apache server.
+
+**OWASP Top 10 2021 Category:**
+
+Broken Access Control (A01)
+
+**Explanation:**
+
+Policy 1209 in the Windows Registry is responsible for restricting access to certain websites and resources based on security zones. By default, the "Internet" zone is set to a medium security level, which allows scripts to run and cookies to be set. However, if this policy is not properly configured, it can allow scripts and cookies from untrusted websites to be executed, potentially leading to cross-site scripting (XSS) and other vulnerabilities. By including additional configuration files, we can further restrict access to sensitive resources and enhance security.

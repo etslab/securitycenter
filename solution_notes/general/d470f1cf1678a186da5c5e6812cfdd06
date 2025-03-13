@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+Sub-Resource Integrity (SRI) is a security feature that allows web browsers to verify the integrity of external resources (e.g., JavaScript, CSS) and prevent them from being modified by attackers. When SRI attributes are missing, browsers cannot validate the integrity of external resources, increasing the risk of malicious code injection and execution.
+
+**Solution:**
+
+To fix this issue, add SRI attributes to all external resources in your web pages. SRI attributes can be generated using online tools or script libraries. For example, to add SRI attributes to an external JavaScript file:
+
+```html
+<script src="/my-script.js" integrity="sha384-I01lu8hr7RwM2jo4VXR0b+J5A9/4SWcmmh1K54X48uZ44hpotL43o8+4d2D9/7g" crossorigin="anonymous"></script>
+```
+
+Ensure that the SRI hash matches the expected content of the resource.
+
+**Additional Recommendations:**
+
+* Regularly monitor for any changes to external resources that may require updating SRI attributes.
+* Use a Content Delivery Network (CDN) to deliver external resources with SRI attributes to improve performance and resiliency.
+* Consider using a security policy header such as Content Security Policy (CSP) to mitigate the risk of malicious code injection from untrusted sources.

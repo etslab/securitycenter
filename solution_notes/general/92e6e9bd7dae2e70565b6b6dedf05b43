@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A7 - Cross-Site Scripting (XSS)
+
+**Description:**
+
+The Policy NoBackgroundPolicy in the Registry is responsible for preventing background-worker threads from running executable files. By enabling this policy, it can mitigate the risk of malicious and untrusted code execution, which could lead to privilege escalation or data compromise.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}
+    ```
+3. Create a new DWORD (32-bit) value named `NoBackgroundPolicy`.
+4. Set the value data to `1`.
+
+**Additional Information:**
+
+This policy is part of the Windows Antimalware Scan Interface (AMSI). AMSI provides a way for applications to scan data for malware before it is used. By enabling this policy, you can enhance the security of your system by preventing malicious code from running in the background.

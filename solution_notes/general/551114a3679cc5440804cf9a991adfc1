@@ -1,0 +1,26 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A6: Security misconfiguration
+
+**Solution:**
+
+1. **Identify the affected certificates:** Use the following command to list all SSL certificates installed on the server:
+
+```
+openssl s_client -connect www.example.com:443 -showcerts
+```
+
+2. **Check expiration dates:** Examine the output of the command to determine if any certificates are expiring within 30 days.
+
+3. **Renew expiring certificates:**
+    - For Apache servers, edit the SSL configuration file (usually named `ssl.conf` or `httpd-ssl.conf`) and update the `SSLCertificateFile` and `SSLCertificateKeyFile` directives with the paths to the new certificate and key files.
+    - For Nginx servers, edit the server block configuration file and update the `ssl_certificate` and `ssl_certificate_key` directives.
+
+4. **Restart the server:** To apply the new certificates, restart the Apache or Nginx server using the following commands:
+
+```
+service httpd restart # for Apache
+service nginx restart # for Nginx
+```
+
+5. **Verify the fix:** After restarting the server, use the `openssl` command again to verify that the new certificates are installed and have an expiration date greater than 30 days.

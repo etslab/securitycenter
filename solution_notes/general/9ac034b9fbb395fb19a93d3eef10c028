@@ -1,0 +1,29 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A7: Cross-Site Scripting (XSS)
+
+**Description:**
+Policy 2402 in the Windows Registry controls the behavior of websites in the "Restricted" zone, which is typically used for untrusted websites. By default, this policy is set to "Enable," which disallows untrusted websites from launching pop-ups, running Java applets, and accessing protected data. However, if this policy is set to "Disable," untrusted websites can exploit these vulnerabilities to launch attacks on users' browsers.
+
+**Solution:**
+To fix this issue, set the value of Policy 2402 in the Windows Registry to "Enable."
+
+**Steps:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+    ```
+    HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3
+    ```
+3. Locate the value named "2402" and double-click it.
+4. Change the value data to "3" (Enable).
+5. Click "OK" to save the changes.
+
+**Additional Mitigation:**
+
+In addition to setting Policy 2402 to "Enable," you can also implement the following mitigation measures:
+
+* Use a web application firewall (WAF) to block malicious requests.
+* Implement content security policies (CSPs) to restrict the types of scripts that can run on your website.
+* Regularly scan your website for vulnerabilities and patch any that are found.
+* Train your users on the risks of clicking on links or opening attachments from untrusted sources.

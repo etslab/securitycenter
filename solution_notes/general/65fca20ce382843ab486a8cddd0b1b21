@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Authentication (A01)
+
+**Solution:**
+
+**1. Enable Enhanced Anti-Spoofing Policy**
+
+* Navigate to the Windows Registry Editor (regedit).
+* Go to: `Computer\HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures`
+* Create a new DWORD (32-bit) value named "EnhancedAntiSpoofing" if it doesn't exist.
+* Set the value to 1.
+
+**2. Restart the Apache Server**
+
+* Stop the Apache service: `service apache2 stop`
+* Start the Apache service: `service apache2 start`
+
+**3. Verify the Setting**
+
+* To verify the setting, use the following command: `reg query "HKCU\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures" /v EnhancedAntiSpoofing`
+
+The output should show:
+
+```
+EnhancedAntiSpoofing REG_DWORD 0x1
+```
+
+This setting enhances the anti-spoofing capabilities of Windows Hello facial recognition by requiring additional checks to prevent spoofing attempts.

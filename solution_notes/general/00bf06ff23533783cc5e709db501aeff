@@ -1,34 +1,31 @@
-**Severity:** High
+**Severity:** Medium
 
-**OWASP Top 10 2021 Category:** Broken Access Control
-
-**Issue:**
-
-Policy DefaultInboundAction in Registry Software->Policies->Microsoft->WindowsFirewall->PublicProfile is set to "Allow", allowing inbound traffic from any source to reach the web server. This setting weakens the firewall and increases the risk of unauthorized access to the web server.
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
 
 **Solution:**
 
-**1. Strengthen the Firewall Policy:**
+1. **Edit the Registry:**
+   - Open the Registry Editor (regedit.exe).
+   - Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile`.
 
-- Set Policy DefaultInboundAction to "Block" to block all inbound traffic by default.
-- Allow only authorized traffic by creating specific firewall rules for necessary ports and IP addresses.
+2. **Create or Modify DefaultInboundAction Key:**
+   - If the `DefaultInboundAction` key exists, modify its value to `1`.
+   - If the key does not exist, create a new DWORD (32-bit) value named `DefaultInboundAction` and set its value to `1`.
 
-**2. Use a Web Application Firewall (WAF):**
+3. **Restart the Windows Firewall Service:**
+   - In the Services console (services.msc), stop and then start the "Windows Firewall" service.
 
-- Implement a WAF to filter and block malicious traffic at the application layer.
-- Configure the WAF to enforce strict access control rules and protect against common web vulnerabilities.
+4. **Verify the Policy:**
+   - Run the following command in an elevated Command Prompt:
 
-**3. Enable Intrusion Detection and Prevention (IDS/IPS):**
+   ```
+   netsh advfirewall firewall show rule name="Default Inbound Rule" profile="Public"
+   ```
 
-- Deploy an IDS/IPS solution to detect and block suspicious activity, including unauthorized access attempts.
+   - Verify that the "Action" field shows "Allow".
 
-**4. Harden the Web Server:**
+**Explanation:**
 
-- Install security patches promptly.
-- Configure the web server to use strong authentication and authorization mechanisms.
-- Disable unnecessary features and services.
+The Policy DefaultInboundAction registry value controls the default action for inbound network traffic on the public network profile. By default, this action is set to "Block". Setting it to "1" (Allow) allows all inbound traffic by default.
 
-**5. Implement Network Segmentation:**
-
-- Create separate network segments for different parts of the web server environment.
-- Limit access between segments to only what is absolutely necessary.
+A misconfigured DefaultInboundAction value can lead to unrestricted access to the apache server from the public internet, exposing it to potential attacks such as remote code execution, data breaches, and denial of service.

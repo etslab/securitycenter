@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Update Apache Server:** Update your Apache server to the latest version (2.4.41 or later).
+2. **Remove Unnecessary Directives:** Review your Apache configuration files and remove any unnecessary or unused directives, such as "Options FollowSymLinks ExecCGI".
+3. **Enable ServerTokens None:** Add the following directive to your Apache configuration file: `ServerTokens None`. This disables the disclosure of the Apache version in HTTP headers.
+4. **Disable Directory Listing:** Add the following directive to the virtual host or directory configuration: `Options -Indexes`. This prevents directory listings from being displayed.
+5. **Enable Strict Checking of Request Filenames:** Add the following directive to your Apache configuration file: `Options +FollowSymLinks +SymLinksIfOwnerMatch`. This restricts symbolic link traversal to only those owned by the same user as the parent directory.
+6. **Disable Trace Requests:** Add the following directive to your Apache configuration file: `TraceEnable Off`. This disables the ability to trace HTTP requests.
+
+**Additional Mitigation Measures:**
+
+* Implement Intrusion Detection Systems (IDS)
+* Use Web Application Firewalls (WAF)
+* Regular Security Audits
+* Restrict access to sensitive resources based on user role or privileges

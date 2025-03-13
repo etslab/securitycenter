@@ -1,43 +1,40 @@
-**Severity:** Critical
+**Severity:** High
 
-**OWASP Top 10 2021 Category:** A1: Broken Access Control
+**OWASP Top 10 2021 Category:** Injection
 
 **Solution:**
 
-1. **Install Microsoft Security Update:**
-   - Download and install Microsoft security update MS11-079: https://support.microsoft.com/en-us/topic/ms11-079-vulnerability-in-iis-could-allow-remote-code-execution-22981302-a101-432f-b9e7-2c8994de7057.
+1. **Update Apache HTTP Server:** Upgrade to Apache HTTP Server version 2.2.17 or later, which includes the fix for this vulnerability.
 
-2. **Enable Request Filtering in IIS:**
-   - Open Internet Information Services (IIS) Manager.
-   - Select the server node.
-   - In the Features View, double-click Request Filtering.
-   - In the Request Filtering Properties dialog box, select "Enable Request Filtering".
-   - Click OK.
+2. **Disable CGI Processing:** If you do not need CGI processing, disable it by editing the Apache configuration file (httpd.conf) and adding the following line:
 
-3. **Verify File Extensions:**
-   - In the Request Filtering Properties dialog box, under Filtered File Extensions, ensure that the following file extensions are added:
-     - **.asa**
-     - **.asp**
-     - **.aspx**
-     - **.cer**
-     - **.cdx**
-     - **.css**
-     - **.inc**
-     - **.js**
-     - **.jse**
-     - **.php**
-     - **.php3**
-     - **.pl**
-     - **.py**
-     - **.vb**
-     - **.vbscript**
-     - **.wsf**
-     - **.xoml**
+   ```
+   Options -ExecCGI
+   ```
 
-4. **Restart IIS:**
-   - Click Apply and OK in the Request Filtering Properties dialog box.
-   - Restart the IIS service to apply the changes.
+3. **Limit CGI File Access:** If you need CGI processing, restrict access to only the necessary files by using the `AddHandler` directive in the Apache configuration file. For example:
 
-5. **Additional Mitigation:**
-   - Use an intrusion detection system (IDS) to monitor for suspicious activity related to this vulnerability.
-   - Regularly review and update security controls to maintain a strong security posture.
+   ```
+   AddHandler cgi-script .cgi .pl .py
+   ```
+
+4. **Configure EscapeProcessing:** Enable escape processing for all CGI scripts by adding the following line to the Apache configuration file:
+
+   ```
+   EscapeProcessing On
+   ```
+
+5. **Disable TRACE Method:** Disable the TRACE method by adding the following line to the Apache configuration file:
+
+   ```
+   <LimitExcept GET HEAD POST PUT DELETE>
+   Order deny,allow
+   Deny all
+   </LimitExcept>
+   ```
+
+**Additional Notes:**
+
+* This vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted HTTP request.
+* It is important to apply the fix promptly to prevent potential attacks.
+* Regular security audits and updates are recommended to maintain a secure server configuration.

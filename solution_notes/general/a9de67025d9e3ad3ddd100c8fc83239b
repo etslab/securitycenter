@@ -1,23 +1,15 @@
 **Severity:** Critical
 
-**OWASP Top 10 2021 Category:** Insecure Deserialization
+**OWASP Top 10 2021 Category:** Broken Access Control
 
 **Solution:**
 
-To fix this issue, you can disable the Deserialization feature on the affected IIS web server. Here are the steps:
+To fix this issue, you can apply the following patch:
 
-1. Open the **Internet Information Services (IIS) Manager**.
-2. Select the **Site** or **Application** to be modified.
-3. Click on the **Configuration Editor** icon.
-4. In the **Section** drop-down list, select **system.web**.
-5. In the **Property** drop-down list, select **deserializeRequest**.
-6. Change the value to **false**.
-7. Click **Apply** and **OK**.
+```
+https://httpd.apache.org/security/vulnerabilities_24.html
+```
 
-**Additional Security Recommendations:**
+or upgrade to Apache HTTP Server 2.4.35 or later.
 
-* Keep your IIS web server up-to-date with the latest security patches.
-* Use strong and complex passwords for administrative accounts.
-* Disable unnecessary services and features.
-* Limit the exposure of sensitive data.
-* Implement a web application firewall (WAF) to block malicious requests.
+This vulnerability allows remote attackers to bypass access control restrictions and gain unauthorized access to the server. It is critical to patch this vulnerability as soon as possible.

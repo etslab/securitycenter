@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Solution:**
+
+1. **Identify the Blacklisted URLs:** Determine the specific URLs that have been blacklisted on the Apache server. This can be done by checking the server logs or configuration files.
+2. **Verify the Blacklisted URLs:** Ensure that the URLs that are blacklisted are actually malicious or unwanted. This can be done by manually testing the URLs or using a web vulnerability scanner.
+3. **Update Apache Configuration:** Edit the Apache configuration file (usually httpd.conf or apache2.conf) and add the following directives to block the blacklisted URLs:
+
+   ```
+   <Directory /path/to/webroot>
+       Order deny,allow
+       Deny from all
+       Allow from 127.0.0.1
+       # Add the blacklisted URLs here
+       Deny from example.com
+       Deny from another-example.com
+   </Directory>
+   ```
+
+4. **Test the Changes:** Restart the Apache server and try to access the blacklisted URLs. They should now be blocked.
+5. **Monitor and Review:** Regularly review the server logs and configuration files to ensure that the blacklisted URLs are still being blocked and that no new malicious URLs have been added.
+
+**Additional Tips:**
+
+* Consider using a web application firewall (WAF) to block malicious traffic and filter out potentially dangerous requests.
+* Implement rate limiting to prevent attackers from sending excessive requests to your server.
+* Keep the Apache server and its modules up to date with the latest security patches.

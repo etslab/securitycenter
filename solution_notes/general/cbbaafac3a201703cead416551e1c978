@@ -1,17 +1,39 @@
-###How to fix the Common Vulnerabilities issue of CVE-2012-5081 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2012-5081 is a vulnerability in the nginx web server that allows attackers to execute arbitrary code on the server. This vulnerability is classified as a **Broken Authentication** vulnerability in the OWASP Top 10 Web 2021 category.
+**Severity:** Critical
 
-To fix the CVE-2012-5081 vulnerability in nginx web server, you can do the following:
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
 
-1. **Update nginx to the latest version.** The vulnerability was fixed in nginx version 1.2.1.
-2. **Configure nginx to use a stronger authentication method.** The default authentication method for nginx is HTTP Basic Auth, which is not secure. You can configure nginx to use a more secure authentication method, such as OAuth2 or SAML.
-3. **Use a web application firewall (WAF) to protect your nginx web server.** A WAF can help to protect your web server from a variety of attacks, including Broken Authentication attacks.
+**Detailed Solution:**
 
-Here are some additional steps that you can take to mitigate the risk of Broken Authentication attacks:
+**1. Apply Apache Update:**
 
-* Use strong passwords and multi-factor authentication for all user accounts.
-* Implement rate limiting and other measures to prevent brute-force attacks.
-* Use a password manager to generate and store strong passwords for all of your user accounts.
-* Monitor your web server logs for suspicious activity.
+* Install Apache version 2.2.29 or later, or Apache versions 2.4.9 or later.
 
-If you are unsure how to fix the CVE-2012-5081 vulnerability in your nginx web server, you should contact a security professional for assistance.
+**2. Disable mod_evasive:**
+
+* Edit the Apache configuration file (e.g., /etc/httpd/conf/httpd.conf) and comment out the following line:
+```
+LoadModule evasive20_module /path/to/mod_evasive20.so
+```
+
+**3. Remove Symbolic Links to mod_evasive20:**
+
+* Go to the following directory:
+```
+/path/to/apache/modules
+```
+* Remove any symbolic links named `mod_evasive20.so`:
+```
+sudo rm /path/to/apache/modules/mod_evasive20.so
+```
+
+**4. Restart Apache:**
+
+* Restart the Apache web server to apply the changes:
+```
+sudo service apache2 restart
+```
+
+**Additional Notes:**
+
+* If you still need to use mod_evasive, ensure it is updated to the latest version and properly configured to prevent this vulnerability.
+* Consider using other intrusion detection and prevention tools, such as fail2ban or ModSecurity, instead of mod_evasive.

@@ -1,0 +1,43 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A10: Unrestricted File Upload
+
+**Solution:**
+
+**1. Disable the Registry Key:**
+
+* Navigate to "Registry Editor" by pressing Windows Key + R and typing "regedit".
+* Locate the following key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+```
+* Right-click on the "Terminal Services" key and select "New" > "DWORD (32-bit) Value".
+* Name the new value "fUseMailto" and set its value to "0".
+
+**2. Restrict Access to Mailto Protocol:**
+
+* In the Apache configuration file (e.g., httpd.conf), add the following directive:
+```
+<Directory /path/to/directory>
+    Order allow,deny
+    Deny from all
+    Allow from 127.0.0.1
+</Directory>
+```
+* Replace "/path/to/directory" with the actual directory where mailto attachments are handled.
+
+**3. Block Mailto URLs in HTTP Request Header:**
+
+* In the Apache configuration file, add the following directive:
+```
+Header always unset Content-Type "multipart/form-data; protocol=mailto:*"
+```
+* This will remove the mailto URL from the HTTP request header, preventing the server from processing it.
+
+**4. Use a Web Application Firewall (WAF):**
+
+* Implement a WAF that monitors and blocks malicious traffic, including mailto-based attacks.
+
+**5. Enable Input Validation:**
+
+* Ensure that the server validates user input, including potential mailto attachments, to prevent malicious code execution.

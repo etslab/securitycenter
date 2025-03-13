@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Sensitive Data Exposure
+
+**Issue:**
+The DriverLoadPolicy key in the EarlyLaunch registry hive is not set to a sufficiently restrictive value. This allows untrusted drivers to be loaded into the kernel, which can lead to system compromise.
+
+**Solution:**
+1. Open Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Policies\EarlyLaunch
+```
+3. Right-click on the **DriverLoadPolicy** key and select **Modify**.
+4. Set the Value data to one of the following values:
+    - 0: Ignore driver load policy.
+    - 1: Only allow signed drivers to be loaded.
+    - 2: Only allow signed drivers from Microsoft to be loaded.
+5. Click **OK** to save the changes.
+
+**Recommendation:**
+Set the DriverLoadPolicy key to a value of 2 to only allow signed drivers from Microsoft to be loaded. This will help to protect the system from untrusted drivers.

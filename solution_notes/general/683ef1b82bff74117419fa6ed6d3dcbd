@@ -1,0 +1,14 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Insufficient Logging & Monitoring
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers`.
+3. Create a new DWORD (32-bit) value named `CopyFilesPolicy`.
+4. Set the value data to `0` to disable the policy.
+
+**Explanation:**
+
+The CopyFilesPolicy setting determines whether users can copy files from network printers to local storage. By disabling this policy, administrators can prevent unauthorized access to sensitive information. Leaving this policy enabled increases the risk of data exfiltration, as users could potentially copy confidential files to USB drives or other external storage devices.

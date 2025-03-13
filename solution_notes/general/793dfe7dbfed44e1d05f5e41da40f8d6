@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Security Misconfiguration
+
+**Description:**
+
+The Policy LogSuccessfulConnections setting in the Windows Firewall allows the server to log all successful connections in the event log. By default, this setting is disabled, which means that the server will not log any successful connections. This can make it difficult to detect and investigate unauthorized access attempts.
+
+**Fix:**
+
+To fix this issue, you should enable the Policy LogSuccessfulConnections setting. This can be done through the following steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging
+```
+
+3. Create a new DWORD value named "LogSuccessfulConnections".
+4. Set the value of LogSuccessfulConnections to 1.
+
+**Impact:**
+
+Enabling the Policy LogSuccessfulConnections setting will improve the security of the server by allowing you to log all successful connections. This will make it easier to detect and investigate unauthorized access attempts.

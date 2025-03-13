@@ -1,0 +1,22 @@
+**Severity: High**
+
+The Policy RpcProtocols audit issue indicates an insecure configuration that could allow remote attackers to execute arbitrary code on the server.
+
+**Solution:**
+
+1. Enable the "Use RpcProtocols" registry key:
+   - Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC`.
+   - Create a new DWORD (32-bit) value named `Use RpcProtocols`.
+   - Set the value data to `2`.
+
+2. Disable unused RPC protocols:
+   - Navigate to the following registry keys:
+     - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC\SMB`
+     - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC\NetPipe`
+     - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC\RpcTcp`
+   - Create a new DWORD (32-bit) value named `EnabledProtocols` in each key.
+   - Set the value data to a bitmask representing the desired protocols (0 for disabled, 1 for enabled). For example, to disable all protocols except SMB, set the value data to `1`.
+
+**OWASP Top 10 2021 Category:**
+
+Broken Access Control (OWASP-API2)

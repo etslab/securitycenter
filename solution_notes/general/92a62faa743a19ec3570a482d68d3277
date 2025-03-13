@@ -1,0 +1,22 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+To fix this issue, set the following registry key:
+
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
+"DisableWindowsConsumerFeatures"=dword:00000001
+```
+
+This will disable Windows consumer features, which may include displaying ads and collecting diagnostic data.
+
+**Impact:**
+
+This issue allows unauthorized access to certain Windows features and data. An attacker could exploit this issue to gain access to sensitive information or to install malicious software. However, this issue does not allow an attacker to take full control of the system.
+
+**Recommendation:**
+
+It is recommended to set the DisableWindowsConsumerFeatures registry key to 1 to disable Windows consumer features. This will help to protect your system from unauthorized access and data collection.

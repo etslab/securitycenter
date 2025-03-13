@@ -1,0 +1,34 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Description:**
+
+Policy DefaultInboundAction in Registry Software-Policies-Microsoft-WindowsFirewall-PrivateProfile controls the default action for inbound traffic on the private profile. If this setting is not properly configured, it could allow unauthorized access to the system.
+
+**Solution:**
+
+1. Open Registry Editor (regedit.exe).
+2. Navigate to the following key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile
+```
+
+3. Set the following value:
+
+```
+Value Name: DefaultInboundAction
+Value Type: REG_DWORD
+Value Data: 1
+```
+
+4. Close Registry Editor.
+
+**Impact:**
+
+This issue could allow an attacker to gain unauthorized access to the system. An attacker could exploit this vulnerability by sending specially crafted network packets to the system. If the attack is successful, the attacker could gain control of the system and access sensitive information.
+
+**Recommendation:**
+
+It is recommended to follow the solution provided above to fix this issue and improve the security of your system.

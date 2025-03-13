@@ -1,0 +1,17 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue:** The Policy RunInvalidSignatures in Registry Software->Policies->Microsoft->Internet Explorer->Download registry key is enabled, which allows users to disable ActiveX signing requirements.
+
+**Solution:**
+
+1. Disable the Policy RunInvalidSignatures registry key by setting its value to 0.
+
+2. Use a Group Policy to enforce this setting.
+
+3. Keep antivirus and anti-malware software up to date to protect against unsigned ActiveX controls.
+
+**Impact:**
+
+If an attacker can disable ActiveX signing requirements, they can execute malicious ActiveX controls on the system. This could allow them to gain unauthorized access to the system or sensitive data.

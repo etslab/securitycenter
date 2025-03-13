@@ -1,0 +1,22 @@
+**Severity**: High
+
+**OWASP Top 10 2021 Category**: A6: Security Misconfiguration
+
+**Issue**: The DefaultOutboundAction policy in the Windows Firewall Domain Profile is not set to "Block". This allows unauthorized outbound connections, which could lead to data exfiltration or other security breaches.
+
+**Solution**:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile`
+3. Create a new DWORD (32-bit) value named `DefaultOutboundAction` if it does not exist.
+4. Set the value of `DefaultOutboundAction` to `1`.
+5. Restart the computer to apply the changes.
+
+**Additional Notes**:
+
+* The DefaultOutboundAction policy can be set to one of the following values:
+    * 0: Allow
+    * 1: Block
+    * 2: Not configured (default)
+* It is recommended to set the DefaultOutboundAction policy to "Block" to prevent unauthorized outbound connections.
+* This issue can be identified using a registry scanner or by manually inspecting the Windows Firewall settings.

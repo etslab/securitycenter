@@ -1,22 +1,27 @@
-**Severity:** Critical
+**Severity:** High
 
-**OWASP Top 10 2021 Category:** Broken Access Control
+**OWASP Top 10 2021 Category:** Injection
 
-**Detailed Solution:**
+**Solution:**
 
-To fix CVE-2014-3566 in IIS web server, follow these steps:
+To fix this issue, you need to disable the "mod_negotiation" module in your Apache configuration. This module is responsible for handling content negotiation, which can allow an attacker to inject arbitrary data into an HTTP request.
 
-1. **Install the security update:** Microsoft has released security updates to address this vulnerability. Apply the latest updates to your IIS server as soon as possible.
+Here are the steps to disable the "mod_negotiation" module:
 
-2. **Disable directory browsing:** Directory browsing allows attackers to view the contents of directories on your server without authorization. Disable directory browsing to prevent attackers from exploiting this vulnerability. To do this:
-   - Open IIS Manager.
-   - Select the website or directory that you want to protect.
-   - In the Features view, double-click **Directory Browsing.**
-   - Clear the **Enable directory browsing** checkbox.
-   - Click **OK** to save the changes.
+1. Edit your Apache configuration file (typically /etc/apache2/httpd.conf).
+2. Find the following line:
 
-3. **Configure permissions:** Ensure that only authorized users have access to sensitive files and directories on your server. Restrict file and directory permissions to the minimum required for users to perform their tasks.
+```
+LoadModule negotiation_module modules/mod_negotiation.so
+```
 
-4. **Use a web application firewall (WAF):** A WAF can help to protect your server from a variety of attacks, including those that exploit CVE-2014-3566. Consider using a WAF to enhance the security of your IIS server.
+3. Comment out this line by adding a "#" at the beginning of the line:
 
-5. **Monitor your server for suspicious activity:** Use security logs and tools to monitor your server for any suspicious activity that may indicate an attack. Regularly review logs and take appropriate action to mitigate any potential threats.
+```
+# LoadModule negotiation_module modules/mod_negotiation.so
+```
+
+4. Save the Apache configuration file.
+5. Restart the Apache server.
+
+Once you have completed these steps, the "mod_negotiation" module will be disabled and your Apache server will be protected from CVE-2014-3566.

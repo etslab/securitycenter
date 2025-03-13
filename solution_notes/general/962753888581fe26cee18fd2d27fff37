@@ -1,0 +1,16 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2 - Broken Authentication
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key: `HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Main`
+3. Set the `DisableEPMCompat` DWORD to `0`.
+4. Restart the Apache server.
+
+**Explanation:**
+
+The `DisableEPMCompat` registry key controls whether Internet Explorer Enhanced Protected Mode (EPM) compatibility is disabled. When EPM compatibility is disabled, Internet Explorer may be able to access files outside of its sandbox, potentially leading to file system manipulation attacks.
+
+By setting `DisableEPMCompat` to `0`, you are enabling EPM compatibility and reducing the risk of file system manipulation attacks.

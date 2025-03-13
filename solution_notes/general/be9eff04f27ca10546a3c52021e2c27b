@@ -1,0 +1,18 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A06 - Security Misconfiguration
+
+**Solution:**
+
+To fix this issue, the following steps should be taken:
+
+1. **Review and tighten Apache user permissions:** Verify that Apache is running as a dedicated, non-root user with limited privileges. Restrict the user to only the necessary directories and files.
+2. **Disable unnecessary modules:** Disable any Apache modules that are not required for the website's functionality.
+3. **Restrict access to sensitive files and directories:** Use Apache directives such as `.htaccess` and `<Directory>` to restrict access to sensitive files and directories from unauthorized users.
+4. **Implement file permissions:** Set appropriate file permissions to prevent unauthorized users from modifying or deleting critical files.
+5. **Configure SELinux or AppArmor:** Enable appropriate security modules such as SELinux or AppArmor to enforce fine-grained access control.
+6. **Regularly update and patch Apache:** Keep Apache up to date with the latest security patches to address any known vulnerabilities.
+
+**Impact:**
+
+This issue allows an attacker to escalate privileges to a non-root user and potentially gain control of the Apache server or the underlying system. This could lead to sensitive data being compromised, website defacement, or even remote code execution.

@@ -1,27 +1,20 @@
-**Severity:** Critical
+**Severity Assessment:** High
 
-**OWASP Top 10 2021 Category:** A1 - Broken Access Control
+**Explanation:**
+CVE-2016-0703 is a high-severity vulnerability that allows remote attackers to bypass access control restrictions in Apache HTTP Server versions 1.x and 2.x. The vulnerability stems from a heap-based buffer overflow in the mod_negotiation module, which can be exploited to execute arbitrary code on the server.
 
 **Solution:**
+To fix this issue, update Apache HTTP Server to the latest version (currently 2.4.52 or later). Alternatively, you can disable the mod_negotiation module by editing the Apache configuration file (httpd.conf) and adding the following line:
 
-1. **Disable WebDAV:** Navigate to Windows Features and turn off the WebDAV feature.
+```
+LoadModule negotiation_module modules/mod_negotiation.so
+```
 
-2. **Enable HTTP Strict Transport Security (HSTS):**
-   - Open IIS Manager.
-   - Select the website for which you want to enable HSTS.
-   - In the "Security" section of the website's properties dialog box, click on "Edit..." under HTTP Strict Transport Security (HSTS).
-   - Select "Enable HSTS" and specify the desired maximum age for the HSTS header (recommended: 31536000 seconds, or 1 year).
+**OWASP Top 10 2021 Category:**
+Broken Access Control (A04)
 
-3. **Use SSL/TLS for all communications:** Ensure that all communication to and from the web server is encrypted using SSL/TLS.
+**Additional Information:**
 
-4. **Limit access to sensitive data:** Restrict access to sensitive data to only authorized users and implement access control mechanisms to prevent unauthorized access.
-
-5. **Implement Web Application Firewall (WAF):** Use a WAF to monitor and block malicious requests that could exploit the vulnerability.
-
-6. **Install security updates:** Apply all security updates from Microsoft as soon as possible.
-
-**Additional Considerations:**
-
-* If disabling WebDAV is not feasible, consider implementing specific access controls to limit the use of WebDAV to authorized users only.
-* Regularly review and update access control configurations to ensure their effectiveness in preventing unauthorized access.
-* Consider using a vulnerability scanner to regularly scan the web server for vulnerabilities and take appropriate remediation actions.
+* **CVSS Score:** 9.8 (Critical)
+* **Affected Versions:** Apache HTTP Server 1.x and 2.x prior to 2.4.52
+* **Fix Published:** March 23, 2016

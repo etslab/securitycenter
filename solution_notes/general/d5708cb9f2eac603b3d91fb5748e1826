@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Description:**
+
+The Policy DenyDeviceClassesRetroactive registry key controls whether the system can block the installation of certain classes of devices, even if they were previously authorized. If this key is set to 0, the system can only block unauthorized devices.
+
+**Solution:**
+
+To fix this issue, set the Policy DenyDeviceClassesRetroactive registry key to 1. This will allow the system to block the installation of unauthorized devices, even if they were previously authorized.
+
+**Specific Steps:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions`
+3. Create a new DWORD value named `Policy DenyDeviceClassesRetroactive`.
+4. Set the value of the new DWORD to 1.
+5. Close the Registry Editor and reboot the server.
+
+**Additional Information:**
+
+* **Why is this issue important?** This issue is important because it allows unauthorized devices to be installed on the system, which could lead to security vulnerabilities.
+* **What is the potential impact of this issue?** The potential impact of this issue is that unauthorized devices could be used to steal data, launch attacks, or spread malware.
+* **What are the common causes of this issue?** This issue is commonly caused by misconfigurations in the registry.

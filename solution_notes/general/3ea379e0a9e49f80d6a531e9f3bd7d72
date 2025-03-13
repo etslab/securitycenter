@@ -1,0 +1,21 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Solution:**
+
+To fix CVE-2024-4577 in Apache HTTP Server, apply the following patch:
+
+* For Apache HTTP Server 2.4.56: https://bz.apache.org/bugzilla/show_bug.cgi?id=66836
+* For Apache HTTP Server 2.4.55: https://bz.apache.org/bugzilla/show_bug.cgi?id=66834
+
+**Alternatively, you can disable the affected module:**
+
+1. Open the Apache configuration file (e.g., httpd.conf)
+2. Find the line that loads the `remoteip` module and comment it out:
+   ```
+   #LoadModule remoteip_module modules/mod_remoteip.so
+   ```
+3. Restart Apache to apply the changes.
+
+**Note:** Disabling the `remoteip` module may affect other functionality on your server. Ensure that you test your application thoroughly after making this change.

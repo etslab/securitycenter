@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Solution:**
+
+1. **Enable Certificate Revocation Checking:**
+   - Add the following registry key value:
+     - Key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings`
+     - Name: `CertificateRevocation`
+     - Type: `REG_DWORD`
+     - Value: `1`
+
+2. **Ensure Adequate Certificate Management:**
+   - Regularly check for revoked certificates and update the certificate store accordingly.
+   - Consider implementing an automated certificate management system.
+
+**Reason:**
+
+Disabling Certificate Revocation Checking allows attackers to present revoked certificates to the server, potentially bypassing authentication or encryption mechanisms. This increases the risk of data breaches, unauthorized access, and other security vulnerabilities.
+
+**Additional Considerations:**
+
+* If applicable, consider using Extended Validation (EV) certificates to provide enhanced assurance of website authenticity.
+* Enforce secure transport protocols (e.g., HTTPS) to protect sensitive data in transit.
+* Monitor server logs for suspicious activity related to certificate revocation attempts.
+* Regularly review and update security policies and best practices to maintain a strong security posture.

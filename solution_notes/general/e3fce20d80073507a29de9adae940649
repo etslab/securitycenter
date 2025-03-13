@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A05: Server-Side Request Forgery (SSRF)
+
+**Description:**
+
+The Policy DisableExternalDMAUnderLock registry key determines whether the BitLocker feature will allow external Direct Memory Access (DMA), which can be used to bypass hardware encryption. When this key is set to 0, external DMA is enabled, making the system vulnerable to DMA attacks.
+
+**Solution:**
+
+To fix this issue, set the Policy DisableExternalDMAUnderLock registry key to 1. This will disable external DMA and protect the system from DMA attacks.
+
+**Steps to Set the Registry Key:**
+
+1. Open Registry Editor (regedit).
+2. Navigate to the following key:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FVE
+    ```
+3. Right-click on the "FVE" key and select "New" -> "DWORD (32-bit) Value".
+4. Name the new value "Policy DisableExternalDMAUnderLock".
+5. Double-click on the new value and set its value data to 1.
+6. Click "OK" to save the changes.
+
+**Restart Requirement:**
+
+A system restart is required for the changes to take effect.

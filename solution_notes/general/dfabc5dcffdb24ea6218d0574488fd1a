@@ -1,0 +1,26 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Description:**
+
+Policy 1406 in Registry Software->Policies->Microsoft->Windows->CurrentVersion->Internet Settings->Zones->3 is not set to "0". This means that websites in the Internet Zone can access files on the local computer. This could allow attackers to access sensitive information on the server, such as customer data, financial records, or intellectual property.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key:
+
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3
+```
+
+3. Locate the value named "1406".
+4. Double-click on the "1406" value and change the data value to "0".
+5. Click OK to save the changes.
+
+**Additional Information:**
+
+Policy 1406 is a DWORD value that controls whether websites in the Internet Zone can access files on the local computer. A value of "0" means that websites cannot access files on the local computer. A value of "1" means that websites can access files on the local computer. A value of "2" means that websites can access files on the local computer, but only if the user is prompted to allow access.
+
+By setting Policy 1406 to "0", you can prevent attackers from accessing sensitive information on your server through websites in the Internet Zone.

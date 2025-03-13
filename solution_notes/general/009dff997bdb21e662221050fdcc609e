@@ -1,0 +1,33 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Logging and Monitoring Flaws
+
+**Solution:**
+
+**1. Configure Registry Policy:**
+
+* Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging
+```
+* Right-click and create a new DWORD value named "LogFileSize".
+* Set the value of "LogFileSize" to 10240 (10 MB) or as per your organization's policy.
+
+**2. Restart Firewall Service:**
+
+* Open Command Prompt or PowerShell as administrator.
+* Run the following command:
+```
+net stop mpsdrv
+net start mpsdrv
+```
+
+**Detailed Explanation:**
+
+* The Policy LogFileSize registry entry controls the maximum size (in bytes) of the Windows Firewall log file.
+* A large log file can consume excessive disk space and slow down performance.
+* Setting a reasonable LogFileSize limit ensures that the log file remains manageable and does not hinder the server's operation.
+
+**Impact on OWASP Top 10 2021 Category:**
+
+* Logging and Monitoring Flaws: Failure to properly configure logging can lead to incomplete or inaccurate logging data, which can make it difficult to detect and respond to security incidents.

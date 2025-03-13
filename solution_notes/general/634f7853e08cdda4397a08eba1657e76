@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Solution:**
+
+1. Navigate to the following registry key (you can use regedit to open the registry editor):
+
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap
+```
+
+2. Locate the "UNCAsIntranet" value. It should be of type REG_SZ (string).
+
+3. Set the value of "UNCAsIntranet" to "0".
+
+4. Close the registry editor.
+
+5. Restart the Apache server.
+
+**Explanation:**
+
+The "UNCAsIntranet" registry value controls whether UNC (Universal Naming Convention) paths are considered part of the intranet security zone. By default, UNC paths are not part of the intranet zone, so they are treated as untrusted sites by the browser. This can lead to security vulnerabilities, as attackers could trick users into accessing malicious content by using a UNC path.
+
+By setting the "UNCAsIntranet" value to "0", you are disabling the assumption that UNC paths are part of the intranet security zone. This means that UNC paths will be treated as untrusted sites by the browser, which is more secure.

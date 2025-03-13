@@ -1,0 +1,26 @@
+**Severity Assessment:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Description:**
+
+The Policy 1206 registry key, located at `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3`, allows users to modify the security settings for the "Restricted" zone in Microsoft Internet Explorer. By setting this key to a non-zero value, users can bypass security restrictions and potentially access sensitive data or expose the system to malicious activity.
+
+**Solution:**
+
+To fix this issue, set the Policy 1206 registry key to 0. You can do this by following these steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3`
+3. Double-click the "Policy 1206" value and change the data to 0.
+4. Click OK to save the changes.
+
+**Additional Recommendations:**
+
+* Use a group policy object (GPO) to enforce this setting across multiple computers in your network.
+* Regularly scan your system for vulnerabilities and install necessary patches.
+* Use a web application firewall (WAF) to block malicious traffic and protect your server from exploitation attempts.
+
+**Note:**
+
+After making these changes, you may need to restart your browser or computer for the changes to take effect.

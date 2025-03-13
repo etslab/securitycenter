@@ -1,0 +1,27 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A6: Sensitive Data Exposure
+
+**Solution:**
+
+1. **Update Capacitor:** Ensure that the latest version of Capacitor is installed. Capacitor versions prior to 3.4.0 contain a vulnerability that could allow an attacker to access sensitive data.
+
+2. **Enable Data Security:** Add the following code to the `capacitor.config.json` file to enable data security:
+
+```json
+"dataSecurity": {
+  "enabled": true
+}
+```
+
+3. **Update Native Plugins:** Update all native plugins to their latest versions. Outdated plugins may contain vulnerabilities that could expose sensitive data.
+
+4. **Scan for Vulnerabilities:** Regularly scan your application for vulnerabilities using a security scanner, such as the Synopsys Black Duck scanner or the OWASP ZAP tool.
+
+5. **Implement Secure Coding Practices:** Follow secure coding practices to prevent sensitive data exposure, such as input validation, data encryption, and proper error handling.
+
+**Additional Mitigation Recommendations:**
+
+* Consider implementing additional security measures, such as using a WAF (Web Application Firewall) or IDS (Intrusion Detection System).
+* Educate developers about the importance of data security and secure coding practices.
+* Monitor application logs for any suspicious activity or data exposure attempts.

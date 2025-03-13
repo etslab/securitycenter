@@ -1,0 +1,26 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Update Apache Server:** Upgrade to Apache Server 2.4.29 or later. The vulnerable versions are Apache Server 2.4.18 to 2.4.28.
+2. **Disable mod_proxy_http:** This module is the affected component in Apache Server. If not required, disable it by commenting out the following line in the Apache configuration file (httpd.conf):
+
+```
+LoadModule proxy_http_module modules/mod_proxy_http.so
+```
+
+3. **Configure mod_proxy_http:** If mod_proxy_http is required, configure it securely by adding the following directive to the Apache configuration file:
+
+```
+ProxyPreserveHost On
+```
+
+This directive ensures that the original host header is preserved in the proxied request, preventing the attacker from exploiting the vulnerability.
+
+**Additional Mitigation:**
+
+* Use a web application firewall (WAF) to block malicious requests exploiting this vulnerability.
+* Implement HTTP Strict Transport Security (HSTS) to force browsers to use HTTPS connections.
+* Regularly scan your web applications for vulnerabilities using vulnerability scanners.

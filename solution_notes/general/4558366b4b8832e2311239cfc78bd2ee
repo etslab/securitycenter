@@ -1,22 +1,20 @@
-**Severity:** High
+**Severity:** Critical
 
-**OWASP Top 10 2021 Category:** Injection
+**OWASP Top 10 2021 Category:** A1: Injection
 
-**Detailed Solution:**
+**Solution:**
 
-CVE-2015-4000 is a vulnerability in Microsoft IIS web server that allows remote attackers to execute arbitrary code on the server. This vulnerability is caused by an improper input validation in the way IIS handles certain HTTP requests.
+To fix CVE-2015-4000 in Apache Server, follow these steps:
 
-To fix this issue, you can apply the following patch from Microsoft:
+1. **Update Apache Server:** Update Apache Server to the latest stable version, which includes the fix for this vulnerability.
+2. **Disable mod_negotiation:** Disable the mod_negotiation module, which is no longer supported and can allow for directory traversal attacks.
+3. **Configure mod_headers:** Configure mod_headers to remove the "Vary: Accept-Encoding" header to prevent content-sniffing attacks.
+4. **Apply Apache Security Patches:** Install all available Apache security patches to address any known vulnerabilities.
 
-* https://support.microsoft.com/en-us/topic/ms15-097-important-cumulative-security-update-for-internet-explorer-edge-and-internet-information-services-iis-in-windows-august-11-2015-8b908d38-a193-0828-16d3-85890206f091
+**Detailed Explanation:**
 
-Alternatively, you can disable the affected request filtering module:
+CVE-2015-4000 is a critical vulnerability in Apache Server that allows an attacker to send a specially crafted HTTP request to bypass directory traversal restrictions. This can lead to the attacker accessing sensitive files or executing arbitrary code on the server.
 
-1. Open IIS Manager.
-2. Select the server node.
-3. In the Features view, double-click Request Filtering.
-4. In the Request Filtering pane, select the General tab.
-5. Clear the Enable Request Filtering check box.
-6. Click OK.
+The vulnerability is caused by a flaw in the mod_negotiation and mod_headers modules. An attacker can exploit this flaw by sending a request with a "Vary: Accept-Encoding" header and a specific Content-Type header. This allows the attacker to bypass the directory traversal restrictions and access files outside the intended document root.
 
-**Note:** Disabling Request Filtering may have implications for other applications and services that rely on it. You should carefully consider the potential impact before making this change.
+By disabling mod_negotiation, configuring mod_headers to remove the "Vary: Accept-Encoding" header, and applying Apache security patches, you can mitigate the risk associated with CVE-2015-4000 and enhance the security of your Apache Server.

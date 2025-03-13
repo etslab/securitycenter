@@ -1,0 +1,20 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Issue:**
+The Policy DenyDeviceClasses registry key is not set to disallow the installation of removable storage devices, potentially allowing unauthorized access to sensitive data.
+
+**Solution:**
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions
+```
+3. In the right-hand pane, right-click and create a new DWORD (32-bit) value named `DenyDeviceClasses`.
+4. Double-click on the newly created `DenyDeviceClasses` value and set the Value data to `20480` (hexadecimal). This value represents removable storage devices.
+5. Click OK to save the changes.
+
+**Additional Notes:**
+* Restart the Apache server after making the registry changes.
+* Regularly review and update the DenyDeviceClasses registry key to ensure that all unauthorized device classes are blocked.

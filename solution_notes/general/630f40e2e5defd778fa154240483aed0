@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A02: Broken Authentication
+
+**Solution:**
+
+1. **Enable the Policy:** Navigate to "Registry Editor" (regedit.exe) and locate the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS
+```
+
+2. **Create the ADBackupDSRMPassword Value:** If the "ADBackupDSRMPassword" value does not exist, right-click the "LAPS" key and select "New" > "String Value." Name the new value "ADBackupDSRMPassword."
+
+3. **Set the Value:** Double-click the "ADBackupDSRMPassword" value and set its data to the following (without quotes):
+
+```
+"password"
+```
+
+4. **Replace "password" with a Strong Password:** The actual password should be a strong, unique, and complex password.
+
+5. **Confirm the Value:** Click "OK" to save the password.
+
+**Additional Notes:**
+
+* The ADBackupDSRMPassword registry value stores the password used for backing up the Active Directory Replication Services Database (DSRM).
+* This password should be strong and secure to prevent unauthorized access to the DSRM data.
+* Leaving this password blank or insecure can compromise the security of the server.

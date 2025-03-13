@@ -1,22 +1,22 @@
-###How to fix the Common Vulnerabilities issue of CVE-2015-2808 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
-CVE-2015-2808 is a cross-site scripting (XSS) vulnerability in the nginx web server. It allows an attacker to inject malicious JavaScript code into a web page, which can then be executed by the victim's browser. This can lead to a variety of attacks, such as session hijacking, account takeover, and malware infection.
+**Severity:** High
 
-To fix CVE-2015-2808 in nginx, you need to upgrade to a version of nginx that has been patched for this vulnerability. The latest version of nginx as of this writing is 1.23.2. You can upgrade nginx by following the instructions on the nginx website.
+**OWASP Top 10 2021 Category:** Injection
 
-CVE-2015-2808 belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021 list of web application security risks. Injection vulnerabilities occur when an attacker is able to inject malicious code into a web application's inputs, such as form fields, HTTP headers, and database queries. This code can then be executed by the application, which can lead to a variety of attacks.
+**Solution:**
 
-To protect your web applications from injection vulnerabilities, you should:
+The issue can be fixed by applying a patch or updating to the latest version of Apache HTTP Server. The patch can be obtained from the Apache HTTP Server website:
 
-* Validate all user input before using it in any database queries or other operations.
-* Use prepared statements or parameterized queries to prevent SQL injection attacks.
-* Use an input encoder to encode all user input before it is displayed on the web page.
-* Use a web application firewall (WAF) to protect your application from common injection attacks.
+https://httpd.apache.org/security/vulnerabilities_24.html
 
-Here are some additional tips for preventing XSS attacks:
+The following steps outline how to apply the patch:
 
-* Encode all output before displaying it on the web page.
-* Use a content security policy (CSP) to restrict the types of scripts that can be executed on your web pages.
-* Use a JavaScript library that sanitizes user input before it is used in JavaScript code.
-* Keep your web application software up to date and apply security patches promptly.
+1. Download the patch for your version of Apache HTTP Server.
+2. Stop the Apache HTTP Server service.
+3. Unzip the patch and copy the files to the appropriate directory.
+4. Restart the Apache HTTP Server service.
 
-By following these tips, you can help to protect your web applications from injection vulnerabilities and other security risks.
+**Additional Notes:**
+
+* The patch addresses the issue by preventing attackers from exploiting the vulnerability to inject arbitrary code into the server.
+* It is important to apply the patch as soon as possible to prevent any potential attacks.
+* Users who are unable to apply the patch should disable the affected modules or use a web application firewall (WAF) to mitigate the risk.

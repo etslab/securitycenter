@@ -1,0 +1,32 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Description:**
+
+The Apache server is allowing unauthenticated access to a specific framework (Capacitor.framework) within an app bundle (App.app). This can lead to unauthorized access to sensitive data or functionality within the app.
+
+**Solution:**
+
+To fix this issue, you need to restrict access to the Capacitor.framework directory by adding the following directive to your Apache server configuration:
+
+```
+<Directory /path/to/Payload/App.app/Frameworks/Capacitor.framework>
+    Require all denied
+</Directory>
+```
+
+**Impact:**
+
+This vulnerability can allow an attacker to perform the following actions:
+
+* Gain access to sensitive app data
+* Modify app functionality
+* Install malicious code
+* Impersonate authorized users
+
+**Recommendation:**
+
+* Implement the solution provided above to restrict access to the Capacitor.framework directory.
+* Regularly review and update your server configuration to ensure that all sensitive directories are properly protected.
+* Implement additional security measures, such as authentication and authorization mechanisms, to protect against unauthorized access.

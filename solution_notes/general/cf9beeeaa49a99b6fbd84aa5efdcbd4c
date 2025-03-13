@@ -1,0 +1,20 @@
+**Severity:** High
+
+**Solution:**
+
+The vendor has released a patch to address this issue. It is recommended to update to the latest version of zlib.
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Explanation:**
+
+This vulnerability is a heap-based buffer overflow caused by an integer overflow in the zipOpenNewFileInZip4_6 function in zlib. When creating a new ZIP archive, the function can be tricked into allocating a buffer that is too small, leading to a heap-based buffer overflow. This can allow an attacker to execute arbitrary code on the vulnerable system.
+
+The patch released by the vendor fixes the integer overflow by using a different data type for the buffer size calculation. This ensures that the buffer is always allocated with the correct size, preventing the heap-based buffer overflow from occurring.
+
+**Recommendations:**
+
+* Update to the latest version of zlib.
+* Scan your systems for any outdated versions of zlib and update them immediately.
+* Implement security measures to prevent attackers from exploiting this vulnerability, such as input validation and sanitization.
+* Monitor your systems for any suspicious activity and take appropriate action as needed.

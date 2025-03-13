@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Issue Description:**
+The Policy NoNameReleaseOnDemand value in the NetBt registry key controls whether the SMB service should release unauthenticated name connections on demand. A non-zero value indicates that the service should release these connections, which can be exploited by a remote attacker to perform a Denial of Service (DoS) attack by establishing and releasing numerous unauthenticated name connections.
+
+**Solution:**
+Set the Policy NoNameReleaseOnDemand value in the NetBt registry key to 0. This will prevent the SMB service from releasing unauthenticated name connections on demand, mitigating the risk of a DoS attack.
+
+**Detailed Steps:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netbt\Parameters
+```
+3. In the right pane, locate the Policy NoNameReleaseOnDemand DWORD value.
+4. Double-click the DWORD value and set its Value data to 0.
+5. Click OK to save the changes.
+6. Restart the SMB service.
+
+**Additional Notes:**
+
+* This issue is not specific to Apache, but it is commonly found in systems running Apache servers.
+* It is recommended to keep the SMB service updated with the latest security patches.
+* Consider using a firewall to block unauthorized access to the SMB service.

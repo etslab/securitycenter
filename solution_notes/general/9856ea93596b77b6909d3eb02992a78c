@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A6: Insecure Configuration
+
+**Issue:**
+The Policy DenyDeviceClassesRetroactive registry key allows administrators to retroactively apply denial rules for hardware device classes, even if devices were already installed before the policy was implemented. This weakens security by allowing unauthorized devices to be installed and potentially exploited.
+
+**Solution:**
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions
+```
+3. Set the following DWORD registry value to 1:
+```
+DenyDeviceClassesRetroactive
+```
+4. Exit the Registry Editor.
+
+**Additional Notes:**
+* This solution will prevent the installation of unauthorized hardware devices and mitigate the risks associated with this audit issue.
+* Regularly review and update security policies to ensure they are addressing the latest threats.
+* Implement strong authentication and access controls to prevent unauthorized access to administrative privileges.

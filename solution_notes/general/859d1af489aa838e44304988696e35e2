@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+The "Delete all values" policy in the specified registry key allows any user to delete all the values within the key, which includes potential restrictions on the installation of specific device classes. This could lead to unauthorized modification or installation of malicious devices.
+
+**Solution:**
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions
+```
+3. Right-click on the "DenyDeviceClasses" key and select "Delete".
+4. Click "Yes" to confirm the deletion.
+
+**Additional Recommendations:**
+
+* Implement proper access control measures to restrict the modification of critical registry keys.
+* Use software restriction policies to prevent the installation of unauthorized devices.
+* Regularly review and audit registry settings for any unauthorized changes.

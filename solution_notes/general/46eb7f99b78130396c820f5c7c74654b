@@ -1,28 +1,52 @@
-**Severity:** High
+**CVE-2017-17382 Assessment:**
 
-**OWASP Top 10 2021 Category:** A2: Broken Authentication
+* **Severity:** High
 
-**Description:**
+**OWASP Top 10 2021 Category:**
 
-CVE-2017-17382 is a vulnerability in IIS web server that allows attackers to bypass authentication by modifying the HTTP request in a specific way. This could allow an attacker to gain unauthorized access to a website or application.
+* Injection
 
 **Solution:**
 
-To fix this issue, you can implement the following workaround:
+**1. Update Apache HTTP Server to a Patched Version:**
 
-1. Open the IIS Manager.
-2. Select the website or application that you want to protect.
-3. Click on the "Authentication" icon in the right-hand pane.
-4. Select "Windows Authentication" and then click on the "Edit" button.
-5. In the "Windows Authentication" dialog box, select the "Enable Kernel-mode authentication" checkbox.
-6. Click on the "OK" button.
+* Upgrade to Apache HTTP Server version 2.4.34 or later
+* Upgrade to Apache HTTP Server version 2.2.31 or later
 
-This workaround will prevent attackers from bypassing authentication by modifying the HTTP request.
+**2. Disable HTTP TRACE Method:**
 
-**Additional Notes:**
+If patching is not feasible immediately, disable the HTTP TRACE method:
 
-You should also consider implementing the following additional measures to further protect your website or application:
+* Open the Apache httpd.conf configuration file.
+* Add the following line to the file:
 
-* Use strong passwords and two-factor authentication.
-* Keep your software up to date with the latest security patches.
-* Use a web application firewall (WAF) to block malicious traffic.
+```
+TraceEnable off
+```
+
+* Restart the Apache HTTP Server.
+
+**3. Configure Server-Side Request Forgery (SSRF) Protections:**
+
+* Update the mod_rewrite module to version 2.5.5 or later.
+* Add the following rule to the .htaccess file or httpd.conf file:
+
+```
+RewriteCond %{REQUEST_METHOD} TRACE
+RewriteRule . - [F]
+```
+
+**4. Validate User Input:**
+
+* Implement input validation to prevent malicious code from being executed.
+
+**5. Use a Web Application Firewall (WAF):**
+
+* Deploy a WAF that can detect and block attacks that exploit this vulnerability.
+
+**Additional Recommendations:**
+
+* Regularly check for security updates and apply them promptly.
+* Configure Apache HTTP Server to use TLS for encrypted communication.
+* Restrict access to sensitive data and resources.
+* Monitor your systems for suspicious activity and implement intrusion detection systems.

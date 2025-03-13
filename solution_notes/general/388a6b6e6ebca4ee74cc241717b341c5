@@ -1,20 +1,42 @@
 **Severity:** Critical
 
-**OWASP Top 10 2021 Category:** A1: Broken Access Control
-
-**Assessment:**
-
-CVE-2016-6883 is a remote code execution vulnerability in IIS web server. It allows an attacker to execute arbitrary code on a target system by sending a specially crafted HTTP request. This vulnerability is considered critical due to its potential impact and ease of exploitation.
+**OWASP Top 10 2021 Category:** A1: Injection
 
 **Solution:**
 
-To fix this issue, apply the following patch released by Microsoft:
+To fix this issue, disable the `mod_remoteip` module and enable the `mod_headers` module in your Apache server configuration file (e.g., httpd.conf).
 
-* [MS16-065](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/MS16-065)
+**Detailed Steps:**
 
-**Additional Mitigation Steps:**
+1. Open the Apache configuration file (e.g., /etc/httpd/conf/httpd.conf).
+2. Search for the following lines and comment them out by adding a `#` at the beginning:
 
-* Configure IIS to restrict access to only authorized users.
-* Implement Web Application Firewall (WAF) rules to block malicious HTTP requests.
-* Regularly update the IIS web server and its components.
-* Enable auditing to detect any suspicious activity.
+```
+LoadModule remoteip_module modules/mod_remoteip.so
+```
+
+3. Search for the following lines and uncomment them by removing the `#` at the beginning:
+
+```
+LoadModule headers_module modules/mod_headers.so
+Header set X-Forwarded-Proto "https" env=HTTPS
+```
+
+4. Next, configure the `mod_headers` module to set the `X-Forwarded-For` header:
+
+```
+RequestHeader set X-Forwarded-For "%{REMOTE_ADDR}i"
+```
+
+5. Save and close the configuration file.
+6. Restart the Apache server to apply the changes:
+
+```
+systemctl restart apache2
+```
+
+**Additional Notes:**
+
+* If `mod_remoteip` is required for your application, configure it carefully to prevent remote IP spoofing.
+* Instead of setting `X-Forwarded-Proto` to "https" directly, consider using `%{SSL:HTTPS}` to determine the protocol dynamically.
+* Regularly update your Apache server to the latest version to patch any potential vulnerabilities.

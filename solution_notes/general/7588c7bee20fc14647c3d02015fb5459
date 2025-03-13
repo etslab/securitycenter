@@ -1,0 +1,26 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Add `NSLocationWhenInUseUsageDescription` to `info.plist`:**
+
+```xml
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Provide a clear and concise description of why your app needs location access.</string>
+```
+
+2. **Update `Info.plist` using Xcode:**
+
+* Open the project in Xcode.
+* Select the project in the project navigator.
+* Click the "Info" tab in the project editor.
+* Under "Property List", expand "App Transport Security Settings".
+* Add a new key called "NSLocationWhenInUseUsageDescription" and set its value to the desired description.
+
+**Additional Notes:**
+
+* The description should explain to users why the app needs location access and how the data will be used.
+* If the app does not need location access when it is not in use, ensure that the `NSLocationAlwaysAndWhenInUseUsageDescription` key is not included in `info.plist`.
+* Failure to provide an accurate and understandable description can lead to user mistrust and decreased app usage.

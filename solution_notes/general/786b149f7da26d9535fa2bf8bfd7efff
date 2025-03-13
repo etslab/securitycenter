@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A8:2021 - Insufficient Platform Protection
+
+**Issue:**
+The DeviceEnumerationPolicy registry setting allows attackers with local access to enumerate PCI Express (PCIe) devices, which can potentially lead to information disclosure or privilege escalation. By setting this policy to "Disabled" or "0", attackers can enumerate and access all PCIe devices, including those that may not be exposed by default.
+
+**Solution:**
+
+**Windows Registry Editor**
+
+1. Launch the Windows Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Kernel`
+3. Create a new DWORD (32-bit) value named "DeviceEnumerationPolicy."
+4. Set the value data to "1."
+
+**Group Policy Editor**
+
+1. Open the Group Policy Editor (gpedit.msc).
+2. Navigate to the following path: `Computer Configuration\Administrative Templates\System\Device Guard\DMA Protection`
+3. Double-click on "Device Enumeration Policy" and set it to "Enabled."
+4. Click "Apply" and "OK" to save the changes.
+
+**Additional Notes:**
+
+* Disabling PCIe device enumeration may affect certain hardware and software functionality.
+* It is recommended to consult with the hardware/software vendor for compatibility before making any changes.

@@ -1,0 +1,26 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A2 - Broken Authentication
+
+**Issue Description:**
+
+The Policy BackupDirectory registry key in Apache is not set, which means that Local Administrator Password Solution (LAPS) password backups are not being stored securely. This allows an attacker to gain access to these passwords and compromise privileged accounts.
+
+**Solution:**
+
+To fix this issue, create the Policy BackupDirectory registry key and set it to a secure location. The following steps describe how to do this:
+
+1. Open the Registry Editor (**regedit**).
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS**.
+3. Right-click in the right pane and select **New** > **String Value**.
+4. Name the new value **Policy BackupDirectory**.
+5. Double-click on the **Policy BackupDirectory** value and enter a secure location for the LAPS password backups. For example, you could use a network share with strong access controls.
+6. Click **OK** to save your changes.
+
+**Additional Mitigation:**
+
+In addition to setting the Policy BackupDirectory registry key, you can also implement the following mitigations:
+
+* Use a strong password for the LAPS service account.
+* Restrict access to the LAPS password backups to only authorized personnel.
+* Monitor the LAPS logs for any suspicious activity.

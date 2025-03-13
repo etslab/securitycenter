@@ -1,0 +1,17 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Not applicable
+
+**Solution:**
+
+1. Open the Windows Registry Editor (regedit).
+2. Navigate to the following registry key: `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Internet Explorer\Security\ActiveX`
+3. Create a new DWORD value named `BlockNonAdminActiveXInstall` and set its value to `1`.
+
+**Explanation:**
+
+The `Policy BlockNonAdminActiveXInstall` registry setting controls whether users with non-administrator privileges can install ActiveX controls. If this setting is not set to `1`, users with non-administrator privileges can install ActiveX controls, which can lead to malware infections and other security issues.
+
+By setting this registry setting to `1`, you can prevent users with non-administrator privileges from installing ActiveX controls, making your system more secure.
+
+This issue does not fall under any of the OWASP Top 10 2021 categories because it is not a vulnerability that attackers can exploit to gain unauthorized access to a system. However, it is still a good practice to configure this setting to improve the security of your system.

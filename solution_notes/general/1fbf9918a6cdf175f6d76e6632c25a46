@@ -1,0 +1,33 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** None (Does not directly map to any OWASP Top 10 category)
+
+**Solution:**
+
+**1. Identify the Policy DefaultOutboundAction Value:**
+
+* Open the Registry Editor (regedit.exe).
+* Navigate to:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile
+```
+
+* Locate the DWORD value named "DefaultOutboundAction".
+
+**2. Set the Value to "Allow":**
+
+* If the value is not present or is set to anything other than "0" (Allow), double-click on it and change the value data to "0".
+* Click "OK" to save the changes.
+
+**3. Restart Firewall Service:**
+
+* Open Command Prompt as Administrator.
+* Run the following command:
+```
+net stop Windows Firewall
+net start Windows Firewall
+```
+
+**Explanation:**
+
+The DefaultOutboundAction registry setting specifies the default action for outbound network connections when no specific rules match. By setting it to "Allow", you are ensuring that outbound connections are not blocked by default, unless specifically prohibited by other firewall rules. This is considered a moderate security risk because it could allow unauthorized outbound connections, but it is not as severe as allowing all inbound connections.

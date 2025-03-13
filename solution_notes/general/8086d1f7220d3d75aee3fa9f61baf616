@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+To fix this issue, you need to configure your Apache server to set the Permissions Policy header. This can be done by adding the following directive to your Apache configuration file:
+
+```
+Header always set Permissions-Policy "same-origin"
+```
+
+This directive will set the Permissions Policy header to "same-origin", which means that only scripts and resources from the same origin as the current page will be allowed to load. This will help to mitigate the risk of Cross-Site Scripting (XSS) attacks, which can occur when an attacker is able to inject malicious scripts into a web page.
+
+Once you have added this directive to your Apache configuration file, you will need to restart your Apache server for the changes to take effect.
+
+**Additional Considerations:**
+
+In addition to setting the Permissions Policy header, you should also consider implementing other security measures to protect your web application from XSS attacks, such as:
+
+* Input validation: Validate all user input to ensure that it is safe and does not contain any malicious characters.
+* Output encoding: Encode all output to prevent it from being interpreted as malicious code.
+* Content Security Policy (CSP): Implement a CSP to restrict the types of scripts and resources that can be loaded on your web pages.

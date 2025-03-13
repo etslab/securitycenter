@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A9 - Security Logging and Monitoring Failures
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. Open the Registry Editor by typing "regedit" into the Run dialog box (Windows key + R).
+2. Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging
+```
+
+3. Set the value of the "LogFileSize" DWORD registry entry to an appropriate value. The default value is 4 MB, but you may need to increase it if you require more logging capacity.
+4. Close the Registry Editor and restart the Windows Firewall service.
+
+**Justification:**
+
+The Policy LogFileSize registry entry controls the maximum size of the Windows Firewall log file. If the log file reaches its maximum size, no further logging will occur, which could result in lost security information. Setting an appropriate value for this entry ensures that adequate logging is maintained.
+
+Setting a very large LogFileSize value (e.g., 2 GB) is not recommended, as it can consume unnecessary disk space and potentially impact server performance. A reasonable value should be chosen based on the expected volume of firewall log events.

@@ -1,0 +1,30 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Authentication
+
+**Description:**
+The `DisablePasswordChange` policy in the registry controls whether domain users can change their passwords. If this policy is set to 1, users cannot change their passwords, which can have several negative consequences:
+
+- **Reduced Security:** Users who cannot change their passwords are more vulnerable to brute-force attacks and password theft.
+- **Inconvenience:** Users may be locked out of their accounts if they forget their passwords or their passwords expire.
+- **Compliance Issues:** Organizations that are subject to regulatory requirements may be required to allow users to change their passwords.
+
+**Solution:**
+
+1. Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters
+```
+
+2. Locate the `DisablePasswordChange` value.
+
+3. Double-click the `DisablePasswordChange` value and set the value data to 0.
+
+4. Click OK to save the changes.
+
+5. Restart the server.
+
+**Additional Notes:**
+
+- If the `DisablePasswordChange` value does not exist, you can create it by right-clicking in the right pane and selecting **New** > **DWORD (32-bit) Value**. Name the new value `DisablePasswordChange` and set the value data to 0.
+- Organizations should implement a password policy that meets their specific security requirements and complies with any applicable regulations.

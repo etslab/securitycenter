@@ -1,0 +1,22 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A8: Software and Data Integrity Failures
+
+**Detailed Solution:**
+
+1. **Navigate to the Registry Key:**
+
+   - Open Registry Editor (regedit.exe).
+   - Navigate to: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb100d47d6a2d5f7d2daa51f51`
+
+2. **Create or Modify the ACSettingIndex Value:**
+
+   - Right-click in the right pane and select "New" > "DWORD (32-bit) Value".
+   - Name the value "ACSettingIndex".
+   - Set the Value data to `2` (decimal).
+
+**Explanation:**
+
+The ACSettingIndex value specifies the index of the power plan that is used when AC power is connected. By setting this value to 2, you are choosing the "Balanced" power plan, which provides a balance between performance and battery life.
+
+Modifying this value prevents unauthorized users from changing the power plan settings, ensuring that the server operates with appropriate power management settings. This helps protect the system from potential performance issues or security vulnerabilities that could arise from improper power management.

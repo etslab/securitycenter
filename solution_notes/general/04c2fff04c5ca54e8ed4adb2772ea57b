@@ -1,21 +1,43 @@
 **Severity:** Critical
 
-**OWASP Top 10 2021 Category:** Injection
+**OWASP Top 10 2021 Category:** Broken Access Control
 
 **Detailed Solution:**
 
-To fix CVE-2013-2566 in IIS Web Server, follow these steps:
+1. **Update Apache HTTP Server:**
+   - Upgrade to the latest version of Apache HTTP Server (2.4.52 or later).
 
-1. **Apply Microsoft security update:** Install the latest security updates from Microsoft that address CVE-2013-2566. These updates will patch the flaw in the IIS WebDavDAVRequest.ExecuteRequest() function.
+2. **Configure Access Control:**
+   - Edit the Apache configuration file (e.g., httpd.conf).
+   - Add the following directive to restrict access to sensitive files and directories:
 
-2. **Enable Request Filtering:** Configure Request Filtering in IIS to block malicious requests that exploit CVE-2013-2566. Specifically, enable the "Block webDAV requests" rule within the "Request Filtering" module.
+```
+<Directory "/path/to/sensitive/directory">
+    Order deny,allow
+    Deny from all
+</Directory>
+```
 
-3. **Disable WebDAV:** If you do not need WebDAV functionality, disable or remove the WebDAV module from IIS. This will prevent attackers from exploiting the vulnerability.
+3. **Disable Directory Listing:**
+   - Add the following directive to prevent directory listings:
 
-4. **Check for compromised systems:** Use a security scanner or other tools to scan your IIS web servers for signs of compromise. If a system has been compromised, remediate the infection and apply the security update.
+```
+Options -Indexes
+```
 
-5. **Use a web application firewall (WAF):** Implement a WAF in front of your IIS web servers to filter out malicious requests and block attacks that exploit CVE-2013-2566.
+4. **Use HTTP Strict Transport Security (HSTS):**
+   - Implement HSTS to prevent downgrade attacks.
+   - Add the following directive to the Apache configuration:
 
-6. **Follow secure coding practices:** Ensure that developers follow secure coding practices when developing web applications that use IIS. This includes validating input, using parameterized queries, and escaping special characters.
+```
+Header always set Strict-Transport-Security "max-age=31536000"
+```
 
-By implementing these measures, you can help protect your IIS web servers from attacks that exploit CVE-2013-2566.
+5. **Enable ModSecurity:**
+   - Install and enable ModSecurity to provide additional security.
+   - Configure ModSecurity rules to block suspicious requests.
+
+6. **Patch CVE-2013-2566:**
+   - If you cannot upgrade to the latest Apache version, apply the patch for CVE-2013-2566:
+   - For Debian/Ubuntu: `apt-get install apache2-security`
+   - For CentOS/Red Hat: `yum install mod_authz_core`

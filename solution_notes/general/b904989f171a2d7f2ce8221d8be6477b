@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Assessment:**
+
+The "CopyFilesPolicy" registry key in "HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows NT\Printers" specifies permissions for copying files from the print spooler service to a network location. Misconfigurations in this registry key can lead to unauthorized access to sensitive files in the print spooler. An attacker could exploit this vulnerability to gain access to sensitive data, such as financial records or confidential documents.
+
+**Solution:**
+
+To fix this issue, you can use the following steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key: HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows NT\Printers
+3. Right-click on the "CopyFilesPolicy" registry key and select "Modify".
+4. In the "Value data" field, enter the following value: 0x00000001
+5. Click "OK" to save changes.
+
+This value will disable file copying from the print spooler service to a network location, reducing the risk of unauthorized access to sensitive files.

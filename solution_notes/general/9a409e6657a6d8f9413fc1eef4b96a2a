@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A5: Broken Access Control
+
+**Description of the Issue:**
+
+The "fBlockNonDomain" registry setting determines whether non-domain users can access the Windows Content Management Service (WCMSvc), which manages Windows components like Windows Defender and Windows Update. By default, this setting is set to 0, allowing non-domain users to access these services. However, this can be a security risk as it allows external attackers to potentially compromise the system.
+
+**Solution:**
+
+To fix this issue, set the "fBlockNonDomain" registry setting to 1, which will prevent non-domain users from accessing WCMSvc. Here's how to do it:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy
+   ```
+3. On the right pane, double-click the "fBlockNonDomain" registry value.
+4. Set the "Value data" to 1.
+5. Click "OK" to save the changes.
+6. Restart the Windows Content Management Service.
+
+**Additional Notes:**
+
+* This setting only applies to Windows versions 10 and 11.
+* It is important to note that while this setting enhances security, it may also prevent legitimate non-domain users from accessing essential Windows services.
+* Organizations should carefully consider their security requirements before implementing this setting.

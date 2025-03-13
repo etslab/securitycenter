@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Solution:**
+
+1. **Identify the affected Apache server:** Determine which Apache server has the `rpath` set.
+2. **Edit the Apache configuration file:** Locate the Apache configuration file (typically named `httpd.conf`) and search for the `rpath` directive.
+3. **Remove or update the `rpath` directive:** Remove the `rpath` directive or update it to include only trusted directories.
+4. **Restart the Apache server:** Restart the Apache server to apply the changes.
+
+**Example configuration:**
+
+```
+# Remove the rpath directive if it exists
+RPathRemove /bad/path
+```
+
+**Additional Notes:**
+
+* The `rpath` directive in Apache specifies the search path for shared libraries. If the `rpath` is set to an untrusted directory, it could allow an attacker to load malicious shared libraries and compromise the server.
+* The severity of this issue is high because it can lead to a remote code execution vulnerability if the `rpath` is set to an untrusted directory.
+* To prevent this issue, it is recommended to remove the `rpath` directive or set it to include only trusted directories.

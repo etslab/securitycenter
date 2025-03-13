@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+The android_webview component in Apache Server allows untrusted input to be passed to JavaScript code. This can lead to a variety of vulnerabilities, including:
+
+* Cross-site scripting (XSS)
+* Remote code execution (RCE)
+* Data exfiltration
+
+To fix this issue, you should disable the android_webview component in Apache Server by adding the following line to your .htaccess file:
+
+```
+AddHandler None android-webview
+```
+
+You should also review the code that uses the android_webview component to ensure that it is not vulnerable to any of the attacks listed above.
+
+**Additional Information:**
+
+The android_webview component is no longer supported by Apache Server. It is recommended that you use a more secure alternative, such as the Chromium Embedded Framework (CEF).

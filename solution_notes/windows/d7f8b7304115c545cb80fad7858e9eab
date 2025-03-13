@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Edit the Registry:**
+   - Navigate to the following registry key: `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows NT\Printers\`
+   - Create a new DWORD value named `DisableWebPnPDownload` if it doesn't exist.
+   - Set the value to `1` to disable the vulnerability.
+
+2. **Apply the GPO (Optional):**
+   - If you use Group Policy, you can apply the registry change through a GPO to target multiple systems.
+   - Create a new GPO and link it to the affected OU.
+   - Navigate to **Computer Configuration > Policies > Administrative Templates > Printers > Point and Print Restrictions**.
+   - Enable the policy "Disable Web-based printing using Point and Print technology" and set the value to "Enabled".
+
+**Explanation:**
+
+The Policy DisableWebPnPDownload prevents threat actors from downloading malicious printer drivers over the web. Without this policy, attackers could trick users into downloading these drivers, potentially granting them remote code execution on the affected system.

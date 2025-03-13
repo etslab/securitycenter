@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of top_level_portion1.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of top_level_portion1.zip in apache web server can be fixed by the following steps:
+
+1. Identify the outdated dependencies in top_level_portion1.zip by using a dependency scanner.
+2. Update the outdated dependencies to the latest versions.
+3. Remove any unused dependencies.
+4. Test the application to make sure that it is still working properly after the dependencies have been updated.
+
+This issue belongs to the **A2: Broken Authentication** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that allow an attacker to bypass the authentication mechanisms of a web application and gain unauthorized access to the application or its resources.
+
+In the case of the App Dependencies issue, an attacker could exploit a vulnerability in an outdated dependency to gain unauthorized access to the web application. This is because outdated dependencies may contain known vulnerabilities that have been patched in newer versions.
+
+To mitigate this risk, it is important to keep all dependencies up to date and to remove any unused dependencies. It is also important to use a dependency scanner to identify any outdated or vulnerable dependencies in your application.
+
+Here are some additional tips for fixing App Dependencies issues:
+
+* Use a dependency management tool to manage your application's dependencies. This will help you to ensure that all of your dependencies are up to date and that you are not using any outdated or vulnerable dependencies.
+* Keep your dependencies up to date. This can be done by regularly checking for new versions of your dependencies and updating them as needed.
+* Remove any unused dependencies. This will help to reduce the attack surface of your application.
+* Use a dependency scanner to identify any outdated or vulnerable dependencies in your application. This can be done manually or by using a continuous integration/continuous delivery (CI/CD) pipeline.
+
+By following these tips, you can help to protect your web application from App Dependencies issues and other security vulnerabilities.

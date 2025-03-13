@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2: Broken Authentication
+
+**Description:**
+The DenyDeviceClasses policy in the Windows Registry allows an attacker to prevent the installation of certain device classes on the system. This could be used to block the installation of security updates or other critical software, potentially exposing the system to vulnerabilities.
+
+**Solution:**
+To fix this issue, you can create or modify the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions\DenyDeviceClasses
+```
+
+Add the following DWORD value to the key:
+
+```
+Name: AllowDeviceClasses
+Value: 1
+```
+
+This will allow the installation of all device classes on the system.
+
+**Additional Information:**
+This issue is related to OWASP Top 10 2021 category A2: Broken Authentication because it involves the ability to bypass security controls and install malicious software on the system.

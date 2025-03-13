@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** CORS Misconfiguration
+
+**Solution:**
+
+To fix this issue, the PreventOverride value in the registry key must be set to 1. This can be done using the following steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\PhishingFilter`
+3. Right-click on the PreventOverride value and select Modify.
+4. Set the Value data to 1 and click OK.
+5. Close the Registry Editor.
+
+**Explanation:**
+
+The PreventOverride registry key controls whether users can override the phishing filter settings in Internet Explorer. If this key is set to 0, users can override the settings and disable the phishing filter. This can expose the user to phishing attacks.
+
+By setting the PreventOverride value to 1, you are preventing users from overriding the phishing filter settings and ensuring that the phishing filter is always enabled. This will help to protect users from phishing attacks.

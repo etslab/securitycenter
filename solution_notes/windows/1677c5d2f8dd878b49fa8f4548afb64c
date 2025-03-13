@@ -1,0 +1,29 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A5: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Navigate to the Registry Editor:**
+   - Press Windows Key + R and type "regedit".
+2. **Locate the Policy Key:**
+   - Navigate to the following registry key:
+     - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC`
+3. **Create or Modify the RpcTcpPort Value:**
+   - Right-click in the right pane and select "New" > "DWORD (32-Bit) Value".
+   - Name the new value "RpcTcpPort".
+   - Double-click on the "RpcTcpPort" value and set the following:
+     - Value data: `5986`
+     - Base: `Decimal`
+4. **Restart the Print Spooler Service:**
+   - Open the Services console (services.msc).
+   - Find the "Print Spooler" service.
+   - Restart the service.
+
+**Additional Notes:**
+
+The Policy RpcTcpPort value specifies the TCP port that the RPC print spooler service listens on. By default, this port is randomly assigned. However, some vulnerabilities can exploit this randomness. Setting the port to a specific value (5986 in this case) mitigates this risk.
+
+**Rationale for Severity Level:**
+
+This issue is assigned a medium severity rating because it involves a potential vulnerability related to remote procedure call (RPC) communications in the print spooler service. While it is not a critical vulnerability, it could be exploited to gain unauthorized access to the server, which could have a moderate impact on confidentiality, integrity, and availability.

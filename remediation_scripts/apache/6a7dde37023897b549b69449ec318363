@@ -1,0 +1,40 @@
+####patch script to remediate  Modern Web Application in Apache HTTP Server
+Sure, here is a patch script to remediate Modern Web Application in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+  echo "Apache is running, stopping..."
+  service httpd stop
+fi
+
+# Update Apache to the latest version
+apt-get update
+apt-get install -y apache2
+
+# Configure Apache for Modern Web Application
+echo "ServerName localhost" > /etc/apache2/conf-available/modern-web-application.conf
+a2enconf modern-web-application
+
+# Restart Apache
+service httpd start
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+  echo "Apache is running, success!"
+else
+  echo "Apache failed to start, check logs for errors."
+fi
+```
+
+This patch script will first check if Apache is running. If it is, it will stop Apache. Next, the script will update Apache to the latest version. Finally, the script will configure Apache for Modern Web Application and restart Apache.
+
+Here are some additional steps you can take to further secure your Apache HTTP Server:
+
+* Enable mod_security. Mod_security is a web application firewall that can help to protect your server from common attacks.
+* Enable mod_ssl. Mod_ssl provides support for secure connections over HTTPS.
+* Use strong passwords for all accounts on your server.
+* Keep your software up to date. Software updates often include security patches that can help to protect your server from attack.
+* Monitor your server for suspicious activity. Use a security monitoring solution to keep an eye on your server for signs of attack.

@@ -1,0 +1,26 @@
+###How to fix the App Dependencies issue of minimatch:3.0.4 of pkg:npm/minimatch@3.0.4 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of minimatch:3.0.4 of pkg:npm/minimatch@3.0.4 in apache web server, you can follow these steps:
+
+1. Update the minimatch package to a newer version. You can do this by running the following command:
+
+```
+npm update minimatch
+```
+
+2. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1 - Injection**. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an application. This can lead to unauthorized access, data loss, or other security vulnerabilities.
+
+To learn more about OWASP Top 10 Web 2021, please visit the following website:
+
+```
+https://owasp.org/www-project-top-ten/
+```
+
+Here are some additional tips for preventing injection flaws:
+
+* Use prepared statements or parameterized queries to avoid SQL injection attacks.
+* Sanitize all user input before it is used in an application.
+* Use a web application firewall (WAF) to help protect against XSS attacks.
+
+By following these tips, you can help to protect your web applications from injection flaws.

@@ -1,0 +1,15 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-6109
+CVE-2019-6109 is a remote code execution vulnerability in the Apache HTTP Server. It is caused by a flaw in the way the server handles HTTP/2 requests. An attacker can exploit this vulnerability to execute arbitrary code on the server.
+
+To fix this vulnerability, you should upgrade to the latest version of the Apache HTTP Server. You can find the latest version on the Apache website.
+
+This vulnerability belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is inserted into an application. This can allow attackers to execute arbitrary code on the server or steal sensitive data.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements to prevent SQL injection attacks.
+* Use a web application firewall (WAF) to help protect against XSS attacks.
+* Validate all user input before using it in your application.
+* Educate your users about the dangers of social engineering attacks, such as phishing emails.
+
+By following these tips, you can help protect your web application from injection attacks.

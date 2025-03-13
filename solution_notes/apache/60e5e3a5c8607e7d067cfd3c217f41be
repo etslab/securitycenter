@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+
+CVE-2013-0169 is a vulnerability in Apache Http Server that allows an unauthenticated remote attacker to gain access to sensitive files. An attacker can exploit this vulnerability by sending a specially crafted request to the server. Successful exploitation of this vulnerability could allow the attacker to view sensitive information, such as user credentials or website content.
+
+**Solution:**
+
+To fix this issue, you can apply the following patch provided by Apache:
+
+https://httpd.apache.org/security/vulnerabilities_2_4.html#CVE-2013-0169
+
+Additionally, you can take the following steps to mitigate the risk of this vulnerability:
+
+* Limit access to the sensitive files by configuring appropriate file permissions.
+* Use a firewall to block unauthorized access to the server.
+* Regularly update the Apache Http Server software to the latest version.

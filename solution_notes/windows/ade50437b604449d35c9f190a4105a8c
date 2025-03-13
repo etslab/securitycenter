@@ -1,0 +1,19 @@
+**Severity:** High
+
+**Category:** Injection
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows\AppHost`
+3. Right-click on the "AppHost" key and select "New" -> "DWORD (32-bit) Value".
+4. Name the new DWORD value as "DisableMPSSVCPolicy".
+5. Double-click on the "DisableMPSSVCPolicy" value and set its value data to "1".
+6. Click "OK" to save the changes.
+7. Restart the Web Server service.
+
+**Explanation:**
+
+The MPSSVC Rule-Level Policy Change in Registry Policy Change vulnerability allows an attacker to modify the registry settings of a web server, which could lead to the execution of arbitrary code or denial of service. The vulnerability is caused by the fact that the web server does not properly validate the input received from clients, which can allow an attacker to inject malicious code into the registry.
+
+The solution provided above disables the MPSSVC Rule-Level Policy Change in Registry Policy Change vulnerability by setting the "DisableMPSSVCPolicy" registry value to "1". This prevents the web server from executing any code that is injected into the registry by an attacker.

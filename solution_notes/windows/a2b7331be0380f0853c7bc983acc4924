@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A07: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Install security updates:** Ensure that the Windows web server is up to date with the latest security patches from Microsoft.
+2. **Configure Service Principal Names (SPNs):** Register SPNs for the Kerberos service accounts used by the web server. This will restrict the use of service tickets to authorized accounts.
+3. **Limit Kerberos Delegation:** Configure the web server to only allow Kerberos delegation to specific hosts or domains. This will prevent unauthorized access to the server.
+4. **Enable Credential Guard:** This feature in Windows helps protect Kerberos tickets from unauthorized access.
+5. **Audit Kerberos Events:** Enable auditing for Kerberos events to detect any suspicious activity.
+6. **Implement Multi-Factor Authentication (MFA):** Require MFA for all users accessing the web server to add an additional layer of security.
+7. **Disable Legacy Protocols:** Disable insecure authentication protocols like NTLM to force the use of Kerberos.
+
+**Additional Recommendations:**
+
+* Regularly review user permissions and revoke access for inactive accounts.
+* Implement a vulnerability management program to identify and patch security vulnerabilities.
+* Enforce strong password policies and consider using password managers.

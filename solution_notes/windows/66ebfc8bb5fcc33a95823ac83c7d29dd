@@ -1,0 +1,36 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Enable Windows File Protection (WFP):** WFP protects system files from unauthorized modification.
+   - Open "Windows Security" and go to "Device security" > "Security processor details" > "Core isolation details".
+   - Turn on "Memory integrity".
+
+2. **Configure Registry Permissions:**
+   - Open "Registry Editor" (regedit.exe).
+   - Navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa`.
+   - Right-click on "Lsa" and select "Permissions".
+   - Remove "Everyone" group from the list if it exists.
+   - Add the "Administrators" group with "Full Control" permissions.
+
+3. **Use Strong Registry Hive Permissions:**
+   - Navigate to `HKEY_LOCAL_MACHINE\SYSTEM`.
+   - Right-click on each subkey (e.g., MountedDevices, Select, Setup) and select "Permissions".
+   - Remove "Everyone" and "Users" groups.
+   - Add the "Administrators" group with "Full Control" permissions.
+
+4. **Disable Registry Editing via GPO:**
+   - Open "Group Policy Management Editor" (gpedit.msc).
+   - Go to "Computer Configuration" > "Policies" > "Administrative Templates" > "System" > "Registry".
+   - Enable "Prevent access to registry editing tools" policy.
+
+5. **Monitor Registry Changes:**
+   - Use tools like Sysmon or Windows Event Viewer to monitor for suspicious registry modifications.
+
+**Additional Considerations:**
+
+* Keep the server updated with the latest security patches.
+* Use a web application firewall (WAF) to block malicious requests and protect sensitive data.
+* Implement regular security audits to identify and address vulnerabilities.

@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2: Broken Access Control
+
+**Detailed Solution:**
+
+**1. Identify and Configure the Policy:**
+
+* Locate the Policy DefaultInboundAction in the following registry key:
+  ```
+  HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+  ```
+* Double-click on "DefaultInboundAction" and set its value to "Block" (1).
+
+**2. Restart the Firewall Service:**
+
+* Open the Command Prompt as an administrator and run the following command:
+  ```
+  net stop mpssvc
+  net start mpssvc
+  ```
+
+**Additional Considerations:**
+
+* Ensure that this configuration does not interfere with legitimate traffic.
+* Consider implementing additional security measures, such as using a web application firewall (WAF) or intrusion detection system (IDS).
+
+**Explanation:**
+
+By default, the Public Profile firewall policy in Windows allows inbound traffic. However, this can pose a security risk, as attackers could exploit this to gain access to your server. Setting the DefaultInboundAction to "Block" ensures that all inbound traffic is blocked, preventing unauthorized access attempts. Furthermore, this setting aligns with the OWASP Top 10 2021 category of "Broken Access Control," which emphasizes the importance of properly configuring access controls to prevent unauthorized access to systems and data.

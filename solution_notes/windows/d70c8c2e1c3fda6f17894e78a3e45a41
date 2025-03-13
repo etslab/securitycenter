@@ -1,0 +1,27 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A05: Security Misconfiguration
+
+**Description:**
+
+The NetBIOS over TCP/IP (NetBT) service is not properly configured, which can expose the server to remote attacks. The Policy NodeType registry key determines the behavior of NetBT.
+
+**Solution:**
+
+1. **Set the Policy NodeType to 1:**
+
+   ```
+   reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NetBT\Parameters" /v PolicyNodeType /t REG_DWORD /d 1
+   ```
+
+2. **Restart the NetBT service:**
+
+   ```
+   net stop NetBT
+   net start NetBT
+   ```
+
+**Additional Mitigation:**
+
+* Disable NetBT if it's not needed.
+* Ensure the firewall is properly configured to block unauthorized access to NetBT ports (TCP 139 and 445).

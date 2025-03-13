@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Detailed Solution:**
+
+1. Open Internet Information Services (IIS) Manager.
+2. Select the website or application for which you want to configure cache control.
+3. Right-click on the website or application and select "Properties".
+4. In the "Properties" window, select the "HTTP Response Headers" tab.
+5. Click the "Add..." button.
+6. In the "Name" field, enter "Cache-Control".
+7. In the "Value" field, enter the desired cache-control directive. For example, to prevent the browser from caching the response, enter "no-cache".
+8. Click the "OK" button to save your changes.
+
+**Additional Notes:**
+
+* The Cache-Control header is used to control how browsers and proxies cache responses from your web server.
+* Improper configuration of the Cache-Control header can lead to security vulnerabilities such as cache poisoning and information disclosure.
+* It is important to carefully consider the appropriate cache-control directives for your specific application.

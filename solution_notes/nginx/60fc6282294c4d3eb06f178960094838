@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Solution:**
+
+* **Configure Character Set Encoding**: In the nginx configuration file, add the `charset` directive to specify the expected character encoding for requests and responses:
+
+```nginx
+charset utf-8;
+```
+
+* **Validate Input Encoding**: Use input validation mechanisms, such as encoding specific libraries or regular expressions, to ensure that incoming requests have the expected encoding.
+
+* **Set Content-Type Header**: Specify the correct `Content-Type` header in the response with the appropriate character set, such as `text/html; charset=utf-8`.
+
+* **Disable Multibyte Characters**: If possible, disable the use of multibyte characters in user input and responses. This can be done by setting `multibyte_support off;` in the nginx configuration file.
+
+**Additional Measures:**
+
+* **Use a Web Application Firewall (WAF)**: A WAF can detect and block malicious payloads that attempt to exploit character encoding vulnerabilities.
+* **Regularly Update Software**: Keep nginx and any related libraries up to date with the latest security patches.
+* **Monitor Logs**: Monitor nginx logs for any suspicious activity or errors related to character encoding.

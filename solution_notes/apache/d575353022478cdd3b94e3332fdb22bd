@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of pax-path-hdr.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pax-path-hdr.tar in Apache web server, you can follow these steps:
+
+1. Download the latest version of the pax-path-hdr.tar file from the Apache website.
+2. Untar the file to a directory of your choice.
+3. Edit the file `conf/httpd.conf` and add the following line to the `[VirtualHost]` section for the affected site:
+
+```
+LoadModule pax_path_hdr_module modules/mod_pax_path_hdr.so
+```
+
+4. Restart Apache.
+
+This issue belongs to the OWASP Top 10 2021 category of **A1 - Injection**. Injection vulnerabilities allow an attacker to inject arbitrary code into a vulnerable application, which can then be executed by the application's users. In this case, the attacker could inject code that would allow them to bypass security controls or gain unauthorized access to the application.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements instead of dynamic SQL.
+* Sanitize all user input before using it in an application.
+* Use input validation libraries to help you sanitize user input.
+* Keep your application software up to date with the latest security patches.
+
+By following these tips, you can help to prevent injection vulnerabilities in your applications.

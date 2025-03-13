@@ -1,0 +1,37 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+**Step 1: Understand the Issue**
+
+The issue stems from the fact that the Service (androidx.work.impl.background.systemjob.SystemJobService) is exported (android:exported="true") and protected by the permission android.permission.BIND_JOB_SERVICE. However, the protection level of the permission is not checked, allowing anyone with the permission to bind to the service.
+
+**Step 2: Fix the Issue**
+
+To fix the issue, you need to add a permission check to the service so that only authorized apps can bind to it. This can be done by adding the following code to the manifest file:
+
+```xml
+<service
+    android:name="androidx.work.impl.background.systemjob.SystemJobService"
+    android:permission="android.permission.BIND_JOB_SERVICE"
+    android:exported="true" >
+    <intent-filter>
+        <action android:name="android.intent.action.BIND_JOB_SERVICE" />
+    </intent-filter>
+</service>
+```
+By adding the android:permission attribute, you are ensuring that only apps with the android.permission.BIND_JOB_SERVICE permission can bind to the service.
+
+**Step 3: Test the Fix**
+
+Once you have made the changes, you should test your application to ensure that it works as expected. You can use the following steps to test the fix:
+
+1. Install the updated APK on a device or emulator.
+2. Use an app that has the android.permission.BIND_JOB_SERVICE permission to try to bind to the service.
+3. Verify that the app is able to bind to the service and perform the desired actions.
+
+**Step 4: Re-scan for Vulnerabilities**
+
+After making the changes, you should re-scan your application for vulnerabilities to ensure that the issue has been resolved.

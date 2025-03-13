@@ -1,0 +1,18 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Sensitive Data Exposure
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters`
+3. Create a new DWORD value named `EnableSMB1` (if it does not exist).
+4. Set the value of `EnableSMB1` to 0.
+5. Close the Registry Editor.
+6. Restart the web server.
+
+**Explanation:**
+
+SMB1 (Server Message Block 1) is an insecure file sharing protocol that is vulnerable to various attacks, including the "EternalBlue" exploit. By disabling SMB1, you can significantly reduce the risk of these attacks.
+
+It is important to note that disabling SMB1 may affect compatibility with older systems that do not support more secure protocols such as SMB2 or SMB3. You should carefully consider the potential impact on your environment before disabling SMB1.

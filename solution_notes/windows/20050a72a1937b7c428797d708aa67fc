@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Impact:**
+
+* Allows attackers to access shared network resources without authentication.
+* Compromises the confidentiality and integrity of sensitive data on the network.
+
+**Detailed Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+    ```
+    HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\LanmanWorkstation
+    ```
+3. Create a new DWORD value (32-bit) named "AllowInsecureGuestAuth."
+4. Set its value to 0 (disabled).
+5. Restart the server for the changes to take effect.
+
+**Additional Information:**
+
+* The AllowInsecureGuestAuth policy specifies whether Windows can allow insecure guest authentication.
+* When this policy is enabled, Windows can allow anonymous users to access shared network resources without authentication.
+* Disabling this policy ensures that only authenticated users can access shared network resources.

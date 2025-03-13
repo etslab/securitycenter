@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+
+The HVCIMATRequired registry value in HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard controls the enforcement of Hypervisor-protected Code Integrity (HVCI). HVCI is a security feature that protects against unauthorized code execution by enforcing code signing requirements. If this registry value is not set to 1, HVCI will not be enforced, allowing malicious code to execute on the system.
+
+**Solution:**
+
+1. Open the Registry Editor by pressing Windows key + R and typing "regedit".
+2. Navigate to the following key: `HKLM\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard`
+3. Create a new DWORD value named "HVCIMATRequired".
+4. Set the value data to 1.
+
+**Additional Notes:**
+
+* This issue falls under the Broken Access Control category of OWASP Top 10 2021 because it allows unauthorized access to sensitive system resources.
+* Setting HVCIMATRequired to 1 does not guarantee complete protection against code injection attacks. Other security measures should also be implemented.
+* It is important to note that HVCI may not be compatible with all hardware and software configurations. Before enabling HVCI, consult the Microsoft documentation for compatibility information.

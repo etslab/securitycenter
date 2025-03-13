@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+
+Registry Detailed Tracking is a feature in Windows that logs changes made to the registry. The Policy Process Creation setting allows you to control how the system logs these changes. If this setting is misconfigured, it can allow unauthorized users to modify the registry without being detected.
+
+**Solution:**
+
+To fix this issue, you need to configure the Policy Process Creation setting to the appropriate value. The recommended value is "Audit Success and Failure." This will ensure that all registry changes are logged, regardless of whether they are successful or not.
+
+To configure this setting:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Lsa`
+3. Double-click on the "AuditBaseObjects" value.
+4. In the "Value data" field, add the following DWORD values:
+
+    * `0x10 (AUDIT_SUCCESS)`
+    * `0x20 (AUDIT_FAILURE)`
+
+5. Click OK.
+
+**Additional Information:**
+
+This issue can be exploited by attackers to gain unauthorized access to the system or to modify the registry in a way that could compromise the security of the server. It is important to configure the Policy Process Creation setting correctly to mitigate this risk.

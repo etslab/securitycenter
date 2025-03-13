@@ -1,0 +1,33 @@
+####patch script to remediate  CVE-2021-44224 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2021-44224 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [[ $(pgrep httpd) ]]; then
+
+  # Check the version of Apache
+  httpd_version=$(apachectl -V | awk '{print $2}')
+
+  # If Apache is vulnerable, patch it
+  if [[ $httpd_version -lt 2.4.52 ]]; then
+    echo "Patching Apache HTTP Server..."
+    echo "Downloading patch..."
+    wget https://downloads.apache.org/httpd/source/patches/2.4/CVE-2021-44224.patch
+    echo "Applying patch..."
+    patch -p1 < CVE-2021-44224.patch
+    echo "Restarting Apache..."
+    systemctl restart httpd
+  else
+    echo "Apache is not vulnerable."
+  fi
+
+else
+  echo "Apache is not running."
+fi
+```
+
+This patch script will download the patch for CVE-2021-44224 from the Apache HTTP Server website, apply the patch, and restart Apache. If Apache is not running, the script will print a message stating that Apache is not running.
+
+Please note that this is just an example patch script. You may need to modify it to fit your specific environment.

@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A05: Broken Access Control
+
+**Solution:**
+
+1. Navigate to the following registry key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
+   ```
+
+2. Create a new DWORD (32-bit) value named `EnableVirtualizationBasedSecurity`.
+
+3. Set the value data to `1`.
+
+4. Restart the server.
+
+**Justification:**
+
+Enabling Virtualization Based Security (VBS) strengthens the server's defense against malicious attacks by isolating security-critical components from the rest of the operating system. VBS creates a secure enclave that shields the guest operating system and virtual machine monitor from manipulation by malicious software.
+
+By default, VBS is disabled. Enabling it significantly enhances the server's security posture by preventing attackers from compromising the guest operating system, disrupting system processes, or exfiltrating sensitive information.

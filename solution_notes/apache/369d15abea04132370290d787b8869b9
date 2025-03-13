@@ -1,0 +1,28 @@
+###How to fix the App Dependencies issue of jquery.dataTables.min.js of pkg:javascript/jquery.datatables@1.10.20 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of jquery.dataTables.min.js of pkg:javascript/jquery.datatables@1.10.20 in Apache web server, you can follow these steps:
+
+1. Install the latest version of jQuery DataTables. You can do this by running the following command:
+```
+npm install jquery.datatables@latest
+```
+
+2. Update the reference to jQuery DataTables in your web application. In your HTML file, change the following line:
+```
+<script src="jquery.dataTables.min.js"></script>
+```
+to:
+```
+<script src="node_modules/jquery.datatables/dist/jquery.dataTables.min.js"></script>
+```
+
+3. Restart your Apache web server.
+
+This issue belongs to the OWASP Top 10 2021 category of **Using Components with Known Vulnerabilities**. This category includes vulnerabilities in third-party components that are used in web applications. These vulnerabilities can be exploited by attackers to gain access to a web application or to modify its behavior.
+
+By updating to the latest version of jQuery DataTables, you can help to protect your web application from these vulnerabilities.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Use a dependency management tool to track and manage the dependencies in your web application. This will help you to ensure that you are using the latest versions of all of your dependencies.
+* Regularly scan your web application for known vulnerabilities. This will help you to identify and fix any vulnerabilities in your dependencies.
+* Keep your web application up to date. This will help to ensure that you are using the latest security patches for your web application.

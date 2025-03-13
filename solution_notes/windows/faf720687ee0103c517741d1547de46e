@@ -1,0 +1,29 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** None (this issue does not directly map to any OWASP Top 10 category)
+
+**Solution:**
+
+To fix this issue, set the Policy EnableMulticast to 0 in the Registry Software-Policies-Microsoft-Windows NT-DNSClient.
+
+**Detailed solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient
+```
+
+3. In the right pane, locate the **EnableMulticast** DWORD value.
+4. Double-click the EnableMulticast DWORD value.
+5. In the Value data field, enter **0**.
+6. Click OK.
+7. Close the Registry Editor.
+
+**Additional notes:**
+
+* The EnableMulticast DWORD value controls whether the DNS client will listen for and respond to multicast DNS queries.
+* Setting EnableMulticast to 0 will disable multicast DNS support on the system.
+* Multicast DNS is a protocol that allows devices on a network to discover each other without the need for a DNS server.
+* Disabling multicast DNS may impact the ability of some devices to discover each other on the network, such as smart TVs or printers.

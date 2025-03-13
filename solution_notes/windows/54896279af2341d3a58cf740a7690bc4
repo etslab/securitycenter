@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Issue:**
+The SYSVOL folder in the Policy registry key is not hardened, allowing an attacker to potentially modify group policies and execute arbitrary code on the system.
+
+**Solution:**
+To fix this issue, follow these steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkProvider\HardenedPaths**.
+3. Create a new DWORD value named "SYSVOL".
+4. Set the value data to **1**.
+5. Restart the computer.
+
+Once this change is made, the SYSVOL folder will be hardened, preventing attackers from modifying group policies and executing arbitrary code on the system.
+
+**Additional Information:**
+Hardening paths is a security feature that helps prevent unauthorized access to critical system folders. By default, certain folders such as SYSVOL are not hardened, which can allow attackers to exploit them to gain control of the system. Hardening these folders makes it more difficult for attackers to access them and execute malicious code.

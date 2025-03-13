@@ -1,0 +1,24 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+
+The `php:S5842` SonarQube rule detects the use of static method calls on `htmlspecialchars()` and `htmlentities()` functions without providing an encoding argument. This can lead to XSS vulnerabilities if the input is not properly encoded before being displayed.
+
+**Solution:**
+
+To fix this issue, ensure that the `htmlspecialchars()` and `htmlentities()` functions are always called with an encoding argument. For example:
+
+```php
+htmlspecialchars($input, ENT_QUOTES, 'UTF-8');
+htmlentities($input, ENT_QUOTES, 'UTF-8');
+```
+
+**Note:** Depending on your environment, you may need to adjust the `ENT_QUOTES` flag to `ENT_COMPAT` or `ENT_NOQUOTES`.
+
+**Additional Information:**
+
+The `htmlspecialchars()` and `htmlentities()` functions are used to encode special characters in a string to prevent them from being interpreted as HTML code. If these functions are not called with an encoding argument, the default encoding will be used, which may not be appropriate for your application.
+
+By specifying an encoding argument, you can ensure that the characters are encoded in a way that is compatible with your application and prevents XSS vulnerabilities.

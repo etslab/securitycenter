@@ -1,0 +1,18 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Sensitive Data Exposure
+
+**Description:**
+Policy File Share in Registry Object Access allows unauthorized users to access sensitive information in the Windows Registry, including usernames, passwords, and other confidential data. This can lead to a loss of data confidentiality and potential security breaches.
+
+**Solution:**
+To fix this issue, disable Policy File Share in Registry Object Access by following these steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`
+3. Double-click the "NtfsDisableAccessBasedEnumeration" value and change its data to "1".
+4. Close the Registry Editor.
+5. Reboot the server.
+
+**Additional Information:**
+This setting is only effective when the server is running Windows Server 2012 or later. It is recommended to disable Policy File Share in Registry Object Access to mitigate the risk of unauthorized data access.

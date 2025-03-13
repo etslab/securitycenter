@@ -1,0 +1,42 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Solution:**
+
+1. **Open the Registry Editor (regedit):** Press Windows Key + R and type "regedit". Click OK.
+
+2. **Navigate to the following registry key:**
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+```
+
+3. **Locate the following value:**
+```
+UserDomain
+```
+
+4. **Check the value data:** It should be empty or should contain the domain name of the user account. If it contains a value other than the domain name or if it is missing, this indicates a potential issue.
+
+5. **If the value is not empty or does not contain the domain name:**
+   - Double-click on the "UserDomain" value and clear it.
+   - Click OK to save the changes.
+
+6. **Locate the following value:**
+```
+UserInit
+```
+
+7. **Check the value data:** It should point to the legitimate userinit.exe file (%systemroot%\system32\userinit.exe). If it points to a different file, this indicates a potential issue.
+
+8. **If the value points to a different file:**
+   - Double-click on the "UserInit" value and change it to "%systemroot%\system32\userinit.exe".
+   - Click OK to save the changes.
+
+9. **Close the Registry Editor.**
+
+**Additional Considerations:**
+
+* Ensure that the computer account is not a member of any unauthorized groups.
+* Regularly review and audit Registry settings for suspicious changes.
+* Implement security measures such as intrusion detection systems and firewalls to protect against unauthorized registry modifications.

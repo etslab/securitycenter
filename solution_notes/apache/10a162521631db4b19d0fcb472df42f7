@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of gui-64.exe in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gui-64.exe in apache web server, you can try the following steps:
+
+1. Stop the Apache web server.
+2. Delete the gui-64.exe file from the Apache installation directory.
+3. Download the latest version of the gui-64.exe file from the Apache website.
+4. Reinstall the Apache web server.
+
+Once the Apache web server has been reinstalled, the App Dependencies issue should be resolved.
+
+The App Dependencies issue of gui-64.exe in apache web server belongs to the OWASP Top 10 Web 2021 category of **A1 - Injection**. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. This can be done by exploiting vulnerabilities in the application's code, or by using a SQL injection attack.
+
+To prevent this type of vulnerability, it is important to use a web application firewall (WAF) to filter out malicious traffic. It is also important to keep the web application's code up to date, and to use a secure coding methodology.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Use a web application firewall (WAF) to filter out malicious traffic.
+* Keep the web application's code up to date.
+* Use a secure coding methodology.
+* Educate your developers about App Dependencies issues.
+* Test your web application for vulnerabilities.
+
+By following these tips, you can help to protect your web application from App Dependencies issues.

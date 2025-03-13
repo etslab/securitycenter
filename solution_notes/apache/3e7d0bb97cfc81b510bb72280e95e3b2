@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A03:2021 - Sensitive Data Exposure
+
+**Solution:**
+
+1. **Review the Policy ACSettingIndex:**
+   - Open Registry Editor (regedit.exe).
+   - Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\abfc2519-3608-4c2a-94ea-171b0ed546ab.
+   - Check the value of the Policy ACSettingIndex DWORD.
+
+2. **Set Policy ACSettingIndex:**
+   - If Policy ACSettingIndex is set to a value other than 0, reset it to 0.
+   - Right-click on Policy ACSettingIndex and select Modify.
+   - In the Value data field, enter 0.
+   - Click OK.
+
+3. **Restart the Server:**
+   - Restart the Apache server to apply the changes.
+
+**Additional Notes:**
+
+* Policy ACSettingIndex controls the power settings for the system.
+* Setting it to a non-zero value can override the default power settings and potentially allow an attacker to manipulate the system's power consumption.
+* Resetting it to 0 restores the default power settings and mitigates the risk.

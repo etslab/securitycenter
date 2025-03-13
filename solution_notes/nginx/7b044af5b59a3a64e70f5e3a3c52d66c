@@ -1,0 +1,20 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-10098 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2019-10098 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx, as of this writing, is 1.21.1. You can download the latest version from the nginx website.
+2. If you are unable to update your nginx web server to the latest version, you can mitigate the vulnerability by disabling the mod_rewrite module. To do this, open the nginx configuration file and comment out the following line:
+
+```
+include /etc/nginx/modules-enabled/mod_rewrite.conf;
+```
+
+3. Once you have updated your nginx web server or disabled the mod_rewrite module, you should scan your website for other vulnerabilities. You can use a web vulnerability scanner to do this.
+
+CVE-2019-10098 is a type of open redirect vulnerability. Open redirect vulnerabilities allow attackers to redirect users to arbitrary URLs. This can be used to steal sensitive information, such as passwords or credit card numbers. Open redirect vulnerabilities are a common type of web vulnerability. They are ranked as a medium severity vulnerability in the OWASP Top 10 Web Vulnerabilities 2021.
+
+Here are some additional things you can do to protect your website from open redirect vulnerabilities:
+
+* Use a web application firewall (WAF) to block known open redirect URLs.
+* Implement input validation to prevent attackers from injecting malicious code into your website.
+* Keep your software up to date with the latest security patches.
+* Monitor your website for signs of attack, such as unusual traffic patterns or changes in website behavior.

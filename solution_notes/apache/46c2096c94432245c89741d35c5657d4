@@ -1,0 +1,19 @@
+###How to fix the App Dependencies issue of pax-bad-mtime-file.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of pax-bad-mtime-file.tar in apache web server can be fixed by following these steps:
+
+1. Stop the Apache web server.
+2. Remove the pax-bad-mtime-file.tar file from the Apache installation directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1 - Injection**. Injection flaws, such as SQL injection and cross-site scripting, occur when unvalidated or unfiltered user input is used to dynamically generate SQL statements or HTML code. This can allow attackers to execute arbitrary SQL commands or inject malicious code into a web application.
+
+To prevent this type of issue, it is important to properly validate and filter all user input before using it to generate dynamic content. This can be done using a variety of techniques, such as input validation libraries or regular expressions.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your software up to date. Software vendors often release security patches to fix vulnerabilities that could be exploited by attackers.
+* Use a web application firewall (WAF). A WAF can help to protect your web application from a variety of attacks, including injection attacks.
+* Implement proper security controls. This includes things like user authentication, authorization, and access control.
+* Educate your users about security risks. Users should be aware of the risks of clicking on malicious links or entering sensitive information into untrusted websites.
+
+By following these tips, you can help to protect your Apache web server from App Dependencies issues and other security threats.

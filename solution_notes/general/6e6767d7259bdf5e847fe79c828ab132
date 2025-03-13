@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of star.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of star.tar in apache web server can be fixed by following these steps:
+
+1. Stop the apache web server.
+2. Remove the star.tar file from the apache web server directory.
+3. Restart the apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "A3: Broken Access Control". This category includes vulnerabilities that allow attackers to access resources that they should not be able to access, such as sensitive data or system files.
+
+Here are some additional details about the App Dependencies issue:
+
+* The star.tar file is a tar archive that contains a number of applications that are not required by the apache web server.
+* If this file is not removed, it can be used by attackers to gain access to the apache web server and its underlying system.
+* This issue can be exploited by attackers who have access to the web server's filesystem.
+* To prevent this issue, it is important to remove the star.tar file from the apache web server directory.
+
+Here are some additional tips for preventing OWASP Top 10 Web 2021 category of "A3: Broken Access Control" vulnerabilities:
+
+* Use role-based access control (RBAC) to restrict users' access to resources.
+* Use least privilege to only grant users the permissions they need to perform their job duties.
+* Implement proper input validation to prevent attackers from injecting malicious code into applications.
+* Use strong passwords and two-factor authentication to protect user accounts.
+* Keep software up to date with the latest security patches.
+* Monitor your system for suspicious activity.

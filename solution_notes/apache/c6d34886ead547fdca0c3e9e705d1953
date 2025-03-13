@@ -1,0 +1,29 @@
+**Severity: Critical**
+
+**OWASP Top 10 2021 Category: Sensitive Data Exposure**
+
+**Solution:**
+
+1. **Install Latest Security Updates:** Ensure that the Apache server is up to date with the latest security patches.
+2. **Disable Policy Central Access Policy Staging:** In the Apache server configuration file (httpd.conf):
+    - Locate the following line:
+      ```
+      LoadModule authnz_ldap_module modules/mod_authnz_ldap.so
+      ```
+    - Add the following line below it:
+      ```
+      LDAPReferrals Off
+      ```
+3. **Set Appropriate Access Control Rules:**
+    - Configure the Apache server to restrict access to the protected resources using appropriate access control rules.
+4. **Harden Apache Server Configuration:**
+    - Disable unnecessary modules and features in the Apache server configuration to reduce the attack surface.
+    - Configure rate limiting and IP address blacklisting to prevent brute-force attacks.
+5. **Monitor Regularly:**
+    - Regularly monitor Apache server logs for suspicious activity and audit the configuration to ensure it remains secure.
+
+**Additional Notes:**
+
+* This issue allows attackers to bypass authentication and access sensitive data.
+* It is recommended to apply the fix promptly to mitigate the security risk.
+* Consider using a web application firewall (WAF) to further protect the Apache server from malicious attacks.

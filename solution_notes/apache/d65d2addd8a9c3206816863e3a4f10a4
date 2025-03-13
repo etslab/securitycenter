@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A6: Configuration Errors
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+
+> `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions`
+
+3. Right-click in the right pane and select "New" > "DWORD (32-bit) Value".
+4. Name the new value "DenyDeviceClasses".
+5. Double-click the "DenyDeviceClasses" value and set the value data to 0.
+6. Click "OK" to save the changes.
+
+**Impact of the Issue:**
+
+The DenyDeviceClasses registry value allows administrators to restrict the installation of certain device classes. If this value is not set or is set incorrectly, it could allow users to install unauthorized devices. This could potentially lead to data breaches or other security incidents.
+
+**Remediation:**
+
+The recommended remediation is to set the DenyDeviceClasses registry value to 0. This will disable the restriction and allow users to install all device classes. Alternatively, administrators can set the value to a specific number to restrict the installation of certain device classes. For example, to restrict the installation of USB devices, set the value to 6.

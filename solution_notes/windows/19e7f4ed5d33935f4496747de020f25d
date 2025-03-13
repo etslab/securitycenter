@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Issue Description:**
+
+The Policy DriverLoadPolicy value in the Registry key `SYSTEM->CurrentControlSet->Policies->EarlyLaunch` controls which drivers are loaded early in the Windows boot process. If this value is not set correctly, it can allow malicious drivers to be loaded before security protections are in place.
+
+**Potential Impact:**
+
+* Malicious drivers can be loaded and used to compromise the system.
+* Attackers can gain elevated privileges and control of the system.
+* Data breaches and other security incidents can occur.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Policies\EarlyLaunch`
+3. In the right pane, double-click on the `DriverLoadPolicy` value.
+4. Set the value data to `0`.
+5. Click OK to save your changes.
+
+**Additional Information:**
+
+* The recommended value for `DriverLoadPolicy` is 0, which means that only signed drivers can be loaded early in the boot process.
+* To disable early driver loading altogether, you can set `DriverLoadPolicy` to 1.
+* For more information, see the Microsoft documentation on the DriverLoadPolicy registry value: https://docs.microsoft.com/en-us/windows-hardware/drivers/install/driverloadpolicy-registry-value

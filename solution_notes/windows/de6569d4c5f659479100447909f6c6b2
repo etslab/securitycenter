@@ -1,0 +1,17 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Server-Side Request Forgery (SSRF)
+
+**Solution:**
+
+1. **Enforce Least Privilege:** Ensure that the application pool identity for the web server has only the minimum necessary permissions. This will prevent it from accessing unauthorized Registry keys.
+2. **Disable Unnecessary Registry Keys:** Identify any Registry keys that are not required for the application to function and disable or remove them.
+3. **Implement Input Validation:** Validate all input data to ensure that it contains valid Registry keys and paths.
+4. **Use a Registry Lockdown Policy:** Implement a Group Policy to prevent unauthorized access to the Registry. This can be achieved by creating a Registry Lock Policy (RLP) and applying it to the web server.
+5. **Monitor Registry Access:** Monitor Registry access logs to detect any suspicious activity.
+
+**Additional Mitigation Measures:**
+
+* **Use a Web Application Firewall (WAF):** A WAF can filter out malicious requests and block SSRF attempts.
+* **Consider using a Virtual Private Server (VPS):** A VPS can provide better isolation and control over the Registry.
+* **Use a dedicated server:** A dedicated server provides greater flexibility and control over the Registry settings.

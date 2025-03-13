@@ -1,0 +1,17 @@
+###How to fix the Common Vulnerabilities issue of CVE-2021-26690
+CVE-2021-26690 is a vulnerability in the Apache HTTP Server that can be exploited to cause a denial of service. The vulnerability is caused by a NULL pointer dereference in the mod_session module. To fix the vulnerability, you should upgrade to Apache HTTP Server 2.4.47 or later.
+
+The CVE-2021-26690 vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection vulnerabilities occur when unvalidated data is inserted into an application in such a way that it can alter the application's behavior. This can lead to a variety of security problems, including data loss, data modification, and denial of service.
+
+To prevent injection vulnerabilities, it is important to validate all input data before it is used by the application. This can be done by using input validation filters, such as those provided by the OWASP ESAPI library. It is also important to use strong passwords and to keep the application software up to date with the latest security patches.
+
+Here are some additional steps you can take to protect your Apache web server from CVE-2021-26690 and other vulnerabilities:
+
+* Use a firewall to block unauthorized access to your web server.
+* Use a web application firewall (WAF) to scan for and block malicious traffic.
+* Keep your Apache web server software up to date with the latest security patches.
+* Use strong passwords for your Apache web server accounts.
+* Implement least privilege, so that users only have the access they need to perform their jobs.
+* Monitor your Apache web server for signs of attack, such as unusual traffic patterns or failed login attempts.
+
+By following these steps, you can help to protect your Apache web server from CVE-2021-26690 and other vulnerabilities.

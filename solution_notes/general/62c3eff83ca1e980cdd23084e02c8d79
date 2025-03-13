@@ -1,0 +1,30 @@
+**Severity of the Issue:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Identify the Root Cause:**
+   - Check if the "LogonLogoff" value in the registry under `HKLM\System\CurrentControlSet\Control\Lsa` is set to 0.
+
+2. **Configure the Registry:**
+   - Set the "LogonLogoff" value to 1 using the following command:
+   ```
+   reg add "HKLM\System\CurrentControlSet\Control\Lsa" /v LogonLogoff /t REG_DWORD /d 1
+   ```
+
+3. **Restart the Server:**
+   - Restart the Apache server for the changes to take effect.
+
+4. **Verify the Change:**
+   - Run a registry query to confirm that the "LogonLogoff" value is set to 1:
+   ```
+   reg query "HKLM\System\CurrentControlSet\Control\Lsa" /v LogonLogoff
+   ```
+
+**Additional Information:**
+
+* The "LogonLogoff" value controls whether the Windows Event Log is written when a user logs on or off.
+* By default, this value is set to 0, which means that no logging occurs.
+* Setting the value to 1 enables logging for both logon and logoff events.
+* This is a critical security measure because it allows administrators to track user activity and detect any suspicious or unauthorized access.

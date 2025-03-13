@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. Navigate to Registry Editor (Run -> regedit).
+2. Locate the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile`
+3. Create a new DWORD value named `Logging` and set its value to `1`.
+4. Click OK and close Registry Editor.
+
+This setting enables logging of dropped packets in Windows Firewall. This allows administrators to track and identify any potential security breaches or unauthorized access attempts.
+
+**Impact:**
+
+By not having this setting enabled, dropped packets are not logged, making it difficult to detect and respond to security incidents. Attackers can exploit this lack of visibility to gain unauthorized access or compromise the system.
+
+**To Verify the Fix:**
+
+1. Open Windows Firewall with Advanced Security.
+2. Click on "Windows Firewall Properties" in the left pane.
+3. Select the "Logging" tab.
+4. Verify that the "Log dropped packets" checkbox is selected.

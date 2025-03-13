@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of is-svg:3.0.0 of pkg:npm/is-svg@3.0.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of is-svg:3.0.0 of pkg:npm/is-svg@3.0.0 in nginx web server, you can follow these steps:
+
+1. Identify the package that is causing the dependency issue. In this case, it is the `is-svg` package.
+2. Update the `is-svg` package to the latest version. You can do this by running the following command in your terminal:
+
+```
+npm update is-svg
+```
+
+3. Restart your nginx web server.
+
+If you are still having problems, you can try the following:
+
+* Uninstall and reinstall the `is-svg` package.
+* Remove the `node_modules` directory and run `npm install` again.
+* Check the `is-svg` package's documentation to see if there are any specific requirements or instructions for using it in nginx.
+
+The App Dependencies issue of is-svg:3.0.0 of pkg:npm/is-svg@3.0.0 belongs to the **A1: Broken Access Control** category of the OWASP Top 10 Web Application Security Risks 2021. This category refers to security vulnerabilities that can occur when applications do not properly restrict access to resources. In the case of the `is-svg` package, an attacker could exploit a dependency issue to gain unauthorized access to sensitive data or functionality on your nginx web server.
+
+To mitigate this risk, it is important to keep your software up to date and to use a version control system to track changes to your code. You should also regularly review your code for security vulnerabilities.

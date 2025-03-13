@@ -1,0 +1,46 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A7: Cross-Site Request Forgery (CSRF)
+
+**Solution:**
+
+The issue arises because the Apache server is making a call to `crl.apple.com` without any restrictions on the location of the server. To fix this, you need to implement geo-blocking to restrict connections from sanctioned countries.
+
+**Detailed Steps:**
+
+1. **Install mod_geoip:**
+   - On Ubuntu/Debian: `sudo apt-get install libapache2-mod-geoip`
+   - On CentOS/Red Hat: `sudo yum install mod_geoip`
+2. **Enable mod_geoip:**
+   - In Apache configuration file (`/etc/apache2/httpd.conf`), uncomment the following line:
+   ```
+   LoadModule geoip_module modules/mod_geoip.so
+   ```
+3. **Create a .htaccess file:**
+   - Create a `.htaccess` file in the directory where the Apache server is restricted.
+4. **Add the following code to the .htaccess file:**
+   ```
+   # Block access from OFAC sanctioned country (Hong Kong)
+   <IfModule mod_geoip.c>
+   GeoIPEnable On
+   GeoIPDBFile /usr/share/GeoIP/GeoIP.dat
+   SetEnvIf GEOIP_COUNTRY_CODE HK deny-from-hk
+   </IfModule>
+
+   # Deny access from sanctioned country
+   <IfModule mod_authz_core.c>
+   <RequireAll>
+   Require all granted
+   Require not env deny-from-hk
+   </RequireAll>
+   </IfModule>
+   ```
+5. **Restart Apache:**
+   - On Ubuntu/Debian: `sudo systemctl restart apache2`
+   - On CentOS/Red Hat: `sudo systemctl restart httpd`
+
+**Additional Notes:**
+
+* The `.htaccess` file method works for shared hosting environments. For dedicated servers, you can configure the restrictions directly in the Apache configuration file.
+* You can add multiple countries to the block list by adding additional `SetEnvIf` directives.
+* Regularly update the GeoIP database to ensure accurate location information.

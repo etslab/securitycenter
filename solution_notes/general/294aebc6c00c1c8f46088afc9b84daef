@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Description:**
+
+The gob encoder/decoder in Go can lead to stack exhaustion when encountering deeply nested structures during decoding. This issue could allow an attacker to trigger a denial-of-service (DoS) attack by sending a maliciously crafted message with an excessive nesting level.
+
+**Solution:**
+
+The recommended solution is to use alternative encoding/decoding libraries that handle deeply nested structures more efficiently.
+
+Here are some alternative options:
+
+* **JSON:** Use the `encoding/json` package for JSON encoding/decoding.
+* **Protobuf:** Use a Protobuf library that supports your desired message format.
+* **MessagePack:** Use the `github.com/ugorji/go/codec` package for MessagePack encoding/decoding.
+
+When using these alternative libraries, ensure that you validate the input data to prevent malicious nesting depths.
+
+**Additional Notes:**
+
+* This issue is particularly relevant in web applications where user-provided data is decoded.
+* Attackers can exploit this issue by sending specially crafted requests with deeply nested payloads.
+* The resulting stack exhaustion can crash the server or cause performance degradation.
+
+**Mitigation:**
+
+* **Update your codebase:** Switch to alternative encoding/decoding libraries and implement input validation.
+* **Install security patches:** Apache servers may release security patches to address this issue. Apply them promptly.
+* **Monitor for suspicious activity:** Keep an eye on server logs for signs of DoS attempts targeting deeply nested structures.

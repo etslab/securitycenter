@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of shell-quote:1.7.2 of pkg:npm/shell-quote@1.7.2 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of shell-quote:1.7.2 of pkg:npm/shell-quote@1.7.2 in nginx web server can be fixed by upgrading to a newer version of the shell-quote package. The issue is a security vulnerability that allows an attacker to execute arbitrary commands on the server by injecting malicious code into a request. The vulnerability is ranked as a medium severity issue in the OWASP Top 10 Web Security Risks 2021.
+
+To upgrade to a newer version of the shell-quote package, you can use the following command:
+
+```
+npm install --save shell-quote@latest
+```
+
+Once you have upgraded the package, you should restart your nginx server.
+
+The OWASP Top 10 Web Security Risks 2021 is a list of the top 10 security risks that web developers should be aware of. The list is updated every year to reflect the latest security threats. The App Dependencies issue is ranked as a medium severity issue in the 2021 list.
+
+The following are some of the steps that you can take to mitigate the risk of App Dependencies issues:
+
+* Use a package manager to manage your dependencies.
+* Keep your dependencies up to date.
+* Use a vulnerability scanner to scan your dependencies for known vulnerabilities.
+* Implement a security policy that requires all dependencies to be approved before they can be used.
+
+By following these steps, you can help to reduce the risk of App Dependencies issues on your web server.

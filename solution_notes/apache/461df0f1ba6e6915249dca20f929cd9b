@@ -1,0 +1,41 @@
+## Fixing Certificate Issues in Apache Web Server
+
+**1. Generate a Private Key:**
+
+```
+openssl genrsa -out server.key 2048
+```
+
+**2. Create a Certificate Signing Request (CSR):**
+
+```
+openssl req -new -key server.key -out server.csr
+```
+
+**3. Obtain a Server Certificate from a Certificate Authority (CA):**
+
+Submit the CSR to a CA for approval. Once approved, they will issue a server certificate.
+
+**4. Bundle the Certificate and Intermediate CA Certificates:**
+
+```
+cat server.crt intermediate_ca.crt root_ca.crt > server.pem
+```
+
+**5. Configure Apache to Use the Certificate:**
+
+**SSLVirtualHost directive:**
+
+```
+<VirtualHost *:443>
+   SSLEngine on
+   SSLCertificateFile /path/to/server.pem
+   SSLCertificateKeyFile /path/to/server.key
+</VirtualHost>
+```
+
+## OWASP Top 10 Web 2021 Category
+
+This issue falls under **A7: Sensitive Data Exposure** of the OWASP Top 10 Web 2021.
+
+Using an invalid or expired certificate can compromise data transmitted over the connection. This category includes issues where sensitive data is transmitted without encryption, allowing attackers to intercept and read it.

@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of pass-random1.bz2 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of pass-random1.bz2 in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Remove the pass-random1.bz2 file from the Apache web server's directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "Injection". Injection attacks are a type of attack where an attacker can inject malicious code into a vulnerable application. This malicious code can then be executed by the application, allowing the attacker to gain control of the application or steal data.
+
+The pass-random1.bz2 file is a compressed file that contains a malicious PHP script. If this file is executed by the Apache web server, it will allow the attacker to gain control of the Apache web server.
+
+To prevent this type of attack, you should always keep your Apache web server up to date with the latest security patches. You should also use a web application firewall (WAF) to help protect your Apache web server from attacks.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements instead of dynamic SQL queries.
+* Sanitize all user input before using it in your application.
+* Use a WAF to help protect your application from attacks.
+
+By following these tips, you can help protect your Apache web server from injection attacks.

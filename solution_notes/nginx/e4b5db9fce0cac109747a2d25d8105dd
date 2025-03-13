@@ -1,0 +1,44 @@
+###How to fix the App Dependencies issue of follow-redirects:1.13.1 of pkg:npm/follow-redirects@1.13.1 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of follow-redirects:1.13.1 of pkg:npm/follow-redirects@1.13.1 in nginx web server is a vulnerability that can be exploited by attackers to redirect users to malicious websites. This vulnerability is categorized as **A1: Injection** in the OWASP Top 10 Web Application Security Risks 2021.
+
+To fix this issue, you can upgrade to a newer version of follow-redirects that is not affected by this vulnerability. Alternatively, you can configure nginx to block requests to malicious websites.
+
+Here are some steps to fix the App Dependencies issue of follow-redirects:1.13.1 of pkg:npm/follow-redirects@1.13.1 in nginx web server:
+
+1. Upgrade to a newer version of follow-redirects:
+
+```
+npm install follow-redirects@latest
+```
+
+2. Restart the nginx web server:
+
+```
+systemctl restart nginx
+```
+
+Alternatively, you can configure nginx to block requests to malicious websites. To do this, add the following lines to your nginx configuration file:
+
+```
+location /.well-known/security/components/http-headers.json {
+  return 403;
+}
+
+location /.well-known/security/components/javascript.json {
+  return 403;
+}
+```
+
+This will block all requests to the `.well-known/security/components/http-headers.json` and `.well-known/security/components/javascript.json` files. These files are used by some security scanners to test for vulnerabilities, so you should only block them if you are sure that you do not need them.
+
+Once you have made the necessary changes, restart the nginx web server.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web Application Security Risks 2021. Injection occurs when an attacker is able to inject malicious code into a web application. This code can then be executed by the web application, which can give the attacker control over the application or allow them to steal data.
+
+The follow-redirects:1.13.1 vulnerability can be exploited to inject malicious code into a web application. An attacker can create a malicious website that redirects users to the vulnerable web application. The malicious website can then inject the malicious code into the vulnerable web application, which can then be executed by the web application.
+
+To protect your web application from injection attacks, you should follow these best practices:
+
+* **Validate all user input.** Make sure that all user input is validated before it is processed by the web application. This will help to prevent attackers from injecting malicious code into the web application.
+* **Use a web application firewall (WAF).** A WAF can help to protect your web application from a variety of attacks, including injection attacks.
+* **Keep your software up to date.** Make sure that all of the software used by your web application is up to date. This will help to patch any known vulnerabilities that could be exploited by attackers.

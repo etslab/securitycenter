@@ -1,0 +1,39 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Insufficient Logging & Monitoring
+
+**Solution:**
+
+1. **Add NSCameraUsageDescription to the Info.plist file:**
+
+   In the Xcode project, navigate to the Info.plist file for your app. Add a new key called "NSCameraUsageDescription" and provide a clear description of why the app requires access to the camera.
+
+2. **Update the App Transport Security (ATS) settings:**
+
+   In the Info.plist file, add the following key and value:
+
+   ```xml
+   <key>NSAppTransportSecurity</key>
+   <dict>
+     <key>NSAllowsArbitraryLoads</key>
+     <false/>
+   </dict>
+   ```
+
+3. **Enable SSL pinning:**
+
+   Integrate an SSL pinning library to verify the authenticity of the server's SSL certificate before establishing a connection. This prevents man-in-the-middle attacks.
+
+4. **Implement logging and monitoring:**
+
+   Configure your server to log all camera usage events. Monitor these logs regularly for any suspicious activity, such as excessive camera access or unauthorized modifications to the camera settings.
+
+5. **Consider using the AVCaptureSession API:**
+
+   Use the AVCaptureSession API to control camera access in a more granular manner. This allows you to specify exactly when and how the camera is used, reducing the risk of unauthorized access.
+
+**Explanation:**
+
+The NSCameraUsageDescription audit issue occurs when an iOS app requests access to the camera but doesn't provide a clear explanation to the user about why the app needs this permission. Without proper justification, the user may be reluctant to grant access, which could impact the app's functionality.
+
+By implementing the above solutions, you can ensure that your app clearly communicates its camera usage intent to the user, protects user privacy, and complies with Apple's App Store guidelines.

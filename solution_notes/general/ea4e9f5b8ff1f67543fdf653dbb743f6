@@ -1,0 +1,36 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Category A4: Broken Access Control
+
+**Solution:**
+
+1. **Enable Audit Policy Log Dropped Packets:**
+
+   - Navigate to the Windows Security Event Viewer.
+   - Expand "Applications and Services Logs."
+   - Expand "Microsoft\Windows\Windows Firewall with Advanced Security."
+   - Right-click on "Public Profile" and select "Properties."
+   - Click on the "Logging" tab.
+   - Ensure that "Log dropped packets" is checked.
+
+2. **Configure Audit Policy Rule:**
+
+   - In the Windows Group Policy Management Editor (gpedit.msc), navigate to "Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Advanced Audit Policy Configuration -> Audit Policies -> System Audit Policies -> Object Access."
+   - Create a new audit rule with the following settings:
+     - Category: Object Access
+     - Subcategory: Filtering Platform Packet Drop
+     - Event ID: 5156
+     - Audit: Success and Failure
+
+3. **Monitor and Review Audit Logs:**
+
+   - Regularly review the event logs for any suspicious or unauthorized access attempts.
+   - Investigate any dropped packets that indicate potential security risks.
+
+**Detailed Explanation:**
+
+The LogDroppedPackets audit policy allows you to log dropped packets by the Windows Firewall, providing valuable information on potential security breaches. If this policy is not enabled, you may miss critical information about unauthorized access attempts or network attacks.
+
+By enabling the policy and configuring an audit rule, you can capture and monitor all packets that were dropped by the firewall. This information can be analyzed to identify suspicious activity, investigate security incidents, and strengthen your firewall rules.
+
+By addressing this audit issue, you can enhance your security posture by detecting and responding to unauthorized access attempts and network attacks in a timely manner.

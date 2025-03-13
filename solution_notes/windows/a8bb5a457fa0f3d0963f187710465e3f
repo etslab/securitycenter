@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Issue Description:**
+
+Policy Distribution Group Management allows users to configure and manage groups that define which policies are applied to which registry locations. If this management is not properly configured, it could lead to sensitive data being exposed to unauthorized users.
+
+**Solution:**
+
+To fix this issue, it is recommended to implement the following measures:
+
+1. **Configure Policy Groups Restrictively:** Ensure that policy groups are configured to only grant access to necessary resources and only to authorized users.
+2. **Use Least Privilege:** Assign the minimum necessary permissions to policy groups and individual users.
+3. **Audit and Monitor Changes:** Regularly audit and monitor changes to policy groups to detect and respond to any unauthorized modifications.
+4. **Implement Strong Access Control:** Use password management best practices, multi-factor authentication, and role-based access control to prevent unauthorized access to policy groups.
+5. **Disable Unused Policy Groups:** Disable or remove any policy groups that are no longer used to reduce the attack surface.
+
+**Additional Considerations:**
+
+* Consult the documentation for your specific Registry Account Management implementation for detailed guidance on configuring and managing policy distribution groups.
+* Regularly update your Registry Account Management software to patch any security vulnerabilities that may arise.

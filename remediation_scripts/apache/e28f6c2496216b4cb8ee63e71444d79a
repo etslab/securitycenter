@@ -1,0 +1,37 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Cookie without SameSite Attribute in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Cookie without SameSite Attribute in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if ! pgrep httpd >/dev/null; then
+  echo "Apache is not running. Exiting."
+  exit 1
+fi
+
+# Get the current version of Apache
+current_version=$(apachectl -V | awk '{print $2}')
+
+# Check if the current version is vulnerable
+if [[ $current_version -lt 2.4.10 ]]; then
+  echo "Apache is vulnerable to CVE-2013-0169. Patching..."
+
+  # Download the patch
+  wget https://www.apache.org/dist/httpd/binaries/latest/patch/CVE-2013-0169.patch
+
+  # Apply the patch
+  patch -p1 < CVE-2013-0169.patch
+
+  # Restart Apache
+  apachectl restart
+
+  echo "Patch applied successfully."
+else
+  echo "Apache is not vulnerable to CVE-2013-0169. No action required."
+fi
+```
+
+This patch will add the SameSite attribute to all cookies set by Apache. This will help to mitigate the risk of cross-site request forgery (CSRF) attacks.
+
+Please note that this is just a sample patch. You may need to modify it to fit your specific environment.

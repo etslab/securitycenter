@@ -1,0 +1,24 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A9 - Security Misconfiguration
+
+**Issue:**
+
+The "fAllowToGetHelp" registry setting determines whether users can access the Terminal Server Help menu. Allowing remote users to access the Help menu can expose sensitive information, such as the names of installed applications and system settings.
+
+**Solution:**
+
+To fix this issue, disable the "fAllowToGetHelp" registry setting by setting its value to "0".
+
+**Steps:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services`
+3. Create a new DWORD (32-bit) value named "fAllowToGetHelp".
+4. Set the value of "fAllowToGetHelp" to "0".
+
+**Additional Notes:**
+
+* This issue is considered critical because it can allow remote attackers to gain access to sensitive information.
+* It is recommended to disable the "fAllowToGetHelp" registry setting for all remote servers.
+* Regular security audits should be performed to identify and address any potential vulnerabilities.

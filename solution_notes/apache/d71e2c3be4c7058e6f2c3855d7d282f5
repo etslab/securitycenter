@@ -1,0 +1,18 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Solution:**
+
+To fix this issue, set the following registry key:
+
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows NT\Printers
+DisableWebPnPDownload = 1 (DWORD)
+```
+
+**Explanation:**
+
+The DisableWebPnPDownload registry key prevents users from downloading printer drivers from the internet. This helps prevent attackers from installing malicious drivers on the system.
+
+By default, this registry key is set to 0, which allows users to download printer drivers from the internet. However, it is recommended to set this key to 1 to prevent unauthorized driver downloads.

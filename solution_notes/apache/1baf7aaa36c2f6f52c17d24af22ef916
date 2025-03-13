@@ -1,0 +1,25 @@
+**Severity:** Critical
+
+**Category:** OWASP Top 10 2021 - A03: Unrestricted Upload of File with Dangerous Type
+
+**Vulnerability:**
+
+* bWAPP-Test:bWAPP/ba_captcha_bypass.php allows users to bypass captcha validation by manipulating the URL. This can lead to account takeover or other malicious actions.
+
+**Solution:**
+
+* Use a strong captcha validation mechanism that is not easily bypassed.
+* Implement server-side validation to ensure that the captcha is valid before allowing access to the protected resource.
+* Consider using a rate-limiting mechanism to prevent brute force attacks against the captcha.
+
+**Impact:**
+
+* An attacker can bypass captcha protection and gain unauthorized access to protected resources.
+* This can lead to account takeover, data theft, or other malicious activities.
+* The attacker can use the bypassed captcha to automate attacks against the application.
+
+**Remediation:**
+
+* Implement a captcha validation mechanism that is not easily bypassed.
+* Use server-side validation to ensure that the captcha is valid before allowing access to the protected resource.
+* Consider using a rate-limiting mechanism to prevent brute force attacks against the captcha.

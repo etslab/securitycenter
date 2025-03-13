@@ -1,0 +1,11 @@
+## Severity Assessment
+
+The severity of the audit issue related to `bWAPP-Test:bWAPP/admin/index.php sonarqube rule Web:UnsupportedTagsInHtml5Check` in Apache server is **Medium**.
+
+## Detailed Solution
+
+To fix this issue, update the unsupported HTML5 tags to their supported equivalents. For example, replace `<tr>` with `<table><tr>`.
+
+## OWASP Top 10 2021 Category
+
+This issue falls under the OWASP Top 10 2021 category of **A09: Using Components with Known Vulnerabilities**. Using outdated components that contain unsupported tags can introduce security vulnerabilities.

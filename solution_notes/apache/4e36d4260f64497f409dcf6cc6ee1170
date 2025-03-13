@@ -1,0 +1,26 @@
+**Severity**: High
+
+**OWASP Top 10 2021 Category**: A04: Broken Access Control
+
+**Solution**:
+
+To fix this issue, you can use the `ParseForm` method on the `http.Request` object to parse the query parameters before forwarding the request to the backend. This will ensure that any unparseable query parameters are not forwarded, which could potentially lead to security vulnerabilities.
+
+Here is an example of how to use the `ParseForm` method:
+
+```go
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if err := r.ParseForm(); err != nil {
+			// Handle the error
+		}
+
+		// Forward the request to the backend
+		httputil.ReverseProxy(w, r, backend)
+	})
+
+	http.ListenAndServe(":8080", nil)
+}
+```
+
+By using the `ParseForm` method, you can ensure that any unparseable query parameters are not forwarded to the backend, which will help to mitigate the risk of security vulnerabilities.

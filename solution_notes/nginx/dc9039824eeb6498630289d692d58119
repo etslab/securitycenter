@@ -1,0 +1,24 @@
+###How to fix the App Dependencies issue of hosted-git-info:2.8.8 of pkg:npm/hosted-git-info@2.8.8 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of hosted-git-info:2.8.8 of pkg:npm/hosted-git-info@2.8.8 in nginx web server, you can upgrade to a newer version of hosted-git-info, or you can remove the dependency altogether.
+
+If you choose to upgrade, you can do so by running the following command:
+
+```
+npm update hosted-git-info
+```
+
+If you choose to remove the dependency, you can do so by editing the `package.json` file and removing the `hosted-git-info` dependency from the `dependencies` object.
+
+Once you have made the necessary changes, you will need to restart the nginx web server.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021. This category refers to vulnerabilities that allow attackers to inject malicious code into web applications. In this case, the vulnerability is in the hosted-git-info dependency, which could allow attackers to inject malicious code into the nginx web server.
+
+To mitigate this risk, it is important to keep all of your dependencies up to date and to remove any dependencies that you are not using. You should also use a web application firewall (WAF) to protect your web application from common attacks.
+
+Here are some additional tips for fixing App Dependencies issues:
+
+* **Use a dependency management tool.** This will help you to keep track of all of your dependencies and to ensure that they are up to date.
+* **Review your dependencies regularly.** Look for any dependencies that are known to have vulnerabilities.
+* **Scan your dependencies for vulnerabilities.** There are a number of tools that can help you to do this.
+* **Remove any dependencies that you are not using.** This will reduce the risk of attack.
+* **Use a WAF.** A WAF can help to protect your web application from common attacks.

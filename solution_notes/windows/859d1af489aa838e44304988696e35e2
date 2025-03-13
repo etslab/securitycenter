@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Description:**
+
+The "DenyDeviceClasses" policy allows administrators to block the installation of specific device classes on a Windows system. By enabling the "Delete all values" option in this policy, an attacker could potentially disable all security features and protections related to device installation. This could allow them to install unauthorized or malicious devices, compromising the security of the system.
+
+**Solution:**
+
+To fix this issue, remove the "Delete all values" setting from the "DenyDeviceClasses" policy. This will prevent attackers from disabling device installation restrictions.
+
+**Detailed Steps:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions
+   ```
+3. Locate the "DenyDeviceClasses" value in the right-hand pane.
+4. Double-click the "DenyDeviceClasses" value and ensure that the "Value data" field is empty.
+5. Click OK to save changes.
+6. Restart the computer.
+
+**Additional Notes:**
+
+* It is recommended to regularly review and update the "DenyDeviceClasses" policy to ensure that only allowed device classes are permitted on the system.
+* Consider using security software to monitor for unauthorized device installation attempts.

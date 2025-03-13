@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Description:**
+
+The apktool_out/lib/arm64-v8a/libapminsighta.so file may contain sensitive information, such as credentials or security keys, which could be exposed if the file is accessible from the webserver.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. **Remove the sensitive file:** Delete the apktool_out/lib/arm64-v8a/libapminsighta.so file from the webserver's directory structure.
+2. **Restrict access to sensitive directories:** Ensure that only authorized users can access the directory where sensitive files are stored.
+3. **Monitor file access logs:** Regularly review file access logs to detect any unauthorized access attempts.
+4. **Implement encryption:** Encrypt any sensitive data stored on the webserver to protect it from unauthorized access.
+
+**Additional Recommendations:**
+
+* Use a security scanner to periodically scan the webserver for vulnerabilities.
+* Implement a firewall to block unauthorized access to the webserver.
+* Keep the webserver and its components up to date with the latest security patches.

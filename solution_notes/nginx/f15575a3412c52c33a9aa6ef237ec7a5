@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of fail-issue5747.bz2 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of fail-issue5747.bz2 in nginx web server, you can follow these steps:
+
+1. Identify the application dependencies that are causing the issue. This can be done by reviewing the nginx error logs or by using a tool like Nginx Inspector.
+2. Update the application dependencies to the latest versions. You can do this by checking the application's documentation or by using a tool like dependency-check.
+3. Restart the nginx web server.
+
+If you are unable to update the application dependencies, you can try to mitigate the issue by:
+
+* Using a content security policy (CSP) to restrict the scripts that can be loaded by the nginx web server.
+* Using a web application firewall (WAF) to filter traffic to the nginx web server.
+
+The App Dependencies issue of fail-issue5747.bz2 in nginx web server belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021 list. This category includes vulnerabilities that allow attackers to inject malicious code into web applications.
+
+Here are some additional tips for preventing App Dependencies issues:
+
+* Keep your applications and their dependencies up to date.
+* Use a secure coding framework to help you develop secure applications.
+* Test your applications thoroughly before deploying them to production.
+* Use a web application firewall (WAF) to filter traffic to your web applications.

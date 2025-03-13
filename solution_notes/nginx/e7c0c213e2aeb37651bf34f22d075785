@@ -1,0 +1,29 @@
+###How to fix the App Dependencies issue of time-winrar.zip in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+**How to fix the App Dependencies issue of time-winrar.zip in nginx web server**
+
+1. Remove the time-winrar.zip file from the nginx web server.
+2. If the file is required for a legitimate purpose, such as a backup or archiving, store it in a secure location that is not accessible to the public.
+3. Update the nginx configuration to prevent the web server from serving files with the .zip extension. This can be done by adding the following line to the nginx configuration file:
+
+"
+location /.zip {
+  deny all;
+}
+"
+
+4. Restart the nginx web server.
+
+**Which OWASP Top 10 Web 2021 category this issue belong to?**
+
+The App Dependencies issue of time-winrar.zip in nginx web server belongs to the **A4: Broken Access Control** category of the OWASP Top 10 Web 2021 list.
+
+Broken Access Control (BAC) is a security vulnerability that allows an attacker to access unauthorized resources or perform unauthorized actions on a web application. BAC can be caused by a variety of factors, including:
+
+* Misconfiguration of permissions
+* Improper input validation
+* Use of outdated or insecure components
+* Exploiting known vulnerabilities in web applications
+
+The App Dependencies issue in this case is caused by the nginx web server being configured to serve files with the .zip extension. This allows an attacker to upload a malicious .zip file to the web server and then execute it. The attacker could then use the malicious file to gain unauthorized access to the web server or the underlying system.
+
+To mitigate the App Dependencies issue, it is important to properly configure permissions and input validation, and to use only up-to-date and secure components. It is also important to regularly patch the web server and other components to fix known vulnerabilities.

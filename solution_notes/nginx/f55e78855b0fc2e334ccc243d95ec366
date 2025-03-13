@@ -1,0 +1,14 @@
+###How to fix the App Dependencies issue of glob-parent:3.1.0 of pkg:npm/glob-parent@3.1.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of glob-parent:3.1.0 of pkg:npm/glob-parent@3.1.0 in nginx web server, you can follow these steps:
+
+1. Update the `glob-parent` dependency to a newer version.
+2. If you are unable to update the `glob-parent` dependency, you can try to mitigate the issue by:
+    * Adding a web application firewall (WAF) to your nginx web server.
+    * Configuring your nginx web server to block requests that contain malicious patterns.
+    * Disabling the use of the `glob-parent` dependency in your application.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web Application Security Risks 2021. Injection is a type of attack where an attacker injects malicious code into a web application. This code can then be executed by the web application, giving the attacker control over the application.
+
+In the case of the `glob-parent` dependency issue, an attacker could inject malicious code into a web application by passing a malicious pattern to the `glob-parent` function. This code could then be executed by the web application, giving the attacker control over the application.
+
+To mitigate the risk of injection attacks, it is important to validate all user input before using it in a web application. This can be done using a variety of techniques, such as input validation and SQL escaping.

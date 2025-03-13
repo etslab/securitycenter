@@ -1,0 +1,35 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A2: Broken Authentication
+
+**Detailed Solution:**
+
+1. **Enable the Kerberos Policy:**
+   - Open Local Security Policy (secpol.msc).
+   - Navigate to Local Policies > Security Options.
+   - Enable the policy "Network security: Allow Local System to use computer identity for NTLM."
+
+2. **Configure Kerberos Delegation:**
+   - Open Active Directory Users and Computers.
+   - Right-click on the computer account experiencing the issue.
+   - Select Properties > Delegation tab.
+   - Check "Trust this computer for delegation to specified services only" and add the following services:
+     - HTTP/Kerberos (for IIS)
+     - MSSQLSvc (for SQL Server)
+
+3. **Manage Group Policy Objects (GPOs):**
+   - Open Group Policy Management (gpmc.msc).
+   - Ensure the "Network security: Allow Local System to use computer identity for NTLM" policy is enabled in the relevant GPOs.
+
+4. **Restart Services:**
+   - Restart all services that rely on Kerberos authentication, such as IIS and SQL Server.
+
+5. **Verify Functionality:**
+   - Access the web application requiring Kerberos authentication.
+   - If successful, the issue should be resolved.
+
+**Additional Mitigation:**
+
+- Implement HTTPS to encrypt sensitive data transmitted over the network.
+- Use strong passwords and regular password changes.
+- Enforce multi-factor authentication for privileged accounts.

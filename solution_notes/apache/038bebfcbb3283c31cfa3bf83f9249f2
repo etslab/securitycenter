@@ -1,0 +1,31 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A3: Injection
+
+**Detailed Solution:**
+
+The php:S105 rule in SonarQube flags potential SQL injection vulnerabilities in dynamic variable access (DVA). In your case, about.php is accessing a PHP variable (`$about`) without proper validation, which could allow an attacker to inject malicious SQL statements.
+
+To fix this issue, follow these steps:
+
+1. Identify all instances of `$about` in about.php.
+2. Validate the input before using it in any SQL queries. You can use the `mysqli_real_escape_string()` function to escape special characters.
+3. Use prepared statements to execute SQL queries instead of concatenating strings.
+
+**Example Code:**
+
+```php
+// Vulnerable code
+$sql = "SELECT * FROM users WHERE username='$about'";
+
+// Fixed code
+$stmt = $mysqli->prepare("SELECT * FROM users WHERE username=?");
+$stmt->bind_param('s', $about);
+$stmt->execute();
+```
+
+**Additional Recommendations:**
+
+* Implement input validation for all user-supplied data.
+* Use a web application firewall (WAF) to filter out malicious requests.
+* Regularly update software and patches.

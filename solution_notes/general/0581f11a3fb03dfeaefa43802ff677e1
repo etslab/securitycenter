@@ -1,0 +1,29 @@
+**Severity:** High
+
+**Description:** The php:S2010 rule flags code that uses PHP's `exec()` function, which can be used to execute arbitrary commands on the server. This can lead to security vulnerabilities, such as remote code execution (RCE).
+
+**OWASP Top 10 2021 Category:** **B1: Broken Access Control**
+
+**Solution:**
+
+* **Replace `exec()` with a safer function.** Use a function that provides stronger sandboxing, such as `system()`, `passthru()`, or `shell_exec()`.
+* **Sanitize user input.** Validate and filter any user-supplied data that is passed to the `exec()` function.
+* **Restrict the commands that can be executed.** Use the `escapeshellarg()` function to escape special characters in user input.
+* **Consider using a whitelisting approach.** Only allow a specific set of commands to be executed.
+* **Disable PHP's `exec()` function.** If possible, disable the `exec()` function in your PHP configuration.
+
+**In the specific case of bWAPP-Test:bWAPP/ba_captcha_bypass.php:**
+
+The vulnerable code appears to be:
+
+```php
+$captcha_code = exec("identify -format %w,%h " . $captcha_image);
+```
+
+This code uses the `exec()` function to execute the `identify` command on the server. The `identify` command can be used to retrieve information about an image file, such as its width and height. However, the user-supplied input to the `identify` command is not sanitized, which could allow an attacker to execute arbitrary commands on the server.
+
+To fix this vulnerability, you should sanitize the user-supplied input to the `identify` command. For example, you could use the `escapeshellarg()` function to escape special characters in the input.
+
+```php
+$captcha_code = exec("identify -format %w,%h " . escapeshellarg($captcha_image));
+```

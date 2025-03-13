@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Issue Description:**
+
+The `net/http` package in Go allows parsing multipart form data, such as file uploads, using `Request.ParseMultipartForm`. However, if the request contains a large number of fields or files, it can exhaust memory and cause the server to crash.
+
+**Solution:**
+
+To fix this issue, set a limit on the maximum memory (in bytes) that can be allocated for parsing multipart forms. This can be done using the `MaxMemory` option in `Request.ParseMultipartForm`.
+
+```go
+r.ParseMultipartForm(maxMemory *int64) (err error)
+```
+
+For example, to set a maximum of 10MB for multipart form parsing:
+
+```go
+r.ParseMultipartForm(10 * 1024 * 1024)
+```
+
+**Recommendation:**
+
+It is recommended to set a reasonable limit for `MaxMemory` based on the expected size of multipart form requests. This will help prevent memory exhaustion and improve the stability of the server.

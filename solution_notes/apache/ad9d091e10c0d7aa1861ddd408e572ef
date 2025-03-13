@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+
+The Policy AllowProtectedCreds setting in the Windows Registry controls whether Active Directory credentials can be used to authenticate to non-Microsoft services. If this setting is enabled, an attacker could potentially use stolen credentials to compromise other systems on the network.
+
+**Fix:**
+
+To fix this issue, you should disable the Policy AllowProtectedCreds setting in the Windows Registry. Here are the steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation
+3. Right-click on the AllowProtectedCreds value and select Modify.
+4. Set the Value data to 0.
+5. Click OK to save the changes.
+
+**Impact:**
+
+If this setting is enabled, an attacker could gain access to other systems on the network by using stolen credentials. This could lead to data breaches, financial loss, and other security risks.
+
+**Mitigation:**
+
+In addition to disabling the Policy AllowProtectedCreds setting, you should also implement the following security measures:
+
+* Use strong passwords and enforce password complexity requirements.
+* Implement two-factor authentication for all user accounts.
+* Monitor your systems for unusual activity and investigate any suspicious behavior.

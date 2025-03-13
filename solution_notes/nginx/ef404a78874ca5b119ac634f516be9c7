@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of tmpl:1.0.4 of pkg:npm/tmpl@1.0.4 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of tmpl:1.0.4 of pkg:npm/tmpl@1.0.4 in nginx web server can be fixed by:
+
+1. Upgrading the tmpl package to the latest version.
+2. Removing the tmpl package from the application.
+3. Mitigating the vulnerability using a reverse proxy or application firewall.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web Application Security Risks 2021.
+
+This category of vulnerabilities occurs when an attacker is able to inject malicious code into a web application, which can then be executed by the application. This can be done through a variety of means, such as SQL injection, command injection, and cross-site scripting (XSS).
+
+The App Dependencies issue in tmpl:1.0.4 of pkg:npm/tmpl@1.0.4 can be exploited by an attacker to inject malicious code into the application. This can then be executed by the application, which could allow the attacker to take control of the application or steal data from the application.
+
+To mitigate this vulnerability, it is important to keep all of the application's dependencies up to date. It is also important to implement input validation and output encoding to prevent malicious code from being injected into the application. Additionally, a reverse proxy or application firewall can be used to mitigate this vulnerability by filtering out malicious traffic.
+
+Here are some additional recommendations for fixing the App Dependencies issue of tmpl:1.0.4 of pkg:npm/tmpl@1.0.4 in nginx web server:
+
+* **Scan your application for vulnerabilities on a regular basis.** This will help you to identify any vulnerabilities that may be present in your application, including the App Dependencies issue.
+* **Implement a security policy and procedures.** This will help to ensure that your application is developed and maintained in a secure manner.
+* **Train your employees on security best practices.** This will help to reduce the risk of human error, which can lead to security vulnerabilities.

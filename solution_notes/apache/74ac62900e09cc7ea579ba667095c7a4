@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Description:**
+
+The `VideoPlayerActivity` activity in the `io.awesome.gagtube.download.ui.player` package is exported, meaning it can be accessed by any application or component. This exposes sensitive data such as user information and media playback history to unauthorized parties.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. Open the AndroidManifest.xml file in your project.
+2. Locate the `<activity>` element for the `VideoPlayerActivity`.
+3. Add the following attribute to the `<activity>` element:
+
+```xml
+android:exported="false"
+```
+
+This will prevent the activity from being exported, making it accessible only to the application components that need to use it.
+
+**Impact:**
+
+Leaving this activity exported exposes sensitive user data to potential attackers. This could lead to privacy violations, identity theft, and other security risks.

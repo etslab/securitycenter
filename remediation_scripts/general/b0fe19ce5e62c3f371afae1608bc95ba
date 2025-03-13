@@ -1,0 +1,32 @@
+####patch script to remediate  CVE-2021-40438 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2021-40438 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check the version of Apache
+  apache_version=$(apache2 -v | awk '{print $2}')
+
+  # If Apache is running and the version is less than 2.4.49, then patch the vulnerability
+  if [[ $apache_version -lt 2.4.49 ]]; then
+
+    # Download the patch from the Apache website
+    wget https://www.apache.org/dist/httpd/binaries/latest/src/patches/CVE-2021-40438.patch
+
+    # Apply the patch
+    patch -p1 < CVE-2021-40438.patch
+
+    # Restart Apache
+    systemctl restart apache2
+
+  fi
+
+fi
+```
+
+This script will check if Apache is running and the version is less than 2.4.49. If it is, the script will download the patch from the Apache website and apply it. Finally, the script will restart Apache.
+
+It is important to note that this is just a basic patch script. It may not work for all configurations of Apache. If you are unsure about how to apply the patch, please consult the Apache documentation or contact a security professional.

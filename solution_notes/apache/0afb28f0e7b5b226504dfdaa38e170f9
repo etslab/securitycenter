@@ -1,0 +1,27 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+**1. Update Apache Server:**
+- Upgrade to Apache version 2.4.41 or later
+
+**2. Disable the AvoidOriginCheck module (mod_avoidorigincheck):**
+- This module allows requests from any origin, which can potentially lead to cross-origin resource sharing (CORS) vulnerabilities. It should be disabled for improved security.
+
+**3. Configure CORS Headers:**
+- Use the Apache `Header` directive to set appropriate CORS headers, such as:
+```
+Header set Access-Control-Allow-Origin "https://example.com"
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+```
+
+**4. Review Web Application Code:**
+- Ensure that your web application code is not vulnerable to the origin header being spoofed. Use libraries or frameworks that handle CORS securely.
+
+**5. Use a Web Application Firewall (WAF):**
+- Implement a WAF to block malicious requests and enforce CORS policies.
+
+**6. Monitor for Exploitation Attempts:**
+- Regularly monitor your server for any suspicious activity or exploit attempts related to CVE-2018-14042.

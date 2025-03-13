@@ -1,0 +1,23 @@
+###How to fix the App Dependencies issue of is-svg:3.0.0 of pkg:npm/is-svg@3.0.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of is-svg:3.0.0 of pkg:npm/is-svg@3.0.0 in Apache web server, you can follow these steps:
+
+1. Update the is-svg package to the latest version. You can do this by running the following command:
+
+```
+npm i -g is-svg@latest
+```
+
+2. Restart your Apache web server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A3 - Injection**. This category includes vulnerabilities that allow an attacker to inject malicious code into a web application. The is-svg package is vulnerable to this type of attack because it does not properly validate user input. This could allow an attacker to inject malicious code into an SVG file, which could then be executed by a user when they view the file.
+
+To mitigate this risk, you should update the is-svg package to the latest version and restart your Apache web server. You should also ensure that you are using a web application firewall (WAF) to help protect your web application from attacks.
+
+Here are some additional tips for mitigating the risk of injection attacks:
+
+* Use prepared statements instead of dynamic SQL queries.
+* Sanitize all user input before using it in a SQL query.
+* Use input validation libraries to help you sanitize user input.
+* Use a WAF to help protect your web application from attacks.
+
+By following these tips, you can help to protect your web application from injection attacks.

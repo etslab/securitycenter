@@ -1,0 +1,16 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+1. **Enable Detailed Tracking for Registry Operations:**
+   1. Edit the `httpd.conf` file and add the following line under the `<VirtualHost>` section:
+   ```
+   LogLevel registry:trace8
+   ```
+
+2. **Restart Apache Server:**
+   1. Restart the Apache service using the appropriate command for your operating system.
+
+Once these steps are complete, the registry operations will be logged in more detail, allowing for easier auditing and tracking of any unauthorized or malicious activity.

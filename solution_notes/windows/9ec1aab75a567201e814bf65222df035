@@ -1,0 +1,23 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A05: Broken Access Control
+
+**Problem Description:**
+
+Policy SAM (Security Accounts Manager) in Registry Object Access controls access to the registry on Windows web servers. An attacker with unauthorized access to the registry could modify system settings, create or delete users, and compromise the security of the server.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. **Enforce Least Privilege:** Grant only necessary privileges to users and services that require access to the registry.
+2. **Enable Auditing:** Configure event auditing to track changes to registry keys and values related to Policy SAM.
+3. **Restrict Registry Access:** Use Windows Firewall or other security measures to limit access to the registry from untrusted sources.
+4. **Use Group Policy Objects (GPOs):** Create GPOs to enforce registry security settings consistently across multiple servers.
+5. **Consider Third-Party Tools:** Implement third-party solutions that provide additional protection against unauthorized registry modifications.
+
+**Additional Recommendations:**
+
+* Keep the Windows operating system and security software up to date with the latest patches.
+* Regularly review and update registry permissions to ensure appropriate access control.
+* Monitor for suspicious activity related to registry modifications.

@@ -1,0 +1,29 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Impact:**
+
+The Policy RedirectionGuardPolicy registry setting is designed to protect against spoofing attacks by ensuring that printers only accept print jobs from authorized clients. If this setting is disabled or misconfigured, attackers could potentially spoof or redirect print jobs to unauthorized devices, allowing them to gain access to sensitive data or compromise the confidentiality of printing operations.
+
+**Solution:**
+
+1. Navigate to the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers
+```
+
+2. Locate the DWORD value named "RedirectionGuardPolicy".
+
+3. Set its value to "1" to enable the policy.
+
+**Additional Mitigation Measures:**
+
+* **Limit print job access:** Configure the print server to restrict access to print jobs only to authorized users and devices.
+* **Use IP address filtering:** Implement IP address filtering on the print server to only allow print jobs from specific IP addresses or ranges.
+* **Monitor print logs:** Regularly review print logs to detect any suspicious activity or unauthorized print jobs.
+
+**Note:**
+
+If the issue persists after implementing the above solution, there may be underlying configuration issues or other security vulnerabilities that need to be addressed. It is recommended to consult with a qualified IT security professional to assess the situation and implement appropriate measures.

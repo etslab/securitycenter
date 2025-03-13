@@ -1,0 +1,22 @@
+**Severity:** Low
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Review the policy settings:**
+   - Open the Registry Editor (regedit.exe).
+   - Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb100d47d6a2d5f7d2daa51f51`.
+   - Examine the `DCSettingIndex` value. It should be set to `0` to disable the policy.
+
+2. **Disable the policy:**
+   - If the `DCSettingIndex` value is not 0, double-click it and change the value to `0`.
+
+3. **Restart the server:**
+   - Restart the apache server to apply the changes.
+
+**Additional Notes:**
+
+* The Policy DCSettingIndex in the Registry is responsible for managing power settings related to processor performance.
+* A misconfiguration of this policy can potentially allow an attacker to gain unauthorized access to the server. However, this issue is considered low severity because it requires physical or administrative access to the server to exploit.
+* It is important to regularly review and tighten security settings, including Registry policies, to prevent potential security breaches.

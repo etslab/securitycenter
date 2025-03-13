@@ -1,0 +1,18 @@
+###How to fix the Certificates issue of There is an issue with key exchange algorithms in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the certificates issue of "There is an issue with key exchange algorithms in nginx web server", you can follow these steps:
+
+1. Check the nginx configuration file to make sure that the correct key exchange algorithms are enabled. The default key exchange algorithms for nginx are RSA and DHE_RSA. If you are using a self-signed certificate, you will need to enable the DHE_RSA key exchange algorithm.
+2. If the correct key exchange algorithms are enabled, but you are still getting the error message, then you may need to update your nginx installation. The latest version of nginx includes a number of security fixes, including fixes for some vulnerabilities that could allow attackers to downgrade the key exchange algorithm used for a connection.
+3. If you are still unable to fix the issue, then you may need to contact your hosting provider for assistance.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is **A1: Broken Authentication**. This category includes vulnerabilities that allow attackers to bypass authentication mechanisms, such as passwords or certificates. Bypassing authentication can allow attackers to gain unauthorized access to sensitive data or systems.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use a strong password for the nginx server.
+* Enable HTTPS and use a valid certificate.
+* Keep nginx up to date with the latest security patches.
+* Use a firewall to restrict access to the nginx server.
+* Monitor nginx for signs of attack.
+
+By following these tips, you can help to protect your nginx web server from attacks.

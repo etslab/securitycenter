@@ -1,0 +1,19 @@
+###How to fix the Common Vulnerabilities issue of CVE-2020-11984 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2020-11984 issue in the nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx includes a fix for this vulnerability.
+2. If you cannot update your nginx web server to the latest version, you can apply a patch to the vulnerable version. The patch can be found on the nginx website.
+
+CVE-2020-11984 is a buffer overflow vulnerability in the nginx web server. This vulnerability allows an attacker to execute arbitrary code on the affected system by sending a specially crafted request to the nginx web server.
+
+This vulnerability is classified as a critical vulnerability and has a CVSS score of 9.8. This means that this vulnerability is very easy to exploit and can have a devastating impact on the affected system.
+
+CVE-2020-11984 belongs to the OWASP Top 10 Web Application Security Risks 2021 category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered data is sent to an interpreter as part of a command or query. The attacker can modify the input to change the intended behavior of the interpreter.
+
+To mitigate the risk of injection flaws, you should:
+
+* Use prepared statements or parameterized queries to prevent SQL injection attacks.
+* Sanitize all user input before sending it to an interpreter.
+* Use a web application firewall (WAF) to help block common injection attacks.
+
+By following these steps, you can help to protect your nginx web server from the CVE-2020-11984 vulnerability and other injection attacks.

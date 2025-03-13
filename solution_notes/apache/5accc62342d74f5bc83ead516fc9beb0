@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Insufficient Logging & Monitoring (A4)
+
+**Solution:**
+
+To fix this issue, you need to configure the `Policy DefaultOutboundAction` registry key to specify the default action for outbound traffic not explicitly allowed by firewall rules. Here's how to do it:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+   ```
+3. Right-click on the "PublicProfile" key and select "New" > "DWORD (32-bit) Value".
+4. Name the new value "Policy DefaultOutboundAction".
+5. Double-click on the "Policy DefaultOutboundAction" value and set its value data to one of the following:
+   - 0: Block
+   - 1: Allow
+6. Click "OK" to save the changes.
+
+**Note:** The default value for `Policy DefaultOutboundAction` is 0 (Block). By setting it to 1, you are allowing outbound traffic that is not explicitly allowed by firewall rules. This can increase the risk of unauthorized data exfiltration or other security incidents.
+
+It is generally recommended to keep `Policy DefaultOutboundAction` set to 0 (Block) and only allow outbound traffic that is necessary for the proper functioning of your system and applications.

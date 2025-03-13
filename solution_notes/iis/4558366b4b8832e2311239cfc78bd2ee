@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Detailed Solution:**
+
+CVE-2015-4000 is a vulnerability in Microsoft IIS web server that allows remote attackers to execute arbitrary code on the server. This vulnerability is caused by an improper input validation in the way IIS handles certain HTTP requests.
+
+To fix this issue, you can apply the following patch from Microsoft:
+
+* https://support.microsoft.com/en-us/topic/ms15-097-important-cumulative-security-update-for-internet-explorer-edge-and-internet-information-services-iis-in-windows-august-11-2015-8b908d38-a193-0828-16d3-85890206f091
+
+Alternatively, you can disable the affected request filtering module:
+
+1. Open IIS Manager.
+2. Select the server node.
+3. In the Features view, double-click Request Filtering.
+4. In the Request Filtering pane, select the General tab.
+5. Clear the Enable Request Filtering check box.
+6. Click OK.
+
+**Note:** Disabling Request Filtering may have implications for other applications and services that rely on it. You should carefully consider the potential impact before making this change.

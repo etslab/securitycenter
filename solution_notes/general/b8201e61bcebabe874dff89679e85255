@@ -1,0 +1,15 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A04: Broken Access Control
+
+**Solution:**
+
+1. **Use a supported captcha implementation.** bWAPP uses a custom captcha implementation that is not supported by all browsers. Switch to a widely-supported implementation such as Google reCAPTCHA or hCaptcha.
+2. **Add server-side validation.** Relying solely on client-side validation is not sufficient. Implement server-side validation to prevent malicious users from submitting forms without completing the captcha.
+3. **Limit retries.** Restrict the number of captcha attempts allowed per user or IP address to prevent brute-force attacks.
+
+**Detailed Explanation:**
+
+The bWAPP-Test:bWAPP/ba_captcha_bypass.php vulnerability allows attackers to bypass the captcha protection by using a custom script that manipulates the DOM. This can lead to account takeover, spam, or other malicious activities.
+
+By implementing the suggested solutions, you can mitigate this vulnerability and enhance the security of your web application.

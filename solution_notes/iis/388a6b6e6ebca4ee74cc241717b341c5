@@ -1,0 +1,20 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Assessment:**
+
+CVE-2016-6883 is a remote code execution vulnerability in IIS web server. It allows an attacker to execute arbitrary code on a target system by sending a specially crafted HTTP request. This vulnerability is considered critical due to its potential impact and ease of exploitation.
+
+**Solution:**
+
+To fix this issue, apply the following patch released by Microsoft:
+
+* [MS16-065](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/MS16-065)
+
+**Additional Mitigation Steps:**
+
+* Configure IIS to restrict access to only authorized users.
+* Implement Web Application Firewall (WAF) rules to block malicious HTTP requests.
+* Regularly update the IIS web server and its components.
+* Enable auditing to detect any suspicious activity.

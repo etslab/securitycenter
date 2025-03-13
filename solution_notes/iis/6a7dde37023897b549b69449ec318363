@@ -1,0 +1,27 @@
+**Assessment:**
+
+The severity of the issue is **critical**, as it involves web threats that can compromise website security.
+
+**Detailed Solution:**
+
+**1. Enable Web Server Lockdown:**
+- Install the Microsoft Web Server Lockdown module and activate it.
+- Configure the module to block unauthorized access and monitor suspicious activities.
+
+**2. Install and Configure Web Application Firewall (WAF):**
+- Install a WAF such as Microsoft IIS URL Rewrite or ModSecurity.
+- Configure the WAF to block malicious requests based on predefined rules or advanced threat detection mechanisms.
+
+**3. Harden Application Code:**
+- Use proper input validation and sanitization to prevent attacks such as SQL injection and cross-site scripting.
+- Implement security best practices such as secure coding and threat modeling.
+
+**4. Update Software and Security Patches Regularly:**
+- Keep IIS and all installed modules up-to-date to patch any vulnerabilities that could be exploited.
+- Apply security patches as soon as they become available.
+
+**OWASP Top 10 2021 Category:**
+
+**A1 - Broken Access Control**
+
+This category covers issues where attackers can gain unauthorized access to sensitive data or functionality due to vulnerabilities in authentication, authorization, and access control mechanisms. Web threats such as Cross-Site Request Forgery (CSRF) and SQL injection fall under this category.

@@ -1,0 +1,32 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. Open Group Policy Editor (gpedit.msc).
+2. Navigate to Computer Configuration -> Administrative Templates -> Printers -> RPC Authentication.
+3. Enable the "Require Kerberos for RPC connections" policy.
+4. Click "Apply" and "OK" to save the changes.
+
+**Explanation:**
+
+The RpcAuthentication policy specifies the level of authentication required for RPC connections to printers. Leaving this policy disabled or set to "Negotiate" allows unauthenticated attackers to access printers remotely, potentially compromising the confidentiality and integrity of printed documents.
+
+**Detailed Steps:**
+
+1. **Enable Kerberos Authentication:**
+
+   - In the Group Policy Editor, navigate to Computer Configuration -> Administrative Templates -> Printers -> RPC Authentication.
+   - Double-click on "Require Kerberos for RPC connections" and select "Enabled" from the dropdown menu.
+
+2. **Configure Printer Permissions:**
+
+   - Open the Printers and Faxes control panel.
+   - Right-click on the printer and select "Properties."
+   - Go to the "Security" tab and ensure that only authorized users or groups have permission to access the printer.
+
+3. **Test Connectivity:**
+
+   - Try printing a document to the affected printer.
+   - If printing is successful, the fix is working. If not, verify that Kerberos authentication is properly configured on both the client and server.

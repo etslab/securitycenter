@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Injection
+
+**Solution:**
+
+To fix this issue, apply the following steps:
+
+1. **Update IIS to a version that is not affected by CVE-2013-0169.** Microsoft released a security update to address this vulnerability on August 19, 2013.
+2. **Install the update on all affected servers.** Follow the instructions provided by Microsoft for installing the update.
+3. **Enable IIS hardening settings.** These settings can be found in the IIS Manager console.
+4. **Disable unnecessary services and components.** This will reduce the attack surface of the server.
+5. **Use a web application firewall (WAF).** A WAF can help to detect and block malicious requests.
+
+**Additional Mitigation:**
+
+* Use input validation to validate all user input.
+* Use parameterized queries to prevent SQL injection attacks.
+* Use secure coding practices to prevent buffer overflows and other memory-related vulnerabilities.

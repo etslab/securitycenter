@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Enable Restricted Registry Access:**
+   - Modify the registry key `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+   - Create or modify the DWORD value `EnableLUA` and set it to `1`
+
+2. **Configure Registry Permissions:**
+   - Grant only necessary permissions to users and groups that require access to specific registry keys.
+   - Use the Registry Editor (regedit.exe) to set permissions on specific keys.
+
+3. **Disable VBScript and JavaScript Support:**
+   - These scripting languages can be used to manipulate registry settings remotely.
+
+4. **Implement Application Whitelisting:**
+   - Only allow authorized applications to access the registry.
+
+5. **Use a Registry Monitoring Tool:**
+   - Monitor registry changes to detect unauthorized modifications.
+
+**Additional Recommendations:**
+
+* **Regularly patch the operating system and software:** This will address vulnerabilities that can be exploited to gain registry access.
+* **Educate users about registry security:** Make users aware of the importance of protecting registry settings.
+* **Restrict administrative privileges:** Only grant administrative privileges to those who absolutely need them.

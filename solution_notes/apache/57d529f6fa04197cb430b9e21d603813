@@ -1,0 +1,27 @@
+**Severity Assessment:** Medium
+
+**OWASP Top 10 2021 Category:** A3: Injection
+
+**Solution:**
+
+To fix this audit issue, configure the LogDroppedPackets registry key to a value of 1. This will enable logging of dropped packets in the Windows Firewall.
+
+**Steps to Configure the LogDroppedPackets Registry Key:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging
+   ```
+3. Right-click on the Logging key and select "New" > "DWORD (32-bit) Value".
+4. Name the new value "LogDroppedPackets".
+5. Double-click on the LogDroppedPackets value and set the Value data to 1.
+6. Click "OK" to save the changes.
+
+**Explanation:**
+
+The Policy LogDroppedPackets registry key controls whether or not the Windows Firewall logs dropped packets. By default, this key is set to 0, which disables packet logging. Enabling packet logging can help to identify and resolve network connectivity issues.
+
+**Impact:**
+
+Leaving the Policy LogDroppedPackets registry key set to 0 can make it more difficult to troubleshoot network connectivity problems. Additionally, an attacker who is able to exploit this issue could potentially bypass the firewall and access the protected network.

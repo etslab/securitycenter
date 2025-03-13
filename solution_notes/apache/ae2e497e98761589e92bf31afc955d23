@@ -1,0 +1,24 @@
+**Severity:** Medium to High
+
+**OWASP Top 10 2021 Category:** Insufficient Resource Protection
+
+**Description:**
+
+This vulnerability occurs when a web application mishandles large file uploads, leading to excessive resource consumption. Attackers can exploit this by submitting large files, causing the web server to exhaust its resources and potentially crash. Apache server is particularly susceptible to this issue due to its default configuration settings.
+
+**Solution:**
+
+Implement mechanisms to limit the size and number of files that can be uploaded:
+
+1. **Set Request Body Limits:** Use the `MaxRequestBodySize` directive in Apache's configuration file to limit the maximum size of a single HTTP request body.
+2. **Set Multipart Upload Limits:** Use the `LimitRequestBody` and `LimitNumberOfFiles` directives to restrict the maximum size and number of files in a multipart upload request.
+3. **Validate Input:** Validate the uploaded files to ensure they are of reasonable size and format before processing them.
+4. **Use a Virtual File System:** Consider using a virtual file system (e.g., AWS S3, Azure Blob Storage) to store uploaded files instead of the local file system.
+5. **Monitor and Alert:** Continuously monitor resource usage and set up alerts to detect any unusual spikes in resource consumption.
+
+**Additional Considerations:**
+
+* Configure web servers with appropriate timeouts to prevent long-running requests from consuming excessive resources.
+* Implement rate limiting to throttle the number of requests from a single source.
+* Use a web application firewall (WAF) to block malicious traffic.
+* Consider using a load balancer to distribute traffic and prevent single servers from being overwhelmed.

@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Server-Side Request Forgery
+
+**Description:**
+
+The NewGuestName registry value determines the name of the registered user if the "New Guest" account is created. When this value is not configured or is set to a vulnerable value, an attacker could exploit it to create a "New Guest" account with a predictable name, leading to Server-Side Request Forgery (SSRF) and other attacks.
+
+**Solution:**
+
+1. **Set the NewGuestName Value:**
+    - Open the Windows Registry Editor (regedit).
+    - Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon`.
+    - Create a new string value named "NewGuestName" if it does not exist.
+    - Set the value data to a random or complex string.
+
+2. **Disable Guest Account Creation:**
+    - Open the Local Security Policy Editor (secpol.msc).
+    - Navigate to "Security Settings > Local Policies > Security Options".
+    - Enable the policy "Accounts: Limit local account use of blank passwords to console logon only".
+
+3. **Use Strong Passwords and MFA:**
+    - Enforce strong passwords for all user accounts.
+    - Implement multi-factor authentication (MFA) to prevent unauthorized account access.
+
+**Additional Recommendations:**
+
+* Regularly review logs for suspicious activity.
+* Implement security measures to protect against SSRF attacks.
+* Keep the server and software up to date with security patches.

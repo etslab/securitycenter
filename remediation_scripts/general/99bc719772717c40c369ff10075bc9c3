@@ -1,0 +1,49 @@
+####patch script to remediate CVE-2013-0169, CWE-310 Subresource Integrity (SRI) not implemented but all external scripts are loaded over HTTPS in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 Subresource Integrity (SRI) not implemented but all external scripts are loaded over HTTPS in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if ! systemctl is-active httpd.service; then
+  echo "Apache is not running. Exiting."
+  exit 1
+fi
+
+# Get the list of all external scripts
+scripts=$(grep -Eo "src='https?://.*'" /etc/apache2/sites-enabled/* | sort -u)
+
+# For each script, add an SRI directive
+for script in $scripts; do
+  echo "Adding SRI directive for $script..."
+  sed -i "s/$script/$script;integrity=sha256-[A-Za-z0-9]+/g" /etc/apache2/sites-enabled/*
+done
+
+# Restart Apache
+systemctl restart httpd.service
+
+# Check if the SRI directives are in place
+for script in $scripts; do
+  echo "Checking SRI directive for $script..."
+  grep -q "integrity=sha256-[A-Za-z0-9]+" /etc/apache2/sites-enabled/*
+done
+
+# If all SRI directives are in place, exit with success
+if [ $? -eq 0 ]; then
+  echo "All SRI directives are in place. Exiting with success."
+  exit 0
+else
+  echo "One or more SRI directives are missing. Exiting with failure."
+  exit 1
+fi
+```
+
+This patch script will first check if Apache is running. If it is not, the script will exit. Next, the script will get a list of all external scripts that are loaded over HTTPS. For each script, the script will add an SRI directive. The SRI directive will specify a cryptographic hash of the script's contents. This will help to prevent attackers from injecting malicious code into the script. Finally, the script will restart Apache.
+
+Once the script has been run, you can check that the SRI directives are in place by running the following command:
+
+```
+grep -q "integrity=sha256-[A-Za-z0-9]+" /etc/apache2/sites-enabled/*
+```
+
+If the output of this command is empty, then all SRI directives are in place. If the output of this command contains any lines, then one or more SRI directives are missing.

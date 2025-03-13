@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Identify the root cause:** Determine the reason why the libEncryptorP.so library is exposed in the Apache server's public directory. This could be due to misconfiguration in the Apache configuration files or a vulnerability in the application.
+2. **Remove the library:** Remove the libEncryptorP.so library from the public directory. This will prevent it from being accessed by external attackers.
+3. **Secure the application:** If the exposure of the library was caused by a vulnerability in the application, apply appropriate security updates or patches to address the vulnerability.
+4. **Configure Apache correctly:** Ensure that the Apache configuration files are properly configured to prevent unauthorized access to sensitive directories and files.
+5. **Monitor and review:** Regularly monitor and review the Apache server logs for any suspicious activity or attempted exploitation.
+
+**Steps to Reproduce the Issue:**
+
+1. Access the Apache server via its public IP address or domain name.
+2. Navigate to the URL where the libEncryptorP.so library is exposed, typically /apktool_out/lib/x86_64/libEncryptorP.so.
+3. Verify that the library is accessible and can be downloaded.
+
+**Example Apache Configuration to Prevent Access:**
+
+```
+<Directory /apktool_out/lib>
+    Deny from all
+</Directory>
+```

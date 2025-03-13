@@ -1,0 +1,26 @@
+**Severity:** Critical
+
+**OWASP Top 10 Category:** A1: Broken Access Control
+
+**Description:**
+
+CVE-2011-3389 is a vulnerability in Apache HTTP Server where an attacker can exploit a directory traversal flaw to access files outside the web server's document root. This could allow the attacker to gain sensitive information or execute malicious code on the server.
+
+**Solution:**
+
+The Apache Software Foundation has released a patch to fix this vulnerability. To apply the patch, follow these steps:
+
+1. Download the latest Apache HTTP Server version from https://httpd.apache.org/download.cgi.
+2. Stop the Apache HTTP Server service.
+3. Unzip the downloaded Apache HTTP Server package into the appropriate directory.
+4. Copy the new files over the existing Apache HTTP Server files.
+5. Start the Apache HTTP Server service.
+
+**Additional Mitigation:**
+
+In addition to applying the patch, it is recommended to take the following steps to mitigate the risk of this vulnerability:
+
+* **Update all software:** Ensure that all installed software is up-to-date, including Apache HTTP Server and the operating system.
+* **Use a web application firewall:** A web application firewall (WAF) can help block malicious requests and protect the web server from attacks.
+* **Restrict access to sensitive files:** Limit access to sensitive files and directories to only authorized users.
+* **Monitor the server for suspicious activity:** Regularly monitor the server logs for any suspicious activity or attempted attacks.

@@ -1,0 +1,22 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A6: Sensitive Data Exposure
+
+**Solution:**
+
+To fix this issue, you need to configure your Apache server to use a more secure cipher suite. You can do this by editing the `SSLProtocol` and `SSLCipherSuite` directives in the Apache configuration file.
+
+For example, you can add the following lines to your Apache configuration file:
+
+```
+SSLProtocol all -SSLv2 -SSLv3
+SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5:!DSS:!RC4:!3DES:!DES:!CBC:!DH
+```
+
+This will configure Apache to use a more secure cipher suite that includes AES-256 with SHA-256.
+
+**Additional Notes:**
+
+* It is important to note that changing the cipher suite may affect the compatibility of your server with older clients.
+* You should test your server after making any changes to the cipher suite to ensure that it is still functioning properly.
+* You should also monitor your server logs for any errors or warnings related to the cipher suite.

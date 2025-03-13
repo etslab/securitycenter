@@ -1,0 +1,35 @@
+####patch script to remediate  Unexpected Content-Type was returned in Apache HTTP Server
+Here is a patch script that can be used to remediate the Unexpected Content-Type was returned error in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current Apache configuration
+  apache_config=$(cat /etc/apache2/apache2.conf)
+
+  # Find the line that defines the Content-Type for the affected file
+  content_type_line=$(echo "$apache_config" | grep -i "content-type")
+
+  # If the Content-Type is not correct, update it
+  if [ -n "$content_type_line" ]; then
+
+    # Get the correct Content-Type for the file
+    correct_content_type=$(file -b --mime-type "$file")
+
+    # Update the Content-Type line
+    sed -i "s/$content_type_line/$correct_content_type/" /etc/apache2/apache2.conf
+
+  fi
+
+  # Restart Apache
+  service apache2 restart
+
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will then get the current Apache configuration. The script will then find the line in the configuration that defines the Content-Type for the affected file. If the Content-Type is not correct, the script will update it. Finally, the script will restart Apache.
+
+This script should be used with caution. If you are not familiar with Apache configuration, you should consult with a system administrator before running this script.

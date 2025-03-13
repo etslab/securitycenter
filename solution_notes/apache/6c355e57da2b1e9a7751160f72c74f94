@@ -1,0 +1,35 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Authentication
+
+**Detailed Solution:**
+
+The issue is related to the use of the `ba_forgotten.php` file in bWAPP, which handles the password reset functionality. The file lacks proper validation for the email address entered by the user, allowing an attacker to bypass password reset restrictions.
+
+To fix this issue, implement proper validation mechanisms for the email address, such as:
+
+```php
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  echo "Invalid email address";
+  exit;
+}
+```
+
+Additionally, consider using a rate limiter to prevent brute-force attacks against the password reset mechanism.
+
+**Steps to Implement the Solution:**
+
+1. Open the `ba_forgotten.php` file in your code editor.
+2. Add the email address validation code after the line where the `email` variable is received.
+3. Consider adding a rate limiter if necessary.
+
+**Example Code:**
+
+```php
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  echo "Invalid email address";
+  exit;
+}
+
+// Rest of the password reset code here...
+```

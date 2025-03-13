@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Issue Description:**
+
+The Policy NoGPOListChanges in the specified registry key allows unauthorized users to bypass Group Policy settings and potentially gain elevated privileges on the server. This can lead to unauthorized access to sensitive data, system compromise, or the execution of malicious code.
+
+**Solution:**
+
+To resolve this issue, the value of the NoGPOListChanges policy should be set to "1", which prevents users from modifying Group Policy settings.
+
+**Detailed Instructions:**
+
+1. Navigate to the following registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy`
+2. Locate the `35378EAC683F11D2A89A00C04FBBCFA2` subkey.
+3. Right-click on the NoGPOListChanges DWORD value and select "Modify".
+4. Set the Value data to "1".
+5. Click "OK" to save the changes.
+
+**Additional Considerations:**
+
+* Ensure that only authorized users have access to the server's Group Policy settings.
+* Regularly audit and monitor Group Policy settings for any unauthorized changes.
+* Implement strong authentication mechanisms to prevent unauthorized access to the server.

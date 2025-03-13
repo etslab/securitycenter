@@ -1,0 +1,14 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+To fix this issue, apply the following patches:
+
+* Microsoft Security Bulletin MS14-051 for Windows Vista, Windows Server 2008, Windows 7, Windows Server 2008 R2, Windows 8, Windows Server 2012, Windows 8.1, Windows Server 2012 R2, Windows RT, Windows RT 8.1, and Windows Server 2016: [https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-051](https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-051)
+* Microsoft Security Bulletin MS14-052 for Windows Server 2003: [https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-052](https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-052)
+
+**Description:**
+
+CVE-2014-0224 is a vulnerability in IIS that allows an attacker to bypass authentication and gain access to sensitive information. The vulnerability is caused by an error in the way IIS handles HTTP requests. An attacker can exploit the vulnerability by sending a specially crafted HTTP request to the IIS server. If the server is not patched, the attacker can gain access to the server's files and folders without authenticating.

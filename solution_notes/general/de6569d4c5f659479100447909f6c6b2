@@ -1,0 +1,40 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A6: Security Misconfiguration
+
+**Solution:**
+
+1. **Enable Audit Logging for Registry Changes:**
+   - In the Apache httpd.conf file, add the following directive:
+   ```
+   LogFormat "%h %l %u %t \"%r\" %s %b \"%{Referer}i\" \"%{User-agent}i\" %D %T %a" combined
+   CustomLog logs/registry_audit combined
+   ```
+   - This logs all registry key access in the "logs/registry_audit" file.
+
+2. **Restrict Access to Sensitive Registry Keys:**
+   - In the Apache httpd.conf file, add the following directive:
+   ```
+   <Directory "path/to/sensitive/registry/keys">
+       Deny from all
+   </Directory>
+   ```
+   - This prevents unauthorized access to specified registry keys.
+
+3. **Use Secure Registry Editor:**
+   - Use a registry editor that supports Transport Layer Security (TLS) encryption, such as regedit with the "/s" option:
+   ```
+   regedit /s
+   ```
+
+4. **Monitor Registry Changes:**
+   - Use tools like RegShot or AuditPol to monitor registry changes and detect unauthorized modifications.
+
+5. **Implement IDS/IPS:**
+   - Deploy an Intrusion Detection/Prevention System (IDS/IPS) to monitor for suspicious registry activity.
+
+6. **Implement IAM:**
+   - Implement an Identity and Access Management (IAM) system to control access to registry resources based on user roles and permissions.
+
+7. **Consider Least Privilege:**
+   - Only grant users the minimum permissions necessary to perform their tasks, reducing the potential impact of unauthorized access.

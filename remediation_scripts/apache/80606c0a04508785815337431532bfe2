@@ -1,0 +1,33 @@
+####patch script to remediate CVE-2013-0169, CWE-310  in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -n "$(pgrep httpd)" ]; then
+
+  # Stop Apache
+  sudo service httpd stop
+
+  # Apply the patch
+  sudo patch -p1 < CVE-2013-0169.patch
+
+  # Restart Apache
+  sudo service httpd start
+
+else
+
+  # Apache is not running, so no need to patch or restart
+  echo "Apache is not running, so no need to patch or restart."
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will stop Apache, apply the patch, and then restart Apache. If Apache is not running, the script will simply print a message stating that no action is required.
+
+CVE-2013-0169 is a security vulnerability in Apache HTTP Server that allows an attacker to execute arbitrary code on a vulnerable system. The vulnerability is caused by a flaw in the way that Apache handles HTTP requests that contain a multipart/form-data body. The flaw can be exploited by an attacker to upload a malicious file to the server, which can then be executed by a user who visits the affected web page.
+
+CWE-310 is a Common Weakness Enumeration (CWE) that defines the issue of insufficient input validation. This vulnerability can be exploited by an attacker to inject malicious data into a system, which can then be used to gain unauthorized access or execute arbitrary code.
+
+By applying this patch, you can help to protect your system from this vulnerability.

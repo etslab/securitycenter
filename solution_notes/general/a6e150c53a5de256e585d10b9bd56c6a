@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Issue:**
+Insecure input handling and validation of CSS values in HTML templates can allow attackers to inject malicious code into web pages, potentially leading to cross-site scripting (XSS) attacks.
+
+**Solution:**
+To fix this issue, implement proper sanitization of CSS values to remove or encode any potentially malicious characters.
+
+**Steps:**
+
+1. **Use a Sanitization Library:** Utilize a trusted sanitization library like "html/template" or "html" to automatically sanitize CSS values.
+2. **Encode User Input:** Manually encode user-provided CSS values using functions like `html.Encode()` or `html.EscapeString()`.
+3. **Restrict Allowed CSS Properties:** Limit the CSS properties that can be used to prevent potential exploitation.
+4. **Use a Content Security Policy (CSP):** Configure a CSP to restrict the sources of CSS code that can be executed on the page.
+
+**Example:**
+
+```go
+// Sanitize CSS using the "template" package
+func sanitizeCSS(css string) string {
+    template := template.New("sanitize")
+    return template.Funcs(template.FuncMap{"css": func(s string) string { return html.EscapeString(s) }}).ExecuteTemplate(nil, css, nil)
+}
+```
+
+**Note:**
+
+* This solution only addresses the specific issue of sanitizing CSS values. Additional security measures may be necessary to prevent XSS attacks.
+* Always ensure that input validation and sanitization are performed consistently throughout the application.

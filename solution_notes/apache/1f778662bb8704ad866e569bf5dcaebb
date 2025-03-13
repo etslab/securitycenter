@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue:**
+The Policy NoCrashDetection in Registry Software->Policies->Microsoft->Internet Explorer->Restrictions allows users to bypass crash detection mechanisms in Internet Explorer, potentially allowing attackers to execute arbitrary code on a user's system.
+
+**Solution:**
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Restrictions
+```
+3. In the right-hand pane, create a new DWORD value named "NoCrashDetection."
+4. Set the value of "NoCrashDetection" to 0.
+5. Exit the Registry Editor.
+
+**Additional Information:**
+By setting the "NoCrashDetection" value to 0, you are enabling crash detection in Internet Explorer. This will help to prevent attackers from exploiting vulnerabilities in Internet Explorer that could lead to arbitrary code execution.

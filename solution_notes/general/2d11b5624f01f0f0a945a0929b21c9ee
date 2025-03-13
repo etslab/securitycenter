@@ -1,0 +1,36 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Detailed Solution:**
+
+1. Navigate to the following registry path:
+   ```
+   SOFTWARE\Policies\Microsoft\Windows\DeviceInstall\Restrictions
+   ```
+2. Create a new DWORD value with the name "DenyDeviceClasses".
+3. Set the value of the "DenyDeviceClasses" DWORD to "1".
+4. Restart the computer.
+
+This will disable the ability for users to install devices that belong to the specified device classes.
+
+**Additional Notes:**
+
+* The "DenyDeviceClasses" DWORD value can be set to a bitmask of values to specify which device classes to deny. For example, a value of "3" would deny the installation of both USB and Bluetooth devices.
+* The following device classes are supported:
+    * **0:** All devices
+    * **1:** USB devices
+    * **2:** Bluetooth devices
+    * **3:** FireWire devices
+    * **4:** IrDA devices
+    * **5:** Serial devices
+    * **6:** Parallel devices
+    * **7:** Modems
+    * **8:** Network adapters
+    * **9:** Printers
+    * **10:** Scanners
+    * **11:** Cameras
+    * **12:** Audio devices
+    * **13:** Video devices
+    * **14:** Input devices
+    * **15:** Storage devices

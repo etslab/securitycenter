@@ -1,0 +1,20 @@
+###How to fix the App Dependencies issue of immer:1.10.0 of pkg:npm/immer@1.10.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of immer:1.10.0 of pkg:npm/immer@1.10.0 in apache web server can be fixed by updating the version of immer to 1.11.0 or higher. This issue is caused by a security vulnerability in the earlier version of immer that could allow an attacker to execute arbitrary code on the server. The vulnerability is classified as a Remote Code Execution (RCE) vulnerability, which is one of the most serious types of security vulnerabilities.
+
+To update the version of immer, you can use the following command:
+
+```
+npm install immer@1.11.0
+```
+
+Once the update has been installed, you will need to restart your Apache web server.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Injection. Injection vulnerabilities occur when untrusted data is inserted into code that is executed by a vulnerable application. This can lead to the execution of arbitrary code, data loss, or other malicious actions.
+
+Here are some additional tips for preventing injection vulnerabilities:
+
+* Use prepared statements or parameterized queries instead of dynamic SQL.
+* Sanitize all user input before inserting it into code.
+* Use a web application firewall (WAF) to help protect your application from common injection attacks.
+
+By following these tips, you can help to prevent injection vulnerabilities and keep your web applications secure.

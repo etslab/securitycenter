@@ -1,0 +1,22 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Solution:**
+
+1. **Navigate to the Windows Registry:** Press Windows key + R, type "regedit" in the search box, and click "OK."
+2. **Locate the Firewall Policy Key:** Navigate to the following registry path:
+   ```
+   Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall
+   ```
+3. **Enable the Firewall:** Under the PublicProfile key, locate the "EnableFirewall" DWORD value. If it doesn't exist, create it by right-clicking and selecting "New" > "DWORD (32-bit) Value." Set its value to 1.
+4. **Configure Firewall Settings:** Under the PublicProfile key, configure additional firewall settings as required, such as:
+   - EnableFirewallLogging: Enable firewall logging
+   - AllowInboundTCPPorts: Allow specific TCP ports
+   - BlockOutboundAll: Block all outbound traffic
+
+**Additional Note:**
+
+* Ensure that the Windows Firewall service is running.
+* Verify the firewall rules to ensure that necessary traffic is allowed.
+* Consider using a third-party firewall appliance or software for additional protection.

@@ -1,0 +1,40 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A4: Insecure Design
+
+**Detailed Solution:**
+
+**1. Enable Detailed Tracking for DPAPI Activity in the Registry:**
+
+* Open the Group Policy Management Console (gpmc.msc).
+* Navigate to: Computer Configuration > Windows Settings > Security Settings > Advanced Audit Policy Configuration
+* Right-click on "Audit Policies" and select "Edit Policy".
+* Expand "Audit Policies" and navigate to "Object Access".
+* Check the box for "Audit Detailed DPAPI Activity" and click "OK".
+
+**2. Configure Audit Policy to Log Events to Security Log:**
+
+* Open the Local Security Policy editor (secpol.msc).
+* Navigate to: Security Settings > Local Policies > Audit Policy
+* Right-click on "Audit object access" and select "Properties".
+* Under the "Audit object access" tab, select "Success" and "Failure" for "Audit these attempts".
+* Under the "Filtering" tab, click "Configure".
+* Add the following filtering criteria:
+    * Target Subcategory: Registry
+    * Target Object: <Specific registry key or path>
+
+**3. Review Registry Activity for Suspicious Access:**
+
+* Use the Event Viewer to monitor Event ID 4663 for any suspicious attempts to access the specified registry key or path.
+* Investigate any events with suspicious user accounts, processes, or IP addresses.
+
+**4. Implement Additional Security Measures:**
+
+* Restrict access to the registry key or path to authorized users only.
+* Consider using encryption or a key management system to protect sensitive data stored in the registry.
+* Implement a strong password policy and enable multi-factor authentication.
+
+**5. Monitor and Respond:**
+
+* Regularly review audit logs for any suspicious activity.
+* Respond promptly to any incidents by investigating, remediating, and updating security measures as necessary.

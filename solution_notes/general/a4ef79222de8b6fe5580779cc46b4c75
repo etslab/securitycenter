@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Description:**
+
+The `android_insecure_random` function in Apache HTTP Server is used to generate cryptographically random data for authentication and session management purposes. However, this function is known to be insecure and can be exploited to predict random numbers, leading to potential leakage of sensitive information.
+
+**Solution:**
+
+To fix this issue, replace the `android_insecure_random` function with a secure and entropy-gathering function such as `openssl_random_pseudo_bytes()` or `random_bytes()`.
+
+**Detailed Steps:**
+
+1. Open the affected Apache configuration file (e.g., `httpd.conf`).
+2. Locate the line that contains `android_insecure_random`.
+3. Replace it with the following code:
+
+```
+RandomSource /dev/urandom
+```
+
+4. Restart the Apache server for the changes to take effect.
+
+**Additional Notes:**
+
+* This issue is considered high severity because it could lead to the exposure of sensitive data, such as user passwords or session tokens.
+* It is important to note that this issue is not specific to Android platforms and can affect any Apache server that uses `android_insecure_random`.
+* Best practices recommend using a dedicated and secure random number generator (RNG) for cryptographic purposes.

@@ -1,0 +1,19 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A04: Security Misconfiguration
+
+**Assessment:**
+
+The presence of apktool_out/lib/x86/libcronet.119.0.6045.31.so in an apache server indicates a security misconfiguration. This library is part of the Cronet library, which is used by Android apps to access the Internet. However, it should not be present in a server environment, as it exposes sensitive information that could be exploited by attackers.
+
+**Solution:**
+
+1. Remove the apktool_out/lib/x86/libcronet.119.0.6045.31.so library from the server.
+2. Review the server configuration to ensure that all unnecessary libraries and components are removed.
+3. Implement proper access controls and security measures to protect the server from unauthorized access and exploitation.
+
+**Additional Notes:**
+
+* This issue is considered "high" severity because it represents a significant security risk if exploited.
+* It is important to keep the server configuration up to date and remove any unnecessary components to minimize the attack surface.
+* Regular security audits and vulnerability scanning should be performed to identify and address such misconfigurations.

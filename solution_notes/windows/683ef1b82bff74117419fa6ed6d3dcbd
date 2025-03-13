@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Issue Details:**
+
+The Policy CopyFilesPolicy in the Windows Registry controls whether files can be copied to or from the print server. If this policy is set incorrectly, attackers could gain unauthorized access to sensitive data by accessing the print server's file system.
+
+**Solution:**
+
+To fix this issue, ensure that the Policy CopyFilesPolicy value is set correctly in the Registry:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers.
+3. Locate the Policy CopyFilesPolicy value.
+4. Double-click the Policy CopyFilesPolicy value and set the following values:
+
+```
+Value name: Policy CopyFilesPolicy
+Value type: REG_DWORD
+Value data:
+    0 = Disable copying files to or from the print server
+    1 = Enable copying files to or from the print server (default)
+```
+
+**Additional Recommendations:**
+
+* Regularly review and update your security policies to mitigate risks.
+* Ensure that the print server is only accessible to authorized users.
+* Implement strong password policies and enable two-factor authentication.
+* Regularly monitor your print server for suspicious activity.

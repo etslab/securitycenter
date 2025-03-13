@@ -1,0 +1,20 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Injection
+
+**Solution:**
+
+To fix CVE-2015-4000 in Apache Server, follow these steps:
+
+1. **Update Apache Server:** Update Apache Server to the latest stable version, which includes the fix for this vulnerability.
+2. **Disable mod_negotiation:** Disable the mod_negotiation module, which is no longer supported and can allow for directory traversal attacks.
+3. **Configure mod_headers:** Configure mod_headers to remove the "Vary: Accept-Encoding" header to prevent content-sniffing attacks.
+4. **Apply Apache Security Patches:** Install all available Apache security patches to address any known vulnerabilities.
+
+**Detailed Explanation:**
+
+CVE-2015-4000 is a critical vulnerability in Apache Server that allows an attacker to send a specially crafted HTTP request to bypass directory traversal restrictions. This can lead to the attacker accessing sensitive files or executing arbitrary code on the server.
+
+The vulnerability is caused by a flaw in the mod_negotiation and mod_headers modules. An attacker can exploit this flaw by sending a request with a "Vary: Accept-Encoding" header and a specific Content-Type header. This allows the attacker to bypass the directory traversal restrictions and access files outside the intended document root.
+
+By disabling mod_negotiation, configuring mod_headers to remove the "Vary: Accept-Encoding" header, and applying Apache security patches, you can mitigate the risk associated with CVE-2015-4000 and enhance the security of your Apache Server.

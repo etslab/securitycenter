@@ -1,0 +1,31 @@
+###How to fix the App Dependencies issue of terser:4.8.0 of pkg:npm/terser@4.8.0 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of terser:4.8.0 of pkg:npm/terser@4.8.0 in nginx web server, you can try the following:
+
+1. Update terser to a newer version. The latest version of terser is 6.1.19.
+2. If you cannot update terser, you can try to disable the App Dependencies feature in nginx. To do this, add the following line to your nginx configuration file:
+
+```
+app_dependencies off;
+```
+
+3. If you cannot disable the App Dependencies feature, you can try to add a dependency exception for terser. To do this, add the following line to your nginx configuration file:
+
+```
+app_dependencies_exceptions terser@4.8.0;
+```
+
+Once you have made the necessary changes to your nginx configuration file, you need to reload nginx for the changes to take effect. To do this, run the following command:
+
+```
+sudo nginx -s reload
+```
+
+The App Dependencies issue of terser:4.8.0 of pkg:npm/terser@4.8.0 is a vulnerability that allows an attacker to execute arbitrary code on the nginx web server. This vulnerability belongs to the **Injection** category of the OWASP Top 10 Web Application Security Risks.
+
+**Additional Information**
+
+The App Dependencies feature in nginx is designed to prevent applications from using outdated or vulnerable dependencies. However, this feature can also cause problems if it is not configured correctly. For example, if you disable the App Dependencies feature, you may be vulnerable to attacks that exploit vulnerabilities in outdated or vulnerable dependencies.
+
+If you cannot update terser to a newer version, or if you cannot disable the App Dependencies feature, you should add a dependency exception for terser. However, this is not a recommended solution, as it will leave you vulnerable to attacks that exploit vulnerabilities in terser:4.8.0.
+
+It is important to keep your applications and dependencies up to date to mitigate the risk of attacks. You should also regularly scan your applications for vulnerabilities.

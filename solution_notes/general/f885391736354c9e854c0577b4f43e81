@@ -1,0 +1,36 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Not applicable
+
+**Issue Description:**
+The `javascript:S125` rule in SonarQube flags code that uses `eval()`. The `eval()` function can be used to execute arbitrary code, posing a security risk.
+
+**Solution:**
+There are several ways to avoid using `eval()`. One option is to use the `Function` constructor instead:
+
+```javascript
+// Original code
+var result = eval('(1 + 2) * 3;');
+
+// Rewrite using the Function constructor
+var result = new Function('return (1 + 2) * 3;')();
+```
+
+Another option is to use a safer alternative to `eval()`, such as `JSON.parse()`. Here's an example:
+
+```javascript
+// Original code
+var result = eval('{"name": "John"}');
+
+// Rewrite using JSON.parse()
+var result = JSON.parse('{"name": "John"}');
+```
+
+In some cases, it may not be possible to avoid using `eval()`. If this is the case, you should take steps to mitigate the security risk, such as:
+
+* Restricting the input to `eval()` to a trusted source
+* Sandboxing the code executed by `eval()`
+
+**Additional Notes:**
+
+This issue is considered medium severity because `eval()` can be used to execute arbitrary code, which could potentially lead to a security breach. However, it is important to note that this issue is not specific to Apache and can occur in any application that uses JavaScript.

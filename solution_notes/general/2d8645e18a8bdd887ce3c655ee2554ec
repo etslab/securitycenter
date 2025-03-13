@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** SQL Injection
+
+**Vulnerability:** The PHP code in `Test:DVWA-master/dvwa/includes/DBMS/PGSQL.php` is vulnerable to SQL injection because it does not properly sanitize user input before executing SQL queries. This could allow an attacker to execute malicious SQL queries on the database server.
+
+**Solution:**
+
+To fix this issue, you should use prepared statements to execute SQL queries. Prepared statements prevent SQL injection by ensuring that user input is properly escaped before it is used in a query.
+
+Here is an example of how to use a prepared statement to fix the vulnerable code:
+
+```php
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
+```
+
+In this example, the `prepare()` method creates a prepared statement object. The `bind_param()` method binds the user input to the prepared statement. The `execute()` method executes the prepared statement.
+
+Once you have implemented this fix, you should re-run the SonarQube scan to verify that the issue has been resolved.

@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of loader-utils:2.0.0 of pkg:npm/loader-utils@2.0.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+There are a few ways to fix the App Dependencies issue of loader-utils:2.0.0 of pkg:npm/loader-utils@2.0.0 in apache web server.
+
+One way is to upgrade to a newer version of loader-utils. The current version of loader-utils is 2.1.0, which fixes the issue. To upgrade, simply run the following command:
+
+```
+npm install --save loader-utils@2.1.0
+```
+
+Another way to fix the issue is to use a different library for loading modules. There are many other libraries available, such as SystemJS and Webpack. These libraries do not have the same issue as loader-utils.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is A3: Broken Access Control. This category is about vulnerabilities that allow attackers to access resources that they should not be able to access. In this case, the attacker is able to access the App Dependencies folder, which contains sensitive information such as passwords and API keys.
+
+Here are some additional tips for preventing this type of vulnerability:
+
+* Use a web application firewall (WAF) to help protect your application from attacks.
+* Use a Content Security Policy (CSP) to restrict the types of resources that can be loaded by your application.
+* Keep your software up to date with the latest security patches.
+* Implement security best practices, such as input validation and output encoding.
+
+By following these tips, you can help to prevent vulnerabilities like this one from occurring in your application.

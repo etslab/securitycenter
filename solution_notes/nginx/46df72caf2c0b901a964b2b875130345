@@ -1,0 +1,21 @@
+###How to fix the Certificates issue of TLS1 1, offered (deprecated) in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Certificates issue of TLS1 1, offered (deprecated) in nginx web server, you can follow these steps:
+
+1. Open the nginx configuration file.
+2. Locate the `ssl_protocols` directive.
+3. Remove `TLSv1.1` and `TLSv1.0` from the list of protocols.
+4. Save the file and restart nginx.
+
+This will disable TLS 1.0 and TLS 1.1, which are deprecated and considered insecure. Only TLS 1.2 and TLS 1.3 will be allowed.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **Insufficient Transport Layer Security**. This category includes vulnerabilities that can be exploited to downgrade the security of the transport layer, such as by using weak ciphers or by allowing insecure protocols.
+
+Here are some additional tips for securing your nginx web server:
+
+* Use strong ciphers.
+* Enable HSTS.
+* Enable HTTP Strict Transport Security (HSTS). This tells browsers to only connect to your site using HTTPS.
+* Use a web application firewall (WAF). A WAF can help to protect your site from common web attacks.
+* Keep your software up to date. Make sure that you are using the latest version of nginx and any other software that you use on your web server.
+
+By following these tips, you can help to keep your nginx web server secure.

@@ -1,0 +1,14 @@
+**Severity:** High
+
+**Detailed Solution:**
+
+1. Upgrade util-linux to a version that includes the fix for this issue (>= 2.37).
+2. Rebuild and reinstall util-linux with the `--disable-readline` option to disable libreadline support.
+
+**OWASP Top 10 2021 Category:**
+
+* **Security Misconfiguration** (A2)
+
+**Additional Information:**
+
+This issue is caused by a flaw in chfn and chsh when compiled with libreadline. The flaw allows unauthenticated users to read arbitrary files on the system. This can lead to sensitive information disclosure, such as system configuration files or user passwords.

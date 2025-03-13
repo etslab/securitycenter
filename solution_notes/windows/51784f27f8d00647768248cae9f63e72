@@ -1,0 +1,30 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03:2021 - Injection
+
+**Solution:**
+
+**Step 1: Disable "Policy Other Account Logon Events in Registry"**
+
+* Open the Registry Editor (regedit.exe).
+* Navigate to: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+* Find the registry key: `DisableLogonEvents`
+* Change its value to `1`.
+
+**Step 2: Configure Audit Policies**
+
+* Open the Local Security Policy tool (secpol.msc).
+* Navigate to: `Local Policies\Audit Policy`
+* Enable the following audit policies:
+    * Audit logon events
+    * Audit account management
+
+**Step 3: Verify Settings**
+
+* Restart the server.
+* Check the Event Viewer to ensure that logon events are being audited.
+* Test by logging in as a different user.
+
+**Explanation:**
+
+"Policy Other Account Logon Events in Registry Account Logon" allows an attacker to evade detection when logging on to a system with a different user account. By disabling this setting and configuring audit policies, you can prevent this attack vector and ensure that all logon events are recorded in the security logs.

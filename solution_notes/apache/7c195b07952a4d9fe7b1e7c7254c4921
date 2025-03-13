@@ -1,0 +1,32 @@
+**Severity**: Critical
+
+**OWASP Top 10 2021 Category**: A04: Broken Access Control
+
+**Description**:
+The AllowEncryptionOracle policy setting in the Windows Registry determines whether CredSSP will use a weak encryption oracle during authentication. If this setting is enabled, attackers can potentially decrypt and intercept sensitive information transmitted between client and server. This vulnerability can lead to unauthorized access to sensitive data, such as passwords or credentials.
+
+**Solution**:
+Disable the AllowEncryptionOracle policy setting by setting its value to 0 (zero) in the following registry path:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\CredSSP\Parameters
+```
+
+To do this, follow these steps:
+
+1. Open Registry Editor (regedit.exe).
+2. Navigate to the registry path specified above.
+3. Right-click on the "AllowEncryptionOracle" value and select "Modify".
+4. Change the "Value data" to "0".
+5. Click "OK" to save the changes.
+
+**Impact**:
+This vulnerability can lead to:
+
+* Unauthorized access to sensitive information
+* Credential theft
+* Identity spoofing
+* Remote access to systems
+
+**Recommendation**:
+Disable the AllowEncryptionOracle policy setting as soon as possible to protect against this vulnerability.

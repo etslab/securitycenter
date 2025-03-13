@@ -1,0 +1,25 @@
+**Severity:** Medium to High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+This issue is caused by using the `ENTRYPOINT` directive in the Dockerfile without specifying a command. As a result, the container will start without executing any command. To fix this issue, specify a valid command using the `ENTRYPOINT` directive. For example:
+
+```
+ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+```
+
+Alternatively, you can use the `CMD` directive to execute a command when the container starts. For example:
+
+```
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+```
+
+**Detailed Explanation:**
+
+The `docker:S7031` rule in SonarQube scans Dockerfiles and ensures that they use either the `ENTRYPOINT` or `CMD` directive to specify a command to execute when the container starts. This rule helps prevent security issues by ensuring that the container will always execute a valid command when it starts.
+
+In this case, the Dockerfile for Apache does not specify a command to execute when the container starts. This could lead to a security issue if the container is started without a valid command. For example, an attacker could exploit this vulnerability to execute malicious code on the container.
+
+By specifying a valid command using the `ENTRYPOINT` or `CMD` directive, you can fix this issue and prevent potential security risks.

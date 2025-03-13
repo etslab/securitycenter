@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Configuration Errors
+
+**Detailed Solution:**
+
+1. **Verify Policy AuditDSAccess Configuration:**
+   - Navigate to the Registry Event Audit settings in Apache configuration (httpd.conf).
+   - Ensure that the "Policy AuditDSAccess" directive is set to "enabled".
+
+2. **Restart Apache Server:**
+   - Save the changes to the configuration file.
+   - Restart the Apache server to apply the changes.
+
+3. **Test Audit Functionality:**
+   - Create a new file or directory within the protected directory.
+   - Check the operating system logs (e.g., /var/log/audit.log) to verify that the access attempt was logged.
+
+**Additional Information:**
+
+* The "Policy AuditDSAccess" directive enables auditing of write, delete, and rename operations on files and directories in the specified path.
+* This audit trail provides evidence of unauthorized modifications or access attempts, helping to detect malicious activity or security breaches.
+* Disabling this audit feature weakens the server's security by reducing visibility into potential threats.

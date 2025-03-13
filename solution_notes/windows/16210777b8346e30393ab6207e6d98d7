@@ -1,0 +1,34 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A6 - Security Misconfiguration
+
+**Issue Description:**
+
+The Policy NoWebServices registry key is set to 1, which disables web services in Windows Explorer. This prevents access to a range of web-based features, including OneDrive, SharePoint, and other online services.
+
+**Impact:**
+
+* Users may be unable to access important files and documents stored in online services.
+* Collaboration and file-sharing capabilities may be compromised.
+* Productivity may be impacted due to the lack of access to web-based tools.
+
+**Solution:**
+
+To resolve this issue, edit the registry key and set it to 0 (enabled):
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key:
+
+```
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer
+```
+
+3. Locate the "NoWebServices" value and double-click it.
+4. Change the Value data to 0.
+5. Click OK to save the changes.
+6. Restart the computer to apply the changes.
+
+**Additional Information:**
+
+* This issue does not pose a direct security risk but can disrupt functionality and impact productivity.
+* The OWASP Top 10 2021 category A6 - Security Misconfiguration refers to vulnerabilities that arise from improper configuration of software or systems, leading to potential security risks or exposure.

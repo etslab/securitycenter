@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+To fix the issue, add the following registry key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard
+```
+
+If the key does not exist, create it.
+
+Under the DeviceGuard key, create a new DWORD value named `HVCI` and set its value to `1`.
+
+**Detailed Explanation:**
+
+The Policy HVCIMATRequired registry setting determines whether Hypervisor-protected Code Integrity (HVCI) is enabled. HVCI is a security feature that helps protect against code injection attacks by ensuring that only authorized code is executed.
+
+When HVCI is disabled (the default setting), attackers can potentially exploit vulnerabilities in the operating system or applications to inject malicious code into the kernel. This can allow them to gain control of the system or access sensitive data.
+
+By enabling HVCI, you can help protect your system against these types of attacks.
+
+**Note:** Enabling HVCI can have some performance impact, so it is important to test it in a non-production environment before enabling it in production.

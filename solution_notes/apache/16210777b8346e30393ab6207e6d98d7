@@ -1,0 +1,24 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Not applicable
+
+**Solution:**
+
+1. Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+```
+
+2. Right-click in the right pane and select **New** > **DWORD (32-bit) Value**.
+
+3. Name the new value **NoWebServices** and set its value to **0**.
+
+4. Restart the apache service.
+
+**Explanation:**
+
+The NoWebServices value controls whether users can access WebDAV (Web Distributed Authoring and Versioning) resources on a remote server. When set to 1, this value disables WebDAV access, which can help protect against unauthorized access to sensitive data.
+
+By default, the NoWebServices value is not set, which means that WebDAV access is enabled. Setting this value to 0 disables WebDAV access and addresses the audit issue.
+
+Note that disabling WebDAV may affect applications that rely on WebDAV for functionality. Therefore, it is important to carefully consider the impact before making this change.

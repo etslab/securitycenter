@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Insecure Authentication
+
+**Details:**
+
+The Policy EnumerateAdministrators registry key controls whether the Windows Credential Manager can enumerate administrators on the local computer. If this key is set to 1, anyone with access to the registry can determine who has administrative privileges, potentially allowing attackers to gain elevated access.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\CredUI
+   ```
+3. Create a new DWORD value named "Policy EnumerateAdministrators" if it doesn't already exist.
+4. Set the value of the DWORD to 0.
+5. Restart the machine.
+
+**Impact:**
+
+Setting this registry key to 1 weakens security by allowing attackers to easily enumerate administrators and gain elevated access to the system.
+
+**Recommendations:**
+
+* Ensure that this registry key is set to 0 to prevent unauthorized enumeration of administrators.
+* Regularly review your registry settings and make sure that they align with best security practices.
+* Implement additional security measures, such as user access control, to protect against unauthorized access to elevated privileges.

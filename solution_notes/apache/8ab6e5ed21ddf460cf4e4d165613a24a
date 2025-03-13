@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Insecure Design
+
+**Solution:**
+
+1. **Review your registry settings:** Use the regedit tool to navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+2. **Locate the "EnableLinkedConnections" value:** This value should be set to 0 (disabled) to prevent access to file shares via the registry.
+3. **If the value is not set or is set to 1 (enabled):** Change the value to 0.
+
+**Additional Considerations:**
+
+* **Lock down file permissions:** Ensure that only authorized users have access to the file shares in question.
+* **Implement access control lists (ACLs):** Use ACLs to grant or deny access to specific users or groups.
+* **Use group policies:** Configure group policies to enforce security settings, including registry access.
+* **Monitor registry changes:** Use a security monitoring tool to detect any unauthorized changes to the registry.
+
+**Explanation:**
+
+By enabling the "EnableLinkedConnections" registry setting, attackers can gain access to file shares by exploiting a vulnerability in the way Windows handles registry objects. This can lead to sensitive data exposure or system compromise. Disabling this setting mitigates this risk by preventing unauthorized access to file shares via the registry.

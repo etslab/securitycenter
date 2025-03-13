@@ -1,0 +1,31 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+To fix CVE-2017-17427, update Apache HTTP Server to version 2.4.33 or later. The update includes a patch that fixes the vulnerability.
+
+**Detailed Steps:**
+
+1. Stop the Apache HTTP Server.
+2. Download the latest version of Apache HTTP Server from the official website: https://httpd.apache.org/download.cgi
+3. Unpack the downloaded archive.
+4. Configure the new Apache HTTP Server installation.
+5. Start the new Apache HTTP Server.
+
+**Additional Mitigation Steps:**
+
+* Enable mod_security and configure it to block malicious requests.
+* Disable unnecessary modules and features to reduce the attack surface.
+* Implement a web application firewall (WAF) to block malicious traffic.
+* Regularly scan your web applications for vulnerabilities.
+
+**Impact of the Vulnerability:**
+
+CVE-2017-17427 allows attackers to execute arbitrary code on the affected server. This could lead to the following impacts:
+
+* Compromise of sensitive data, such as user credentials and financial information
+* Denial of service attacks
+* Defacement of websites
+* Malware installation

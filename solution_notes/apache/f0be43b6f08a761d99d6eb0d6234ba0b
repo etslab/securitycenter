@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Vulnerability Description:**
+
+GZIP HTTP compression allows web servers to reduce the size of HTTP responses, improving performance. However, if only the supplied data is tested for compression, attackers can inject malicious data into the response, potentially leaking sensitive information. This vulnerability is particularly dangerous when it occurs on a compressed file download, such as a PDF or ZIP file.
+
+**Solution:**
+
+To fix this issue, the server configuration should be updated to test for both supplied and user-supplied data when performing GZIP compression. This ensures that malicious data cannot be injected into the compressed response.
+
+Here's the updated configuration for Apache:
+
+```
+SetOutputFilter DEFLATE
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+```
+
+For other web servers, consult the vendor's documentation for instructions on how to configure GZIP compression to test both supplied and user-supplied data.
+
+**Additional Measures:**
+
+* Disable GZIP compression for sensitive files, such as PDFs and ZIP files.
+* Use a web application firewall (WAF) to block malicious requests that attempt to exploit this vulnerability.
+* Regularly scan your web applications for vulnerabilities, including this issue.

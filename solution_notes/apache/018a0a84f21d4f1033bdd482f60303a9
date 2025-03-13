@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A06 - Security Misconfiguration
+
+**Solution:**
+
+To fix this issue, you need to disable the `android_webview_ignore_ssl` flag in your Apache server configuration. You can do this by adding the following line to your httpd.conf file:
+
+```
+SSLProxyVerify none
+```
+
+This will disable SSL verification for all webviews that use your Apache server as a proxy.
+
+**Additional Information:**
+
+The `android_webview_ignore_ssl` flag is a security setting that allows you to ignore SSL errors when loading web content in an Android WebView. This flag should only be used for testing purposes, as it can allow an attacker to intercept and modify web traffic.
+
+By disabling the `android_webview_ignore_ssl` flag, you can help to protect your application from SSL-based attacks.

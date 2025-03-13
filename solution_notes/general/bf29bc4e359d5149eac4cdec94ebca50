@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A05: Broken Access Control
+
+**Cause:**
+The apache server is requesting the android.permission.READ_EXTERNAL_STORAGE permission, which allows it to access external storage on the user's device. This permission is not necessary for the server to function and can be used to access sensitive user data without their consent.
+
+**Solution:**
+Remove the android.permission.READ_EXTERNAL_STORAGE permission from the apache server.
+
+To do this, edit the apache server configuration file (typically located at /etc/apache2/apache2.conf) and remove the following line:
+
+```
+<Directory /var/www/>
+   Require all granted
+   AllowOverride All
+   Options FollowSymLinks
+   Order allow,deny
+   Allow from all
+</Directory>
+```
+
+Restart the apache server for the changes to take effect.
+
+**Additional Recommendations:**
+
+* Use a permissions model that grants only the minimum necessary permissions to each component of your application.
+* Regularly review your application's permissions and remove any that are no longer needed.
+* Educate users about the permissions that your application requests and why they are necessary.

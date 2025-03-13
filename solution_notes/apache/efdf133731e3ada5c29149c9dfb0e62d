@@ -1,0 +1,32 @@
+**Severity:** Critical
+
+**OWASP Top 10 Category:** A03: Injection
+
+**Description:**
+
+The zlib library in Apache Server contains a vulnerability (CVE-2018-1000031) that allows an attacker to trigger an integer overflow and heap-based buffer overflow in the `zipOpenNewFileInZip4_6` function. This vulnerability can lead to remote code execution on the affected server.
+
+**Solution:**
+
+The issue has been fixed in zlib version 1.2.11. To mitigate the risk, it is recommended to upgrade to the latest version of zlib.
+
+**Steps to Upgrade zlib:**
+
+1. Download the latest version of zlib from the official website.
+2. Unpack the downloaded file.
+3. Navigate to the `zlib` directory.
+4. Run the following commands:
+
+```
+./configure
+make
+sudo make install
+```
+
+5. Restart the Apache Server.
+
+**Additional Mitigation Measures:**
+
+* Use input validation to ensure that user-supplied data does not contain malicious characters that could trigger the vulnerability.
+* Implement HTTP headers such as `Content-Length` and `Content-Type` to prevent attackers from uploading malicious files.
+* Enable firewall rules to block unauthorized access to the server.

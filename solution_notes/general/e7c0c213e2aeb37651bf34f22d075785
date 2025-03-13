@@ -1,0 +1,27 @@
+###How to fix the App Dependencies issue of time-winrar.zip in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of time-winrar.zip in Apache web server, you can follow these steps:
+
+1. Download the latest version of WinRAR from the official website.
+2. Extract the contents of the WinRAR archive to a directory of your choice.
+3. Copy the winrar.exe file to the Apache web server's document root directory.
+4. Edit the Apache web server's configuration file (usually httpd.conf) and add the following line to it:
+
+```
+<Location /time-winrar.zip>
+    Order allow,deny
+    Allow from all
+</Location>
+```
+
+5. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of "A1: Injection". Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or unfiltered user input is used to dynamically generate SQL statements or HTML output. This can allow attackers to execute arbitrary code on the server or steal sensitive data from the application.
+
+Here are some additional tips to help you prevent injection attacks:
+
+* Use prepared statements or parameterized queries to avoid SQL injection attacks.
+* Use HTML escaping to prevent XSS attacks.
+* Validate all user input before using it in any dynamic SQL statements or HTML output.
+* Use a web application firewall (WAF) to help detect and block injection attacks.
+
+By following these tips, you can help to protect your web applications from injection attacks.

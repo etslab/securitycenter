@@ -1,0 +1,30 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Injection
+
+**Solution:**
+
+To fix CVE-2014-0224, apply one of the following solutions:
+
+**Apache httpd 2.2.x and 2.4.x**
+
+* Upgrade to Apache httpd 2.4.10 or later.
+* Apply the patch from Apache Security Advisory: https://httpd.apache.org/security/vulnerabilities_22.html#CVE-2014-0224
+
+**Apache httpd 1.x**
+
+* Upgrade to Apache httpd 2.2.x or later, which is not affected by this vulnerability.
+* Apply the patch from the Apache Security Advisory: https://httpd.apache.org/security/vulnerabilities_13.html#CVE-2014-0224
+
+**Additional Mitigation:**
+
+* Use a web application firewall (WAF) to block exploitation attempts.
+* Implement input validation to prevent malicious input from reaching the server.
+
+**Detailed Explanation:**
+
+CVE-2014-0224 is a remote code execution vulnerability in Apache HTTP Server. It allows an attacker to execute arbitrary code on a vulnerable server by sending a specially crafted HTTP request. This vulnerability is classified as critical due to its potential for severe impact on affected systems.
+
+An attacker can exploit this vulnerability by sending a malicious HTTP request that contains a specially crafted header. If the server is vulnerable, it will execute the code embedded in the header, giving the attacker control over the server. This could allow the attacker to access sensitive information, modify or delete files, or launch further attacks.
+
+To protect against this vulnerability, it is essential to apply the recommended patches or upgrade to a non-vulnerable version of Apache HTTP Server as soon as possible.

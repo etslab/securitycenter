@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Internet Settings
+```
+
+3. Create a new DWORD value named "SecureProtocols" (if it doesn't already exist).
+4. Set the value of "SecureProtocols" to 0x00000010 (16 decimal).
+
+This will enable TLS 1.2 and disable SSLv3, SSLv2, TLSv1.0, and TLSv1.1.
+
+**Rationale:**
+
+The Policy SecureProtocols registry key controls which protocols are used by Internet Explorer and other applications when communicating with websites. By default, TLS 1.2 is enabled, but SSLv3, SSLv2, TLSv1.0, and TLSv1.1 are also allowed. This is a security risk because these older protocols are vulnerable to various attacks.
+
+By setting the value of "SecureProtocols" to 0x00000010, we can disable these older protocols and force all connections to use TLS 1.2. This will help to protect against attacks that exploit vulnerabilities in these older protocols.

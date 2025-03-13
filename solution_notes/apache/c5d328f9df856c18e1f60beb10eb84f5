@@ -1,0 +1,31 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A5: Broken Access Control
+
+**Solution:**
+
+1. **Disable BEAST (Block Encryption At The Server Side) attack:** This attack exploits CBC mode padding oracle vulnerabilities. To disable it, disable SSLv3 and TLSv1.0 protocols, as BEAST only affects these protocols.
+
+2. **Enable TLS 1.2 or higher:** TLS 1.2 and above provide stronger encryption algorithms and protection against BEAST attacks.
+
+3. **Disable weak cipher suites:** Disable the following cipher suites that are vulnerable to BEAST attacks:
+
+   - ECDHE-RSA-AES256-SHA
+   - DHE-RSA-AES256-SHA
+   - ECDHE-RSA-AES128-SHA
+   - DHE-RSA-AES128-SHA
+
+4. **Update Apache server:** Ensure that your Apache server is running the latest version, which includes security patches for BEAST vulnerabilities.
+
+**Steps to configure:**
+
+1. Edit the Apache configuration file (usually named httpd.conf).
+
+2. Add the following lines to the configuration:
+
+   ```
+   SSLProtocol TLSv1.2
+   SSLDisableCipherSuite ECDHE-RSA-AES256-SHA DHE-RSA-AES256-SHA ECDHE-RSA-AES128-SHA DHE-RSA-AES128-SHA
+   ```
+
+3. Save the changes and restart the Apache server.

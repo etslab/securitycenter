@@ -1,0 +1,30 @@
+####patch script to remediate  Re-examine Cache-control Directives in Apache HTTP Server
+Sure, here is a patch script to remediate the "Re-examine Cache-control Directives" vulnerability in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /etc/init.d/apache2 ]; then
+  service apache2 status
+  if [ $? -eq 0 ]; then
+    # Check if the cache-control directive is set
+    grep -q "cache-control" /etc/apache2/apache2.conf
+    if [ $? -ne 0 ]; then
+      # Set the cache-control directive
+      echo "cache-control no-cache, no-store, must-revalidate" >> /etc/apache2/apache2.conf
+    fi
+
+    # Restart Apache
+    service apache2 restart
+  fi
+fi
+```
+
+This script will check if Apache is running and if the cache-control directive is set. If the directive is not set, the script will add it to the Apache configuration file. Finally, the script will restart Apache.
+
+Here are some additional things to keep in mind when remediating this vulnerability:
+
+* If you are using a different web server, you will need to check the documentation for the correct way to set the cache-control directive.
+* You may also need to set the cache-control directive on individual files or directories.
+* You should regularly review your Apache configuration files to ensure that they are up to date and secure.

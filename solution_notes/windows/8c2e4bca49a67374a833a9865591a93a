@@ -1,0 +1,42 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control (BAC)
+
+**Detailed Solution:**
+
+**1. Identify the Policy Filtering Platform (PFP) Packet Drop:**
+
+* Use the command `netsh pfp show state all` to determine if there are any packet drops in the PFP layer.
+* Look for any entries indicating "Drop" in the "State" column.
+
+**2. Configure the Registry Access Control List (ACL):**
+
+* Open the Registry Editor (regedit.exe).
+* Navigate to the registry key associated with the registry object experiencing the packet drop.
+* Right-click on the registry key and select "Permissions".
+* Add the "Authenticated Users" group to the list of permissions and grant them "Full Control" permissions.
+
+**3. Modify the PFP ACL:**
+
+* Open the PFP configuration file (pfp.ini) located at `%windir%\system32\drivers\etc\`.
+* In the `[acl]` section, add a line that grants access to the registry key. For example:
+
+```
+[acl]
+; Allow Authenticated Users full control of HKLM\SOFTWARE\Microsoft\IIS
+allow {ADGUID OF AUTHENTICATED USERS} {registry key} all
+```
+
+**4. Restart the PFP Service:**
+
+* In an elevated command prompt, run the following command:
+
+```
+net stop pfp
+net start pfp
+```
+
+**Additional Notes:**
+
+* It is important to note that modifying the Registry ACL can have security implications. Ensure that you have a comprehensive understanding of the security implications before making any changes.
+* If the issue persists, check the Windows Event Logs for additional error messages that may provide further insights into the root cause.

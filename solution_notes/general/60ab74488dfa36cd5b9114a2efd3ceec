@@ -1,0 +1,30 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Solution:**
+
+1. Review the commented-out code and determine if it is still needed.
+2. If the commented-out code is no longer needed, delete it.
+3. If the commented-out code is still needed, move it to a separate file or method.
+4. Ensure that the commented-out code is not executed by accident, such as by using a preprocessor directive.
+
+**Steps to Fix the Issue:**
+
+1. Identify the commented-out code in the file `bWAPP/admin/index.php`.
+2. Determine if the commented-out code is still needed.
+3. If the commented-out code is no longer needed, delete it.
+4. If the commented-out code is still needed, move it to a separate file or method.
+5. If the commented-out code is moved to a separate file or method, ensure that it is not executed by accident.
+
+**Example of a Fix:**
+
+```php
+// Commented-out code that is no longer needed
+// echo "This code is no longer needed";
+
+// Code that is still needed
+echo "This code is still needed";
+```
+
+By removing or isolating the commented-out code, you can reduce the risk of it being executed by accident and causing a vulnerability.

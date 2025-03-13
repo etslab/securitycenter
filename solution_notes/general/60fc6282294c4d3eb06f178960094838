@@ -1,0 +1,38 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+To fix this issue, ensure that the following steps are implemented:
+
+1. **Check Character Set Encoding:** Verify the encoding used by your application and database. Ensure that the encoding is consistent throughout the application and database connection. Common encodings include UTF-8, ISO-8859-1, and Windows-1252.
+2. **Configure Apache Server:** Set the appropriate character set encoding in your Apache configuration file. Add the following line to the `.htaccess` file in the root directory of your website:
+
+```
+AddDefaultCharset UTF-8
+```
+
+3. **Set Database Connection Encoding:** Configure your database connection to use the same character set encoding as your application. In MySQL, use the `SET NAMES` statement:
+
+```
+SET NAMES 'utf8';
+```
+
+4. **Specify Encoding in HTML Headers:** Set the `<meta>` tag in your HTML header to specify the character set encoding for the page:
+
+```
+<meta charset="UTF-8">
+```
+
+5. **Check for Third-Party Components:** Review any third-party components or libraries used in your application and ensure that they use the same character set encoding.
+
+6. **Test and Validate:** Once the changes are made, test your application to ensure that all data is displayed correctly and without any character encoding issues.
+
+**Impact of Ignoring:**
+
+Ignoring this issue can lead to the following consequences:
+
+* **Data Corruption:** Incorrectly encoded data can be misinterpreted or corrupted, leading to data integrity issues.
+* **User Experience Issues:** Users may see garbled or incorrect characters in the application, affecting the user experience.
+* **Security Risks:** In some cases, character encoding mismatches can be exploited by attackers to inject malicious characters or bypass security mechanisms.

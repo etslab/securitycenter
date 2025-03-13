@@ -1,0 +1,23 @@
+###How to fix the Certificates issue of cert notAfter, 2023-06-12 13
+To fix the Certificates issue of cert notAfter, 2023-06-12 13 in apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Renew the certificate.
+3. Edit the Apache configuration file.
+4. Restart the Apache web server.
+
+To renew the certificate, you will need to contact your certificate authority. They will be able to provide you with instructions on how to do this.
+
+Once you have renewed the certificate, you will need to edit the Apache configuration file. The location of this file will vary depending on your operating system. In Linux, it is typically located in the /etc/apache2/sites-enabled directory.
+
+In the configuration file, you will need to find the section that defines the website that is using the expired certificate. Once you have found this section, you will need to update the certificate file path to point to the new certificate file.
+
+Once you have updated the configuration file, you will need to restart the Apache web server. This can be done by running the following command:
+
+```
+sudo service apache2 restart
+```
+
+Once the Apache web server has restarted, the website should now be using the new certificate.
+
+This issue belongs to the OWASP Top 10 Web Application Security Risks category of **Information Exposure**. This category includes risks that can lead to sensitive information being exposed to unauthorized users. In this case, the expired certificate is exposing the website's private key, which could be used to impersonate the website or to decrypt traffic between the website and its users.

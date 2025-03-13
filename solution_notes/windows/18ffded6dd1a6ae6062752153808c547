@@ -1,0 +1,16 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2 - Broken Access Control
+
+**Detailed Solution:**
+
+1. **Identify the vulnerable registry key:** Determine the specific registry key being accessed with insufficient permissions.
+2. **Check permissions:** Use the "regedit" utility or the "icacls" command to examine the permissions set for the registry key.
+3. **Grant appropriate permissions:** Modify the permissions for the registry key to grant the necessary permissions to the service account or user accessing it. This may involve adding the appropriate user or group to the "Allow" list or modifying existing permissions.
+4. **Test permissions:** Verify that the service account or user can now access the registry key with the desired permissions.
+
+**Additional Considerations:**
+
+* Ensure that the minimum necessary permissions are granted to prevent unauthorized access.
+* Consider implementing role-based access control (RBAC) to limit access to specific users or groups.
+* Regularly review and update permissions to ensure continued security.

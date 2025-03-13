@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A7: Broken Access Control
+
+**Description:**
+
+The DefaultOutboundAction policy setting in Windows Firewall controls the default action taken for outbound network traffic that does not match any firewall rule. If this setting is set to "Block", all outbound traffic will be blocked unless explicitly allowed by a rule. However, if this setting is not configured or is set to "Allow", all outbound traffic will be permitted, even if it is malicious. This can provide an attacker with a way to bypass the firewall and gain access to internal resources.
+
+**Solution:**
+
+To mitigate this issue, it is recommended to set the DefaultOutboundAction policy setting to "Block". This will ensure that all outbound traffic is blocked unless explicitly allowed by a firewall rule.
+
+To configure the DefaultOutboundAction policy setting, follow these steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile
+```
+
+3. Create or edit the following DWORD value:
+
+```
+Value name: DefaultOutboundAction
+Value data: 1 (Block)
+```
+
+4. Exit the Registry Editor.
+
+Once you have configured the DefaultOutboundAction policy setting to "Block", you will need to create firewall rules to allow any necessary outbound traffic.

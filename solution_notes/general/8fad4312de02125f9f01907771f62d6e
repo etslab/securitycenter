@@ -1,0 +1,26 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Review code to remove unnecessary permissions:**
+   - Check the codebase for any places where the `android.permission.ACCESS_WIFI_STATE` permission is declared but not required.
+   - Remove or replace the permission with a less privileged one if possible.
+
+2. **Request permission explicitly at runtime:**
+   - Implement runtime permission request to explicitly ask the user for the `android.permission.ACCESS_WIFI_STATE` permission when needed.
+   - Only grant the permission if the user confirms.
+
+3. **Implement conditional permissions:**
+   - Use conditional permissions to check if the permission is granted before accessing the device's Wi-Fi state.
+   - If the permission is not granted, handle it gracefully and notify the user.
+
+4. **Disable permission in manifest (if not required):**
+   - If the Android app does not require accessing the device's Wi-Fi state, disable the permission in the app manifest.
+   - Set `<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />` to `false` in the manifest's `<manifest>` tag.
+
+**Note:**
+
+* The `android.permission.ACCESS_WIFI_STATE` permission allows the app to access information about the Wi-Fi state of the device, which can reveal sensitive information such as the current network name and MAC address.
+* Granting this permission unnecessarily can increase the risk of privacy leaks and tracking by malicious apps.

@@ -1,0 +1,23 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Problem Description:**
+
+The NoGPOListChanges policy controls whether non-administrators can make changes to Group Policy settings in Windows. By default, NoGPOListChanges is set to 1, which allows non-administrators to view and modify Group Policy settings. However, this can be a security risk, as it allows malicious users to modify system settings, including security settings, without administrative privileges.
+
+**Solution:**
+
+To fix this issue, you need to set the NoGPOListChanges policy to 0. This will prevent non-administrators from making changes to Group Policy settings.
+
+**Steps to set the NoGPOListChanges policy to 0:**
+
+1. Open Group Policy Editor (gpedit.msc).
+2. Navigate to Computer Configuration > Administrative Templates > Windows Components > Microsoft Management Console (MMC) > Group Policy.
+3. Double-click the "Do not show Group Policy list when the Group Policy Management Console (GPMC) is started" setting.
+4. Select the "Enabled" option.
+5. Click the "OK" button.
+
+**Additional Information:**
+
+This issue is particularly critical on web servers, as it can allow attackers to modify the security settings of the server, potentially compromising the entire web server.

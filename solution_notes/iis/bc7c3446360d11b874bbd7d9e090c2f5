@@ -1,0 +1,27 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+
+CVE-2014-0160 is a remote code execution vulnerability in Microsoft Internet Information Services (IIS) web server that allows an attacker to take control of the server by sending a specially crafted HTTP request.
+
+**Impact:**
+
+* Attackers can gain remote control of the web server.
+* Attackers can execute arbitrary code on the server.
+* Attackers can access sensitive information on the server.
+
+**Solution:**
+
+To fix this issue, apply the following updates from Microsoft:
+
+* **Microsoft Security Bulletin MS14-066:** https://docs.microsoft.com/en-us/security-updates/securitybulletins/2014/ms14-066
+* **KB3126598 (Update for Microsoft WebDav)**: https://support.microsoft.com/en-us/kb/3126598
+
+**Additional Recommendations:**
+
+* Keep your IIS web server up to date with the latest security patches.
+* Restrict access to the web server to authorized users.
+* Implement a web application firewall (WAF) to block malicious requests.
+* Use a vulnerability scanner to regularly check for vulnerabilities on your web server.

@@ -1,0 +1,23 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+To fix this issue, implement the following steps:
+
+1. **Disable dynamic HTML**:** Disable any functionality that allows users to dynamically create or modify HTML elements on the server side. This can be achieved by removing or disabling any relevant code or configurations.
+
+2. **Input validation and encoding:** Validate and encode all user-provided input before it is rendered as HTML. This includes sanitizing special characters and ensuring that input is of the expected type and format.
+
+3. **Use CSP (Content Security Policy)**:** Implement a Content Security Policy (CSP) to restrict the types of content that can be loaded or executed by the browser. This can prevent malicious scripts from being loaded even if they are injected into the page.
+
+4. **Use a WAF (Web Application Firewall)**:** A WAF can help block malicious requests and protect against injection attacks. Configure the WAF to filter out requests that contain malicious payloads.
+
+5. **Regularly update software:** Keep all software components, including Apache server and any plugins, up to date with the latest security patches. This will help address any known vulnerabilities that could lead to XSS attacks.
+
+**Additional Notes:**
+
+* This issue occurs when user-provided input is directly echoed back to the browser without proper validation and encoding. This can allow attackers to inject malicious JavaScript or HTML into the page, which can lead to cross-site scripting (XSS) attacks.
+* XSS attacks can allow attackers to steal user data, perform unauthorized actions on the user's behalf, or redirect users to malicious websites.
+* It is important to implement these measures consistently across all parts of the application and to regularly test for vulnerabilities to ensure that the application remains secure.

@@ -1,0 +1,31 @@
+**Severity**: High
+
+**OWASP Top 10 2021 Category**: A9 - Security Misconfiguration
+
+**Assessment**:
+
+Policy RunAsPPL in the Registry controls the permissions required for services to run as Local System. If this policy is not configured correctly, it can allow unprivileged users to escalate their privileges and gain access to sensitive data or resources.
+
+**Solution**:
+
+To fix this issue, configure the Policy RunAsPPL policy to match the following requirements:
+
+* **Only allow services that require elevated privileges to run as Local System.**
+* **Restrict the permissions granted to services that run as Local System.**
+
+Specifically, you can set the following values for the Policy RunAsPPL registry key:
+
+```
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Policy RunAsPPL
+```
+
+**Value Name**: Attributes
+**Value Type**: REG_DWORD
+**Value Data**: 2
+
+This configuration will prevent unprivileged users from escalating their privileges and gaining access to sensitive data or resources.
+
+**Additional Notes**:
+
+* It is important to regularly review and audit the Policy RunAsPPL policy to ensure that it is configured correctly.
+* You should also consider implementing other security measures, such as least privilege and role-based access control, to further protect your system.

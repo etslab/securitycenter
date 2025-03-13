@@ -1,0 +1,22 @@
+###How to fix the App Dependencies issue of eventsource:1.0.7 of pkg:npm/eventsource@1.0.7 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of eventsource:1.0.7 of pkg:npm/eventsource@1.0.7 in Apache web server can be fixed by updating the eventsource package to a newer version. The OWASP Top 10 Web 2021 category that this issue belongs to is Vulnerable and Outdated Components.
+
+To update the eventsource package, you can use the following command:
+
+```
+npm update eventsource
+```
+
+This will update the eventsource package to the latest version that is available.
+
+The Vulnerable and Outdated Components category of the OWASP Top 10 Web 2021 is a list of security vulnerabilities that can be exploited by using outdated or vulnerable components. This category includes vulnerabilities in web applications, web servers, and other software that is used to build and deploy web applications.
+
+By updating the eventsource package, you can help to protect your web application from these vulnerabilities.
+
+Here are some additional tips for preventing Vulnerable and Outdated Components issues:
+
+* Use a package manager to manage your dependencies. This will help you to keep track of the versions of your dependencies and ensure that they are up to date.
+* Use a security scanner to scan your web application for known vulnerabilities. This will help you to identify any vulnerabilities that may be present in your application.
+* Keep your software up to date. This includes your web application, web server, and other software that is used to build and deploy your web application.
+
+By following these tips, you can help to protect your web application from Vulnerable and Outdated Components issues.

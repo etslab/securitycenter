@@ -1,0 +1,32 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A7 - Broken Access Control
+
+**Detailed Solution:**
+
+1. **Review the permission declaration:**
+   - The permission `android.permission.DUMP` is declared in the manifest with `android:exported="true"`. This means that any component can access this permission without any checks.
+
+2. **Implement permission checks:**
+   - Modify the code that uses the `DiagnosticsReceiver` to check whether the calling component has the `DUMP` permission. This can be done using the `ContextCompat.checkSelfPermission()` method.
+   - If the caller does not have the permission, the receiver should not respond to the broadcast.
+
+3. **Limit the scope of the permission:**
+   - If possible, consider using a more restrictive permission, such as `android.permission.DUMP_SERVICE`, which only allows the caller to dump the specified service.
+
+**Example:**
+
+```kotlin
+override fun onReceive(context: Context, intent: Intent) {
+    if (ContextCompat.checkSelfPermission(context, android.permission.DUMP) == PackageManager.PERMISSION_GRANTED) {
+        // Perform diagnostics operations
+    } else {
+        // Ignore the broadcast
+    }
+}
+```
+
+**Additional Notes:**
+
+- Ensure that the receiver is only exported when necessary. If the receiver is used for internal communication within the app, it should be declared as `android:exported="false"`.
+- Consider using a more secure mechanism for performing diagnostics, such as a custom broadcast intent with a specific permission.

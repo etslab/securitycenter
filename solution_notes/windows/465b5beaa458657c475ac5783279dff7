@@ -1,0 +1,26 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Enable Policy Detailed Directory Service Replication in Registry DS Access:**
+   - Open Registry Editor (regedit) as an administrator.
+   - Navigate to the following key: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters`
+   - Create a new DWORD (32-bit) value named `PolicyDetailedReplicationEnabled` and set its value to 1.
+
+2. **Restart the Netlogon Service:**
+   - Open a Command Prompt as an administrator.
+   - Run the following command: `net stop netlogon && net start netlogon`
+
+3. **Confirm the Change:**
+   - Open Event Viewer (eventvwr) as an administrator.
+   - Navigate to **Applications and Services Logs** > **Microsoft** > **Windows** > **Directory Service Access**
+   - Confirm that the event log "Policy Detailed Replication has been enabled" is present.
+
+**Additional Tips:**
+
+- Regularly review and update Domain Group Policy to ensure proper access control.
+- Implement Role-Based Access Control (RBAC) to grant only necessary permissions.
+- Enable auditing of directory service access logs to detect any unauthorized access attempts.
+- Consider using a security information and event management (SIEM) system to monitor and detect any potential security breaches.

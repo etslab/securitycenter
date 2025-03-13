@@ -1,0 +1,27 @@
+**OWASP Top 10 2021 Category:** Input Validation
+
+**Severity:** High
+
+**Solution:**
+
+To fix this issue, it is necessary to implement proper input validation to prevent the display of stack traces or other sensitive information in response to user input. This can be achieved by:
+
+1. **Enabling Error Logging:** Configure the server to log errors to a file or database instead of displaying them on the web page.
+2. **Sanitizing User Input:** Implement input validation techniques such as whitelisting, blacklisting, or input filtering to remove or encode potentially malicious characters.
+3. **Using Prepared Statements:** If using SQL queries, use prepared statements to prevent SQL injection attacks.
+4. **Hiding Sensitive Information:** Avoid displaying error messages or stack traces that contain sensitive information, such as database names or paths.
+5. **Updating Server Software:** Keep server software up to date with the latest security patches to address known vulnerabilities.
+
+**Alternative Solution:**
+
+For Apache servers, the following can be added to the `.htaccess` file:
+
+```
+RewriteEngine on
+RewriteCond %{REQUEST_URI} help\.php$
+RewriteRule ^.* https://example.com/error.php [L,R=301]
+```
+
+This will redirect all requests to `help.php` to a custom error page (`error.php`).
+
+**Note:** Replace `example.com` with the actual domain name.

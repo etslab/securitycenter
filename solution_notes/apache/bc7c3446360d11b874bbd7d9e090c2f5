@@ -1,0 +1,45 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** 6. Security Misconfiguration
+
+**Solution:**
+
+To fix CVE-2014-0160 in Apache Server, follow these steps:
+
+1. Update Apache to version 2.4.10 or later.
+2. Enable mod_reqtimeout and mod_setenvif modules.
+3. Add the following lines to your Apache configuration file (httpd.conf):
+
+```
+LoadModule reqtimeout_module modules/mod_reqtimeout.so
+LoadModule setenvif_module modules/mod_setenvif.so
+
+<IfModule reqtimeout_module>
+    RequestReadTimeout header=2,minrate=500
+    RequestReadTimeout body=2,minrate=500
+</IfModule>
+
+<IfModule setenvif_module>
+    SetEnvIf Request_Method "!^(GET|POST|HEAD)$" bad-method
+</IfModule>
+```
+
+4. Restart Apache.
+
+These settings will:
+
+- Limit the time Apache spends waiting for the client to send headers and body.
+- Set an environment variable (bad-method) if the request method is not GET, POST, or HEAD.
+
+The bad-method environment variable can be used to block the request in a later rule or filter. For example, you could add the following rule to your .htaccess file to block requests with the bad-method environment variable:
+
+```
+<IfModule mod_setenvif.c>
+    Order deny,allow
+    Deny from env=bad-method
+</IfModule>
+```
+
+**Recommendation:**
+
+It is recommended to apply this fix immediately to address the security vulnerability associated with CVE-2014-0160.

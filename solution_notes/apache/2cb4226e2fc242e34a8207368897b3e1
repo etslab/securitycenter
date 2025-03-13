@@ -1,0 +1,21 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Authentication
+
+**Solution:**
+
+To fix this issue, upgrade Apache HTTP Server to a version that is not affected by CVE-2013-3587. The latest version of Apache HTTP Server is 2.4.55.
+
+You can download the latest version of Apache HTTP Server from the following link:
+
+https://httpd.apache.org/download.cgi
+
+Once you have downloaded the latest version of Apache HTTP Server, you can install it by following the instructions in the Apache HTTP Server documentation.
+
+**Additional Recommendations:**
+
+In addition to upgrading Apache HTTP Server, you should also:
+
+* Review your server configuration files to ensure that they are not allowing unauthorized access to your system.
+* Implement a web application firewall (WAF) to protect your website from malicious attacks.
+* Regularly scan your website for vulnerabilities and fix any that are found.

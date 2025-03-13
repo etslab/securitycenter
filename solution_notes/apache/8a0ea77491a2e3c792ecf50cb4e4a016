@@ -1,0 +1,15 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Server-Side Request Forgery (SSRF)
+
+**Solution:**
+
+1. Update the Apache configuration to restrict access to internal resources using the `mod_rewrite` module.
+
+2. Implement a Content Security Policy (CSP) to restrict the execution of external scripts and resources.
+
+3. Ensure that the server does not accept requests from untrusted sources by implementing proper input validation and filtering.
+
+4. Review the codebase to identify any potential SSRF vulnerabilities and take appropriate mitigation measures.
+
+5. Regularly scan the server for vulnerabilities and apply security patches promptly.

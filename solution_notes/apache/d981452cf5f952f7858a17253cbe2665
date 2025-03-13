@@ -1,0 +1,16 @@
+###How to fix the Web Threats issue of Application Error Disclosure
+There are a few ways to fix the Web Threats issue of Application Error Disclosure in Apache web server.
+
+* **Use custom error pages.** This involves creating custom error pages that do not disclose any sensitive information. You can do this by editing the Apache configuration file.
+* **Configure Apache to log errors to a file.** This will prevent errors from being displayed to users, and will also make it easier for you to track down and fix errors.
+* **Keep your Apache software up to date.** Software updates often include security fixes, so it is important to keep your Apache software up to date.
+
+The Application Error Disclosure issue belongs to the OWASP Top 10 Web 2021 category of **Information Exposure**. This category includes vulnerabilities that can lead to the disclosure of sensitive information, such as passwords, credit card numbers, or intellectual property.
+
+Here are some additional tips for preventing Application Error Disclosure:
+
+* **Review your application code for any potential errors.** This includes both logic errors and runtime errors.
+* **Use a web application firewall (WAF).** A WAF can help to block common attack vectors that exploit Application Error Disclosure vulnerabilities.
+* **Educate your users about the importance of not clicking on links in emails or messages from unknown senders.** This can help to prevent attackers from exploiting Application Error Disclosure vulnerabilities to deliver malware or phishing attacks.
+
+By following these tips, you can help to protect your Apache web server from Application Error Disclosure vulnerabilities.

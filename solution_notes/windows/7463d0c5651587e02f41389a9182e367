@@ -1,0 +1,22 @@
+**Severity Level:** High
+
+**Category:** Broken Access Control (OWASP Top 10 2021)
+
+**Solution:**
+
+To resolve this issue, you will need to modify the registry settings to ensure that the appropriate user permissions are set for the "Policy Filtering Platform Policy Change" key:
+
+1. Open the Registry Editor (regedit).
+2. Navigate to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PolicyProviders.
+3. Right-click on the "Policy Filtering Platform Policy Change" key and select "Permissions".
+4. Add the user or group that needs to be granted access to the key.
+5. Grant them "Full Control" permissions.
+6. Click "OK" to save the changes.
+
+**Detailed Explanation:**
+
+The "Policy Filtering Platform Policy Change" registry key controls the settings for the Policy Filtering Platform, which is a component of Windows that allows administrators to define and enforce policies for network access and application execution. By default, only administrators have full access to this key, which means that non-administrators cannot modify the policies that are configured through the Policy Filtering Platform.
+
+However, if an attacker gains access to a non-administrator account on the server, they may be able to exploit this vulnerability by modifying the permissions on the "Policy Filtering Platform Policy Change" key and granting themselves full access. This would allow them to modify the policies that control network access and application execution, potentially giving them full control over the server.
+
+To prevent this vulnerability, it is essential to ensure that the appropriate user permissions are set for the "Policy Filtering Platform Policy Change" key. This should be done by restricting access to the key to only those users or groups that need to modify the policies that are configured through the Policy Filtering Platform.

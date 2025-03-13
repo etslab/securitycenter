@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Server Misconfiguration
+
+**Detailed Solution:**
+
+1. **Identify the Affected Server:** Determine the specific Apache server where the policy change occurred.
+
+2. **Review Registry Policy Changes:** Examine the registry entries related to the MPSSVC rule to identify the specific changes that were made.
+
+3. **Restore Previous Settings:** If possible, restore the original registry settings that were in place before the policy change. This can be done by reverting to a previous system restore point or using a registry repair tool.
+
+4. ** Harden Registry Permissions:** Ensure that the registry permissions are set to prevent unauthorized changes to MPSSVC settings. This can be done by granting only necessary permissions to specific user accounts or groups.
+
+5. **Disable or Uninstall Unnecessary Services:** Disable or uninstall any unnecessary services that may be running on the Apache server. This reduces the attack surface and potential vulnerabilities.
+
+6. **Update Apache Server:** Ensure that the Apache server is running the latest stable version. Updates often include security patches that address known vulnerabilities.
+
+**Additional Recommendations:**
+
+* Regularly monitor registry changes to detect any unauthorized modifications.
+* Implement intrusion detection and prevention systems to detect and block malicious activity.
+* Perform regular security scans to identify vulnerabilities and take appropriate remediation steps.

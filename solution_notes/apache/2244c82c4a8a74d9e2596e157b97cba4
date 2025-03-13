@@ -1,0 +1,15 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. Update the apktool version to the latest stable release.
+2. Check for any pending updates or patches for apache server.
+3. Restrict access to the sensitive file (`libtacrashclone.so`) by adding appropriate access control rules in the apache configuration.
+4. Implement proper input validation and encoding techniques to prevent malicious file uploads.
+5. Conduct regular security audits to stay up-to-date on potential vulnerabilities.
+
+**Detailed Explanation:**
+
+The presence of the `libtacrashclone.so` file in the apache server's `apktool_out/lib/x86` directory indicates a broken access control issue. This file may contain sensitive information or code that, if accessed by an unauthorized attacker, could lead to compromise of the server. By restricting access to this file and implementing proper security measures, you can mitigate the risk associated with this vulnerability.

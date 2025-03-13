@@ -1,0 +1,23 @@
+**Severity Assessment:** Medium
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Enable fine-grained access control:** Configure Azure Policy to enforce specific rules for resource access, including Security Groups, Service Accounts, and Identities.
+
+2. **Limit access to specific entities:** Only grant access to specific users, groups, or services that require access to the registry. Review and revoke any unnecessary permissions.
+
+3. **Implement least privilege:** Assign the minimum level of permissions necessary for each entity to perform its intended tasks.
+
+4. **Audit and monitor access:** Regularly review access logs to identify any suspicious activity or unauthorized access attempts. Implement security measures to detect and mitigate potential attacks.
+
+5. **Consider using Azure Active Directory:** Integrate Azure Active Directory (Azure AD) with your registry account to enforce multi-factor authentication and improve identity management.
+
+6. **Utilize Azure role-based access control (Azure RBAC):** Assign Azure RBAC roles to users and groups to manage access to registry resources. Segregate duties and grant permissions only as needed.
+
+7. **Use Azure Key Vault:** Store access keys in Azure Key Vault to securely manage and rotate them. Avoid storing keys in plaintext or configuration files.
+
+8. **Enable Azure Monitor logging:** Collect and analyze log data to detect any potential vulnerabilities or malicious activities.
+
+**Note:** To address the issue effectively, a holistic approach is recommended, implementing all the suggested measures to enhance security against unauthorized access and malicious activities.

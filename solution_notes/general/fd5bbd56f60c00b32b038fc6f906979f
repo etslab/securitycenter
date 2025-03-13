@@ -1,0 +1,26 @@
+###How to fix the App Dependencies issue of ruby-3.0.0.tar.gz:ruby-3.0.0.tar:load_fixture.ext.dll in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of ruby-3.0.0.tar.gz:ruby-3.0.0.tar:load_fixture.ext.dll in apache web server can be fixed by installing the missing dependencies. To do this, you can use the following steps:
+
+1. Open a terminal window.
+2. Navigate to the directory where the Apache web server is installed.
+3. Run the following command to install the missing dependencies:
+
+```
+yum install ruby-3.0.0.tar.gz ruby-3.0.0.tar load_fixture.ext.dll
+```
+
+4. Restart the Apache web server.
+
+Once you have completed these steps, the App Dependencies issue should be fixed.
+
+The App Dependencies issue belongs to the OWASP Top 10 Web 2021 category of Injection. Injection flaws occur when untrusted data is sent to an interpreter as part of a command or query. The attacker's hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.
+
+In the case of the App Dependencies issue, the untrusted data is the ruby-3.0.0.tar.gz file. This file contains code that can be executed by the Apache web server. If an attacker can successfully inject malicious code into this file, they could execute arbitrary commands on the server.
+
+To prevent injection flaws, it is important to properly sanitize all input data before it is passed to an interpreter. This can be done by using a web application firewall (WAF) or by manually inspecting the input data for any malicious characters.
+
+Here are some additional resources that you may find helpful:
+
+* OWASP Top 10 Web 2021: Injection
+* How to Prevent Injection Attacks
+* Web Application Firewalls (WAFs)

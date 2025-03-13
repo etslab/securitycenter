@@ -1,0 +1,37 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Authentication
+
+**Solution:**
+
+1. Open the Apache httpd.conf file located at /etc/httpd/conf/httpd.conf or /etc/apache2/apache2.conf depending on the distribution.
+
+2. Find the following line:
+
+```
+LoadModule auth_pam_module modules/mod_auth_pam.so
+```
+
+3. Add the following line below it:
+
+```
+PamAuthzFlags no_deny_error no_passthrough
+```
+
+4. Find the following line:
+
+```
+<IfModule mod_authz_core.c>
+```
+
+5. Add the following line below it:
+
+```
+<Limit registry_logon_logoff>
+Require valid-user
+</Limit>
+```
+
+6. Save the changes and restart Apache.
+
+This solution restricts the use of the Policy IPsec Main Mode in Registry Logon/Logoff to valid users, preventing unauthorized access.

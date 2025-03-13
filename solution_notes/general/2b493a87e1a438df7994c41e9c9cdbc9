@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Server-Side Request Forgery (SSRF)
+
+**Solution:**
+
+The CSS file `help.css` contains the following content:
+
+```
+@import url('http://example.com/evil.css');
+```
+
+This code imports an external CSS file from a remote server (`example.com`). This is a potential security issue because it allows an attacker to inject malicious CSS into the page. For example, an attacker could inject CSS that steals user cookies or redirects the user to a phishing site.
+
+To fix this issue, remove the import statement from the `help.css` file.
+
+Alternatively, if the external CSS file is needed, ensure that it is only imported from a trusted source. This can be done by using a Content Security Policy (CSP) to restrict which domains can load CSS files.
+
+Here is an example of a CSP that would restrict CSS loading to the same domain as the page:
+
+```
+Content-Security-Policy: default-src 'self';
+```
+
+This CSP would prevent the page from loading CSS files from any other domain, including `example.com`.

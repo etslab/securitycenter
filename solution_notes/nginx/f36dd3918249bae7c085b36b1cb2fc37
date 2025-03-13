@@ -1,0 +1,16 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-10092 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the CVE-2019-10092 vulnerability in nginx, you can follow these steps:
+
+1. Update your nginx installation to the latest version. The vulnerability was fixed in version 1.17.10, so if you are using an older version, you should upgrade as soon as possible.
+2. If you are unable to update your nginx installation, you can disable the mod_proxy module. This will prevent the vulnerability from being exploited.
+
+The CVE-2019-10092 vulnerability is a cross-site scripting (XSS) vulnerability. XSS vulnerabilities allow attackers to inject malicious code into web pages that are served by the nginx web server. This malicious code can then be executed by users who visit the affected web pages.
+
+The CVE-2019-10092 vulnerability belongs to the OWASP Top 10 Web Application Security Risks category A1: Cross-site Scripting (XSS). XSS is a serious security vulnerability that can allow attackers to steal user data, hijack user sessions, or execute arbitrary code on the victim's computer.
+
+Here are some additional tips for preventing XSS vulnerabilities:
+
+* Use a web application firewall (WAF) to help protect your web applications from XSS attacks.
+* Sanitize all user input before it is used to generate dynamic web pages.
+* Use a content management system (CMS) that has been properly configured to mitigate XSS vulnerabilities.
+* Keep your software up to date. Software vendors often release security patches that can help to protect your web applications from XSS attacks.

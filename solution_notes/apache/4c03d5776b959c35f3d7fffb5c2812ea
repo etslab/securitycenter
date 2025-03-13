@@ -1,0 +1,34 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Upgrade Apache Server:** Update Apache server to a version that addresses CVE-2016-0800. The latest stable version is recommended.
+
+2. **Review Configuration:** Check the Apache configuration to ensure proper access control measures are in place. This includes:
+
+   - Verifying that the `AllowOverride` directive is set to `None` or `ReadOnly` in the affected directories.
+   - Restricting access to sensitive directories and files using the `Require` directive.
+
+3. **Enable mod_security:** Install and enable the mod_security module, which provides an additional layer of protection against vulnerabilities.
+
+4. **Review mod_auth_basic Configuration:** If mod_auth_basic is enabled, verify that it is configured securely:
+
+   - Use a strong hashing algorithm (e.g., SHA256) to encrypt passwords.
+   - Limit the number of failed login attempts before locking the account.
+
+5. **Restrict Access to Sensitive Information:** Use the `.htaccess` file to restrict access to sensitive directories and files using the following directives:
+
+   - `Deny from all`
+   - `Require ip {allowed IP address}`
+
+6. **Implement Web Application Firewall (WAF):** Consider implementing a WAF to block malicious requests and protect the server from vulnerabilities.
+
+7. **Perform Regular Security Audits:** Regularly audit the Apache server configuration and ensure that it remains secure over time.
+
+**Additional Mitigation Measures:**
+
+- Use strong passwords and implement two-factor authentication (2FA).
+- Implement rate limiting to prevent brute-force attacks.
+- Consider using a reverse proxy server to further secure the Apache server.

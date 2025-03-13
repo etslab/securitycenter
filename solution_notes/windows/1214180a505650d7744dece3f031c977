@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+To fix this issue, you need to enable the Policy SignSecureChannel setting in the Registry. Here are the steps:
+
+1. Open **Registry Editor** (Regedit.exe) on the affected server.
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
+   ```
+3. In the right pane, locate the **Policy SignSecureChannel** DWORD value.
+4. Double-click on the value and change the data value to **1** to enable signing.
+5. Click **OK** to save the change.
+6. Restart the **Netlogon** service.
+
+**Additional Notes:**
+
+* This setting ensures that the Netlogon service uses secure channels for communication, protecting passwords and other sensitive information from eavesdropping.
+* The default value for this setting is 0 (disabled), which can expose sensitive data to attackers.
+* Enabling this setting adds an additional layer of security to protect against password theft and other attacks.

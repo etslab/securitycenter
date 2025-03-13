@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** M-05: Improper Input Validation
+
+**Problem:**
+
+When an application binary has rpath set in an Apache server, it means that the binary can search for libraries in non-standard locations. This can lead to security vulnerabilities such as library hijacking, where an attacker can replace the legitimate library with a malicious one.
+
+**Solution:**
+
+To fix this issue, remove the rpath setting from the application binary. This can be done by rebuilding the binary with the `-Wl,-rpath-link=none` flag.
+
+Alternatively, you can set the ld.so.conf file to only include trusted library paths. This can be done by adding the following line to the /etc/ld.so.conf file:
+
+```
+include /path/to/trusted/library/path
+```
+
+**Impact:**
+
+This issue can lead to the following impacts:
+
+* **Library hijacking:** An attacker can replace a legitimate library with a malicious one, which can then be used to compromise the application.
+* **Privilege escalation:** An attacker can use a malicious library to gain elevated privileges on the server.
+* **Data leakage:** An attacker can use a malicious library to steal sensitive data from the application.
+
+**Recommendations:**
+
+* Remove the rpath setting from all application binaries.
+* Set the ld.so.conf file to only include trusted library paths.
+* Regularly audit your server for any unauthorized changes to the ld.so.conf file.

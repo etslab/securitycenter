@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of gnu.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gnu.tar in nginx web server, you can follow these steps:
+
+1. Update the gnu.tar package to the latest version.
+2. Check if the nginx web server is running the latest version.
+3. Restart the nginx web server.
+
+If you are still experiencing the issue after following these steps, you can try contacting the nginx web server team for further assistance.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021. This category refers to attacks that exploit security vulnerabilities in web applications that allow attackers to inject malicious code into the application. In this case, the attacker could exploit a vulnerability in the gnu.tar package to inject malicious code into the nginx web server. This could allow the attacker to take control of the web server or gain access to sensitive data.
+
+To mitigate this risk, it is important to keep the gnu.tar package and the nginx web server up to date. It is also important to implement security measures such as input validation and sandboxing to prevent attackers from injecting malicious code into the application.
+
+Here are some additional tips to help you mitigate App Dependencies issues in your web applications:
+
+* Use a dependency management tool to track and manage the dependencies of your web applications.
+* Keep your dependencies up to date.
+* Use a vulnerability scanner to scan your dependencies for known vulnerabilities.
+* Use a firewall to restrict access to your web applications to trusted sources.
+* Implement input validation to prevent attackers from injecting malicious code into your web applications.
+* Use sandboxing to isolate your web applications from each other and from the underlying operating system.

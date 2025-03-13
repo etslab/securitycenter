@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Detailed Solution:**
+
+To fix this issue, enable FullPrivilegeAuditing in the Windows Registry:
+
+**1. Open the Registry Editor (regedit).**
+
+**2. Navigate to the following key:**
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+```
+
+**3. Create a new DWORD (32-bit) value named "FullPrivilegeAuditing" if it does not already exist.**
+
+**4. Set the value data to 1.**
+
+**5. Click OK to save your changes.**
+
+**6. Restart the server.**
+
+This setting will enable full privilege auditing, which logs all attempts by users to access objects with full privileges, including attempts to create, delete, or modify sensitive files or registry keys.
+
+**Additional Information:**
+
+FullPrivilegeAuditing is a Windows registry setting that controls whether or not all attempts to access objects with full privileges are audited. When this setting is enabled, the operating system will log all attempts to access objects with full privileges, including attempts to create, delete, or modify sensitive files or registry keys. This information can be used to detect and investigate suspicious activity on the server.
+
+It is recommended to enable FullPrivilegeAuditing in production environments to help detect and prevent unauthorized access to sensitive resources.

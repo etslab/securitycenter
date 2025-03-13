@@ -1,0 +1,34 @@
+**Severity Rating:** Medium
+
+**OWASP Top 10 2021 Category:** Improper Input Validation
+
+**Issue Description:**
+
+The Security_options_edit registry key allows users to modify security settings in Internet Explorer. If this key is not properly configured, it could allow attackers to bypass security restrictions and gain access to sensitive information.
+
+**Detailed Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+
+```
+HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings
+```
+
+3. Right-click on the Security_options_edit value and select "Modify".
+4. In the "Value data" field, enter the following value:
+```
+3
+```
+5. Click "OK" to save the changes.
+
+**Additional Information:**
+
+The Security_options_edit value specifies the level of access users have to modify security settings in Internet Explorer. The following values are possible:
+
+* 0: Users cannot modify security settings.
+* 1: Users can modify security settings for the current user only.
+* **2:** Users can modify security settings for all users.
+* **3:** Users can modify security settings for all users and create new security zones.
+
+It is important to set this value to the most restrictive level possible to prevent attackers from exploiting this vulnerability.

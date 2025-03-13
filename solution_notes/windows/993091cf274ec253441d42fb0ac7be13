@@ -1,0 +1,41 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Description:**
+
+Policy Logoff in Registry Logon/Logoff is a registry key that specifies whether to log off the user upon policy change. By default, this key is set to 0, meaning that the user is not logged off when a policy change occurs. This can allow an attacker to hijack a user's session by modifying the user's policies.
+
+**Solution:**
+
+To fix this issue, set the Policy Logoff in Registry Logon/Logoff registry key to 1. This will force the user to log off whenever a policy change occurs.
+
+**Registry Key:**
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+```
+
+**Value Name:**
+
+```
+PolicyLogoff
+```
+
+**Value Type:**
+
+```
+REG_DWORD
+```
+
+**Value Data:**
+
+```
+1 (Enabled)
+```
+
+**Additional Notes:**
+
+* This solution applies to Windows versions 7 and later.
+* This solution can also be implemented through Group Policy.
+* Consider implementing additional security measures, such as multi-factor authentication, to further protect against session hijacking attacks.

@@ -1,0 +1,44 @@
+####patch script to remediate  CVE-2022-22721 in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2022-22721 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ -f /usr/sbin/apache2 ]; then
+
+  # Check if the current version of Apache is vulnerable
+  if [[ $(apache2 -v | awk '{print $2}') -lt 2.4.53 ]]; then
+
+    # Download the latest security patch
+    wget https://archive.apache.org/dist/httpd/binaries/latest/httpd-2.4.53.tar.gz
+
+    # Extract the patch
+    tar -zxvf httpd-2.4.53.tar.gz
+
+    # Apply the patch
+    cd httpd-2.4.53
+    patch -p1 < CVE-2022-22721.patch
+
+    # Compile Apache
+    make
+
+    # Install Apache
+    make install
+
+    # Restart Apache
+    service apache2 restart
+
+  fi
+
+fi
+```
+
+This patch script will download the latest security patch for Apache HTTP Server, extract it, apply it, compile Apache, and install it. Once the patch is applied, you will need to restart Apache for the changes to take effect.
+
+Here are some additional things to keep in mind when remediating CVE-2022-22721:
+
+* If you are using a version of Apache that is not listed in the patch script, you can check the Apache website for the latest security patches.
+* If you are using a custom configuration for Apache, you may need to make some changes to your configuration file after applying the patch.
+* It is important to restart Apache after applying the patch.
+* You should continue to monitor Apache for new security vulnerabilities.

@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Description:**
+
+The reported issue in `dvwaPage.inc.php` is related to insufficient input validation and can lead to information disclosure or code execution attacks if exploited. Specifically, the issue is caused by the use of unsafe functions like `mysql_query()` and `mysqli_query()` without proper input validation and sanitization, allowing attackers to inject malicious SQL queries.
+
+**Solution:**
+
+To fix this issue and improve the security of your application, follow these steps:
+
+1. Update the vulnerable code in `dvwaPage.inc.php` to use prepared statements with parameterized queries.
+2. Use a database abstraction layer (e.g., PDO) for database interaction to simplify and enhance the security of your database operations.
+3. Implement proper input validation and sanitization to filter out malicious characters and prevent SQL injection attacks.
+4. Use secure coding practices, such as input validation and output escaping, to prevent malicious payloads from being executed.
+5. Regularly update your software and dependencies to patch any known vulnerabilities.
+
+**Example Code (PDO):**
+
+```php
+$stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+```

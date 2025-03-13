@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Description:**
+
+The PHP `Parsedown.php` library uses the `preg_replace()` function to parse markdown input, which is vulnerable to regular expression injection attacks. An attacker could craft specially crafted input that causes the library to execute arbitrary regular expressions, leading to information disclosure or other malicious actions.
+
+**Solution:**
+
+To fix this issue, you can use the `preg_replace_callback()` function instead of `preg_replace()`. This function allows you to define a callback function that will be executed for each match of the regular expression. By using this callback function, you can validate the input and prevent malicious regular expressions from being executed.
+
+Here's an example of how to use `preg_replace_callback()` to fix the issue:
+
+```php
+$markdown = 'This is **bold** text.';
+
+$safe_markdown = preg_replace_callback('/\*\*(.+)\*\*/', function ($matches) {
+  return '<b>' . $matches[1] . '</b>';
+}, $markdown);
+```
+
+In this example, the `preg_replace_callback()` function is used to replace all occurrences of the regular expression `/\*\*(.+)\*\*/` (which matches bold text in markdown) with the HTML code for bold text (`<b>` and `</b>`). The callback function validates the input to ensure that it does not contain any malicious regular expressions.
+
+By using `preg_replace_callback()` instead of `preg_replace()`, you can prevent regular expression injection attacks and ensure that the `Parsedown.php` library is used securely.

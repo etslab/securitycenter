@@ -1,0 +1,25 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Implementation Flaws
+
+**Issue Description:**
+
+The `DisableNotifications` registry key is set to `1` in the `Software-Policies-Microsoft-WindowsFirewall-DomainProfile` location, allowing users to disable Windows Firewall notifications.
+
+**Impact:**
+
+* Users may be less aware of potential security threats.
+* Attackers may be able to exploit vulnerabilities in the firewall without triggering notifications.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile`.
+3. Locate the `DisableNotifications` DWORD value.
+4. Double-click the value and set it to `0` (disabled).
+5. Click OK to save the changes.
+
+**Additional Notes:**
+
+* It's recommended to restart the Windows Firewall service after making these changes.
+* Organizations should consider using a group policy to manage firewall settings and prevent unauthorized modifications.

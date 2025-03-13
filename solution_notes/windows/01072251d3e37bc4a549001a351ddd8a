@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A06: Sensitive Data Exposure
+
+**Issue Description:**
+Policy Application Generated in Registry Object Access in Windows Web Server allows attackers to access sensitive information in the registry, including user credentials, system configurations, and application settings. This information could be used to compromise the server or its users' accounts.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the key: `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa`.
+3. Right-click on the key and select "Permissions".
+4. Under the "Security" tab, add the "Authenticated Users" group and grant it the following permissions:
+   - Read
+   - Special permissions: "Query Value"
+5. Click "OK" to save the changes.
+6. Close the Registry Editor.
+
+**Additional Recommendations:**
+
+In addition to the above solution, consider implementing the following hardening measures to further protect the server from this issue:
+
+* Disable the "anonymous" account.
+* Configure strong password policies.
+* Use a firewall to restrict access to the server.
+* Implement intrusion detection and prevention systems.

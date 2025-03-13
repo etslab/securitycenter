@@ -1,0 +1,14 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Software and Data Integrity Failures
+
+**Solution:**
+
+1. Open Registry Editor (regedit.exe).
+2. Navigate to: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System`
+3. Check for the Policy `AllowCustomSSPsAPs`. If it exists, ensure it is set to 0 (Disabled).
+4. If the `AllowCustomSSPsAPs` Policy does not exist, create it as a new DWORD (32-bit) value and set it to 0 (Disabled).
+
+**Explanation:**
+
+The Policy `AllowCustomSSPsAPs` allows applications to use custom security providers (SSPs) for authentication. If this Policy is set to 1 (Enabled), malicious applications could use custom SSPs to impersonate other users or elevate privileges. Disabling this Policy mitigates this risk by ensuring that only trusted SSPs can be used.

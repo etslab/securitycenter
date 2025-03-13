@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+The `Parsedown.php` file contains a function called `text` that uses the `preg_replace` function without proper input validation. This can lead to a regular expression denial of service (ReDoS) attack, where an attacker can provide specially crafted input that causes the `preg_replace` function to enter an infinite loop.
+
+To fix this issue, input validation should be added to the `text` function to ensure that it only allows valid input. One way to do this is to use the `filter_var` function to filter out any invalid characters.
+
+Here is an example of how to fix the issue:
+
+```php
+function text($text) {
+  // Filter out any invalid characters
+  $text = filter_var($text, FILTER_SANITIZE_STRING);
+
+  // Perform the preg_replace operation
+  return preg_replace('/\n{2,}/', "\n\n", $text);
+}
+```
+
+**Detailed Explanation:**
+
+The `preg_replace` function is a powerful tool that can be used to perform regular expression matching and replacement. However, it is important to use it carefully, as it can be susceptible to ReDoS attacks.
+
+A ReDoS attack occurs when an attacker provides specially crafted input that causes the `preg_replace` function to enter an infinite loop. This can consume all of the server's resources, rendering it unavailable to other users.
+
+In the case of the `Parsedown.php` file, the `text` function uses the `preg_replace` function to remove all occurrences of two or more consecutive newlines. However, the input is not properly validated, which means that an attacker could provide input that contains a large number of newlines, causing the `preg_replace` function to enter an infinite loop.
+
+By adding input validation to the `text` function, we can prevent this type of attack from occurring.

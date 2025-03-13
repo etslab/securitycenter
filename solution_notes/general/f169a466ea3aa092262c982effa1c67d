@@ -1,0 +1,20 @@
+**Severity Assessment:** Medium
+
+**Detailed Solution:**
+
+1. **Disable the EnableGuestAccount policy:**
+   - Open the Registry System Access section in the Apache server configuration file.
+   - Set the `EnableGuestAccount` policy to `Off`.
+   - Save and restart the Apache server.
+
+2. **Remove Guest Account:**
+   - Navigate to the `Users & Groups` tab in the Apache Server Management Console.
+   - Delete the `guest` user if it exists.
+
+**OWASP Top 10 2021 Category:** Authentication
+
+**Additional Considerations:**
+
+* The EnableGuestAccount policy allows anonymous users to access the Apache server, which can lead to potential security vulnerabilities.
+* By disabling this policy, you prevent unauthorized access by anonymous users, reducing the risk of attacks.
+* Regularly review the Apache server configuration to ensure that security settings, such as authentication policies, are properly configured.

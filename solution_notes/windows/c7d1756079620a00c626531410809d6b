@@ -1,0 +1,15 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Personalization`
+3. Create a new DWORD value named `NoLockScreenSlideshow` if it doesn't exist.
+4. Set the value data to 1 to disable the lock screen slideshow.
+5. Close the Registry Editor and restart the computer.
+
+**Explanation:**
+
+The `NoLockScreenSlideshow` registry key controls whether or not the lock screen slideshow is displayed. By default, the slideshow is enabled. However, if this key is set to 1, the slideshow will be disabled. This can be a security issue because it prevents users from seeing the lock screen background image, which could be used to phish for credentials or other sensitive information.

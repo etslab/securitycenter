@@ -1,0 +1,38 @@
+####patch script to remediate  CSP: Wildcard Directive in Apache HTTP Server
+Sure, here is a patch script to remediate CSP: Wildcard Directive in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Get the current Apache configuration
+conf=$(apachectl -t -D DUMP_CONFIG | grep -A 1 "Content-Security-Policy")
+
+# Check if the wildcard directive is present
+if [[ $conf =~ "default-src *" ]]; then
+
+  # Update the configuration to remove the wildcard directive
+  sed -i "s/default-src *//" $conf
+
+  # Restart Apache
+  apachectl restart
+
+  # Success!
+  echo "Successfully remediated CSP: Wildcard Directive"
+
+else
+
+  # The wildcard directive is not present, no action required
+  echo "No action required, wildcard directive is not present"
+
+fi
+```
+
+This script will first get the current Apache configuration. It will then check if the wildcard directive is present in the configuration. If it is, the script will update the configuration to remove the wildcard directive. Finally, the script will restart Apache.
+
+Here are some additional notes about this script:
+
+* The script uses the `apachectl` command to get the current Apache configuration and to restart Apache.
+* The script uses the `sed` command to update the Apache configuration.
+* The script uses the `echo` command to display success or failure messages.
+
+I hope this helps!

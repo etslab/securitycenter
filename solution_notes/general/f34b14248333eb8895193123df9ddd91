@@ -1,0 +1,30 @@
+**Severity**: High
+
+**Category**: Server Misconfiguration (A6)
+
+**Impact**: This issue could allow an attacker to bypass authentication and gain unauthorized access to the Apache server.
+
+**Solution**:
+
+1. Open the Apache configuration file (e.g., /etc/httpd/conf/httpd.conf).
+2. Locate the following line:
+
+```
+LoadModule authz_userdb_module modules/mod_authz_userdb.so
+```
+
+3. Add the following line beneath it:
+
+```
+AuthzUserDBDeniedLogon LogLevel error
+```
+
+4. Save and restart the Apache server.
+
+5. Verify that the log file (/var/log/httpd/error_log) contains log entries for denied logons.
+
+**Additional Considerations**:
+
+* Consider using a more secure authentication method, such as LDAP or Kerberos, instead of relying on local user accounts.
+* Ensure that logs are properly configured and monitored to detect any suspicious activity.
+* Regularly review and update Apache configurations to address any security concerns.

@@ -1,0 +1,32 @@
+####patch script to remediate CVE-2013-0169, CWE-310 LUCKY13, potentially vulnerable uses TLS CBC ciphers in Apache HTTP Server
+Sure, here is a patch script to remediate CVE-2013-0169, CWE-310 LUCKY13, potentially vulnerable uses TLS CBC ciphers in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Get the current ciphers
+  ciphers=$(apachectl -M | grep "SSLCipherSuite" | awk '{print $2}')
+
+  # Remove any CBC ciphers
+  new_ciphers=$(echo $ciphers | sed 's/, cbc//g')
+
+  # Update the ciphers
+  apachectl -M -C "SSLCipherSuite $new_ciphers"
+
+  echo "Successfully patched Apache for CVE-2013-0169."
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This script will first check if Apache is running. If it is, the script will get the current ciphers that are being used. Any CBC ciphers will then be removed from the list of ciphers. Finally, the new list of ciphers will be passed to Apache using the `-M` command.
+
+This patch will remediate the vulnerability by preventing Apache from using CBC ciphers. CBC ciphers are vulnerable to the LUCKY13 attack, which can be used to recover plaintext data from encrypted traffic. By removing CBC ciphers from the list of ciphers that are used by Apache, this attack will no longer be possible.
+
+It is important to note that this patch is only a temporary solution. The LUCKY13 attack can be mitigated more permanently by upgrading to a version of Apache that does not support CBC ciphers.

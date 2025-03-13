@@ -1,0 +1,27 @@
+###How to fix the Common Vulnerabilities issue of CVE-2017-1000385 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2017-1000385 is a vulnerability in nginx web server that allows remote attackers to execute arbitrary code on the affected system. The vulnerability is caused by improper input validation in the nginx configuration file.
+
+To fix this vulnerability, you can:
+
+1. **Update nginx to the latest version.** Nginx versions 1.13.10 and earlier are affected by this vulnerability.
+2. **Apply the following security patch to your nginx configuration file:**
+
+```
+location / {
+  if ($request_uri ~* "(.*)\.(php|cgi)$") {
+    return 403;
+  }
+}
+```
+
+This patch will prevent nginx from executing PHP and CGI scripts, which are the most common targets of CVE-2017-1000385 attacks.
+
+3. **Use a web application firewall (WAF) to filter out malicious requests.** A WAF can help to protect your nginx web server from a variety of attacks, including CVE-2017-1000385.
+
+CVE-2017-1000385 belongs to the **A1: Injection** category of the OWASP Top 10 2021. Injection vulnerabilities occur when an attacker is able to inject malicious code into a web application. This code can then be executed by the web application, giving the attacker control of the system.
+
+Here are some additional recommendations to help protect your nginx web server from CVE-2017-1000385 and other injection attacks:
+
+* Validate all user input before processing it. This will help to prevent attackers from injecting malicious code into your web application.
+* Use a content security policy (CSP) to restrict the types of scripts that can be executed on your website. This can help to protect your website from malicious JavaScript code.
+* Keep your nginx web server and all associated software up to date. This will help to ensure that you are using the latest security patches.

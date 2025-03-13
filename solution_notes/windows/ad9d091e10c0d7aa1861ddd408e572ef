@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Issue Description:**
+
+The Policy AllowProtectedCreds setting in the Registry Software->Policies->Microsoft->Windows->CredentialsDelegation path controls whether protected credentials are allowed to be delegated by applications. When this setting is enabled, applications can pass protected credentials to remote systems, potentially exposing sensitive information such as usernames and passwords.
+
+**Impact:**
+
+An attacker could exploit this vulnerability to gain unauthorized access to protected credentials, which could lead to compromised systems or data breaches.
+
+**Solution:**
+
+To mitigate this vulnerability, disable the Policy AllowProtectedCreds setting by following these steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CredentialsDelegation
+```
+3. If the AllowProtectedCreds value does not exist, right-click in the right pane and select New > DWORD (32-bit) Value.
+4. Name the value "AllowProtectedCreds".
+5. Double-click the AllowProtectedCreds value and set its data to 0.
+6. Click OK.
+
+**Additional Recommendations:**
+
+* Regularly review application permissions and disable unnecessary access to sensitive data.
+* Implement strong authentication and authorization mechanisms to prevent unauthorized access to protected credentials.
+* Monitor for suspicious activity and investigate any anomalies that may indicate a security compromise.

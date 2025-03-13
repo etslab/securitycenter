@@ -1,0 +1,51 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Cryptography
+
+**Solution:**
+
+* Update the crypto/internal/nistec package to version 0.2.1 or later.
+* If you cannot update the package, use the following workaround:
+
+```go
+import (
+    "crypto/ecdsa"
+    "crypto/elliptic"
+    "hash"
+    "io"
+    "math/big"
+    "sync"
+)
+
+var curve256 = elliptic.P256()
+var threeInv256 = new(big.Int).ModInverse(big.NewInt(3), curve256.Params().P)
+var p256Params = &ecdsa.SignatureParameters{
+    Curve: curve256,
+    HashFunc: func() hash.Hash {
+        return hash.New(crypto.SHA256)
+    },
+    NonceSize: 32,
+    SignerOpts: &ecdsa.SignerOpts{
+        HashType: crypto.SHA256,
+    },
+    VerifierOpts: &ecdsa.VerifyOpts{
+        HashType: crypto.SHA256,
+    },
+}
+   
+func uncompressECDSASignature(r, s []byte) []byte {
+    rInv := new(big.Int).ModInverse(new(big.Int).SetBytes(r), curve256.Params().P)
+    s = append(s, 0)
+    s = new(big.Int).SetBytes(s).Mul(new(big.Int).SetBytes(s), threeInv256)
+    s = s.Mod(new(big.Int).SetBytes(s), curve256.Params().P)
+    return append(rInv.Bytes(), s.Bytes()...)
+}  
+```
+
+* Use the `uncompressECDSASignature` function to uncompress the ECDSA signature before passing it to the `crypto/ecdsa` package.
+
+**Details:**
+
+The issue is caused by a bug in the crypto/internal/nistec package that can cause incorrect results to be produced when specific unreduced P-256 scalars are used in ECDSA signatures. This can lead to a variety of attacks, including forging signatures and impersonating users.
+
+The issue has been fixed in version 0.2.1 of the crypto/internal/nistec package. If you are using an older version, you should update as soon as possible.

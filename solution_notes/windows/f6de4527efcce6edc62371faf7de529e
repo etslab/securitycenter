@@ -1,0 +1,20 @@
+**Severity**: High
+
+**Category**: A9: Security Misconfiguration
+
+**Solution**:
+
+* Disable the "AuditBaseDirectories" GPO setting to prevent auditing of registry changes for base directories.
+* Set the "AuditBaseDirectories" GPO setting to only audit changes to specific base directories that are critical for the security of the system.
+
+**Detailed Steps**:
+
+1. Open the Group Policy Management Console (GPMC).
+2. Navigate to **Computer Configuration > Administrative Templates > Windows Components > Audit: Object Access**.
+3. Find the "AuditBaseDirectories" policy setting and double-click it.
+4. Select "Disabled" or configure the setting to only audit specific base directories.
+5. Click "Apply" and "OK" to save the changes.
+
+**Additional Information**:
+
+The "AuditBaseDirectories" GPO setting is used to audit changes to base directories such as the "Program Files" and "Windows" directories. If this setting is enabled, any changes made to these directories will be logged in the security event log. This can be useful for tracking changes to critical system files, but it can also create a large number of audit events. Disabling this setting or configuring it to only audit specific base directories can help reduce the number of audit events and improve system performance.

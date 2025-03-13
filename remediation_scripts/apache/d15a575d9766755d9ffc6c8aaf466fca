@@ -1,0 +1,38 @@
+####patch script to remediate  Does not redirect to an HTTPS site in Apache HTTP Server
+Sure, here is a patch script to remediate the issue of Apache HTTP Server not redirecting to an HTTPS site:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ "$(pgrep httpd)" ]; then
+
+  # Get the current Apache configuration
+  config=$(cat /etc/apache2/apache2.conf)
+
+  # Add the following line to the configuration to redirect all HTTP traffic to HTTPS
+  echo "RewriteEngine On" >> $config
+  echo "RewriteCond %{HTTPS} !=on" >> $config
+  echo "RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]" >> $config
+
+  # Restart Apache
+  service httpd restart
+
+else
+
+  echo "Apache is not running."
+
+fi
+```
+
+This patch script will first check if Apache is running. If it is, the script will get the current Apache configuration and add the following line to it:
+
+```
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+```
+
+This line will redirect all HTTP traffic to HTTPS. Finally, the script will restart Apache.
+
+Once the script has finished running, all HTTP traffic to your Apache server will be redirected to HTTPS. This will improve the security of your website by preventing users from accessing it over HTTP, which is a less secure protocol.

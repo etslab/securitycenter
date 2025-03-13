@@ -1,0 +1,50 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A3: Sensitive Data Exposure
+
+**Issue Description:**
+
+The AuditProcessTracking policy in Registry Event Audit is not enabled, which means that changes to sensitive registry keys and values are not being logged. This lack of audit trail can hinder investigations and compromise security.
+
+**Solution:**
+
+To fix this issue, enable the AuditProcessTracking policy in Registry Event Audit. Here's how:
+
+**Using Local Group Policy Editor (Windows 10 or later):**
+
+1. Press Windows Key + R and type "gpedit.msc".
+2. Navigate to Computer Configuration > Windows Settings > Security Settings > Advanced Audit Policy Configuration > System Audit Policies > Registry.
+3. Right-click "Audit Process Tracking" and select "Properties".
+4. Mark the "Success" checkbox under "Audit".
+5. Click "OK" to save the changes.
+
+**Using PowerShell:**
+
+1. Open an elevated PowerShell window (run as administrator).
+2. Run the following command:
+
+```
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Lsa" -Name "AuditProcessTracking" -Value 1
+```
+
+**Restart Requirement:**
+
+No restart is required.
+
+**Verification:**
+
+To verify that AuditProcessTracking is enabled, follow these steps:
+
+**Using Event Viewer:**
+
+1. Open Event Viewer (run eventvwr.msc).
+2. Expand "Windows Logs" and select "Security".
+3. In the right pane, look for events with Event ID 4688, which indicate successful registry key changes.
+
+**Using PowerShell:**
+
+```
+Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Lsa" -Name "AuditProcessTracking"
+```
+
+If the value is set to 1, AuditProcessTracking is enabled.

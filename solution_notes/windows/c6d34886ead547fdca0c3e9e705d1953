@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A02: Broken Access Control
+
+**Description:**
+
+Registry Object Access Policy Staging in Windows Web Server allows an unprivileged user to modify the access control list (ACL) of registry keys by exploiting a staging mechanism. This can lead to the escalation of privileges and compromise of the system.
+
+**Solution:**
+
+To resolve this issue, apply the following updates as per your Windows version:
+
+* Windows Server 2019: [KB5012575](https://support.microsoft.com/en-us/topic/january-11-2023-kb5012575-os-builds-17763-2555-19045-2653-and-19044-2653-c188ea47-b9cb-400a-9653-746ab99867e8)
+* Windows Server 2022: [KB5012639](https://support.microsoft.com/en-us/topic/january-11-2023-kb5012639-os-builds-20348-508-and-19045-2653-c188ea47-b9cb-400a-9653-746ab99867e8)
+
+**Additional Mitigation Measures:**
+
+* Use [least privilege](https://docs.microsoft.com/en-us/windows-server/security/credentials/use-least-privilege-to-manage-devices-and-data) principles to reduce the impact of potential exploits.
+* Regularly review and update access control lists (ACLs) to ensure appropriate permissions are granted.
+* Implement intrusion detection and prevention systems to monitor for suspicious activity.

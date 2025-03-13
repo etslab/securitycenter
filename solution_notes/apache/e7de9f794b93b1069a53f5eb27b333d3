@@ -1,0 +1,37 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Issue Description:**
+
+The `CrashOnAuditFail` option in Apache server's registry is enabled, which can lead to potential denial-of-service (DoS) attacks. When this option is enabled, Apache will crash if an audit failure occurs, allowing attackers to exploit this vulnerability by triggering audit failures and disrupting the web server's availability.
+
+**Solution:**
+
+To fix this issue, disable the `CrashOnAuditFail` option in Apache server's registry by setting its value to `Off`. You can do this by editing the Apache configuration file (usually `httpd.conf` or `apache2.conf`) and adding or modifying the following line:
+
+```
+RegistryOptions CrashOnAuditFail Off
+```
+
+**Restart Apache Server:**
+
+After making the change, restart the Apache server to apply the new settings:
+
+```
+sudo systemctl restart apache2
+```
+
+**Verification:**
+
+To verify that the `CrashOnAuditFail` option is disabled, check the Apache configuration file or run the following command:
+
+```
+apachectl -V | grep CrashOnAuditFail
+```
+
+You should see the following output:
+
+```
+CrashOnAuditFail: Off
+```

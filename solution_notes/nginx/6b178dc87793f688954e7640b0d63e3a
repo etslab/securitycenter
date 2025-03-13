@@ -1,0 +1,20 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-23943 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2022-23943 is a remote code execution vulnerability in the nginx web server. This vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted request.
+
+To fix this vulnerability, you should upgrade your nginx web server to a version that includes the fix. You can find the latest version of nginx on the nginx website.
+
+If you cannot upgrade your nginx web server, you can mitigate the vulnerability by disabling the mod_sed module. You can do this by editing the nginx configuration file and commenting out the following line:
+
+```
+#load_module modules/ngx_http_sed_module.so;
+```
+
+CVE-2022-23943 falls under the OWASP Top 10 2021 category of **A1 - Injection**. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is inserted into an application. This can lead to unauthorized access, data loss, or other serious security problems.
+
+Here are some additional tips for preventing injection attacks:
+
+* Use prepared statements for all SQL queries.
+* Sanitize all user input before inserting it into an application.
+* Use a web application firewall (WAF) to help protect against injection attacks.
+
+By following these tips, you can help to protect your web applications from injection attacks.

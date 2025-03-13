@@ -1,0 +1,37 @@
+###How to fix the  issue of  in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The most common issues in Nginx web servers include:
+
+* **Weak configuration** - This is the most common issue, and it can be caused by a number of factors, such as using outdated or insecure configuration settings, or failing to properly secure sensitive files and directories.
+* **Outdated software** - Running outdated versions of Nginx or other software components can leave your server vulnerable to known vulnerabilities.
+* **Unpatched vulnerabilities** - Even if you are using the latest version of Nginx, it is important to keep it up to date with security patches.
+* **Insecure coding practices** - If you are developing your own applications for Nginx, it is important to follow secure coding practices to avoid introducing vulnerabilities.
+
+These issues can lead to a variety of attacks, such as:
+
+* **Cross-site scripting (XSS)** - XSS attacks allow attackers to inject malicious code into your web pages, which can then be executed by other users.
+* **SQL injection** - SQL injection attacks allow attackers to execute arbitrary SQL queries on your database, which can lead to data theft or destruction.
+* **Remote code execution (RCE)** - RCE attacks allow attackers to execute arbitrary code on your server, which can give them full control of your system.
+* **Denial-of-service (DoS)** - DoS attacks can overwhelm your server with traffic, making it unavailable to legitimate users.
+
+To fix these issues, you should:
+
+* **Review your Nginx configuration** and make sure that it is secure. You can find documentation on how to do this on the Nginx website.
+* **Keep your Nginx software up to date** with the latest security patches.
+* **Use a web application firewall (WAF)** to protect your web applications from common attacks.
+* **Follow secure coding practices** when developing your own applications for Nginx.
+
+The OWASP Top 10 Web 2021 category that these issues belong to is **A1: Broken Access Control**. This category encompasses vulnerabilities that allow attackers to gain unauthorized access to resources on your web server or web application.
+
+Here are some specific examples of Nginx vulnerabilities that fall under the A1 category:
+
+* **Directory traversal vulnerabilities** - These vulnerabilities allow attackers to access files and directories that they should not be able to access.
+* **Insecure file permissions** - These vulnerabilities allow attackers to read, write, or execute files that they should not be able to access.
+* **Weak session management** - These vulnerabilities allow attackers to steal or hijack user sessions, which can give them access to the user's account and data.
+
+To fix these vulnerabilities, you should follow the recommendations above and also:
+
+* **Implement strong access control mechanisms** to ensure that users can only access the resources that they are authorized to access.
+* **Use secure file permissions** to prevent unauthorized users from accessing sensitive files and directories.
+* **Implement strong session management mechanisms** to prevent attackers from stealing or hijacking user sessions.
+
+You can also use a vulnerability scanner to scan your Nginx web server for known vulnerabilities.

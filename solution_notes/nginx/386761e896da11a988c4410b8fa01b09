@@ -1,0 +1,54 @@
+###How to fix the Web Threats issue of X-Content-Type-Options Header Missing in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Web Threats issue of X-Content-Type-Options Header Missing in nginx web server, you can add the following line to your nginx configuration file:
+
+```
+add_header X-Content-Type-Options nosniff;
+```
+
+This will tell the browser to not override the MIME type specified in the Content-Type header.
+
+This issue belongs to the following OWASP Top 10 Web 2021 category:
+
+* **A4: Insecure Design**
+
+This category includes vulnerabilities that arise from insecure design choices, such as not setting the X-Content-Type-Options header.
+
+**Steps to fix the issue:**
+
+1. Open the nginx configuration file. This is usually located at `/etc/nginx/nginx.conf`.
+2. Add the following line to the configuration file:
+
+```
+add_header X-Content-Type-Options nosniff;
+```
+
+3. Save the configuration file and restart Nginx.
+
+**Example:**
+
+```
+server {
+    listen 80;
+    server_name example.com;
+
+    add_header X-Content-Type-Options nosniff;
+
+    location / {
+        root /var/www/html;
+    }
+}
+```
+
+Once you have made the changes, you can test your configuration file by running the following command:
+
+```
+nginx -t
+```
+
+If there are no errors, you can restart Nginx by running the following command:
+
+```
+systemctl restart nginx
+```
+
+You can also use a security scanner to scan your website for vulnerabilities, including the X-Content-Type-Options Header Missing issue.

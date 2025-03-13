@@ -1,0 +1,20 @@
+**Severity: High**
+
+This issue allows unauthorized users to manage other accounts in the registry, potentially compromising sensitive data and system stability.
+
+**Solution:**
+
+1. **Review Registry Permissions:** Ensure that only authorized administrators have write permissions to critical registry keys and values.
+2. **Implement Account Control:** Use Group Policy or local policies to restrict user access to the registry based on job roles and responsibilities.
+3. **Consider Least Privilege:** Assign users only the minimum level of permissions necessary to perform their tasks.
+4. **Audit Registry Changes:** Enable registry auditing to track changes and identify unauthorized access or modifications.
+
+**OWASP Top 10 2021 Category:**
+
+* A1: Broken Access Control
+
+**Additional Recommendations:**
+
+* Use a centralized patch management system to keep the operating system and software up to date with security patches.
+* Monitor system logs for suspicious activity and investigate any anomalies promptly.
+* Provide security awareness training to users and administrators to highlight the importance of protecting sensitive registry data.

@@ -1,0 +1,17 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Detailed Solution:**
+
+1. **Identify the affected policy:** Determine which Policy Authorization Policy is being changed in the Registry Policy Change.
+2. **Review the permissions granted by the policy:** Examine the Registry keys and values that are affected by the policy change. Identify any sensitive data that could be exposed as a result.
+3. **Restrict access to sensitive data:** Modify the Registry Policy Change to limit access to sensitive data by specific users or groups.
+4. **Use encryption:** Encrypt sensitive data stored in the Registry to prevent unauthorized access even if the policy is changed.
+5. **Implement a least privilege model:** Grant users only the minimum permissions necessary to perform their tasks.
+
+**Additional Recommendations:**
+
+* Monitor Registry changes for suspicious activity.
+* Regularly review and update Registry Policy Changes to ensure they remain secure.
+* Use a Web Application Firewall (WAF) to block malicious requests targeting sensitive data.

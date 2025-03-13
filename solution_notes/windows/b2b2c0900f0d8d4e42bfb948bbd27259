@@ -1,0 +1,25 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Configuration
+
+**Solution:**
+
+1. **Disable non-essential privileges for applications:** Review all applications and services running on the server and identify any that do not require elevated privileges. Disable any unnecessary privileges for these applications.
+
+2. **Use a least-privilege approach:** Grant applications only the minimum privileges required to perform their intended functions. Consider using role-based access control (RBAC) to enforce this principle.
+
+3. **Use strong passwords:** Ensure all privileged accounts have strong passwords to prevent unauthorized access. Consider using a password manager to generate and store complex passwords.
+
+4. **Audit and monitor privilege use:** Regularly audit the use of privileged accounts and applications to identify suspicious or unauthorized activities. Set up alerts to notify administrators of any potential breaches.
+
+5. **Consider using application isolation technologies:** Utilize technologies such as containers or virtual machines to isolate applications from each other and the underlying operating system. This can limit the potential impact of a successful privilege escalation attack.
+
+6. **Install security updates regularly:** Keep the operating system and all software up to date with the latest security patches. This will help mitigate vulnerabilities that could be exploited to escalate privileges.
+
+7. **Use a web application firewall (WAF)**: Implement a WAF to block malicious requests that could attempt to exploit privilege escalation vulnerabilities.
+
+**Additional Tips:**
+
+* Enable Windows Defender Application Control (WDAC) to restrict the execution of unauthorized applications.
+* Use a security hardening tool to scan for and remediate known vulnerability configurations.
+* Educate users on the importance of using strong passwords and reporting suspicious activities.

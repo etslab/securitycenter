@@ -1,0 +1,29 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-28614 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities issue of CVE-2022-28614 in nginx web server, you can follow these steps:
+
+1. Update your nginx web server to the latest version. The latest version of nginx, as of March 8, 2023, is 1.22.1. You can download the latest version from the nginx website.
+2. If you cannot update your nginx web server to the latest version, you can apply the security patch for CVE-2022-28614. The security patch is available from the nginx website.
+
+CVE-2022-28614 is a remote code execution vulnerability in the nginx web server. This vulnerability is caused by an integer overflow in the ap_rwrite() function. An attacker can exploit this vulnerability by sending a specially crafted request to the nginx web server. The attacker can then execute arbitrary code on the server.
+
+CVE-2022-28614 belongs to the following OWASP Top 10 Web 2021 categories:
+
+* Injection
+* Broken Authentication and Session Management
+* Security Misconfiguration
+* Cross-site Scripting (XSS)
+* Insecure Deserialization
+* Using Components with Known Vulnerabilities
+* Insufficient Logging and Monitoring
+* Application Development
+* Software and Data Integrity
+
+It is important to note that this is just one of many vulnerabilities that can affect nginx web servers. It is important to keep your nginx web server up to date with the latest security patches and to implement security best practices to protect your server from attack.
+
+Here are some additional security best practices that you can follow to protect your nginx web server from attack:
+
+* Use a strong password for your nginx web server.
+* Enable HTTP Strict Transport Security (HSTS).
+* Use a web application firewall (WAF) to protect your nginx web server from common web attacks.
+* Implement a web application scanning solution to scan your nginx web server for vulnerabilities.
+* Keep your nginx web server up to date with the latest security patches.

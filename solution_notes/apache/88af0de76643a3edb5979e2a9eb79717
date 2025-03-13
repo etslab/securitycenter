@@ -1,0 +1,38 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Detailed Solution:**
+
+**1. Enable UseEnhancedPin Policy:**
+
+* Navigate to `Registry Editor (regedit)`
+* Go to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\FVE`
+* Create a new DWORD (32-bit) value named `UseEnhancedPin`
+* Set its value to `1`
+
+**2. Set Password Strength Requirements (Optional):**
+
+Optional: You can also set additional password strength requirements for the PIN by modifying the `MinimumPINLength` and `MaximumPINLength` values under the same registry key.
+
+**3. Disable Legacy Pin Fallback (Optional):**
+
+Optional: For enhanced security, consider disabling the legacy PIN fallback by setting `LegacyPINFallback` to `0`.
+
+**4. Enforce PIN Complexity:**
+
+* Create a group policy object (GPO)
+* Navigate to `Computer Configuration\Administrative Templates\Windows Components\BitLocker Drive Encryption`
+* Enable `Configure TPM Platform and Pin complexity requirements for TPM only`
+* Set the `Minimum PIN length` and `Maximum PIN length`
+
+**Impact of Not Fixing the Issue:**
+
+* Weak PINs could allow unauthorized access to encrypted data
+* Lack of enhanced PIN protection reduces the overall security of BitLocker encryption
+
+**Note:**
+
+* UseEnhancedPin enables enhanced PIN complexity checks, including minimum length, banned PINs, and character complexity requirements.
+* Legacy PIN fallback allows users to enter a simple 4-digit PIN instead of a complex PIN when the TPM is unavailable or compromised.
+* Enforcing PIN complexity through GPO provides additional protection against PIN-based attacks.

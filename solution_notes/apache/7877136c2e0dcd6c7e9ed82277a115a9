@@ -1,0 +1,24 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A02: Broken Authentication
+
+**Description:**
+
+The Policy ADPasswordEncryptionEnabled registry key determines whether passwords are encrypted when stored in Active Directory (AD). If this key is not set or is set to 0, passwords are stored in plain text, making them vulnerable to compromise.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\LAPS
+```
+3. Create a new DWORD value named `Policy ADPasswordEncryptionEnabled` if it does not already exist.
+4. Set the value of `Policy ADPasswordEncryptionEnabled` to 1.
+5. Restart the server.
+
+**Additional Notes:**
+
+* This issue can only be resolved by a domain administrator.
+* It is recommended to set the `Policy ADPasswordEncryptionEnabled` key to 2 for maximum security. This will encrypt passwords using a stronger algorithm.
+* This setting is only applicable to Windows Server 2012 and later.

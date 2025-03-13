@@ -1,0 +1,21 @@
+###How to fix the App Dependencies issue of ziptestdata.zip in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of ziptestdata.zip in nginx web server is a security vulnerability that allows attackers to gain unauthorized access to the web server's filesystem. This vulnerability is classified as **A3:Insecure Design** in the OWASP Top 10 Web Application Security Risks 2021.
+
+To fix this issue, you can follow these steps:
+
+1. Identify the dependencies that are used in the ziptestdata.zip file.
+2. Update the dependencies to the latest versions.
+3. Remove any unused dependencies.
+4. Configure the web server to deny access to the ziptestdata.zip file.
+
+You can also use a web application firewall (WAF) to protect your web server from this vulnerability. A WAF can scan incoming requests for malicious code and block them before they reach the web server.
+
+Here are some additional tips for preventing this vulnerability:
+
+* Use a dependency management tool to keep your dependencies up to date.
+* Scan your dependencies for known vulnerabilities.
+* Remove any unused dependencies.
+* Configure your web server to deny access to sensitive files and directories.
+* Use a WAF to protect your web server from malicious requests.
+
+Please note that these are just general guidelines and may not be applicable to all situations. It is important to consult with a security professional to get specific advice on how to protect your web server.

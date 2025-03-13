@@ -1,0 +1,15 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Solution:**
+
+1. **Edit the Windows Registry:** Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Network Connections` in the Windows Registry Editor (regedit.exe).
+2. **Create or Modify a Registry Key:** Right-click and select "New" > "DWORD (32-bit) Value." Name the new key "NCShowSharedAccessUI."
+3. **Set the Registry Value:** Double-click on the newly created key and set the value data to `0`. This will disable the visibility of the "Shared Access" tab in the Network Connections control panel.
+
+**Detailed Description of the Issue:**
+
+The Policy NCShowSharedAccessUI in the Windows Registry determines whether the "Shared Access" tab is visible in the Network Connections control panel. By default, this tab is enabled, allowing users to view and modify shared network resources. However, enabling this setting can potentially expose sensitive data, such as network credentials and access permissions.
+
+By disabling this tab, the potential exposure of sensitive information through the control panel is reduced, enhancing the security of the system. This measure meets the best practices for protecting sensitive data from unauthorized access and falls under the OWASP Top 10 2021 category of Sensitive Data Exposure.

@@ -1,0 +1,35 @@
+####patch script to remediate  CVE-2022-23943 in Apache HTTP Server
+Sure, here is the patch script to remediate CVE-2022-23943 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is installed
+if ! [ -x /usr/sbin/apache2 ]; then
+  echo "Apache is not installed."
+  exit 1
+fi
+
+# Check the version of Apache
+version=$(apache2 -V | awk '{print $2}')
+
+# If Apache is 2.4.52 or older, then apply the patch
+if [[ $version -lt 2.4.53 ]]; then
+  echo "Applying patch for CVE-2022-23943."
+  patch -p1 < CVE-2022-23943.patch
+fi
+
+# Restart Apache
+echo "Restarting Apache."
+apache2ctl restart
+
+# Check if the patch was applied successfully
+if ! grep -q "CVE-2022-23943" /etc/apache2/apache2.conf; then
+  echo "Patch was not applied successfully."
+  exit 1
+fi
+
+echo "Patch applied successfully."
+```
+
+This patch script will check if Apache is installed and running. If it is, the script will check the version of Apache. If Apache is 2.4.52 or older, then the script will apply the patch for CVE-2022-23943. Finally, the script will restart Apache and check if the patch was applied successfully.

@@ -1,0 +1,33 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Information Leakage (A05)
+
+**Solution:**
+
+To fix this issue, disable the display of the X-Powered-By header field in the HTTP response. This can be done through the following steps:
+
+**For IIS 7 and earlier:**
+
+1. Open IIS Manager.
+2. Select the website for which you want to disable the X-Powered-By header field.
+3. Click on the "HTTP Headers" icon in the Home pane.
+4. Click on the "Add" button.
+5. In the "Name" field, enter "X-Powered-By".
+6. In the "Value" field, enter "off".
+7. Click on the "OK" button.
+
+**For IIS 8 and later:**
+
+1. Open IIS Manager.
+2. Select the website for which you want to disable the X-Powered-By header field.
+3. Click on the "Request Headers" icon in the Home pane.
+4. Click on the "Remove" button next to the "X-Powered-By" header field.
+5. Click on the "OK" button.
+
+**Note:** You may need to restart IIS for the changes to take effect.
+
+**Additional Recommendations:**
+
+* Consider using a web application firewall (WAF) to block requests that attempt to exploit this vulnerability.
+* Regularly update your web server software to patch any security vulnerabilities.
+* Implement a security header policy (e.g., via HTTP Strict Transport Security (HSTS) or Content Security Policy (CSP)) to protect against other information leakage vulnerabilities.

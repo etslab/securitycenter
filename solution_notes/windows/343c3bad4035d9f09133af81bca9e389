@@ -1,0 +1,24 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Detailed Solution:**
+
+1. **Locate the problematic registry key:**
+   - Open the Registry Editor (regedit.exe).
+   - Navigate to the following key: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters
+
+2. **Modify the registry value:**
+   - Right-click on the "Directory Services Access" value and select "Modify".
+   - In the "Value Data" field, replace the existing value with the following:
+     - SD:O:BAG:BAD:(A;;;;;WD;;;DOMAIN\Administrator)
+     - Replace "DOMAIN\Administrator" with your own administrator account.
+
+3. **Restart the Directory Services service:**
+   - Open the Services window (services.msc).
+   - Locate the "Active Directory Domain Services" service.
+   - Right-click on the service and select "Restart".
+
+**Explanation:**
+
+The modification to the registry key ensures that only the specified administrator account has write access to the Directory Services object (the NTDS object in AD), preventing unauthorized changes to the directory. This addresses the vulnerability by restricting access to critical directory services functions.

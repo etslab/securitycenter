@@ -1,0 +1,38 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Enable Audit Policy for Registry Privilege Use:**
+
+   - Open the "Group Policy Editor" (gpedit.msc).
+   - Navigate to "Computer Configuration\Windows Settings\Security Settings\Advanced Audit Policy Configuration\Audit Policies\System Audit Policies\Object Access."
+   - Check the "Object Access" checkbox to enable auditing for registry access.
+
+2. **Audit "Other Privilege Use" Events:**
+
+   - Right-click on "Object Access" and select "Properties."
+   - Click the "Advanced Auditing Options" button.
+   - In the "Event Type" section, select the "Other Privilege Use" events.
+
+3. **Review Audit Logs:**
+
+   - Monitor the audit logs to identify any suspicious registry access involving "Other Privilege Use" events.
+   - Investigate the source of the events and take appropriate action to mitigate any potential vulnerabilities.
+
+4. **Restrict Privileged Access:**
+
+   - Limit the number of users with administrative privileges on the server.
+   - Implement least privilege principles by granting only the necessary permissions to users and applications.
+
+5. **Use Registry Hardening Tools:**
+
+   - Consider using registry hardening tools such as Sysinternals' RegAuditor to identify and correct any insecure registry settings.
+
+**Additional Recommendations:**
+
+* **Use strong passwords and multi-factor authentication** to prevent unauthorized access to privileged accounts.
+* **Implement a firewall and intrusion detection system** to monitor network traffic and detect suspicious activity.
+* **Stay up-to-date on Windows security updates** to patch any vulnerabilities that may allow privilege escalation.
+* **Perform regular security audits** to identify and address any potential vulnerabilities related to registry access.

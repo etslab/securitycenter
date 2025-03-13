@@ -1,0 +1,41 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A5: Broken Access Control
+
+**Detailed Solution:**
+
+OCSP stapling is a mechanism for web servers to provide clients with proof that their TLS certificate is valid. This helps protect against certificate revocation issues and ensures that clients can trust the server's identity.
+
+Apache servers do not have built-in support for OCSP stapling. To fix this issue, you can install a third-party module such as:
+
+* [mod_ssl_ocsp](https://github.com/apache/mod_ssl/tree/master/contrib/mod_ssl_ocsp)
+
+Once the module is installed, you need to configure it. Add the following directives to your Apache configuration file:
+
+```
+# Load the module
+LoadModule ssl_ocsp_module /path/to/mod_ssl_ocsp.so
+
+# Enable OCSP stapling
+SSLStapling On
+
+# Set the OCSP responder URL
+SSLStaplingResponderURL https://ocsp.example.com/
+```
+
+Replace "https://ocsp.example.com/" with the URL of your OCSP responder.
+
+You can also enable OCSP stapling using the `.htaccess` file:
+
+```
+SSLStapling On
+SSLStaplingResponderURL https://ocsp.example.com/
+```
+
+Restart Apache after making these changes.
+
+**Additional Steps:**
+
+* Ensure that your OCSP responder is accessible and functioning properly.
+* Test your configuration by visiting your website using a browser that supports OCSP stapling, such as Chrome or Firefox. You should see a "Stapled OCSP Response" in the browser's security information.
+* Regularly monitor your OCSP responder to ensure that it remains available and responsive.

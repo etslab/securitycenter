@@ -1,0 +1,32 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+To fix CVE-2012-4929, apply the following patch to your Apache server:
+
+```
+https://www.apache.org/dist/httpd/httpd-2.2.26.patch
+```
+
+**Detailed Explanation of the Issue:**
+
+CVE-2012-4929 is a buffer overflow vulnerability in Apache HTTP Server that allows an attacker to execute arbitrary code or gain unauthorized access to the server. This vulnerability is caused by an improper boundary check in the `mod_proxy_http` module, which can be exploited by sending a specially crafted HTTP request to the server.
+
+**Impact:**
+
+Successful exploitation of this vulnerability can lead to:
+
+* Remote code execution
+* Unauthorized access to sensitive data
+* Denial of service
+
+**Mitigation:**
+
+In addition to applying the patch mentioned above, you should also take the following steps to mitigate this vulnerability:
+
+* Upgrade to the latest version of Apache HTTP Server
+* Disable the `mod_proxy_http` module if it is not required
+* Use a web application firewall (WAF) to protect against this vulnerability
+* Regularly scan your systems for vulnerabilities

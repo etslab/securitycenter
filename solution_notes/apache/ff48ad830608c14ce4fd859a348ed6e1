@@ -1,0 +1,17 @@
+###How to fix the App Dependencies issue of gnu-multi-hdrs.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of gnu-multi-hdrs.tar in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Remove the gnu-multi-hdrs.tar file from the Apache web server directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A2-Broken Access Control**. This category covers vulnerabilities that allow attackers to access unauthorized data or resources. In this case, the attacker could exploit the App Dependencies issue to gain access to the gnu-multi-hdrs.tar file, which could contain sensitive information.
+
+Here are some additional tips to help you prevent this type of vulnerability:
+
+* Keep your software up to date. Software updates often include security patches that can help to protect your system from vulnerabilities.
+* Use a web application firewall (WAF). A WAF can help to block common attack vectors, such as SQL injection and cross-site scripting.
+* Implement least privilege. This means giving users only the access they need to do their jobs. This can help to reduce the risk of unauthorized access.
+* Educate your users about security best practices. This includes things like not clicking on links in emails from unknown senders and using strong passwords.
+
+By following these tips, you can help to protect your Apache web server from vulnerabilities.

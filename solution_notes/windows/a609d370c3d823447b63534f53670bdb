@@ -1,0 +1,25 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Identity and Access Management
+
+**Solution:**
+
+1. **Verify the Service Principal Name (SPN)**: Ensure that the correct SPN is registered for the application pool identity in Active Directory. The SPN should be in the format `HTTP/<hostname>`.
+
+2. **Grant Access to Registry Keys:** Grant the application pool identity permissions to read and write the following registry keys:
+
+   - `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\GPExtensions`
+   - `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Userinit`
+
+3. **Configure Registry Permissions:** Use the following PowerShell command to grant the necessary permissions:
+
+   ```
+   Set-Acl -Path <registry_key_path> -User <application_pool_identity> -AccessMask FullControl
+   ```
+
+4. **Restart the Web Service:** Restart the application pool or web service to apply the changes.
+
+**Additional Notes:**
+
+* This issue occurs when the application pool identity does not have sufficient permissions to access the registry keys required by the website.
+* Failure to resolve this issue can result in website access problems or service failures.

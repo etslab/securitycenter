@@ -1,0 +1,23 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Authentication
+
+**Detailed Solution:**
+
+To fix this issue, you need to update the list of trusted keys used by apt-key to verify package authenticity. This can be done by running the following command:
+
+```
+sudo apt-key update
+```
+
+After running this command, you should restart your web server (Apache in this case) as follows:
+
+```
+sudo service apache2 restart
+```
+
+**Additional Mitigation:**
+
+* Use a package manager that supports key pinning to ensure that packages are only installed from trusted sources.
+* Regularly review the list of trusted keys and remove any that are no longer needed.
+* Use a security scanner to identify vulnerabilities in your system, including outdated software or weak authentication mechanisms.

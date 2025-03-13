@@ -1,0 +1,29 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Verify the permission level:** Ensure that the `BIND_VPN_SERVICE` permission has the correct protection level set in the AndroidManifest.xml file. It should be set to `signature` or `signatureOrSystem`.
+
+```xml
+<uses-permission android:name="android.permission.BIND_VPN_SERVICE" android:protectionLevel="signatureOrSystem" />
+```
+
+2. **Remove the `android:exported` flag:** The `BIND_VPN_SERVICE` permission should not be exported. Remove the `android:exported` flag from the permission declaration in the AndroidManifest.xml file.
+
+```xml
+<uses-permission android:name="android.permission.BIND_VPN_SERVICE" android:protectionLevel="signatureOrSystem" />
+```
+
+3. **Restrict access to the service:** Implement additional logic within the `OpenVPNService` to restrict access to the service based on the user's identity or other criteria.
+
+4. **Monitor and log access attempts:** Implement logging and monitoring mechanisms to detect and investigate any suspicious or unauthorized access attempts to the service.
+
+5. **Update the AndroidManifest.xml file:** Once the changes are made, update the AndroidManifest.xml file located in the project's `app/src/main` directory to reflect the corrected permission settings.
+
+**Additional Notes:**
+
+* If the `BIND_VPN_SERVICE` permission is exported and not properly protected, malicious apps can potentially bind to the VPN service and intercept or modify network traffic.
+* By restricting access to the service, only authorized apps or components can interact with the VPN service, reducing the risk of unauthorized access.
+* This issue falls under the Broken Access Control category of the OWASP Top 10 2021, which refers to vulnerabilities that arise when applications fail to properly restrict access to sensitive resources based on the user's identity or role.

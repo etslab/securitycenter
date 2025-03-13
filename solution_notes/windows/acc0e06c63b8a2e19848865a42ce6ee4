@@ -1,0 +1,15 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A01:2021 - Broken Access Control
+
+**Solution:**
+
+1. **Verify Policy Application Group Permissions:** Ensure that the policy application group has the appropriate permissions to access the registry and perform the desired actions.
+2. **Restrict Group Membership:** Limit membership in the policy application group to authorized individuals or services only. Use role-based access control (RBAC) to define granular permissions.
+3. **Enable Logging and Auditing:** Configure logging and auditing for registry access to track any unauthorized or malicious activity.
+4. **Use Role-Based Access Control (RBAC):** Implement RBAC to assign specific roles and permissions to users and groups, ensuring that only authorized parties can manage policy application groups.
+5. **Regularly Review and Update Permissions:** Periodically review and update group permissions to ensure they remain appropriate and aligned with current business requirements.
+6. **Use Automated Tools for Vulnerability Scanning:** Utilize automated tools to regularly scan for vulnerabilities and configuration issues related to policy application group management.
+7. **Implement Security Best Practices:** Follow best practices for secure registry management, such as using strong passwords, implementing multi-factor authentication, and patching the registry regularly.
+
+By implementing these measures, you can mitigate the risks associated with Policy Application Group Management and enhance the security of your registry account management system.

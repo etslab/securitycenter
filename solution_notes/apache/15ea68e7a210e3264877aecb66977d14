@@ -1,0 +1,26 @@
+###How to fix the App Dependencies issue of hardlink.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of hardlink.tar in Apache web server, you can follow these steps:
+
+1. Stop the Apache web server.
+2. Remove the hardlink.tar file from the Apache web server directory.
+3. Restart the Apache web server.
+
+This issue belongs to the OWASP Top 10 Web 2021 category of **A1 - Injection**. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an application. This can lead to unauthorized access, data loss, or other security problems.
+
+Here are some additional tips to help prevent App Dependencies issues:
+
+* Use a web application firewall (WAF) to help protect your application from common injection attacks.
+* Use input validation to ensure that all user input is properly sanitized before being used by your application.
+* Use a secure coding framework to help you develop your application in a secure manner.
+* Keep your application up to date with the latest security patches.
+
+By following these tips, you can help to protect your application from App Dependencies issues and other security vulnerabilities.
+
+Here are some additional details about the App Dependencies issue:
+
+* The App Dependencies issue occurs when an Apache web server is configured to use a hardlink.tar file to install or update an application.
+* A hardlink is a special type of file that shares the same data as another file.
+* If an attacker can modify the hardlink.tar file, they can also modify the application that is installed or updated from the file.
+* This can allow the attacker to execute arbitrary code on the Apache web server or gain access to sensitive data.
+
+To mitigate the risk of this issue, you should not use hardlink.tar files to install or update applications on Apache web servers. Instead, you should use a secure method of installation or update, such as using a package manager or downloading the application from a trusted source.

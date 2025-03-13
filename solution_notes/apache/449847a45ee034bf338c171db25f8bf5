@@ -1,0 +1,40 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+1. **Update Apache HTTP Server:** Upgrade to Apache HTTP Server version 2.2.17 or later, which includes the fix for this vulnerability.
+
+2. **Disable CGI Processing:** If you do not need CGI processing, disable it by editing the Apache configuration file (httpd.conf) and adding the following line:
+
+   ```
+   Options -ExecCGI
+   ```
+
+3. **Limit CGI File Access:** If you need CGI processing, restrict access to only the necessary files by using the `AddHandler` directive in the Apache configuration file. For example:
+
+   ```
+   AddHandler cgi-script .cgi .pl .py
+   ```
+
+4. **Configure EscapeProcessing:** Enable escape processing for all CGI scripts by adding the following line to the Apache configuration file:
+
+   ```
+   EscapeProcessing On
+   ```
+
+5. **Disable TRACE Method:** Disable the TRACE method by adding the following line to the Apache configuration file:
+
+   ```
+   <LimitExcept GET HEAD POST PUT DELETE>
+   Order deny,allow
+   Deny all
+   </LimitExcept>
+   ```
+
+**Additional Notes:**
+
+* This vulnerability allows an attacker to execute arbitrary code on the server by sending a specially crafted HTTP request.
+* It is important to apply the fix promptly to prevent potential attacks.
+* Regular security audits and updates are recommended to maintain a secure server configuration.

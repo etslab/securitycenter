@@ -1,0 +1,36 @@
+###How to fix the App Dependencies issue of writer.tar in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of writer.tar in Apache web server can be fixed by updating the Apache web server to the latest version. The issue is caused by a vulnerability in the Apache web server that allows attackers to execute arbitrary code on the system. The vulnerability is ranked as **Critical** in the OWASP Top 10 Web Security Risks 2021.
+
+To update the Apache web server, follow these steps:
+
+1. Open a terminal window.
+2. Type the following command to check the current version of the Apache web server:
+
+```
+apachectl -V
+```
+
+3. If the version is not the latest, type the following command to update the Apache web server:
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+4. After the update is complete, restart the Apache web server:
+
+```
+sudo service apache2 restart
+```
+
+Once the Apache web server is restarted, the App Dependencies issue of writer.tar should be fixed.
+
+The OWASP Top 10 Web Security Risks 2021 is a list of the top 10 security risks that web applications face. The App Dependencies issue of writer.tar is ranked as **Critical** in the list because it allows attackers to execute arbitrary code on the system. This can allow attackers to take control of the system, steal data, or install malware.
+
+Here are some additional tips for securing your Apache web server:
+
+* Keep the Apache web server up to date with the latest security patches.
+* Use a strong password for the Apache web server.
+* Enable firewall rules to restrict access to the Apache web server.
+* Use a web application firewall (WAF) to protect your Apache web server from attacks.
+* Implement a security awareness training program for your employees to help them identify and report security threats.

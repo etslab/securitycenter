@@ -1,0 +1,31 @@
+###How to fix the Common Vulnerabilities issue of CVE-2022-31813 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+CVE-2022-31813 is a vulnerability in the nginx web server that could allow an attacker to bypass IP-based authentication on the origin server or application. To fix this vulnerability, you should upgrade your nginx web server to a version that includes the fix. You can find the latest version of nginx on the nginx website.
+
+This vulnerability belongs to the OWASP Top 10 Web Application Security Risks category of Broken Authentication and Session Management. This category includes vulnerabilities that allow attackers to gain unauthorized access to a web application by bypassing authentication or session management mechanisms.
+
+Here are the steps on how to fix CVE-2022-31813 in nginx web server:
+
+1. Check the nginx version installed on your system. You can do this by running the following command:
+
+```
+nginx -v
+```
+
+2. If the nginx version is 2.4.53 or earlier, you need to upgrade to a newer version. You can download the latest version of nginx from the nginx website.
+
+3. Once you have downloaded the latest version of nginx, you need to install it. You can do this by following the instructions on the nginx website.
+
+4. After you have installed the latest version of nginx, you need to restart the nginx service. You can do this by running the following command:
+
+```
+sudo service nginx restart
+```
+
+Once you have completed these steps, the CVE-2022-31813 vulnerability will be fixed in your nginx web server.
+
+Here are some additional tips to help you secure your nginx web server:
+
+* Use strong passwords for all accounts on your nginx web server.
+* Enable HTTP Strict Transport Security (HSTS) on your nginx web server. This will force all connections to your web server to use HTTPS.
+* Use a web application firewall (WAF) to protect your nginx web server from common web attacks.
+* Keep your nginx web server up to date with the latest security patches.

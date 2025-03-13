@@ -1,0 +1,15 @@
+###How to fix the App Dependencies issue of pax-path-hdr.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+The pax-path-hdr.tar App Dependencies issue in the nginx web server is a vulnerability that can be exploited by an attacker to gain access to the server's underlying filesystem. The issue is caused by a flaw in the way that nginx handles symbolic links.
+
+To fix the issue, you need to update nginx to the latest version. If you are unable to update nginx, you can work around the issue by disabling symbolic links in your nginx configuration.
+
+This issue belongs to the **A7 - Sensitive Data Exposure** category of the OWASP Top 10 Web 2021. This category includes vulnerabilities that can allow an attacker to access sensitive data on a web server, such as passwords, credit card numbers, or customer information.
+
+Here are some additional steps you can take to mitigate the App Dependencies issue of pax-path-hdr.tar in the nginx web server:
+
+* Keep your nginx software up to date.
+* Disable symbolic links in your nginx configuration.
+* Use a web application firewall (WAF) to filter incoming traffic and block malicious requests.
+* Regularly scan your web server for vulnerabilities.
+
+If you are concerned about the security of your nginx web server, it is recommended that you consult with a security professional.

@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Reason for High Severity:**
+
+Policy 120c in the Registry controls the security zone settings for Internet Explorer. If this policy is not set, or if it is set to an unsafe value, users may be able to access unauthorized content or run malicious code.
+
+**Solution:**
+
+To fix this issue, set the value of Policy 120c to "1". This will ensure that all websites are opened in the most restrictive security zone.
+
+To set the value of Policy 120c:
+
+1. Open the Registry Editor.
+2. Navigate to the following key: `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3`
+3. Double-click on the "120c" value.
+4. Set the "Value data" field to "1".
+5. Click "OK".
+
+**Additional Steps:**
+
+In addition to setting the value of Policy 120c, you should also consider the following steps to further mitigate the risk:
+
+* Use a web application firewall (WAF) to block malicious requests.
+* Implement a content security policy (CSP) to restrict the types of content that can be loaded on your website.
+* Regularly update your web application software to patch any security vulnerabilities.

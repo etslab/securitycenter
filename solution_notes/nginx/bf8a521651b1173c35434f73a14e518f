@@ -1,0 +1,15 @@
+###How to fix the App Dependencies issue of utf8-7zip.zip in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of utf8-7zip.zip in nginx web server, you can follow these steps:
+
+1. Identify the vulnerable component. In this case, the vulnerable component is utf8-7zip.zip.
+2. Update the vulnerable component to the latest version. You can do this by downloading the latest version of the component from the official website or by using a dependency management tool such as pip or npm.
+3. Restart the nginx web server.
+
+If you are unable to update the vulnerable component, you can mitigate the risk by:
+
+* Disabling the vulnerable component. This can be done by removing the component from the nginx configuration file.
+* Blocking access to the vulnerable component. This can be done by configuring a firewall to block access to the component.
+
+The App Dependencies issue of utf8-7zip.zip in nginx web server belongs to the **OWASP Top 10 Web 2021 category A9: Using Components with Known Vulnerabilities**. This category refers to the use of software components that contain known vulnerabilities. These vulnerabilities can be exploited by attackers to gain access to your system or data.
+
+To prevent this issue, it is important to keep your software components up to date. You should also regularly scan your system for vulnerabilities and patch any that are found.

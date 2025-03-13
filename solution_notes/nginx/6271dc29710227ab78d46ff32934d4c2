@@ -1,0 +1,41 @@
+###How to fix the Common Vulnerabilities issue of CVE-2019-0211 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Common Vulnerabilities and Exposures (CVE)-2019-0211 issue in the nginx web server, you need to update your nginx installation to a version that is at least 1.17.10. You can do this by following these steps:
+
+1. Check the version of nginx that you are currently using. You can do this by running the following command:
+
+```
+nginx -V
+```
+
+2. If you are not using a version that is at least 1.17.10, you can update your nginx installation by following the instructions provided by your operating system or distribution.
+
+3. Once you have updated your nginx installation, you should restart the nginx service. You can do this by following these steps:
+
+* For Linux:
+
+```
+sudo service nginx restart
+```
+
+* For Windows:
+
+```
+net stop nginx
+net start nginx
+```
+
+CVE-2019-0211 is a remote code execution vulnerability that affects nginx versions 1.17.0 to 1.17.9. This vulnerability allows an attacker to execute arbitrary code on a vulnerable system by sending a specially crafted request to the nginx web server.
+
+This vulnerability is a critical security issue and should be patched as soon as possible.
+
+CVE-2019-0211 belongs to the OWASP Top 10 Web Application Security Risks category of Injection. Injection flaws, such as SQL injection and cross-site scripting (XSS), occur when unvalidated or malicious data is sent to an application. This can allow attackers to execute arbitrary code on the application server or steal sensitive data.
+
+To mitigate the risk of injection attacks, it is important to properly validate and sanitize all input data before it is used by an application. This includes input from users, files, and other sources.
+
+Here are some additional tips for mitigating the risk of injection attacks:
+
+* Use prepared statements or parameterized queries to avoid SQL injection attacks.
+* Use a web application firewall (WAF) to block common attack vectors.
+* Educate developers about injection attacks and how to prevent them.
+
+By following these tips, you can help to protect your web applications from injection attacks.

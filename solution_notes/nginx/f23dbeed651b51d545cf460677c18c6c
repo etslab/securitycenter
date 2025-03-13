@@ -1,0 +1,48 @@
+###How to fix the App Dependencies issue of path-parse:1.0.6 of pkg:npm/path-parse@1.0.6 in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of path-parse:1.0.6 of pkg:npm/path-parse@1.0.6 in nginx web server, you can follow these steps:
+
+1. Update the path-parse package to the latest version:
+
+```
+npm update path-parse
+```
+
+2. Restart the nginx web server:
+
+```
+sudo systemctl restart nginx
+```
+
+3. Verify that the issue has been fixed by running the following command:
+
+```
+npm audit
+```
+
+If the issue has been fixed, you should see a message like this:
+
+```
+No vulnerabilities found
+```
+
+If the issue has not been fixed, you should see a message like this:
+
+```
+Found 1 vulnerability
+
+  path-parse@1.0.6: Prototype Pollution
+
+This vulnerability allows an attacker to inject arbitrary code into the application.
+
+To fix this vulnerability, upgrade path-parse to at least version 1.0.7.
+```
+
+**OWASP Top 10 Web 2021 category:**
+
+The App Dependencies issue of path-parse:1.0.6 of pkg:npm/path-parse@1.0.6 in nginx web server belongs to the **Injection** category of the OWASP Top 10 Web 2021.
+
+**Injection** is a security vulnerability that occurs when an attacker is able to inject malicious code into a web application. This can be done through a variety of methods, such as SQL injection, cross-site scripting (XSS), and command injection.
+
+The App Dependencies issue of path-parse:1.0.6 of pkg:npm/path-parse@1.0.6 in nginx web server can be exploited by an attacker to inject malicious code into the application. This could allow the attacker to take control of the application, steal data, or launch attacks on other systems.
+
+To protect against Injection attacks, it is important to sanitize all user input before it is used in the application. This can be done using a variety of methods, such as input validation and escaping. It is also important to keep all software up to date, as this can help to patch known vulnerabilities.

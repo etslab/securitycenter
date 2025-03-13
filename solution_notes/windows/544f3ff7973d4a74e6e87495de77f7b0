@@ -1,0 +1,39 @@
+**Severity Level:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control (A01)
+
+**Detailed Solution:**
+
+**1. Determine the Scope of the Issue:**
+* Identify the specific policy change that is causing the authentication issue.
+* Find out which resources or applications are affected by the change.
+
+**2. Review the Original Policy:**
+* Examine the original policy configuration and compare it to the new one.
+* Look for any changes that may have weakened the authentication mechanism.
+
+**3. Restore the Original Policy:**
+* If possible, revert the changes back to the original policy configuration.
+* This should immediately resolve the authentication issue.
+
+**4. Implement Stronger Authentication:**
+* If reverting to the original policy is not an option, consider implementing stronger authentication measures.
+* Enable two-factor authentication (2FA) or use a more robust authentication mechanism.
+
+**5. Update Security Software:**
+* Ensure that all security software, such as antivirus and firewall, is up to date.
+* Install any necessary security patches or updates.
+
+**6. Monitor and Audit Access:**
+* Regularly monitor system logs to detect any suspicious activity or unauthorized access attempts.
+* Implement an auditing system to track changes to security policies and configurations.
+
+**7. Train Employees on Security:**
+* Educate employees on the importance of secure authentication practices.
+* Train them to report any suspicious activities or compromised credentials.
+
+**Additional Tips:**
+
+* Use strong passwords and change them regularly.
+* Implement role-based access control to limit access to resources based on user privileges.
+* Consider using a web application firewall (WAF) to block malicious traffic.

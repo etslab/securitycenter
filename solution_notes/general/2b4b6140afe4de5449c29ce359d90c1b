@@ -1,0 +1,19 @@
+**Issue Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+The issue is caused by the improper validation of the `HTTP_REFERER` header. The following steps can be taken to fix the issue:
+
+1. **Validate the `HTTP_REFERER` header:** Check if the `HTTP_REFERER` header is present and matches the expected value. If it does not match, deny access.
+2. **Use a CSRF token:** Implement a CSRF token mechanism to protect against cross-site request forgery attacks.
+3. **Restrict access to sensitive areas:** Limit access to sensitive areas of the application to authorized users only.
+
+**Detailed Explanation:**
+
+The `php:S4833` rule in SonarQube flags code that relies on the `HTTP_REFERER` header for access control. Attackers can manipulate the `HTTP_REFERER` header to bypass access restrictions and gain unauthorized access to sensitive information.
+
+This issue falls under the Broken Access Control category of the OWASP Top 10 2021, which focuses on vulnerabilities that allow unauthorized access to sensitive data or functionality.
+
+To fix the issue, it is important to properly validate the `HTTP_REFERER` header and implement additional security measures, such as CSRF tokens and proper authorization mechanisms.

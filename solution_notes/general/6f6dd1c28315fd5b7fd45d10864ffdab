@@ -1,0 +1,43 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Detailed Solution:**
+
+1. **Identify the Vulnerable Library:** The issue originates from the libbuffer_pg.so library within the apktool_out/lib/x86 directory.
+
+2. **Restrict Access to the Library:**
+
+   - **Android Studio:** In the project's build.gradle file, add the following code to the dependencies section:
+     ```
+     packagingOptions {
+       excludes += ['**/lib/x86/libbuffer_pg.so']
+     }
+     ```
+
+   - **Gradle Plugin:** Use the `packagingOptions` block in the `app/build.gradle` file:
+     ```
+     android {
+       packagingOptions {
+         excludes += ['**/lib/x86/libbuffer_pg.so']
+       }
+     }
+     ```
+
+3. **Update Apache:** Ensure that you are using the latest version of Apache HTTP Server.
+
+4. **Configure Apache:** In the Apache configuration file, restrict access to the libbuffer_pg.so library using the following directives:
+
+   - **<Directory "/path/to/apktool_out/lib/x86">**
+   - **Options Indexes FollowSymLinks**
+   - **AllowOverride None**
+   - **Deny from all**
+   - **</Directory>**
+
+5. **Run `adb logcat`:** After implementing these changes, run `adb logcat` to verify that access to libbuffer_pg.so is blocked.
+
+**Additional Notes:**
+
+* This issue allows attackers to access sensitive data stored in the database if the application has access to the database.
+* The `libbuffer_pg.so` library is used by Android applications to connect to PostgreSQL databases. By restricting access to this library, you can prevent unauthorized access to the database.
+* It is important to regularly update your Apache HTTP Server and software dependencies to mitigate potential security vulnerabilities.

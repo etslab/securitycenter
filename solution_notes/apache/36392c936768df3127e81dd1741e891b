@@ -1,0 +1,21 @@
+**Severity:** **Medium**
+
+**OWASP Top 10 2021 Category:** Insufficient Logging & Monitoring
+
+## Solution
+
+To fix this issue, you can add the following code to your Apache Server configuration:
+
+```
+<Directory /var/www/html>
+    Require all granted
+</Directory>
+```
+
+This will restrict access to the specified directory to all users.
+
+## Explanation
+
+The android.permission.ACCESS_ADSERVICES_AD_ID permission is required by apps to access the advertising ID, which is a unique identifier used by Google to personalize ads. While this permission is not considered critical, it does fall under the Insufficient Logging & Monitoring category of the OWASP Top 10 2021, as it can be used to track user activity and potentially lead to privacy concerns.
+
+By restricting access to the specified directory, you can prevent unauthorized access to the advertising ID and mitigate the risk of this issue.

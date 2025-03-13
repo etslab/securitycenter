@@ -1,0 +1,24 @@
+###How to fix the Web Threats issue of Cookie without SameSite Attribute
+There are a few ways to fix the Web Threats issue of Cookie without SameSite Attribute in Apache web server.
+
+* **Use the `mod_headers` module.** This module allows you to add custom HTTP headers to your web pages. To set the SameSite attribute for all cookies, you can add the following line to your `httpd.conf` file:
+
+```
+Header always set Set-Cookie ^(.*)$ $1;SameSite=lax
+```
+
+* **Use the `mod_cookie` module.** This module allows you to create and manage cookies. To set the SameSite attribute for a specific cookie, you can use the `Set-Cookie` directive. For example, the following line would set the SameSite attribute for the `JSESSIONID` cookie to `lax`:
+
+```
+Set-Cookie JSESSIONID=value;SameSite=lax
+```
+
+* **Use the `mod_authz_core` module.** This module allows you to control access to resources on your web server. To restrict access to cookies with the SameSite attribute set to `lax`, you can use the `RequireSameSite` directive. For example, the following line would restrict access to the `/login` page to cookies with the SameSite attribute set to `lax`:
+
+```
+RequireSameSite lax /login
+```
+
+The Cookie without SameSite Attribute issue belongs to the OWASP Top 10 Web 2021 category of **A3: Sensitive Data Exposure**. This category includes vulnerabilities that allow attackers to access sensitive data, such as cookies, that is not intended to be exposed.
+
+By setting the SameSite attribute for cookies, you can help to prevent attackers from stealing cookies that are used to track users across different websites. This can help to protect users from a variety of attacks, such as cross-site request forgery (CSRF) and session hijacking.

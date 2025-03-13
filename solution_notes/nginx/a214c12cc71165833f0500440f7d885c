@@ -1,0 +1,16 @@
+###How to fix the App Dependencies issue of xattrs.tar in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the App Dependencies issue of xattrs.tar in nginx web server, you can try the following:
+
+1. Update your nginx version to the latest version.
+2. Remove the xattrs.tar file from the nginx web server.
+3. Restart the nginx web server.
+
+If you are still having problems, you can contact the nginx support team for assistance.
+
+This issue belongs to the **A1: Injection** category of the OWASP Top 10 Web 2021.
+
+**A1: Injection** is a security vulnerability that occurs when an attacker is able to inject malicious code into a web application. This can be done through a variety of methods, such as SQL injection, command injection, and cross-site scripting (XSS).
+
+In the case of the App Dependencies issue of xattrs.tar in nginx web server, an attacker could inject malicious code into the nginx configuration file by uploading the xattrs.tar file to the web server. This could then be executed when the nginx web server is restarted.
+
+To protect against this vulnerability, it is important to validate all user input before using it in any database queries, command-line arguments, or HTML output. It is also important to keep your web applications and servers up to date with the latest security patches.

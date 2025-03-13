@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A05: Broken Access Control
+
+**Description:**
+
+Policy LsaCfgFlags in the registry controls the behavior of the Local Security Authority Subsystem Service (LSASS). An incorrect value for this policy can weaken the security of the system by allowing unauthorized access to sensitive information.
+
+**Solution:**
+
+1. Open Registry Editor (regedit).
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeviceGuard`
+3. Right-click on the `LsaCfgFlags` key and select "Modify".
+4. Set the "Value data" field to the following: `0x00000000`
+5. Click "OK".
+6. Restart the server.
+
+**Explanation:**
+
+By setting the LsaCfgFlags value to 0x00000000, you are disabling the "Enable LsaCfgFlags" policy. This policy, when enabled, allows non-administrators to modify the LSASS configuration. Disabling this policy helps prevent unauthorized modification of LSASS and protects the security of the system.

@@ -1,0 +1,28 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Description:**
+The php:S4833 rule in SonarQube detects potential SQL injection vulnerabilities where user-supplied data is inserted into a database query without proper validation and escaping. In the provided context of `Test:DVWA-master/dvwa/includes/dvwaPage.inc.php`, this rule identifies the use of the `$input` variable, which contains user-supplied data, without proper validation or escaping before being included in a database query.
+
+**Solution:**
+To resolve this issue, you need to ensure that user-supplied data is properly validated and escaped before being included in a database query. This can be achieved by using prepared statements or by manually escaping the data using appropriate techniques such as `htmlspecialchars()` or `addslashes()`.
+
+Here's an example of how to fix the issue using prepared statements:
+
+```php
+// Create a prepared statement
+$stmt = $mysqli->prepare("SELECT * FROM users WHERE username = ?");
+
+// Bind the user-supplied data to the prepared statement
+$stmt->bind_param("s", $input);
+
+// Execute the prepared statement
+$stmt->execute();
+```
+
+**Additional Recommendations:**
+
+* Use a security framework or library to handle user input validation and escaping to reduce the risk of injection vulnerabilities.
+* Perform thorough testing and code review to identify and fix potential injection vulnerabilities.
+* Regularly update your software and dependencies to address any known security vulnerabilities.

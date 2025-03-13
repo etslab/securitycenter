@@ -1,0 +1,21 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Edit the Registry:**
+   - Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Internet Explorer\Security` using Registry Editor (regedit).
+   - Locate the `DisableSecuritySettingsCheck` value.
+   - Right-click on the value and select "Modify."
+   - Change the value data to `0` (zero).
+   - Click "OK" to save the changes.
+
+2. **Restart the Server:**
+   - Restart the Apache server to apply the registry changes.
+
+**Explanation:**
+
+The `DisableSecuritySettingsCheck` registry key allows users to bypass security warnings when visiting websites using Internet Explorer. By setting the value to `0`, security checks will be re-enabled, preventing users from accessing potentially malicious websites.
+
+This issue falls under the Broken Access Control OWASP category because it allows users to bypass security controls and access unauthorized resources. The default setting of `1` in the registry key makes it easier for attackers to exploit vulnerabilities in web applications and access sensitive information.

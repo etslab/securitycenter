@@ -1,0 +1,34 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A4: Broken Cryptography
+
+**Solution:**
+
+**1. Disable AVERAGE Cipher:**
+
+* Open IIS Manager.
+* Select the server or site where the certificate is configured.
+* Double-click "SSL Settings" in the Features View.
+* Select the cipher suite drop-down and remove "AVERAGE" from the list.
+
+**2. Configure a Strict Cipher List:**
+
+* Create a new cipher list that only includes strong, modern ciphers, such as:
+    * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+    * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+
+* Set the new cipher list as the default for the certificate.
+
+**3. Disable TLS 1.0 and 1.1:**
+
+* TLS 1.0 and 1.1 have known security vulnerabilities.
+* In IIS Manager, select "Server Certificates" in the Features View.
+* Double-click the certificate and navigate to the "Bindings" tab.
+* Select "Edit" and disable TLS 1.0 and TLS 1.1 in the "SSL" section.
+
+**Additional Notes:**
+
+* The AVERAGE cipher suite allows clients to choose any cipher from the list, including weak and outdated ones.
+* Using a strict cipher list ensures that only strong, modern ciphers are used for secure communication.
+* Disabling TLS 1.0 and 1.1 prevents clients from using these insecure protocols to connect to the server.

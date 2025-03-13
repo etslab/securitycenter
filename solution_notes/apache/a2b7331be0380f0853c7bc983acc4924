@@ -1,0 +1,31 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Disable the service ticket operation:**
+   - Open the Group Policy Management Editor (gpedit.msc).
+   - Navigate to Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options.
+   - Double-click on "Account Logon for Kerberos Service Tickets" and select "Disabled".
+
+2. **Apply a stronger password policy:**
+   - Enforce a minimum password length of at least 12 characters.
+   - Require a mix of uppercase, lowercase, numbers, and symbols.
+   - Disable password reuse and enforce regular password changes.
+
+3. **Implement two-factor authentication:**
+   - Add an additional layer of security by requiring users to provide a second form of identification, such as a mobile phone or security token.
+
+4. **Monitor for suspicious activity:**
+   - Use security monitoring tools to detect unusual login patterns or attempts to access unauthorized resources.
+
+5. **Restrict access to the vulnerable port:**
+   - Block access to port 88 by enabling a firewall rule that blocks incoming traffic from external IP addresses.
+
+**Additional Recommendations:**
+
+* Keep your software and operating systems up to date with the latest security patches.
+* Ensure that all users have only the minimum necessary privileges required to perform their tasks.
+* Regularly review and audit security logs for any suspicious activity.
+* Educate users about the importance of strong passwords and security best practices.

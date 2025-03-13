@@ -1,0 +1,34 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A9: Using Components with Known Vulnerabilities
+
+**Solution:**
+
+1. **Install an up-to-date SSL/TLS Certificate:**
+   - Obtain a certificate from a reputable certificate authority (CA).
+   - Ensure that the certificate is valid and has not expired.
+
+2. **Enable HTTPS Only:**
+   - Redirect all HTTP traffic to HTTPS using a 301 redirect.
+   - Configure your web server (IIS) to only accept HTTPS connections.
+
+3. **Configure Strong Cipher Suites:**
+   - Disable weak cipher suites that are vulnerable to attacks, such as SSLv3 and TLS 1.0.
+   - Enable strong cipher suites like AES-256-GCM and TLS 1.3.
+
+4. **Configure TLS 1.3:**
+   - Enable TLS 1.3, which is the latest and most secure TLS protocol.
+   - Ensure that your server and client support TLS 1.3.
+
+5. **Use HTTP Strict Transport Security (HSTS):**
+   - Add an HSTS header to your responses. This header instructs browsers to only access your site over HTTPS.
+   - Set a long HSTS max-age value (e.g., 31536000 seconds).
+
+6. **Use X-Content-Type-Options:**
+   - Add an X-Content-Type-Options: nosniff header to prevent browsers from sniffing and potentially misinterpreting the content type.
+
+7. **Scan and Test Regularly:**
+   - Perform regular scans to identify security vulnerabilities, including certificate issues.
+   - Test your site with security testing tools to verify that it is configured securely.
+
+**Note:** The specific configuration steps may vary depending on the version of IIS you are using. Consult Microsoft documentation for detailed instructions.

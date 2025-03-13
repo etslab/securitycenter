@@ -1,0 +1,17 @@
+###How to fix the Certificates issue of BREACH, potentially VULNERABLE gzip HTTP compression detected - only supplied tested in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Certificates issue of BREACH, potentially VULNERABLE gzip HTTP compression detected - only supplied tested in nginx web server, you can follow these steps:
+
+1. **Disable gzip compression.** This can be done by editing the nginx configuration file and setting the `gzip` directive to `off`.
+2. **Upgrade your OpenSSL library.** The BREACH attack relies on a vulnerability in older versions of the OpenSSL library. You can upgrade your OpenSSL library by downloading the latest version from the OpenSSL website and installing it.
+3. **Generate new certificates.** If you have any certificates that were issued before the BREACH attack, you should generate new ones. This can be done by using a certificate authority or by generating your own certificates.
+
+The BREACH attack is a type of data breach that can be used to steal passwords and other sensitive information. It works by exploiting a vulnerability in the way that web servers compress HTTP traffic. By disabling gzip compression, upgrading your OpenSSL library, and generating new certificates, you can protect your website from the BREACH attack.
+
+The BREACH attack falls under the OWASP Top 10 Web Application Security Risks category of Injection. Injection attacks occur when unvalidated or malicious data is injected into an application. This can lead to data loss, data corruption, or unauthorized access to the application.
+
+Here are some additional tips for preventing the BREACH attack:
+
+* Use strong passwords and change them regularly.
+* Enable two-factor authentication for your website.
+* Keep your software up to date.
+* Monitor your website for suspicious activity.

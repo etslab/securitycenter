@@ -1,0 +1,27 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A7: Broken Access Control
+
+**Description:**
+
+SMB1 (Server Message Block version 1) is an outdated file sharing protocol that has known security vulnerabilities. Policy SMB1 in the registry is used to control whether SMB1 is enabled or disabled. If SMB1 is enabled, it can allow attackers to gain unauthorized access to files and resources on the server.
+
+**Solution:**
+
+Follow these steps to disable SMB1 and resolve the audit issue:
+
+1. Open Registry Editor (regedit).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters
+   ```
+3. Find the DWORD value named "EnableSMB1Protocol".
+4. Double-click on the DWORD value and set its value to 0 (disabled).
+5. Click OK.
+6. Restart the server.
+
+**Additional Recommendations:**
+
+* It is recommended to remove SMB1 completely from the system, rather than just disabling it.
+* Block access to SMB1 ports (TCP 139 and 445) at the firewall.
+* Implement strong password policies and limit user permissions to prevent unauthorized access.

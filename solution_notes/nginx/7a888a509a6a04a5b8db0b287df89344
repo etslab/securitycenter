@@ -1,0 +1,26 @@
+###How to fix the Web Threats issue of Server Leaks Version Information via Server HTTP Response Header Field in nginx web server and which owasp top 10 web 2021 category this issue belong to ?
+To fix the Web Threats issue of Server Leaks Version Information via Server HTTP Response Header Field in nginx web server, you can follow these steps:
+
+1. Open the nginx configuration file. The location of this file will vary depending on your operating system.
+2. Locate the line that contains the following directive:
+
+```
+server_tokens off;
+```
+
+3. If this line does not exist, add it to the configuration file.
+4. Save the configuration file and restart nginx.
+
+Once you have completed these steps, the nginx web server will no longer leak its version information in the Server HTTP Response Header Field. This will help to protect your server from attacks that target known vulnerabilities in specific versions of nginx.
+
+This issue belongs to the OWASP Top 10 2021 category of **Information Exposure**. This category includes vulnerabilities that can lead to the disclosure of sensitive information, such as passwords, credit card numbers, or source code. By disclosing the version of your web server, you are making it easier for attackers to target known vulnerabilities in your software.
+
+Here are some additional tips for securing your nginx web server:
+
+* Keep your software up to date. Software updates often include security patches that can help to protect your server from attacks.
+* Use a strong password for your web server and change it regularly.
+* Enable strong security settings for your web server. This includes things like disabling directory browsing and limiting access to specific users or IP addresses.
+* Use a web application firewall (WAF) to help protect your server from common attacks.
+* Monitor your server for signs of attack. This includes things like unusual traffic patterns or changes in server logs.
+
+By following these tips, you can help to protect your nginx web server from attack.

@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Solution:**
+
+To fix this issue, remove the `X-Powered-By` header from the HTTP responses. This can be done by adding the following directive to the Apache configuration file:
+
+```
+Header unset X-Powered-By
+```
+
+This directive will instruct Apache to remove the `X-Powered-By` header from all HTTP responses.
+
+**Additional Notes:**
+
+* The `X-Powered-By` header is a common header that is added to HTTP responses by web servers. It provides information about the web server software that was used to generate the response.
+* While the `X-Powered-By` header is not a security vulnerability in and of itself, it can be used by attackers to identify the software that is running on a web server. This information can then be used to launch targeted attacks against the web server.
+* Removing the `X-Powered-By` header can help to reduce the risk of these types of attacks.

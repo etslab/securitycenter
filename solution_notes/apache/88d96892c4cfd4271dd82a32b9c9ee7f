@@ -1,0 +1,29 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Injection
+
+**Solution:**
+
+To fix the issue, you need to update your Apache server to version 2.4.15 or later, or disable the vulnerable module (mod_dav_fs).
+
+**Steps to update Apache server:**
+
+1. Stop the Apache server.
+2. Download the latest Apache server version from the official website.
+3. Unpack the tarball and copy the files to your server's software directory.
+4. Configure Apache as necessary.
+5. Start the Apache server.
+
+**Steps to disable mod_dav_fs:**
+
+1. Edit the Apache configuration file (httpd.conf).
+2. Find the line that loads the mod_dav_fs module and comment it out. The line will typically look like this:
+```
+LoadModule dav_fs_module modules/mod_dav_fs.so
+```
+3. Restart the Apache server.
+
+**Additional Notes:**
+
+* If you are unable to update or disable the vulnerable module, you can implement a workaround by setting the LimitRequestBody directive in your Apache configuration file to a low value (e.g., 100 bytes). This will prevent attackers from sending large requests that could trigger the vulnerability.
+* You should also review your Apache configuration to ensure that the mod_dav_fs module is not being used in any other way that could pose a security risk.

@@ -1,0 +1,26 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A2: Broken Access Control
+
+**Impact:**
+
+The Policy Option:AuditBaseObjects in Registry Option - AuditBaseObjects setting allows an attacker to gain access to and modify critical system files and configurations, potentially compromising the integrity and security of the server.
+
+**Solution:**
+
+To mitigate this issue, follow these steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+```
+3. Create or modify the DWORD value named "AuditBaseObjects" and set its value to 1.
+4. Restart the server to apply the changes.
+
+**Additional Mitigation Measures:**
+
+* Implement strong access control mechanisms to restrict access to sensitive files and resources.
+* Regularly monitor the security logs for suspicious activity.
+* Use a firewall to block unauthorized access to the server from outside networks.
+* Keep the server software up to date with the latest security patches.

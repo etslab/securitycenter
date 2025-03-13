@@ -1,0 +1,42 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Injection
+
+**Solution:**
+
+To fix this issue, disable the `mod_remoteip` module and enable the `mod_headers` module in your Apache server configuration file (e.g., httpd.conf).
+
+**Detailed Steps:**
+
+1. Open the Apache configuration file (e.g., /etc/httpd/conf/httpd.conf).
+2. Search for the following lines and comment them out by adding a `#` at the beginning:
+
+```
+LoadModule remoteip_module modules/mod_remoteip.so
+```
+
+3. Search for the following lines and uncomment them by removing the `#` at the beginning:
+
+```
+LoadModule headers_module modules/mod_headers.so
+Header set X-Forwarded-Proto "https" env=HTTPS
+```
+
+4. Next, configure the `mod_headers` module to set the `X-Forwarded-For` header:
+
+```
+RequestHeader set X-Forwarded-For "%{REMOTE_ADDR}i"
+```
+
+5. Save and close the configuration file.
+6. Restart the Apache server to apply the changes:
+
+```
+systemctl restart apache2
+```
+
+**Additional Notes:**
+
+* If `mod_remoteip` is required for your application, configure it carefully to prevent remote IP spoofing.
+* Instead of setting `X-Forwarded-Proto` to "https" directly, consider using `%{SSL:HTTPS}` to determine the protocol dynamically.
+* Regularly update your Apache server to the latest version to patch any potential vulnerabilities.

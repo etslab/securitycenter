@@ -1,0 +1,26 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Broken Access Control (A01)
+
+**Issue Description:**
+
+The RpcAuthentication policy allows remote procedure call (RPC) authentication for a Windows web server, which may lead to unauthorized access by remote attackers. An attacker could exploit this issue to gain access to the system and potentially compromise the entire web server.
+
+**Solution:**
+
+To resolve this issue, disable the RpcAuthentication policy by setting its value to 0:
+
+1. Open the Registry Editor (regedit).
+2. Navigate to the following key:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC
+    ```
+3. Double-click on the "RpcAuthentication" value.
+4. Change the Value data to 0.
+5. Click OK to save the change.
+
+**Additional Notes:**
+
+* This issue should be addressed immediately to prevent potential attacks.
+* It is recommended to consult with a security expert to ensure a comprehensive review of your web server security posture.
+* Regular security audits and updates should be performed to maintain the security of your web server.

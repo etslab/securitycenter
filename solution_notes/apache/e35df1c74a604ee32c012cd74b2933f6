@@ -1,0 +1,26 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A2: Broken Authentication
+
+**Description:**
+
+The Policy AllowDomainPINLogon registry key allows domain users to log on using a PIN. This can weaken security because PINs are generally less secure than passwords.
+
+**Solution:**
+
+Disable the Policy AllowDomainPINLogon registry key by setting its value to 0.
+
+**Steps:**
+
+1. Open the Registry Editor by searching for "regedit" in the Windows search bar.
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System`
+3. Right-click on the "AllowDomainPINLogon" key and select "Modify".
+4. Change the "Value data" to 0 and click "OK".
+5. Restart the server.
+
+**Additional Information:**
+
+* By disabling the Policy AllowDomainPINLogon registry key, you are preventing domain users from logging on using a PIN.
+* This will help to improve security because PINs are generally less secure than passwords.
+* It is important to note that this setting only affects domain users. Local users will still be able to log on using a PIN.
+* If you need to allow domain users to log on using a PIN, you can configure a Group Policy Object (GPO) to enable the "Allow PIN logon for domain users" policy setting.

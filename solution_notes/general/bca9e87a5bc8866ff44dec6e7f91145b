@@ -1,0 +1,19 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Solution:**
+
+1. **Add alternative text (alt) attributes to images:**
+   - Review the HTML code for the aim.php page and identify any images without alt attributes.
+   - Add a meaningful description or context to the alt attribute, such as `alt="Image of a login form"`.
+
+2. **Use semantically appropriate HTML elements:**
+   - Consider using HTML heading elements (h1-h6) for important content instead of relying on images with alt text.
+   - Use buttons or links with descriptive text instead of images that convey actions.
+
+**Additional Considerations:**
+
+- **Use screen readers:** Test your website with screen readers to ensure that users with visual impairments can understand the content without relying solely on images.
+- **Optimize for accessibility:** Follow accessibility guidelines such as WCAG to ensure that your website is usable by all users, including those with disabilities.
+- **Consider alternative formats:** Provide alternative formats for images, such as text descriptions or downloadable transcripts for audio and video content.

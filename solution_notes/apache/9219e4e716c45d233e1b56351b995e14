@@ -1,0 +1,21 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** Improper Logging and Monitoring
+
+**Solution:**
+
+1. Open the Group Policy Management Editor (gpedit.msc).
+2. Navigate to Computer Configuration -> Windows Settings -> Security Settings -> Windows Firewall with Advanced Security -> Windows Firewall Properties -> Public Profile -> Logging.
+3. Enable the "Log successful connections" setting.
+4. Click "Apply" and "OK" to save the changes.
+
+**Explanation:**
+
+The Policy LogSuccessfulConnections registry setting controls whether the Windows Firewall logs successful connections. By default, this setting is disabled, meaning that the firewall does not log successful connections. This can make it difficult to detect and investigate security incidents.
+
+Enabling this setting will cause the firewall to log all successful connections to the Security event log. This information can be used to detect unauthorized access attempts and to track the activity of legitimate users.
+
+**Additional Notes:**
+
+* The Policy LogSuccessfulConnections setting only applies to the public profile. To enable logging for other profiles, you must repeat the above steps for each profile.
+* You should also consider enabling the "Log dropped connections" setting to log all dropped connections. This information can be useful for troubleshooting firewall issues.

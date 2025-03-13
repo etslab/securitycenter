@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A2 - Broken Authentication
+
+**Issue Description:**
+
+The `bWAPP/ba_forgotten.php` file in Apache server contains a vulnerability that allows attackers to reset a user's password without providing proper authentication.
+
+**Solution:**
+
+To fix this issue, you can implement the following measures:
+
+* **Verify User Identity:** Ensure that the user's identity is properly verified before allowing them to reset their password. This can be done through methods such as email verification or two-factor authentication.
+* **Enforce Password Complexity:** Implement rules to enforce strong password complexity, such as requiring a minimum length, uppercase letters, lowercase letters, numbers, and special characters.
+* **Limit Password Reset Attempts:** Restrict the number of password reset attempts a user can make within a specific time frame to prevent brute-force attacks.
+* **Use a Password Reset Token:** Generate a unique password reset token and send it to the user's email address. The user must enter this token to complete the password reset process.
+* **Disable Account After Multiple Failed Attempts:** Disable the user's account after a certain number of failed password reset attempts to prevent automated attacks.
+
+**Additional Recommendations:**
+
+* **Regularly Audit and Patch:** Perform regular security audits to identify and patch any vulnerabilities in your web application.
+* **Use a Web Application Firewall (WAF):** Implement a WAF to block malicious traffic and protect your application from attacks.
+* **Educate Users:** Inform your users about the importance of using strong passwords and being cautious when clicking on suspicious links or emails.

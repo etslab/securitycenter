@@ -1,0 +1,17 @@
+###How to fix the App Dependencies issue of glob-parent:3.1.0 of pkg:npm/glob-parent@3.1.0 in apache web server and which owasp top 10 web 2021 category this issue belong to ?
+The App Dependencies issue of glob-parent:3.1.0 of pkg:npm/glob-parent@3.1.0 in Apache web server can be fixed by upgrading the glob-parent package to a newer version. The vulnerability in the 3.1.0 version of glob-parent allows an attacker to execute arbitrary code on the server by crafting a malicious glob pattern. The OWASP Top 10 Web 2021 category that this issue belongs to is Injection.
+
+To fix the issue, follow these steps:
+
+1. Open the package.json file for your application.
+2. Find the glob-parent package and update its version to 6.0.2 or higher.
+3. Run npm install to install the updated package.
+4. Restart your Apache web server.
+
+Once you have completed these steps, the vulnerability will be fixed and your application will be protected from attack.
+
+The OWASP Top 10 Web 2021 category that this issue belongs to is Injection. Injection attacks occur when unvalidated or malicious input is passed to an application, resulting in the execution of unintended code. This can lead to data loss, system compromise, or other security vulnerabilities.
+
+The glob-parent vulnerability is an example of an injection attack. The attacker can craft a malicious glob pattern that contains a regular expression that can be used to execute arbitrary code. When this glob pattern is passed to the glob-parent function, the regular expression will be executed on the server, resulting in the execution of arbitrary code.
+
+To prevent injection attacks, it is important to validate all input before it is passed to an application. This includes input from user input fields, file uploads, and other sources. It is also important to use proper escaping techniques to prevent malicious code from being executed.

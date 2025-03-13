@@ -1,0 +1,18 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A03: Injection
+
+**Detailed Solution:**
+
+1. **Identify the affected Registry Policy:** Determine which Registry Policy is allowing unauthorized changes to the Apache server configuration.
+2. **Review Effective Permissions:** Examine the effective permissions associated with the Registry Policy. Ensure that only authorized users have the ability to modify Apache server settings.
+3. **Restrict Access:** Modify the Registry Policy to restrict access to Apache server configuration changes to only those users who need it. Implement role-based access control (RBAC) to ensure proper segregation of duties.
+4. **Enable Logging and Monitoring:** Configure logging and monitoring mechanisms to detect any unauthorized changes to Apache server settings. Establish alerts to notify administrators of suspicious activity.
+5. **Use Secure Configurations:** Ensure that Apache server is configured with secure defaults, including strong SSL ciphers, HTTP Strict Transport Security (HSTS), and Content Security Policy (CSP) to prevent unauthorized modifications.
+6. **Patch and Update Regularly:** Keep Apache server and its dependencies up to date with the latest security patches to mitigate known vulnerabilities that could be exploited to change Registry Policy settings.
+
+**Additional Recommendations:**
+
+* Use a Web Application Firewall (WAF) to block malicious requests that attempt to exploit vulnerabilities in Apache server.
+* Implement intrusion detection and prevention systems (IDS/IPS) to monitor network traffic for suspicious activity.
+* Conduct regular security assessments and penetration tests to identify and address any potential vulnerabilities.

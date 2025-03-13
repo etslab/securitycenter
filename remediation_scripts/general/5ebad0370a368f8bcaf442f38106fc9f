@@ -1,0 +1,41 @@
+####patch script to remediate  CVE-2022-22720 in Apache HTTP Server
+Sure, here is a patch script that can be used to remediate CVE-2022-22720 in Apache HTTP Server:
+
+```
+#!/bin/bash
+
+# Check if Apache is running
+if [ $(pgrep httpd) ]; then
+
+  # Get the current version of Apache
+  APACHE_VERSION=$(apache2 -v | awk '{print $2}')
+
+  # Check if the current version is vulnerable
+  if [[ $APACHE_VERSION -lt 2.4.53 ]]; then
+
+    # Download the latest version of Apache
+    wget https://archive.apache.org/dist/httpd/binaries/latest/httpd-2.4.53.tar.gz
+
+    # Extract the tarball
+    tar -xvf httpd-2.4.53.tar.gz
+
+    # Stop Apache
+    systemctl stop httpd
+
+    # Remove the old version of Apache
+    rm -rf /etc/httpd /usr/sbin/httpd
+
+    # Copy the new version of Apache to the correct locations
+    cp -r httpd-2.4.53/* /etc/ /usr/sbin/
+
+    # Start Apache
+    systemctl start httpd
+
+  fi
+
+fi
+```
+
+This script will first check if Apache is running. If it is, it will then get the current version of Apache. If the current version is vulnerable, the script will download the latest version of Apache, extract it, and replace the old version of Apache with the new version. Finally, the script will restart Apache.
+
+It is important to note that this is just a sample script and may need to be modified to fit your specific environment. For example, you may need to specify a different path to the Apache installation directory. You should also test the script in a staging environment before running it on your production system.

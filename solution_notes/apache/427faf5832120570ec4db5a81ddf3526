@@ -1,0 +1,20 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** A06: Security Misconfiguration
+
+**Description:**
+
+The "Payload/App.app/Frameworks/Cordova.framework/Cordova" file is a Cordova framework used for developing mobile applications and contains sensitive information such as API keys, certificates, and user credentials. Its presence in the Apache server's web root or an accessible directory exposes this sensitive information to potential attackers.
+
+**Solution:**
+
+To fix this issue, follow these steps:
+
+1. **Remove the Cordova Framework:** Delete the "Payload/App.app/Frameworks/Cordova.framework/Cordova" directory from the Apache server's web root or any accessible directories.
+2. **Restrict Access:** Configure your Apache server to restrict access to sensitive directories and files. Use "Deny from all" directives or authentication mechanisms to prevent unauthorized access.
+3. **Secure Sensitive Information:** Store sensitive data, such as API keys and credentials, in secure locations like a key management system or a database. Avoid exposing them in public-facing files or directories.
+
+**Additional Notes:**
+
+* This issue can also be mitigated by deploying the application on a secure platform like AWS Lambda, which manages the server and ensures proper security configurations.
+* Regularly review and update your Apache server configuration to ensure optimal security and prevent potential vulnerabilities.

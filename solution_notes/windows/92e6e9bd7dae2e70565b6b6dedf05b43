@@ -1,0 +1,26 @@
+**Severity**: High
+
+**OWASP Top 10 2021 Category**: Sensitive Data Exposure
+
+**Issue Description:**
+
+* The Policy NoBackgroundPolicy registry setting is enabled, which allows non-administrator users to retrieve sensitive data from certain protected areas of the registry. An attacker could exploit this vulnerability to access sensitive information such as passwords, encryption keys, and other confidential data.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}
+   ```
+3. Right-click on the "NoBackgroundPolicy" value and select "Modify".
+4. Change the "Value data" to "0".
+5. Click "OK" to save the changes.
+6. Close the Registry Editor.
+7. Restart the computer.
+
+**Additional Information:**
+
+* This vulnerability is addressed in Microsoft Security Bulletin MS23-021.
+* The Policy NoBackgroundPolicy registry setting is a DWORD value. A value of "1" enables the policy, while a value of "0" disables the policy.
+* By default, the Policy NoBackgroundPolicy registry setting is disabled in Windows Server.

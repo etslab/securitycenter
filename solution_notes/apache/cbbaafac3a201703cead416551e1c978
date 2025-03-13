@@ -1,0 +1,39 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Detailed Solution:**
+
+**1. Apply Apache Update:**
+
+* Install Apache version 2.2.29 or later, or Apache versions 2.4.9 or later.
+
+**2. Disable mod_evasive:**
+
+* Edit the Apache configuration file (e.g., /etc/httpd/conf/httpd.conf) and comment out the following line:
+```
+LoadModule evasive20_module /path/to/mod_evasive20.so
+```
+
+**3. Remove Symbolic Links to mod_evasive20:**
+
+* Go to the following directory:
+```
+/path/to/apache/modules
+```
+* Remove any symbolic links named `mod_evasive20.so`:
+```
+sudo rm /path/to/apache/modules/mod_evasive20.so
+```
+
+**4. Restart Apache:**
+
+* Restart the Apache web server to apply the changes:
+```
+sudo service apache2 restart
+```
+
+**Additional Notes:**
+
+* If you still need to use mod_evasive, ensure it is updated to the latest version and properly configured to prevent this vulnerability.
+* Consider using other intrusion detection and prevention tools, such as fail2ban or ModSecurity, instead of mod_evasive.

@@ -1,0 +1,25 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Description:**
+
+The Policy AllowLocalIPsecPolicyMerge registry key controls whether local IP Security (IPsec) policies can be merged with policies enforced by the Windows Firewall. By default, this key is set to 0, preventing local policy merging. However, if set to 1, it allows local policies to override the firewall's policies. This can create a security risk by allowing attackers to bypass the firewall's protections by manipulating local IPsec policies.
+
+**Solution:**
+
+To fix this issue, disable the Policy AllowLocalIPsecPolicyMerge registry key by setting its value to 0. Here are the steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+   ```
+   HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+   ```
+3. Locate the "Policy AllowLocalIPsecPolicyMerge" value and double-click it.
+4. In the Value data field, enter **0**.
+5. Click OK to save the change.
+
+**Additional Notes:**
+
+* It is important to note that disabling this registry key may affect the functionality of any applications that rely on local IPsec policies. Before making any changes, consult with the application vendors to ensure that their applications will not be adversely affected.
+* If you are using a third-party firewall application, refer to the application's documentation for guidance on how to disable merging of local IPsec policies.

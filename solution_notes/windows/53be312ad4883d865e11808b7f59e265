@@ -1,0 +1,23 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Configuration
+
+**Detailed Solution:**
+
+1. **Review Policies:** Examine the registry object access control list (ACL) to ensure that it is appropriately configured. Identify any overly permissive permissions or unauthorized users with access to critical registry keys.
+
+2. **Disable Unnecessary Access:** Remove any unnecessary ACL entries that grant access to users or groups that do not require it. Limit access to only those who need it for legitimate purposes.
+
+3. **Use Auditing:** Enable auditing for registry object access events to monitor and detect any suspicious activity. Configure the audit log to capture successful and failed access attempts, along with detailed information about the user, target key, and time.
+
+4. **Harden Registry Permissions:** In the Windows registry, use the following steps to harden permissions:
+
+   - Create a new key if it doesn't exist: `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Safer`
+   - Create a new DWORD (32-bit) value: `CodeIntegrity`
+   - Set the value to `1`
+
+5. **Update Policies:** Implement group policies or registry settings to control registry access. Use the `DisableRegistryTools` policy to restrict users from modifying the registry using certain tools.
+
+6. **Monitor and Review:** Regularly review audit logs for any anomalous activity or unauthorized access attempts. Take appropriate action to address any suspicious events or vulnerabilities.
+
+By implementing these measures, you can mitigate the risk associated with Policy Other Object Access Events in Registry Object Access in the Apache server.

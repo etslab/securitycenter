@@ -1,0 +1,25 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A2 - Broken Authentication
+
+**Issue:**
+
+When CrashOnAuditFail is set to 1, the ASP.NET application will crash if an audit failure occurs. This can lead to a denial of service (DoS) attack.
+
+**Solution:**
+
+To fix this issue, set the CrashOnAuditFail registry option to 0.
+
+**Steps:**
+
+1. Open the Registry Editor.
+2. Navigate to the following key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ASP.NET`
+3. Create a new DWORD value named `CrashOnAuditFail`.
+4. Set the value of the DWORD to 0.
+5. Restart the web server.
+
+**Additional Information:**
+
+The CrashOnAuditFail registry option is used to control whether the ASP.NET application will crash if an audit failure occurs. When the option is set to 1, the application will crash. When the option is set to 0, the application will continue to run.
+
+It is recommended to set the CrashOnAuditFail registry option to 0 to prevent denial of service attacks.

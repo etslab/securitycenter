@@ -1,0 +1,28 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Disable the Registry LogonLogoff Policy:**
+
+   - Open Registry Editor (regedit) and navigate to:
+     ```
+     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+     ```
+   - Change the value of "LogonLogoff" to "0" (DWORD).
+
+2. **Set Audit Policy to Track Logon/Logoff Events:**
+
+   - Open Local Security Policy Editor (secpol.msc).
+   - Under "Local Policies", go to "Audit Policy".
+   - Enable auditing for "Logon/Logoff" events (Success and Failure).
+
+3. **Review Audit Logs Regularly:**
+
+   - Monitor audit logs to detect any suspicious logon/logoff attempts.
+   - Investigate and respond to any unauthorized access attempts promptly.
+
+**Explanation:**
+
+The Registry LogonLogoff Policy allows users to log on and log off without prompting for a password or issuing a logon/logoff event. This can potentially allow attackers to gain unauthorized access to the system or evade detection. By disabling this policy and enabling auditing, you can mitigate this risk.

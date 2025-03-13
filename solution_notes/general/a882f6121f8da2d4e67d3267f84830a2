@@ -1,0 +1,14 @@
+**CVE-2015-0204: Medium Severity**
+
+CVE-2015-0204 is a remote code execution vulnerability in Microsoft Internet Information Services (IIS) that allows an unauthenticated attacker to execute arbitrary code on a target system. This vulnerability is considered medium in severity because it requires specific conditions to be exploited and is not easily exploitable remotely.
+
+**Solution:**
+
+1. **Update IIS:** Apply the latest security updates from Microsoft, which patch the vulnerability.
+2. **Disable WebDAV:** Disable the Web Distributed Authoring and Versioning (WebDAV) feature in IIS, as it is the primary target of this exploit.
+3. **Enable Request Filtering:** Configure IIS Request Filtering to block requests with specific file extensions that are known to be vulnerable to this exploit.
+4. **Configure Firewall and IPS:** Implement a firewall and intrusion prevention system (IPS) to block traffic from suspicious sources and prevent exploitation attempts.
+
+**OWASP Top 10 2021 Category:**
+
+* A02: Broken Authentication

@@ -1,0 +1,28 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A05: Security Misconfiguration
+
+**Solution:**
+
+To fix this issue, you need to grant write access to the registry key `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies\Microsoft\FVE` to the following users:
+
+* TrustedInstaller
+* SYSTEM
+
+You can do this using the following steps:
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the registry key `HKEY_LOCAL_MACHINE\System\CurrentControlSet\Policies\Microsoft\FVE`.
+3. Right-click on the registry key and select **Permissions**.
+4. Click on the **Add** button.
+5. Enter the following users in the field **Enter the object names to select (examples)**:
+
+* *TrustedInstaller*
+* *SYSTEM*
+
+6. Click on the **Check Names** button to verify the users.
+7. Click on the **OK** button to add the users.
+8. Select the newly added users and check the **Allow** checkbox for the **Write** permission.
+9. Click on the **OK** button to save the changes.
+
+**Note:** You may need to restart the server for the changes to take effect.

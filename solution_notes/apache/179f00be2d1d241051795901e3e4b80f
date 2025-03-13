@@ -1,0 +1,26 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** Broken Access Control
+
+**Solution:**
+
+1. **Enable Password Complexity:**
+   - Edit the Registry System Access policy to enforce password complexity requirements.
+   - Set "Password Complexity Enabled" to True.
+   - Configure minimum length, character type requirements, and password history.
+
+2. **Update Group Policy:**
+   - Create or modify a Group Policy to apply password complexity to Apache servers.
+   - Set the following settings:
+     - Computer Configuration > Windows Settings > Security Settings > Security Options > **Account Policies** > Password Policy > Minimum password length
+     - Computer Configuration > Windows Settings > Security Settings > Security Options > **Account Policies** > Password Policy > Password must meet complexity requirements
+
+3. **Verify Settings:**
+   - Use a password quality analyzer to validate that passwords meet the complexity requirements.
+   - Ensure that all users have updated their passwords to comply with the new complexity rules.
+
+**Additional Recommendations:**
+
+- Implement additional security measures such as multi-factor authentication (MFA) and rate limiting.
+- Regularly monitor and review password policies to ensure their effectiveness.
+- Educate users about the importance of strong passwords and encourage them to use password managers.

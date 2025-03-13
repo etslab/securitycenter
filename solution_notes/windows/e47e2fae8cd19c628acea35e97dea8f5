@@ -1,0 +1,24 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A4: Broken Access Control
+
+**Issue:**
+
+The ForceKerberosForRpc registry key is not set to "1", which allows unauthenticated users to make RPC (Remote Procedure Call) connections to the server. This can lead to unauthorized access to sensitive data or services.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following registry key:
+```
+HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Printers\RPC
+```
+3. Create a new DWORD value named "ForceKerberosForRpc".
+4. Set the value data to "1".
+5. Exit the Registry Editor.
+
+**Additional Information:**
+
+RPC is a mechanism for inter-process communication in Windows. By default, RPC connections are authenticated using the NTLM protocol, which is known to be insecure. Setting the ForceKerberosForRpc registry key to "1" forces all RPC connections to use the more secure Kerberos protocol.
+
+This issue can have serious security implications, as it can allow attackers to gain unauthorized access to sensitive information or services on the server. It is important to address this issue promptly by following the steps outlined above.

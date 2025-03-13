@@ -1,0 +1,20 @@
+**Severity:** High
+
+**OWASP Top 10 2021 Category:** A1: Broken Access Control
+
+**Issue Description:**
+
+The Policy OptionCrashOnAuditFail in Registry Option CrashOnAuditFail in Apache server is not set to 'off'. When set to 'on', the server will crash if an audit failure occurs. This can lead to a denial of service (DoS) attack where an attacker could trigger an audit failure and cause the server to crash.
+
+**Solution:**
+
+To fix this issue, the Policy OptionCrashOnAuditFail in Registry Option CrashOnAuditFail should be set to 'off'. This can be done by editing the Apache configuration file (usually httpd.conf) and adding the following line:
+
+```
+RegistryOption CrashOnAuditFail off
+```
+
+**Additional Notes:**
+
+* This issue is related to Apache version 2.4 and later.
+* It is important to note that disabling audit logging may have security implications. Audit logging is an important tool for detecting and responding to security incidents. Therefore, it is recommended to consult with a security expert before disabling audit logging.

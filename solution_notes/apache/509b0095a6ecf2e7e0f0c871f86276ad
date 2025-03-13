@@ -1,0 +1,27 @@
+###How to fix the Certificates issue of cipher-tls1 X Weak Ciphers Identified
+To fix the certificates issue of cipher-tls1 X weak ciphers identified in Apache web server, you can follow these steps:
+
+1. Open the Apache configuration file. This file is usually located in `/etc/apache2/apache2.conf`.
+2. Find the section that starts with `SSLCipherSuite`.
+3. Add the following lines to the `SSLCipherSuite` section:
+
+
+ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256
+
+
+These ciphers are considered to be strong and secure.
+
+4. Save the configuration file and restart Apache.
+
+Once you have completed these steps, the Apache web server will no longer use weak ciphers.
+
+The issue of weak ciphers identified in Apache web server belongs to the OWASP Top 10 Web Application Security Risks 2021 category of **Cryptographic Failures**. This category includes risks that are related to the use of weak cryptography, such as using weak ciphers or passwords. Weak cryptography can make it easier for attackers to compromise web applications and steal sensitive data.
+
+Here are some additional tips for securing your Apache web server:
+
+* Use a strong password for the Apache web server.
+* Enable SSL/TLS and use strong ciphers.
+* Keep your Apache software up to date.
+* Use a firewall to protect your Apache web server from attack.
+
+By following these tips, you can help to protect your Apache web server from attack and keep your data safe.

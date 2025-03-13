@@ -1,0 +1,42 @@
+**Severity:** Medium
+
+**OWASP Top 10 2021 Category:** Sensitive Data Exposure
+
+**Detailed Solution:**
+
+**1. Verify the Registry Key:**
+
+* Navigate to the following registry key:
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Power\PowerSettings\abfc2519-3608-4c2a-94ea-171b0ed546ab
+```
+* Check if the registry key **DCSettingIndex** is set to a value greater than 0 (default is 1).
+
+**2. Review the Power Plan Settings:**
+
+* Go to **Control Panel > Hardware and Sound > Power Options**.
+* Select the current power plan.
+* Click on "**Change plan settings**".
+* Under "**Change advanced power settings**", expand **Power Options**.
+
+**3. Check the Advanced Settings for the Power Plan:**
+
+* Expand the **Hibernate After** setting.
+* Ensure that the value is set to **Never** or a reasonable time value.
+
+**4. Adjust the Registry Key Value (if necessary):**
+
+* If the **DCSettingIndex** registry key is set to a value greater than 0, you can adjust it to 0 to disable the hibernate feature.
+* Open the registry editor and navigate to the key mentioned in step 1.
+* Right-click on the **DCSettingIndex** value and choose "**Modify**".
+* Set the **Value data** to 0.
+* Click on "**OK**" to save the changes.
+
+**5. Restart the Server:**
+
+* Restart the Apache server for the changes to take effect.
+
+**Additional Recommendations:**
+
+* Consider implementing additional access controls to restrict access to the registry key.
+* Regularly review and update your power plan settings to ensure that the hibernate feature is only enabled when necessary.

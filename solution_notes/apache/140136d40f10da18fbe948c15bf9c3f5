@@ -1,0 +1,25 @@
+**Severity:** Critical
+
+**OWASP Top 10 2021 Category:** A02: Broken Authentication
+
+**Issue:**
+
+The Policy LogDroppedPackets registry key is disabled. This key enables logging of packets dropped by the Windows Firewall, which is necessary for auditing and troubleshooting security events. When this key is disabled, dropped packets are not logged, making it difficult to detect and respond to potential attacks.
+
+**Solution:**
+
+1. Open the Registry Editor (regedit.exe).
+2. Navigate to the following key:
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging
+```
+
+3. Right-click the "LogDroppedPackets" value and select "Modify".
+4. Set the Value data to "1" and click "OK".
+5. Close the Registry Editor.
+
+**Additional Information:**
+
+* Restart the firewall service to apply the changes: `net start firewall`
+* Verify the change by checking the Event Viewer for dropped packet logs.
